@@ -99,7 +99,7 @@
   "services": {
     "hero": {
       "title": "Servicios",
-      "subtitle": "Soluciones digitales de alto impacto para empresas en Bolivia"
+      "subtitle": "Soluciones digitales de alto impacto para empresas globales"
     },
     "deliverables_label": "Qué incluye",
     "request_button": "Solicitar este servicio",
@@ -186,9 +186,9 @@
     },
     "story": {
       "title": "Nuestra Historia",
-      "p1": "Sycosmart nació con una misión clara: hacer que la tecnología avanzada sea accesible para todos los negocios en Bolivia.",
-      "p2": "Creemos que cada empresa, sin importar su tamaño, merece las mismas herramientas digitales que usan las grandes corporaciones. Por eso combinamos IA, automatización y marketing digital en soluciones prácticas y accesibles.",
-      "p3": "Nuestro enfoque es simple: entender tu negocio, identificar las oportunidades y construir soluciones que generen resultados reales."
+      "p1": "Sycosmart nació con una misión clara: hacer que la tecnología avanzada sea accesible para empresas en todo el mundo.",
+      "p2": "Creemos que cada empresa, sin importar su tamaño o ubicación, merece las mismas herramientas digitales que usan las grandes corporaciones. Por eso combinamos IA, automatización y marketing digital en soluciones prácticas que funcionan globalmente.",
+      "p3": "Nuestro enfoque es simple: entender tu negocio, identificar oportunidades y construir soluciones que generen resultados reales — sin importar dónde estés."
     },
     "expertise": {
       "title": "Nuestra Experiencia",
@@ -214,7 +214,7 @@
   "cases": {
     "hero": {
       "title": "Casos de Éxito",
-      "subtitle": "Resultados reales de empresas bolivianas que confiaron en nosotros"
+      "subtitle": "Resultados reales de empresas que confiaron en nosotros"
     },
     "cta_title": "Sé nuestro próximo caso de éxito",
     "cta_subtitle": "Cuéntanos sobre tu negocio y construyamos juntos resultados como estos.",
@@ -263,10 +263,11 @@
     }
   },
   "footer": {
-    "description": "Soluciones digitales con IA y automatización para empresas en Bolivia.",
+    "description": "Tecnología inteligente y soluciones digitales para empresas en todo el mundo.",
     "services": "Servicios",
     "company": "Empresa",
     "contact": "Contacto",
-    "rights": "Todos los derechos reservados."
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Construyendo el futuro digital, globalmente."
   }
 }

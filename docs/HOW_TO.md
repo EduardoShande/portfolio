@@ -285,6 +285,125 @@ Open http://localhost:3000 and check that everything looks right. When you're ha
 
 ---
 
+## 9. How to change the default theme (light or dark)
+
+The site ships with **dark mode as the default**. When a new visitor loads the site, they see dark mode unless they've previously chosen light mode (saved in their browser's localStorage).
+
+**File**: `src/components/providers/ThemeProvider.tsx`
+
+Find this line (around line 20):
+
+```typescript
+const [theme, setThemeState] = useState<Theme>("dark");
+```
+
+Change `"dark"` to `"light"` if you want light mode as the default. Also change the fallback below:
+
+```typescript
+const initial: Theme = stored === "light" || stored === "dark" ? stored : "dark";
+```
+
+Change the final `"dark"` to `"light"` so first-time visitors see light mode.
+
+---
+
+## 10. How to add new icons using Lucide React
+
+All icons on the site use the **Lucide React** library (`lucide-react`). It has thousands of clean, professional icons.
+
+### Step 1: Browse icons
+Visit https://lucide.dev/icons to find the icon you want. Each icon has a name like `Building2`, `Smartphone`, `TrendingUp`, etc.
+
+### Step 2: Import it in your file
+
+At the top of the file where you want to use the icon, add it to the import list:
+
+```typescript
+import { Building2, Smartphone, TrendingUp } from "lucide-react";
+```
+
+### Step 3: Use it in JSX
+
+```jsx
+<Building2 className="h-5 w-5 text-accent-light" />
+```
+
+### Icon size guidelines
+
+The project uses consistent sizing. Pick one based on where the icon goes:
+
+| Context | Tailwind class |
+|---------|----------------|
+| Inline / label | `h-4 w-4` (16px) |
+| List items | `h-5 w-5` (20px) |
+| Card headers | `h-6 w-6` (24px) |
+| Feature highlights | `h-8 w-8` (32px) |
+
+### Icon colors
+
+**Never hardcode colors on icons**. Use theme-aware classes:
+- `text-accent` — main accent color
+- `text-accent-light` — lighter accent
+- `text-fg` — main text color
+- `text-fg-muted` — secondary text
+
+Example:
+
+```jsx
+<Building2 className="h-5 w-5 text-accent" />
+```
+
+This way the icon adapts automatically when the user switches between light and dark themes.
+
+---
+
+## 11. How to disable the sticky zoom effect on the hero
+
+The hero section scales up smoothly as the user scrolls down. If you want to remove this effect:
+
+**File**: `src/components/home/HeroSection.tsx`
+
+### Option A — Disable the zoom but keep the layout
+
+Find the `scale` and `opacity` transforms (around lines 52-53):
+
+```typescript
+const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+const opacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1, 0]);
+```
+
+Change them to:
+
+```typescript
+const scale = 1;
+const opacity = 1;
+```
+
+Or just remove `style={{ scale, opacity }}` from the `motion.section` element.
+
+### Option B — Remove the sticky positioning entirely
+
+Find the outer wrapper (around line 94):
+
+```jsx
+<div ref={wrapperRef} className="relative h-[130vh]">
+  <motion.section
+    style={{ scale, opacity }}
+    className="sticky top-0 h-screen ..."
+```
+
+Change to:
+
+```jsx
+<div ref={wrapperRef} className="relative">
+  <motion.section
+    className="h-screen ..."
+```
+
+(Remove `h-[130vh]` from the wrapper, remove `sticky top-0` from the section, remove `style={{ scale, opacity }}`.)
+
+---
+
 ## Need Help?
 
 If you get stuck, look in `docs/PROJECT.md` for technical details about how the project is structured, or check the `docs/CHANGES.md` for the history of changes.

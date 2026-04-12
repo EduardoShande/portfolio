@@ -3,7 +3,14 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
-import { Phone, Mic, CheckCheck } from "lucide-react";
+import {
+  Phone,
+  Mic,
+  CheckCheck,
+  Building2,
+  Settings2,
+  BarChart3,
+} from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
@@ -83,7 +90,7 @@ function ChatBubble({ message }: { message: ChatMessage }) {
         {message.type === "audio" ? (
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
-              <Mic className="h-4 w-4 text-accent-light" />
+              <Mic className="h-4 w-4 text-[#C084FC]" />
             </div>
             <div className="flex-1">
               <AudioWaveform />
@@ -116,13 +123,17 @@ export default function WhatsAppSimulator() {
   const [activeScenario, setActiveScenario] = useState<Scenario>("sales");
   const [visibleCount, setVisibleCount] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
-  const chatEndRef = useRef<HTMLDivElement>(null);
+  const chatContainerRef = useRef<HTMLDivElement>(null);
   const playingRef = useRef(false);
 
-  const scenarios: { key: Scenario; label: string; icon: string }[] = [
-    { key: "sales", label: t("scenario_sales"), icon: "🏢" },
-    { key: "operations", label: t("scenario_operations"), icon: "⚙️" },
-    { key: "intelligence", label: t("scenario_intelligence"), icon: "📊" },
+  const scenarios: {
+    key: Scenario;
+    label: string;
+    Icon: typeof Building2;
+  }[] = [
+    { key: "sales", label: t("scenario_sales"), Icon: Building2 },
+    { key: "operations", label: t("scenario_operations"), Icon: Settings2 },
+    { key: "intelligence", label: t("scenario_intelligence"), Icon: BarChart3 },
   ];
 
   const getConversation = useCallback(
@@ -195,8 +206,14 @@ export default function WhatsAppSimulator() {
     playScenario(activeScenario);
   }, [activeScenario, playScenario]);
 
+  // Scroll ONLY inside the chat container — never scroll the page itself
   useEffect(() => {
-    chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+    const container = chatContainerRef.current;
+    if (!container) return;
+    container.scrollTo({
+      top: container.scrollHeight,
+      behavior: "smooth",
+    });
   }, [visibleCount, isTyping]);
 
   const conversation = getConversation(activeScenario);
@@ -214,28 +231,31 @@ export default function WhatsAppSimulator() {
             transition={{ duration: 0.6 }}
           >
             <div className="flex flex-wrap gap-2 mb-8">
-              {scenarios.map((s) => (
-                <motion.button
-                  key={s.key}
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.97 }}
-                  onClick={() => {
-                    if (!playingRef.current) setActiveScenario(s.key);
-                  }}
-                  className={cn(
-                    "flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors cursor-pointer",
-                    activeScenario === s.key
-                      ? "bg-accent text-white shadow-lg shadow-accent/30"
-                      : "bg-bg-elevated text-fg-muted hover:text-fg border border-border-theme"
-                  )}
-                >
-                  <span>{s.icon}</span>
-                  {s.label}
-                </motion.button>
-              ))}
+              {scenarios.map((s) => {
+                const Icon = s.Icon;
+                return (
+                  <motion.button
+                    key={s.key}
+                    whileHover={{ scale: 1.04 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => {
+                      if (!playingRef.current) setActiveScenario(s.key);
+                    }}
+                    className={cn(
+                      "flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium cursor-pointer",
+                      activeScenario === s.key
+                        ? "bg-accent text-white shadow-lg shadow-accent/30"
+                        : "bg-bg-elevated text-fg-muted hover:text-fg border border-border-theme"
+                    )}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {s.label}
+                  </motion.button>
+                );
+              })}
             </div>
 
-            <h3 className="font-heading text-2xl font-bold mb-4">
+            <h3 className="font-heading text-2xl font-bold mb-4 text-fg">
               {t(`${activeScenario}_title`)}
             </h3>
             <p className="text-fg-muted leading-relaxed mb-6">
@@ -296,12 +316,15 @@ export default function WhatsAppSimulator() {
                       <p className="text-sm font-semibold text-white">
                         Sycosmart AI
                       </p>
-                      <p className="text-xs text-whatsapp">en línea</p>
+                      <p className="text-xs text-whatsapp">online</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="h-[420px] overflow-y-auto px-3 py-4 space-y-3 scroll-smooth">
+                <div
+                  ref={chatContainerRef}
+                  className="h-[420px] overflow-y-auto px-3 py-4 space-y-3"
+                >
                   <AnimatePresence initial={false}>
                     {conversation.slice(0, visibleCount).map((msg) => (
                       <ChatBubble key={msg.id} message={msg} />
@@ -320,13 +343,12 @@ export default function WhatsAppSimulator() {
                       </motion.div>
                     )}
                   </AnimatePresence>
-                  <div ref={chatEndRef} />
                 </div>
 
                 <div className="rounded-b-[2rem] bg-[#1F2C34] px-3 py-3">
                   <div className="flex items-center gap-2 rounded-full bg-[#2A3942] px-4 py-2">
                     <span className="flex-1 text-sm text-white/30">
-                      Mensaje...
+                      Message...
                     </span>
                     <Mic className="h-5 w-5 text-white/40" />
                   </div>

@@ -99,7 +99,7 @@
   "services": {
     "hero": {
       "title": "Services",
-      "subtitle": "High-impact digital solutions for businesses in Bolivia"
+      "subtitle": "High-impact digital solutions for businesses worldwide"
     },
     "deliverables_label": "What's included",
     "request_button": "Request this service",
@@ -186,9 +186,9 @@
     },
     "story": {
       "title": "Our Story",
-      "p1": "Sycosmart was born with a clear mission: to make advanced technology accessible to every business in Bolivia.",
-      "p2": "We believe every company, regardless of size, deserves the same digital tools that large corporations use. That's why we combine AI, automation, and digital marketing into practical, accessible solutions.",
-      "p3": "Our approach is simple: understand your business, identify opportunities, and build solutions that generate real results."
+      "p1": "Sycosmart was born with a clear mission: to make advanced technology accessible to businesses worldwide.",
+      "p2": "We believe every company, regardless of size or location, deserves the same digital tools that large corporations use. That's why we combine AI, automation, and digital marketing into practical solutions that work globally.",
+      "p3": "Our approach is simple: understand your business, identify opportunities, and build solutions that generate real results — wherever you are."
     },
     "expertise": {
       "title": "Our Expertise",
@@ -214,7 +214,7 @@
   "cases": {
     "hero": {
       "title": "Success Stories",
-      "subtitle": "Real results from Bolivian companies that trusted us"
+      "subtitle": "Real results from companies that trusted us"
     },
     "cta_title": "Be our next success story",
     "cta_subtitle": "Tell us about your business and let's build results like these together.",
@@ -263,10 +263,11 @@
     }
   },
   "footer": {
-    "description": "Digital solutions with AI and automation for businesses in Bolivia.",
+    "description": "Smart technology and digital solutions for businesses worldwide.",
     "services": "Services",
     "company": "Company",
     "contact": "Contact",
-    "rights": "All rights reserved."
+    "rights": "All rights reserved.",
+    "tagline": "Building the digital future, globally."
   }
 }
