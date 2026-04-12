@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, Outfit } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -33,8 +34,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${outfit.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-brand-black text-brand-off-white">
-        {children}
+      <body className="min-h-full flex flex-col bg-bg text-fg">
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

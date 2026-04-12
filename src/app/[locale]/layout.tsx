@@ -4,6 +4,7 @@ import { routing } from "@/i18n/routing";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloatingButton from "@/components/shared/WhatsAppFloatingButton";
+import PageTransition from "@/components/shared/PageTransition";
 
 export default async function LocaleLayout({
   children,
@@ -23,7 +24,9 @@ export default async function LocaleLayout({
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
       <Navbar />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1">
+        <PageTransition>{children}</PageTransition>
+      </main>
       <Footer />
       <WhatsAppFloatingButton />
     </NextIntlClientProvider>

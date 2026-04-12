@@ -5,8 +5,10 @@ import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
+import { motion } from "motion/react";
 import { Send, Loader2, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { N8N_WEBHOOK_URL } from "@/lib/constants";
 
 const schema = z.object({
   name: z.string().min(2),
@@ -14,13 +16,19 @@ const schema = z.object({
   phone: z.string().min(7),
   business: z.string().min(2),
   service: z.string().min(1),
+  budget: z.string().min(1),
   message: z.string().min(10),
 });
 
 type FormData = z.infer<typeof schema>;
 
 const inputStyles =
-  "w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder:text-white/30 focus:border-brand-purple focus:outline-none focus:ring-1 focus:ring-brand-purple transition-colors";
+  "w-full rounded-lg border border-border-theme bg-bg/50 px-4 py-3 text-sm text-fg placeholder:text-fg-muted/60 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all";
+
+const fieldVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
+};
 
 export default function ContactForm() {
   const t = useTranslations("contact.form");
@@ -38,36 +46,74 @@ export default function ContactForm() {
   const onSubmit = async (data: FormData) => {
     setStatus("loading");
     try {
-      // TODO: Replace with N8N webhook URL
-      await new Promise((r) => setTimeout(r, 1500));
+      if (N8N_WEBHOOK_URL) {
+        await fetch(N8N_WEBHOOK_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(data),
+        });
+      } else {
+        await new Promise((r) => setTimeout(r, 1500));
+      }
       setStatus("success");
       reset();
-      setTimeout(() => setStatus("idle"), 3000);
+      setTimeout(() => setStatus("idle"), 4000);
     } catch {
       setStatus("error");
-      setTimeout(() => setStatus("idle"), 3000);
+      setTimeout(() => setStatus("idle"), 4000);
     }
   };
 
   if (status === "success") {
     return (
-      <div className="flex flex-col items-center justify-center py-8 text-center">
-        <CheckCircle className="h-12 w-12 text-whatsapp mb-4" />
-        <p className="text-sm text-whatsapp font-medium">{t("success")}</p>
-      </div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="flex flex-col items-center justify-center py-16 text-center"
+      >
+        <motion.div
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, damping: 15 }}
+        >
+          <CheckCircle className="h-16 w-16 text-whatsapp mb-4" />
+        </motion.div>
+        <p className="text-lg text-fg font-medium">{t("success")}</p>
+      </motion.div>
     );
   }
 
+  const budgetOptions = [
+    { id: "lt-2000", label: t("budget_lt_2000") },
+    { id: "2000-5000", label: t("budget_2000_5000") },
+    { id: "5000-15000", label: t("budget_5000_15000") },
+    { id: "15000-50000", label: t("budget_15000_50000") },
+    { id: "gt-50000", label: t("budget_gt_50000") },
+    { id: "unsure", label: t("budget_unsure") },
+  ];
+
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-      <div>
+    <motion.form
+      onSubmit={handleSubmit(onSubmit)}
+      initial="hidden"
+      animate="visible"
+      variants={{
+        visible: { transition: { staggerChildren: 0.06 } },
+      }}
+      className="space-y-4"
+    >
+      <motion.div variants={fieldVariants}>
         <input
           {...register("name")}
           placeholder={t("name")}
           className={cn(inputStyles, errors.name && "border-red-500")}
         />
-      </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      </motion.div>
+
+      <motion.div
+        variants={fieldVariants}
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+      >
         <input
           {...register("email")}
           type="email"
@@ -80,43 +126,79 @@ export default function ContactForm() {
           placeholder={t("phone")}
           className={cn(inputStyles, errors.phone && "border-red-500")}
         />
-      </div>
-      <div>
+      </motion.div>
+
+      <motion.div variants={fieldVariants}>
         <input
           {...register("business")}
           placeholder={t("business")}
           className={cn(inputStyles, errors.business && "border-red-500")}
         />
-      </div>
-      <div>
+      </motion.div>
+
+      <motion.div variants={fieldVariants}>
         <select
           {...register("service")}
-          className={cn(inputStyles, "appearance-none", errors.service && "border-red-500")}
+          className={cn(
+            inputStyles,
+            "appearance-none cursor-pointer",
+            errors.service && "border-red-500"
+          )}
           defaultValue=""
         >
           <option value="" disabled>
             {t("service_placeholder")}
           </option>
-          <option value="ai-agents">Agentes de IA</option>
-          <option value="automation">Automatización</option>
-          <option value="meta-ads">Meta Ads</option>
+          <option value="ai-agents">Agentes de IA & Automatización</option>
           <option value="web-dev">Desarrollo Web</option>
-          <option value="chatbots">Chatbots</option>
-          <option value="consulting">Consultoría Digital</option>
+          <option value="mobile-apps">Mobile Apps</option>
+          <option value="crm">CRM</option>
+          <option value="meta-ads">Meta Ads</option>
+          <option value="digital-marketing">Marketing Digital</option>
+          <option value="custom-software">Software a Medida</option>
         </select>
-      </div>
-      <div>
+      </motion.div>
+
+      <motion.div variants={fieldVariants}>
+        <label className="block text-xs font-semibold uppercase tracking-wider text-fg-muted mb-2">
+          {t("budget_label")}
+        </label>
+        <select
+          {...register("budget")}
+          className={cn(
+            inputStyles,
+            "appearance-none cursor-pointer",
+            errors.budget && "border-red-500"
+          )}
+          defaultValue=""
+        >
+          <option value="" disabled>
+            {t("budget_placeholder")}
+          </option>
+          {budgetOptions.map((b) => (
+            <option key={b.id} value={b.id}>
+              {b.label}
+            </option>
+          ))}
+        </select>
+      </motion.div>
+
+      <motion.div variants={fieldVariants}>
         <textarea
           {...register("message")}
           placeholder={t("message")}
           rows={4}
           className={cn(inputStyles, "resize-none", errors.message && "border-red-500")}
         />
-      </div>
-      <button
+      </motion.div>
+
+      <motion.button
+        variants={fieldVariants}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={status === "loading"}
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-brand-purple px-6 py-3 text-sm font-medium text-white transition-all hover:bg-brand-purple/90 disabled:opacity-50 cursor-pointer"
+        className="flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent/90 hover:shadow-accent/40 disabled:opacity-50 cursor-pointer"
       >
         {status === "loading" ? (
           <Loader2 className="h-4 w-4 animate-spin" />
@@ -124,10 +206,11 @@ export default function ContactForm() {
           <Send className="h-4 w-4" />
         )}
         {t("submit")}
-      </button>
+      </motion.button>
+
       {status === "error" && (
         <p className="text-xs text-red-400 text-center">{t("error")}</p>
       )}
-    </form>
+    </motion.form>
   );
 }

@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 interface SectionHeadingProps {
@@ -14,7 +17,11 @@ export default function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
       className={cn(
         "mb-12 lg:mb-16",
         align === "center" && "text-center",
@@ -25,16 +32,16 @@ export default function SectionHeading({
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-4 text-lg text-brand-off-white/60 max-w-2xl mx-auto">
+        <p className="mt-4 text-lg text-fg-muted max-w-2xl mx-auto">
           {subtitle}
         </p>
       )}
       <div
         className={cn(
-          "mt-4 h-1 w-12 rounded-full bg-brand-purple",
+          "mt-4 h-1 w-12 rounded-full bg-accent",
           align === "center" && "mx-auto"
         )}
       />
-    </div>
+    </motion.div>
   );
 }

@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { motion } from "motion/react";
 import { Menu } from "lucide-react";
 import { WHATSAPP_URL } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Button from "@/components/ui/Button";
 import LanguageSwitcher from "./LanguageSwitcher";
+import ThemeToggle from "./ThemeToggle";
 import MobileMenu from "./MobileMenu";
 
 const navLinks = [
@@ -31,11 +33,14 @@ export default function Navbar() {
 
   return (
     <>
-      <header
+      <motion.header
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
           isScrolled
-            ? "bg-brand-black/80 backdrop-blur-xl border-b border-white/5 shadow-lg"
+            ? "bg-bg/80 backdrop-blur-xl border-b border-border-theme shadow-lg"
             : "bg-transparent"
         )}
       >
@@ -43,27 +48,37 @@ export default function Navbar() {
           <div className="flex h-16 items-center justify-between lg:h-20">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <span className="text-xl font-bold font-heading tracking-tight">
-                <span className="text-brand-purple">Syco</span>
-                <span className="text-brand-off-white">smart</span>
-              </span>
+              <motion.span
+                whileHover={{ scale: 1.04 }}
+                className="text-xl font-bold font-heading tracking-tight"
+              >
+                <span className="text-accent-light">Syco</span>
+                <span className="text-fg">smart</span>
+              </motion.span>
             </Link>
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1">
-              {navLinks.map((link) => (
-                <Link
+              {navLinks.map((link, i) => (
+                <motion.div
                   key={link.key}
-                  href={link.href}
-                  className="rounded-lg px-4 py-2 text-sm font-medium text-white/60 transition-colors hover:text-white hover:bg-white/5"
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + i * 0.05 }}
                 >
-                  {t(link.key)}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className="rounded-lg px-4 py-2 text-sm font-medium text-fg-muted transition-colors hover:text-fg hover:bg-fg/5"
+                  >
+                    {t(link.key)}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
 
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-3">
+              <ThemeToggle />
               <LanguageSwitcher />
               <Button variant="primary" size="sm" href={WHATSAPP_URL}>
                 {t("cta")}
@@ -71,15 +86,19 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileOpen(true)}
-              className="lg:hidden rounded-lg p-2 text-white/60 hover:text-white hover:bg-white/5 cursor-pointer"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
+            <div className="lg:hidden flex items-center gap-2">
+              <ThemeToggle />
+              <motion.button
+                whileTap={{ scale: 0.9 }}
+                onClick={() => setIsMobileOpen(true)}
+                className="rounded-lg p-2 text-fg-muted hover:text-fg hover:bg-fg/5 cursor-pointer"
+              >
+                <Menu className="h-6 w-6" />
+              </motion.button>
+            </div>
           </div>
         </div>
-      </header>
+      </motion.header>
 
       <MobileMenu
         isOpen={isMobileOpen}

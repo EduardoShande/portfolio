@@ -4,27 +4,30 @@ import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import {
   Bot,
-  Workflow,
-  Megaphone,
   Globe,
-  MessageSquareMore,
-  TrendingUp,
+  Smartphone,
+  Database,
+  Megaphone,
+  Search,
+  Code2,
   Check,
+  ArrowRight,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
-import Card from "@/components/ui/Card";
 import Button from "@/components/ui/Button";
 import { WHATSAPP_URL } from "@/lib/constants";
+import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 
-const serviceKeys = [
+const serviceList = [
   { key: "ai_agents", icon: Bot, highlight: true },
-  { key: "automation", icon: Workflow, highlight: false },
-  { key: "meta_ads", icon: Megaphone, highlight: false },
   { key: "web_dev", icon: Globe, highlight: false },
-  { key: "chatbots", icon: MessageSquareMore, highlight: false },
-  { key: "consulting", icon: TrendingUp, highlight: false },
+  { key: "mobile_apps", icon: Smartphone, highlight: false },
+  { key: "crm", icon: Database, highlight: false },
+  { key: "meta_ads", icon: Megaphone, highlight: false },
+  { key: "digital_marketing", icon: Search, highlight: false },
+  { key: "custom_software", icon: Code2, highlight: false },
 ] as const;
 
 export default function ServiciosPage() {
@@ -42,73 +45,93 @@ export default function ServiciosPage() {
       {/* Services */}
       <section className="pb-20 lg:pb-32">
         <Container>
-          <div className="space-y-16">
-            {serviceKeys.map((service, i) => {
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={{
+              visible: { transition: { staggerChildren: 0.1 } },
+            }}
+            className="space-y-8"
+          >
+            {serviceList.map((service) => {
               const Icon = service.icon;
-              const features: string[] = t.raw(`${service.key}.features`);
+              const deliverables: string[] = t.raw(`${service.key}.deliverables`);
               return (
                 <motion.div
                   key={service.key}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4 }}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+                  }}
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3 }}
+                  className={cn(
+                    "rounded-3xl border border-border-theme bg-bg-elevated p-8 lg:p-10 transition-colors hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10",
+                    service.highlight &&
+                      "border-accent/40 bg-gradient-to-br from-accent/10 to-bg-elevated"
+                  )}
                 >
-                  <Card
-                    className={cn(
-                      "lg:p-10",
-                      service.highlight &&
-                        "border-brand-purple/40 bg-gradient-to-br from-brand-purple/10 to-brand-dark"
-                    )}
-                  >
-                    <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-                      <div>
-                        <div
-                          className={cn(
-                            "flex h-14 w-14 items-center justify-center rounded-xl",
-                            service.highlight
-                              ? "bg-brand-purple text-white"
-                              : "bg-white/5 text-brand-purple-light"
-                          )}
-                        >
-                          <Icon className="h-7 w-7" />
-                        </div>
-                        <h3 className="mt-4 font-heading text-2xl font-bold">
-                          {t(`${service.key}.title`)}
-                        </h3>
-                        <p className="mt-3 text-white/60 leading-relaxed">
-                          {t(`${service.key}.description`)}
-                        </p>
+                  <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
+                    <div className="lg:col-span-2">
+                      <div
+                        className={cn(
+                          "flex h-14 w-14 items-center justify-center rounded-xl",
+                          service.highlight
+                            ? "bg-accent text-white"
+                            : "bg-fg/5 text-accent-light"
+                        )}
+                      >
+                        <Icon className="h-7 w-7" />
                       </div>
-                      <div>
-                        <ul className="space-y-3">
-                          {features.map((feature: string, j: number) => (
-                            <li key={j} className="flex items-start gap-3">
-                              <Check className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-purple" />
-                              <span className="text-sm text-white/70">
-                                {feature}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
+                      <h3 className="mt-4 font-heading text-2xl font-bold text-fg">
+                        {t(`${service.key}.title`)}
+                      </h3>
+                      <p className="mt-3 text-fg-muted leading-relaxed">
+                        {t(`${service.key}.description`)}
+                      </p>
                     </div>
-                  </Card>
+                    <div>
+                      <p className="text-xs font-semibold uppercase tracking-wider text-accent-light mb-4">
+                        {t("deliverables_label")}
+                      </p>
+                      <ul className="space-y-3">
+                        {deliverables.map((d, j) => (
+                          <li key={j} className="flex items-start gap-3">
+                            <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-accent" />
+                            <span className="text-sm text-fg-muted">{d}</span>
+                          </li>
+                        ))}
+                      </ul>
+                      <Link
+                        href="/contacto"
+                        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all"
+                      >
+                        {t("request_button")}
+                        <ArrowRight className="h-4 w-4" />
+                      </Link>
+                    </div>
+                  </div>
                 </motion.div>
               );
             })}
-          </div>
+          </motion.div>
         </Container>
       </section>
 
       {/* CTA */}
       <section className="pb-20 lg:pb-32">
         <Container>
-          <div className="rounded-3xl bg-gradient-to-br from-brand-purple/20 to-brand-dark border border-brand-purple/20 p-8 sm:p-12 text-center">
-            <h2 className="font-heading text-2xl font-bold sm:text-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="rounded-3xl bg-gradient-to-br from-accent/20 to-bg-elevated border border-accent/20 p-8 sm:p-12 text-center"
+          >
+            <h2 className="font-heading text-2xl font-bold sm:text-3xl text-fg">
               {t("cta.title")}
             </h2>
-            <p className="mt-3 text-white/60 max-w-lg mx-auto">
+            <p className="mt-3 text-fg-muted max-w-lg mx-auto">
               {t("cta.subtitle")}
             </p>
             <div className="mt-8">
@@ -116,7 +139,7 @@ export default function ServiciosPage() {
                 {t("cta.button")}
               </Button>
             </div>
-          </div>
+          </motion.div>
         </Container>
       </section>
     </>

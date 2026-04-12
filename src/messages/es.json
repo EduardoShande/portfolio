@@ -12,7 +12,7 @@
       "badge": "Tecnología + Marketing para tu negocio",
       "title": "Agentes de IA que controlas por",
       "titleHighlight": "WhatsApp",
-      "subtitle": "Envía un audio y tu agente de IA agenda citas, responde clientes y gestiona tu negocio. Sin apps complicadas, solo tu WhatsApp.",
+      "subtitle": "Envía un audio y tu agente de IA agenda citas, califica leads y gestiona tu negocio. Sin apps complicadas, solo tu WhatsApp.",
       "cta_primary": "Ver Demo",
       "cta_secondary": "Agendar Llamada"
     },
@@ -23,33 +23,66 @@
     },
     "simulator": {
       "title": "Mira cómo funciona",
-      "subtitle": "Tu negocio en piloto automático con un simple audio de WhatsApp",
-      "scenario_schedule": "Agendar Citas",
-      "scenario_customers": "Atender Clientes",
-      "scenario_inventory": "Consultar Stock",
-      "cta": "¿Quieres esto para tu negocio?",
-      "user_audio_schedule": "Agenda las citas de mañana y confirma con los clientes",
-      "agent_response_schedule": "✅ Citas de mañana organizadas:\n\n09:00 - María López (Corte + Color)\n10:30 - Juan Pérez (Consulta)\n14:00 - Ana García (Tratamiento)\n16:00 - Carlos Ruiz (Corte)\n\n📩 Confirmaciones enviadas por WhatsApp a los 4 clientes.",
-      "user_audio_customers": "Responde los mensajes pendientes de hoy",
-      "agent_response_customers": "📱 5 mensajes respondidos:\n\n1. Rosa M. → Preguntó por horarios → Le envié los disponibles\n2. Pedro L. → Quiere cancelar → Reagendé para el jueves\n3. Lucía S. → Consulta de precios → Le envié el catálogo\n4. Mario T. → Confirmó su cita → Le envié recordatorio\n5. Diana R. → Nueva clienta → La registré y agendé",
-      "user_audio_inventory": "¿Cuánto stock tenemos del shampoo profesional?",
-      "agent_response_inventory": "📦 Stock actual - Shampoo Profesional:\n\n• Shampoo Reparador 500ml → 12 unidades\n• Shampoo Anti-caída 300ml → 8 unidades\n• Shampoo Color Protect 500ml → 3 unidades ⚠️\n\n⚠️ El Color Protect está bajo. ¿Quieres que prepare una orden de compra?"
+      "subtitle": "Casos reales que empresas ya están usando para escalar sus operaciones",
+      "scenario_sales": "Ventas con IA",
+      "scenario_operations": "Hub de Operaciones",
+      "scenario_intelligence": "Inteligencia de Clientes",
+      "cta": "¿Quieres esto para tu empresa?",
+
+      "sales_title": "AI Sales Assistant",
+      "sales_description": "Un agente de IA que califica leads, responde preguntas sobre productos y agenda reuniones automáticamente, las 24 horas del día. Perfecto para inmobiliarias, concesionarias y empresas B2B.",
+      "sales_benefit_1": "Califica leads automáticamente con preguntas inteligentes",
+      "sales_benefit_2": "Agenda reuniones directamente en el calendario del vendedor",
+      "sales_benefit_3": "Responde consultas sobre productos 24/7 sin descanso",
+
+      "operations_title": "Automated Operations Hub",
+      "operations_description": "Sistema central que conecta CRM, inventario, facturación y notificaciones de WhatsApp en un solo flujo automatizado. Ideal para distribuidoras y cadenas retail.",
+      "operations_benefit_1": "Conecta todas tus herramientas en un solo flujo",
+      "operations_benefit_2": "Confirmaciones automáticas y notificaciones en tiempo real",
+      "operations_benefit_3": "Reduce errores humanos y elimina tareas repetitivas",
+
+      "intelligence_title": "Customer Intelligence Dashboard",
+      "intelligence_description": "IA que analiza el comportamiento de tus clientes, predice cuáles están por irse y envía campañas de retención personalizadas automáticamente. Para gimnasios, suscripciones y SaaS.",
+      "intelligence_benefit_1": "Predice churn antes de que ocurra",
+      "intelligence_benefit_2": "Envía campañas personalizadas automáticamente",
+      "intelligence_benefit_3": "Aumenta el valor de vida del cliente sin esfuerzo",
+
+      "sales_msg_1": "👋 Hola! Vi que enviaste un audio. Soy tu asistente de ventas. Confirmé que tienes 12 leads nuevos hoy. ¿Quieres que los califique?",
+      "sales_msg_2": "Sí, califícalos por presupuesto y necesidad",
+      "sales_msg_3": "🎯 Listo. He calificado los 12 leads:\n\n✅ 4 leads HOT (presupuesto alto, listos para comprar)\n🟡 5 leads WARM (interesados, necesitan más info)\n❄️ 3 leads COLD (no calificados todavía)\n\n¿Te paso los HOT al equipo de ventas?",
+      "sales_msg_5": "📞 Contactando a los 4 leads HOT ahora...\n\n• Carlos S. → Agendado para mañana 10am\n• María T. → Agendada para hoy 4pm\n• Roberto P. → Solicitó llamada inmediata\n• Diego J. → Confirmó visita el viernes",
+      "sales_msg_6": "Increíble. ¿Y los warm leads?",
+      "sales_msg_7": "📧 Les envié material informativo personalizado y los puse en seguimiento automático. Te avisaré cuando se calienten. 🔥",
+
+      "ops_msg_1": "📦 Buenos días! Reporte de operaciones de hoy:\n\n• 47 pedidos pendientes de confirmar\n• 3 productos con stock bajo\n• 5 facturas por enviar\n\n¿Procedo con todo automáticamente?",
+      "ops_msg_2": "Sí, procede con todo",
+      "ops_msg_3": "✅ Procesando...\n\n📋 47 pedidos confirmados vía WhatsApp\n📨 5 facturas enviadas y registradas en el CRM\n🚨 Notifiqué al área de compras sobre el stock bajo",
+      "ops_msg_5": "🎉 Todo listo!\n\n• Tiempo total: 2 minutos\n• Errores: 0\n• Clientes notificados: 47/47\n\n¿Quieres el reporte completo en tu correo?",
+      "ops_msg_6": "Sí por favor, y manda el resumen al equipo",
+      "ops_msg_7": "📤 Reporte enviado a tu correo y al equipo en el grupo de Telegram. Cualquier cosa, aquí estoy.",
+
+      "intel_msg_1": "📊 Analicé el comportamiento de los últimos 30 días. Detecté 23 clientes con alto riesgo de cancelar suscripción.",
+      "intel_msg_2": "¿Qué está pasando con ellos?",
+      "intel_msg_3": "🔍 Patrones detectados:\n\n• 15 no han usado el servicio en 14+ días\n• 6 redujeron su frecuencia de uso\n• 2 reportaron problemas técnicos sin resolver",
+      "intel_msg_4": "¿Puedes hacer algo para retenerlos?",
+      "intel_msg_5": "🎯 Plan de retención iniciado:\n\n💌 Enviando ofertas personalizadas a los 15 inactivos\n📞 Agendando llamadas con los 6 que redujeron uso\n🛠️ Asignando soporte prioritario a los 2 con problemas",
+      "intel_msg_7": "✅ Acciones ejecutadas. Te enviaré un reporte en 7 días con la tasa de recuperación. Mi proyección: rescataremos al menos 16 de 23 clientes (70%)."
     },
     "services": {
       "title": "Nuestros Servicios",
       "subtitle": "Soluciones digitales completas para hacer crecer tu negocio",
       "ai_agents": "Agentes de IA",
       "ai_agents_desc": "Controla tu negocio desde WhatsApp con inteligencia artificial que trabaja 24/7.",
-      "automation": "Automatización",
-      "automation_desc": "Flujos automáticos con N8N que eliminan tareas repetitivas y ahorran horas.",
+      "automation": "Automatización N8N",
+      "automation_desc": "Flujos automáticos que eliminan tareas repetitivas y ahorran horas.",
       "meta_ads": "Meta Ads",
       "meta_ads_desc": "Campañas en Facebook e Instagram que traen clientes reales a tu puerta.",
       "web_dev": "Desarrollo Web",
-      "web_dev_desc": "Sitios web y landing pages rápidos, modernos y que convierten visitas en ventas.",
-      "chatbots": "Chatbots",
-      "chatbots_desc": "Bots inteligentes que responden preguntas frecuentes las 24 horas del día.",
+      "web_dev_desc": "Sitios web rápidos, modernos y que convierten visitas en ventas.",
+      "mobile_apps": "Mobile Apps",
+      "mobile_apps_desc": "Apps Android e iOS para herramientas internas o productos al cliente.",
       "consulting": "Consultoría Digital",
-      "consulting_desc": "Estrategia personalizada para llevar tu negocio al siguiente nivel digital.",
+      "consulting_desc": "Estrategia personalizada para llevar tu negocio al siguiente nivel.",
       "view_all": "Ver todos los servicios"
     },
     "social_proof": {
@@ -58,7 +91,7 @@
     },
     "cta": {
       "title": "¿Listo para automatizar tu negocio?",
-      "subtitle": "Agenda una llamada gratuita y descubre cómo la IA puede transformar tu operación diaria.",
+      "subtitle": "Agenda una llamada gratuita y descubre cómo la IA puede transformar tu operación.",
       "whatsapp": "Escribir por WhatsApp",
       "calendar": "Agendar Llamada"
     }
@@ -66,37 +99,79 @@
   "services": {
     "hero": {
       "title": "Servicios",
-      "subtitle": "Soluciones digitales de alto impacto para negocios en Bolivia"
+      "subtitle": "Soluciones digitales de alto impacto para empresas en Bolivia"
     },
+    "deliverables_label": "Qué incluye",
+    "request_button": "Solicitar este servicio",
     "ai_agents": {
-      "title": "Agentes de IA por WhatsApp",
-      "description": "Un asistente inteligente que vive en tu WhatsApp. Envía un audio y tu agente agenda citas, responde clientes, consulta inventario y más. Funciona 24/7 sin que estés presente.",
-      "features": ["Control por voz via WhatsApp", "Agenda y confirma citas automáticamente", "Responde consultas de clientes", "Gestiona inventario y pedidos", "Reportes diarios automáticos", "Funciona 24/7"]
-    },
-    "automation": {
-      "title": "Automatización con N8N",
-      "description": "Conectamos todas tus herramientas y eliminamos tareas repetitivas. Desde enviar facturas automáticas hasta sincronizar tu CRM con tus redes sociales.",
-      "features": ["Flujos de trabajo automatizados", "Integración con +400 apps", "Notificaciones inteligentes", "Sincronización de datos", "Reducción de errores humanos", "Ahorro de horas semanales"]
-    },
-    "meta_ads": {
-      "title": "Publicidad en Meta",
-      "description": "Campañas estratégicas en Facebook e Instagram diseñadas para generar resultados medibles. No solo likes, sino clientes reales entrando por tu puerta.",
-      "features": ["Campañas en Facebook e Instagram", "Segmentación precisa de audiencia", "Optimización continua", "Reportes mensuales de resultados", "Creativos profesionales", "Retargeting inteligente"]
+      "title": "Agentes de IA & Automatización",
+      "description": "Workflows con N8N, chatbots inteligentes, calificación automática de leads, y respuestas automáticas. Tu negocio funcionando 24/7 sin que estés presente.",
+      "deliverables": [
+        "Workflows N8N personalizados",
+        "Chatbots con IA para WhatsApp y web",
+        "Calificación automática de leads",
+        "Respuestas automáticas inteligentes"
+      ]
     },
     "web_dev": {
       "title": "Desarrollo Web",
-      "description": "Sitios web y landing pages modernos, rápidos y optimizados para convertir visitantes en clientes. Diseño responsivo que se ve perfecto en cualquier dispositivo.",
-      "features": ["Diseño moderno y profesional", "Optimizado para móviles", "Velocidad de carga rápida", "SEO incorporado", "Formularios de contacto", "Integración con WhatsApp"]
+      "description": "Sitios corporativos, landing pages, e-commerce y aplicaciones web a medida. Diseño moderno, rendimiento optimizado y enfocado en conversión.",
+      "deliverables": [
+        "Sitios corporativos profesionales",
+        "Landing pages que convierten",
+        "Tiendas e-commerce completas",
+        "Aplicaciones web personalizadas"
+      ]
     },
-    "chatbots": {
-      "title": "Chatbots Inteligentes",
-      "description": "Bots que viven en tu sitio web o WhatsApp y responden preguntas frecuentes, capturan leads y derivan conversaciones complejas a tu equipo.",
-      "features": ["Respuestas automáticas 24/7", "Captura de leads", "Derivación inteligente", "Personalización completa", "Análisis de conversaciones", "Multiidioma"]
+    "mobile_apps": {
+      "title": "Mobile Apps",
+      "description": "Apps nativas Android e iOS para herramientas internas de tu equipo o productos para tus clientes. Diseño intuitivo y código optimizado.",
+      "deliverables": [
+        "Apps Android nativas",
+        "Apps iOS nativas",
+        "Apps cross-platform",
+        "Mantenimiento y actualizaciones"
+      ]
     },
-    "consulting": {
-      "title": "Consultoría Digital",
-      "description": "Analizamos tu negocio y diseñamos una estrategia digital personalizada. Desde la identidad de marca hasta el plan de marketing, te acompañamos en cada paso.",
-      "features": ["Auditoría digital completa", "Estrategia de marketing", "Plan de contenidos", "Identidad de marca", "Análisis de competencia", "Acompañamiento mensual"]
+    "crm": {
+      "title": "Implementación de CRM",
+      "description": "Configuración y personalización completa de sistemas CRM para equipos de ventas. Conectado con WhatsApp, email y todas tus herramientas.",
+      "deliverables": [
+        "Setup y configuración inicial",
+        "Personalización de campos y flujos",
+        "Migración de datos existentes",
+        "Capacitación del equipo"
+      ]
+    },
+    "meta_ads": {
+      "title": "Gestión de Meta Ads",
+      "description": "Estrategia, creativos y optimización de campañas en Facebook e Instagram. No solo likes, sino clientes reales y ventas medibles.",
+      "deliverables": [
+        "Estrategia de campañas",
+        "Creativos profesionales",
+        "Optimización continua",
+        "Reportes mensuales detallados"
+      ]
+    },
+    "digital_marketing": {
+      "title": "Marketing Digital",
+      "description": "SEO, Google Ads, estrategia de contenidos y manejo completo de redes sociales. Una estrategia 360° para crecer tu marca online.",
+      "deliverables": [
+        "Optimización SEO completa",
+        "Campañas en Google Ads",
+        "Estrategia de contenidos",
+        "Gestión de redes sociales"
+      ]
+    },
+    "custom_software": {
+      "title": "Software Personalizado & APIs",
+      "description": "Herramientas internas, integraciones, dashboards y pipelines de datos a la medida de tu empresa. Resolvemos problemas únicos con código a medida.",
+      "deliverables": [
+        "Herramientas internas a medida",
+        "Integraciones entre sistemas",
+        "Dashboards y reportería",
+        "Pipelines de datos automatizados"
+      ]
     },
     "cta": {
       "title": "¿No sabes cuál servicio necesitas?",
@@ -112,7 +187,7 @@
     "story": {
       "title": "Nuestra Historia",
       "p1": "Sycosmart nació con una misión clara: hacer que la tecnología avanzada sea accesible para todos los negocios en Bolivia.",
-      "p2": "Creemos que cada negocio, sin importar su tamaño, merece las mismas herramientas digitales que usan las grandes empresas. Por eso combinamos inteligencia artificial, automatización y marketing digital en soluciones prácticas y accesibles.",
+      "p2": "Creemos que cada empresa, sin importar su tamaño, merece las mismas herramientas digitales que usan las grandes corporaciones. Por eso combinamos IA, automatización y marketing digital en soluciones prácticas y accesibles.",
       "p3": "Nuestro enfoque es simple: entender tu negocio, identificar las oportunidades y construir soluciones que generen resultados reales."
     },
     "expertise": {
@@ -124,14 +199,14 @@
       "marketing": "Marketing Digital",
       "marketing_desc": "Meta Ads, estrategia de contenido y crecimiento orgánico.",
       "development": "Desarrollo",
-      "development_desc": "Sitios web, landing pages y aplicaciones a medida."
+      "development_desc": "Sitios web, mobile apps y software a medida."
     },
     "values": {
       "title": "Nuestros Valores",
       "results": "Resultados",
-      "results_desc": "Cada acción que tomamos está orientada a generar un impacto medible en tu negocio.",
+      "results_desc": "Cada acción está orientada a generar un impacto medible en tu negocio.",
       "transparency": "Transparencia",
-      "transparency_desc": "Comunicación clara, sin letras pequeñas. Sabes exactamente qué hacemos y por qué.",
+      "transparency_desc": "Comunicación clara, sin letras pequeñas. Sabes exactamente qué hacemos.",
       "innovation": "Innovación",
       "innovation_desc": "Usamos las últimas tecnologías para darte ventaja competitiva real."
     }
@@ -139,45 +214,56 @@
   "cases": {
     "hero": {
       "title": "Casos de Éxito",
-      "subtitle": "Resultados reales de negocios que confiaron en nosotros"
+      "subtitle": "Resultados reales de empresas bolivianas que confiaron en nosotros"
     },
-    "coming_soon": {
-      "title": "Próximamente",
-      "description": "Estamos documentando los resultados de nuestros clientes actuales. Pronto podrás ver casos detallados con métricas reales.",
-      "cta": "Sé nuestro próximo caso de éxito"
-    }
+    "cta_title": "Sé nuestro próximo caso de éxito",
+    "cta_subtitle": "Cuéntanos sobre tu negocio y construyamos juntos resultados como estos.",
+    "cta_button": "Hablar con un experto"
   },
   "contact": {
     "hero": {
-      "title": "Contacto",
-      "subtitle": "Elige la forma que prefieras para conectar con nosotros"
+      "title": "Hablemos",
+      "subtitle": "Cuéntanos sobre tu proyecto y te respondemos en menos de 24 horas."
     },
-    "whatsapp": {
-      "title": "WhatsApp",
-      "description": "La forma más rápida. Escríbenos y te respondemos en minutos.",
-      "button": "Abrir WhatsApp"
+    "direct_contact": "Contacto directo",
+    "book_call": "Agendar",
+    "value_props": {
+      "response_time": "Respondemos en menos de 24 horas",
+      "response_time_desc": "Sin esperas innecesarias. Tu tiempo importa.",
+      "free_consultation": "Consulta inicial gratuita",
+      "free_consultation_desc": "Analizamos tu caso sin compromiso ni costo.",
+      "no_commitment": "Sin compromiso",
+      "no_commitment_desc": "Conversamos primero, decides después."
     },
     "form": {
-      "title": "Formulario",
-      "description": "Cuéntanos sobre tu proyecto y te contactamos.",
+      "title": "Cuéntanos sobre tu proyecto",
+      "description": "Completa el formulario y te contactamos pronto.",
       "name": "Nombre completo",
       "email": "Correo electrónico",
       "phone": "Teléfono",
       "business": "Nombre del negocio",
       "service": "Servicio de interés",
       "service_placeholder": "Selecciona un servicio",
-      "message": "Mensaje",
+      "budget_label": "Presupuesto aproximado",
+      "budget_placeholder": "Selecciona un rango",
+      "budget_lt_2000": "Menos de Bs 2,000",
+      "budget_2000_5000": "Bs 2,000 – Bs 5,000",
+      "budget_5000_15000": "Bs 5,000 – Bs 15,000",
+      "budget_15000_50000": "Bs 15,000 – Bs 50,000",
+      "budget_gt_50000": "Más de Bs 50,000",
+      "budget_unsure": "No estoy seguro todavía",
+      "message": "Cuéntanos sobre tu proyecto",
       "submit": "Enviar mensaje",
       "success": "¡Mensaje enviado! Te contactaremos pronto.",
       "error": "Hubo un error. Intenta de nuevo."
     },
     "calendly": {
-      "title": "Agendar Reunión",
+      "title": "Agenda una reunión",
       "description": "Elige un horario y nos reunimos por videollamada."
     }
   },
   "footer": {
-    "description": "Soluciones digitales con IA y automatización para negocios en Bolivia.",
+    "description": "Soluciones digitales con IA y automatización para empresas en Bolivia.",
     "services": "Servicios",
     "company": "Empresa",
     "contact": "Contacto",

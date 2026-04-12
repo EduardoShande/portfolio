@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "motion/react";
-import { Phone, Mic, Check, CheckCheck } from "lucide-react";
+import { Phone, Mic, CheckCheck } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
@@ -18,7 +18,7 @@ type ChatMessage = {
   audioLabel?: string;
 };
 
-type Scenario = "schedule" | "customers" | "inventory";
+type Scenario = "sales" | "operations" | "intelligence";
 
 function AudioWaveform() {
   return (
@@ -26,7 +26,7 @@ function AudioWaveform() {
       {Array.from({ length: 20 }).map((_, i) => (
         <motion.div
           key={i}
-          className="w-1 rounded-full bg-white/60"
+          className="w-1 rounded-full bg-white/60 will-change-transform"
           animate={{
             height: [4, Math.random() * 16 + 4, 4],
           }}
@@ -49,7 +49,7 @@ function TypingIndicator() {
         <motion.div
           key={i}
           className="h-2 w-2 rounded-full bg-white/40"
-          animate={{ opacity: [0.3, 1, 0.3] }}
+          animate={{ opacity: [0.3, 1, 0.3], y: [0, -2, 0] }}
           transition={{
             duration: 1,
             repeat: Infinity,
@@ -66,14 +66,15 @@ function ChatBubble({ message }: { message: ChatMessage }) {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+      initial={{ opacity: 0, y: 12, scale: 0.92 }}
       animate={{ opacity: 1, y: 0, scale: 1 }}
-      transition={{ duration: 0.3 }}
+      exit={{ opacity: 0, scale: 0.92 }}
+      transition={{ duration: 0.35, ease: "easeOut" }}
       className={cn("flex", isUser ? "justify-end" : "justify-start")}
     >
       <div
         className={cn(
-          "max-w-[80%] rounded-2xl px-4 py-2.5 text-sm",
+          "max-w-[85%] rounded-2xl px-4 py-2.5 text-sm",
           isUser
             ? "bg-[#005C4B] text-white rounded-br-md"
             : "bg-[#202C33] text-white/90 rounded-bl-md"
@@ -82,7 +83,7 @@ function ChatBubble({ message }: { message: ChatMessage }) {
         {message.type === "audio" ? (
           <div className="flex items-center gap-3">
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/10">
-              <Mic className="h-4 w-4 text-brand-purple-light" />
+              <Mic className="h-4 w-4 text-accent-light" />
             </div>
             <div className="flex-1">
               <AudioWaveform />
@@ -92,7 +93,9 @@ function ChatBubble({ message }: { message: ChatMessage }) {
             </span>
           </div>
         ) : (
-          <p className="whitespace-pre-line leading-relaxed">{message.content}</p>
+          <p className="whitespace-pre-line leading-relaxed text-[13px]">
+            {message.content}
+          </p>
         )}
         <div className="mt-1 flex items-center justify-end gap-1">
           <span className="text-[10px] text-white/30">
@@ -110,64 +113,50 @@ function ChatBubble({ message }: { message: ChatMessage }) {
 
 export default function WhatsAppSimulator() {
   const t = useTranslations("home.simulator");
-  const [activeScenario, setActiveScenario] = useState<Scenario>("schedule");
-  const [messages, setMessages] = useState<ChatMessage[]>([]);
+  const [activeScenario, setActiveScenario] = useState<Scenario>("sales");
+  const [visibleCount, setVisibleCount] = useState(0);
   const [isTyping, setIsTyping] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const chatEndRef = useRef<HTMLDivElement>(null);
+  const playingRef = useRef(false);
 
   const scenarios: { key: Scenario; label: string; icon: string }[] = [
-    { key: "schedule", label: t("scenario_schedule"), icon: "📅" },
-    { key: "customers", label: t("scenario_customers"), icon: "💬" },
-    { key: "inventory", label: t("scenario_inventory"), icon: "📦" },
+    { key: "sales", label: t("scenario_sales"), icon: "🏢" },
+    { key: "operations", label: t("scenario_operations"), icon: "⚙️" },
+    { key: "intelligence", label: t("scenario_intelligence"), icon: "📊" },
   ];
 
   const getConversation = useCallback(
     (scenario: Scenario): ChatMessage[] => {
       const conversations: Record<Scenario, ChatMessage[]> = {
-        schedule: [
-          {
-            id: "s1",
-            sender: "user",
-            type: "audio",
-            content: t("user_audio_schedule"),
-            audioLabel: "0:08",
-          },
-          {
-            id: "s2",
-            sender: "agent",
-            type: "text",
-            content: t("agent_response_schedule"),
-          },
+        sales: [
+          { id: "s1", sender: "user", type: "audio", content: "", audioLabel: "0:09" },
+          { id: "s2", sender: "agent", type: "text", content: t("sales_msg_1") },
+          { id: "s3", sender: "user", type: "text", content: t("sales_msg_2") },
+          { id: "s4", sender: "agent", type: "text", content: t("sales_msg_3") },
+          { id: "s5", sender: "user", type: "audio", content: "", audioLabel: "0:06" },
+          { id: "s6", sender: "agent", type: "text", content: t("sales_msg_5") },
+          { id: "s7", sender: "user", type: "text", content: t("sales_msg_6") },
+          { id: "s8", sender: "agent", type: "text", content: t("sales_msg_7") },
         ],
-        customers: [
-          {
-            id: "c1",
-            sender: "user",
-            type: "audio",
-            content: t("user_audio_customers"),
-            audioLabel: "0:05",
-          },
-          {
-            id: "c2",
-            sender: "agent",
-            type: "text",
-            content: t("agent_response_customers"),
-          },
+        operations: [
+          { id: "o1", sender: "user", type: "audio", content: "", audioLabel: "0:11" },
+          { id: "o2", sender: "agent", type: "text", content: t("ops_msg_1") },
+          { id: "o3", sender: "user", type: "text", content: t("ops_msg_2") },
+          { id: "o4", sender: "agent", type: "text", content: t("ops_msg_3") },
+          { id: "o5", sender: "user", type: "audio", content: "", audioLabel: "0:05" },
+          { id: "o6", sender: "agent", type: "text", content: t("ops_msg_5") },
+          { id: "o7", sender: "user", type: "text", content: t("ops_msg_6") },
+          { id: "o8", sender: "agent", type: "text", content: t("ops_msg_7") },
         ],
-        inventory: [
-          {
-            id: "i1",
-            sender: "user",
-            type: "audio",
-            content: t("user_audio_inventory"),
-            audioLabel: "0:06",
-          },
-          {
-            id: "i2",
-            sender: "agent",
-            type: "text",
-            content: t("agent_response_inventory"),
-          },
+        intelligence: [
+          { id: "i1", sender: "user", type: "audio", content: "", audioLabel: "0:08" },
+          { id: "i2", sender: "agent", type: "text", content: t("intel_msg_1") },
+          { id: "i3", sender: "user", type: "text", content: t("intel_msg_2") },
+          { id: "i4", sender: "agent", type: "text", content: t("intel_msg_3") },
+          { id: "i5", sender: "user", type: "text", content: t("intel_msg_4") },
+          { id: "i6", sender: "agent", type: "text", content: t("intel_msg_5") },
+          { id: "i7", sender: "user", type: "audio", content: "", audioLabel: "0:04" },
+          { id: "i8", sender: "agent", type: "text", content: t("intel_msg_7") },
         ],
       };
       return conversations[scenario];
@@ -177,33 +166,40 @@ export default function WhatsAppSimulator() {
 
   const playScenario = useCallback(
     async (scenario: Scenario) => {
-      if (isPlaying) return;
-      setIsPlaying(true);
-      setMessages([]);
+      if (playingRef.current) return;
+      playingRef.current = true;
+      setVisibleCount(0);
       setIsTyping(false);
 
       const conversation = getConversation(scenario);
 
-      // Show user audio message
-      await new Promise((r) => setTimeout(r, 500));
-      setMessages([conversation[0]]);
+      for (let i = 0; i < conversation.length; i++) {
+        const msg = conversation[i];
+        await new Promise((r) => setTimeout(r, 600));
 
-      // Show typing
-      await new Promise((r) => setTimeout(r, 1500));
-      setIsTyping(true);
+        if (msg.sender === "agent") {
+          setIsTyping(true);
+          await new Promise((r) => setTimeout(r, 1100));
+          setIsTyping(false);
+        }
 
-      // Show agent response
-      await new Promise((r) => setTimeout(r, 2000));
-      setIsTyping(false);
-      setMessages([conversation[0], conversation[1]]);
-      setIsPlaying(false);
+        setVisibleCount(i + 1);
+      }
+
+      playingRef.current = false;
     },
-    [getConversation, isPlaying]
+    [getConversation]
   );
 
   useEffect(() => {
     playScenario(activeScenario);
-  }, [activeScenario]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [activeScenario, playScenario]);
+
+  useEffect(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
+  }, [visibleCount, isTyping]);
+
+  const conversation = getConversation(activeScenario);
 
   return (
     <section id="simulator" className="py-20 lg:py-32">
@@ -211,77 +207,89 @@ export default function WhatsAppSimulator() {
         <SectionHeading title={t("title")} subtitle={t("subtitle")} />
 
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
-          {/* Left: Explanation */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+            transition={{ duration: 0.6 }}
           >
-            {/* Scenario selector */}
             <div className="flex flex-wrap gap-2 mb-8">
               {scenarios.map((s) => (
-                <button
+                <motion.button
                   key={s.key}
+                  whileHover={{ scale: 1.04 }}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => {
-                    if (!isPlaying) setActiveScenario(s.key);
+                    if (!playingRef.current) setActiveScenario(s.key);
                   }}
                   className={cn(
-                    "flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-all cursor-pointer",
+                    "flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium transition-colors cursor-pointer",
                     activeScenario === s.key
-                      ? "bg-brand-purple text-white shadow-lg shadow-brand-purple/25"
-                      : "bg-white/5 text-white/60 hover:bg-white/10 hover:text-white"
+                      ? "bg-accent text-white shadow-lg shadow-accent/30"
+                      : "bg-bg-elevated text-fg-muted hover:text-fg border border-border-theme"
                   )}
                 >
                   <span>{s.icon}</span>
                   {s.label}
-                </button>
+                </motion.button>
               ))}
             </div>
 
-            <div className="space-y-4 text-white/60">
-              <p className="text-lg">
-                <span className="font-semibold text-white">1.</span> Envía un
-                audio por WhatsApp con lo que necesitas.
-              </p>
-              <p className="text-lg">
-                <span className="font-semibold text-white">2.</span> Tu agente
-                de IA entiende tu mensaje y ejecuta la tarea.
-              </p>
-              <p className="text-lg">
-                <span className="font-semibold text-white">3.</span> Recibe la
-                confirmación en segundos. Así de simple.
-              </p>
+            <h3 className="font-heading text-2xl font-bold mb-4">
+              {t(`${activeScenario}_title`)}
+            </h3>
+            <p className="text-fg-muted leading-relaxed mb-6">
+              {t(`${activeScenario}_description`)}
+            </p>
+
+            <div className="space-y-3 mb-8">
+              {[1, 2, 3].map((n) => (
+                <motion.div
+                  key={n}
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: n * 0.1 }}
+                  className="flex items-start gap-3"
+                >
+                  <div className="mt-1 h-2 w-2 rounded-full bg-accent flex-shrink-0" />
+                  <p className="text-sm text-fg-muted">
+                    {t(`${activeScenario}_benefit_${n}`)}
+                  </p>
+                </motion.div>
+              ))}
             </div>
 
-            <div className="mt-8">
-              <Button variant="whatsapp" size="lg" href={WHATSAPP_URL}>
-                {t("cta")}
-              </Button>
-            </div>
+            <Button variant="whatsapp" size="lg" href={WHATSAPP_URL}>
+              {t("cta")}
+            </Button>
           </motion.div>
 
-          {/* Right: Phone Mockup */}
+          {/* Phone Mockup */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
             className="flex justify-center"
           >
             <div className="relative">
-              {/* Purple glow */}
-              <div className="absolute -inset-4 rounded-[3rem] bg-brand-purple/10 blur-2xl" />
+              <motion.div
+                animate={{ scale: [1, 1.05, 1], opacity: [0.3, 0.5, 0.3] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -inset-6 rounded-[3rem] bg-accent/20 blur-3xl"
+              />
 
-              {/* Phone frame */}
-              <div className="relative w-[320px] rounded-[2.5rem] border-4 border-white/10 bg-[#0B141A] p-1 shadow-2xl">
-                {/* Notch */}
+              <motion.div
+                animate={{ y: [0, -8, 0] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="relative w-[320px] rounded-[2.5rem] border-4 border-white/10 bg-[#0B141A] p-1 shadow-2xl will-change-transform"
+              >
                 <div className="absolute left-1/2 top-0 z-10 h-6 w-32 -translate-x-1/2 rounded-b-2xl bg-black" />
 
-                {/* WhatsApp Header */}
                 <div className="rounded-t-[2rem] bg-[#1F2C34] px-4 pb-3 pt-10">
                   <div className="flex items-center gap-3">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-purple">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent">
                       <Phone className="h-5 w-5 text-white" />
                     </div>
                     <div>
@@ -293,27 +301,28 @@ export default function WhatsAppSimulator() {
                   </div>
                 </div>
 
-                {/* Chat area */}
-                <div className="h-[400px] overflow-y-auto px-3 py-4 space-y-3">
-                  <AnimatePresence mode="wait">
-                    {messages.map((msg) => (
+                <div className="h-[420px] overflow-y-auto px-3 py-4 space-y-3 scroll-smooth">
+                  <AnimatePresence initial={false}>
+                    {conversation.slice(0, visibleCount).map((msg) => (
                       <ChatBubble key={msg.id} message={msg} />
                     ))}
+                    {isTyping && (
+                      <motion.div
+                        key="typing"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex justify-start"
+                      >
+                        <div className="rounded-2xl bg-[#202C33] rounded-bl-md">
+                          <TypingIndicator />
+                        </div>
+                      </motion.div>
+                    )}
                   </AnimatePresence>
-                  {isTyping && (
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      className="flex justify-start"
-                    >
-                      <div className="rounded-2xl bg-[#202C33] rounded-bl-md">
-                        <TypingIndicator />
-                      </div>
-                    </motion.div>
-                  )}
+                  <div ref={chatEndRef} />
                 </div>
 
-                {/* Input bar */}
                 <div className="rounded-b-[2rem] bg-[#1F2C34] px-3 py-3">
                   <div className="flex items-center gap-2 rounded-full bg-[#2A3942] px-4 py-2">
                     <span className="flex-1 text-sm text-white/30">
@@ -322,7 +331,7 @@ export default function WhatsAppSimulator() {
                     <Mic className="h-5 w-5 text-white/40" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
           </motion.div>
         </div>

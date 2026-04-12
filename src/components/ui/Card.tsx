@@ -1,22 +1,32 @@
+"use client";
+
+import { motion, type HTMLMotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 
-interface CardProps {
+interface CardProps extends Omit<HTMLMotionProps<"div">, "children"> {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
 }
 
-export default function Card({ children, className, hover = true }: CardProps) {
+export default function Card({
+  children,
+  className,
+  hover = true,
+  ...props
+}: CardProps) {
   return (
-    <div
+    <motion.div
+      whileHover={hover ? { y: -6 } : undefined}
+      transition={{ duration: 0.3, ease: "easeOut" }}
       className={cn(
-        "rounded-2xl border border-white/5 bg-brand-dark p-6 lg:p-8",
-        hover &&
-          "transition-all duration-300 hover:border-brand-purple/30 hover:shadow-lg hover:shadow-brand-purple/5",
+        "rounded-2xl border border-border-theme bg-bg-elevated p-6 lg:p-8",
+        hover && "hover:border-accent/30 hover:shadow-xl hover:shadow-accent/5",
         className
       )}
+      {...props}
     >
       {children}
-    </div>
+    </motion.div>
   );
 }
