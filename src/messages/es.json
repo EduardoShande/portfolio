@@ -1,0 +1,186 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "cases": "Casos",
+    "contact": "Contacto",
+    "cta": "Hablar con nosotros"
+  },
+  "home": {
+    "hero": {
+      "badge": "Tecnología + Marketing para tu negocio",
+      "title": "Agentes de IA que controlas por",
+      "titleHighlight": "WhatsApp",
+      "subtitle": "Envía un audio y tu agente de IA agenda citas, responde clientes y gestiona tu negocio. Sin apps complicadas, solo tu WhatsApp.",
+      "cta_primary": "Ver Demo",
+      "cta_secondary": "Agendar Llamada"
+    },
+    "stats": {
+      "automations": "Automatizaciones creadas",
+      "hours": "Horas ahorradas/mes",
+      "clients": "Clientes satisfechos"
+    },
+    "simulator": {
+      "title": "Mira cómo funciona",
+      "subtitle": "Tu negocio en piloto automático con un simple audio de WhatsApp",
+      "scenario_schedule": "Agendar Citas",
+      "scenario_customers": "Atender Clientes",
+      "scenario_inventory": "Consultar Stock",
+      "cta": "¿Quieres esto para tu negocio?",
+      "user_audio_schedule": "Agenda las citas de mañana y confirma con los clientes",
+      "agent_response_schedule": "✅ Citas de mañana organizadas:\n\n09:00 - María López (Corte + Color)\n10:30 - Juan Pérez (Consulta)\n14:00 - Ana García (Tratamiento)\n16:00 - Carlos Ruiz (Corte)\n\n📩 Confirmaciones enviadas por WhatsApp a los 4 clientes.",
+      "user_audio_customers": "Responde los mensajes pendientes de hoy",
+      "agent_response_customers": "📱 5 mensajes respondidos:\n\n1. Rosa M. → Preguntó por horarios → Le envié los disponibles\n2. Pedro L. → Quiere cancelar → Reagendé para el jueves\n3. Lucía S. → Consulta de precios → Le envié el catálogo\n4. Mario T. → Confirmó su cita → Le envié recordatorio\n5. Diana R. → Nueva clienta → La registré y agendé",
+      "user_audio_inventory": "¿Cuánto stock tenemos del shampoo profesional?",
+      "agent_response_inventory": "📦 Stock actual - Shampoo Profesional:\n\n• Shampoo Reparador 500ml → 12 unidades\n• Shampoo Anti-caída 300ml → 8 unidades\n• Shampoo Color Protect 500ml → 3 unidades ⚠️\n\n⚠️ El Color Protect está bajo. ¿Quieres que prepare una orden de compra?"
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "subtitle": "Soluciones digitales completas para hacer crecer tu negocio",
+      "ai_agents": "Agentes de IA",
+      "ai_agents_desc": "Controla tu negocio desde WhatsApp con inteligencia artificial que trabaja 24/7.",
+      "automation": "Automatización",
+      "automation_desc": "Flujos automáticos con N8N que eliminan tareas repetitivas y ahorran horas.",
+      "meta_ads": "Meta Ads",
+      "meta_ads_desc": "Campañas en Facebook e Instagram que traen clientes reales a tu puerta.",
+      "web_dev": "Desarrollo Web",
+      "web_dev_desc": "Sitios web y landing pages rápidos, modernos y que convierten visitas en ventas.",
+      "chatbots": "Chatbots",
+      "chatbots_desc": "Bots inteligentes que responden preguntas frecuentes las 24 horas del día.",
+      "consulting": "Consultoría Digital",
+      "consulting_desc": "Estrategia personalizada para llevar tu negocio al siguiente nivel digital.",
+      "view_all": "Ver todos los servicios"
+    },
+    "social_proof": {
+      "title": "Resultados que hablan",
+      "subtitle": "Empresas que ya confían en nuestras soluciones"
+    },
+    "cta": {
+      "title": "¿Listo para automatizar tu negocio?",
+      "subtitle": "Agenda una llamada gratuita y descubre cómo la IA puede transformar tu operación diaria.",
+      "whatsapp": "Escribir por WhatsApp",
+      "calendar": "Agendar Llamada"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Servicios",
+      "subtitle": "Soluciones digitales de alto impacto para negocios en Bolivia"
+    },
+    "ai_agents": {
+      "title": "Agentes de IA por WhatsApp",
+      "description": "Un asistente inteligente que vive en tu WhatsApp. Envía un audio y tu agente agenda citas, responde clientes, consulta inventario y más. Funciona 24/7 sin que estés presente.",
+      "features": ["Control por voz via WhatsApp", "Agenda y confirma citas automáticamente", "Responde consultas de clientes", "Gestiona inventario y pedidos", "Reportes diarios automáticos", "Funciona 24/7"]
+    },
+    "automation": {
+      "title": "Automatización con N8N",
+      "description": "Conectamos todas tus herramientas y eliminamos tareas repetitivas. Desde enviar facturas automáticas hasta sincronizar tu CRM con tus redes sociales.",
+      "features": ["Flujos de trabajo automatizados", "Integración con +400 apps", "Notificaciones inteligentes", "Sincronización de datos", "Reducción de errores humanos", "Ahorro de horas semanales"]
+    },
+    "meta_ads": {
+      "title": "Publicidad en Meta",
+      "description": "Campañas estratégicas en Facebook e Instagram diseñadas para generar resultados medibles. No solo likes, sino clientes reales entrando por tu puerta.",
+      "features": ["Campañas en Facebook e Instagram", "Segmentación precisa de audiencia", "Optimización continua", "Reportes mensuales de resultados", "Creativos profesionales", "Retargeting inteligente"]
+    },
+    "web_dev": {
+      "title": "Desarrollo Web",
+      "description": "Sitios web y landing pages modernos, rápidos y optimizados para convertir visitantes en clientes. Diseño responsivo que se ve perfecto en cualquier dispositivo.",
+      "features": ["Diseño moderno y profesional", "Optimizado para móviles", "Velocidad de carga rápida", "SEO incorporado", "Formularios de contacto", "Integración con WhatsApp"]
+    },
+    "chatbots": {
+      "title": "Chatbots Inteligentes",
+      "description": "Bots que viven en tu sitio web o WhatsApp y responden preguntas frecuentes, capturan leads y derivan conversaciones complejas a tu equipo.",
+      "features": ["Respuestas automáticas 24/7", "Captura de leads", "Derivación inteligente", "Personalización completa", "Análisis de conversaciones", "Multiidioma"]
+    },
+    "consulting": {
+      "title": "Consultoría Digital",
+      "description": "Analizamos tu negocio y diseñamos una estrategia digital personalizada. Desde la identidad de marca hasta el plan de marketing, te acompañamos en cada paso.",
+      "features": ["Auditoría digital completa", "Estrategia de marketing", "Plan de contenidos", "Identidad de marca", "Análisis de competencia", "Acompañamiento mensual"]
+    },
+    "cta": {
+      "title": "¿No sabes cuál servicio necesitas?",
+      "subtitle": "Cuéntanos sobre tu negocio y te recomendamos la solución perfecta.",
+      "button": "Hablar con un asesor"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Nosotros",
+      "subtitle": "La tecnología al servicio de tu negocio"
+    },
+    "story": {
+      "title": "Nuestra Historia",
+      "p1": "Sycosmart nació con una misión clara: hacer que la tecnología avanzada sea accesible para todos los negocios en Bolivia.",
+      "p2": "Creemos que cada negocio, sin importar su tamaño, merece las mismas herramientas digitales que usan las grandes empresas. Por eso combinamos inteligencia artificial, automatización y marketing digital en soluciones prácticas y accesibles.",
+      "p3": "Nuestro enfoque es simple: entender tu negocio, identificar las oportunidades y construir soluciones que generen resultados reales."
+    },
+    "expertise": {
+      "title": "Nuestra Experiencia",
+      "ai": "Inteligencia Artificial",
+      "ai_desc": "Agentes de IA, chatbots y procesamiento de lenguaje natural.",
+      "automation": "Automatización",
+      "automation_desc": "Flujos de trabajo con N8N e integración de sistemas.",
+      "marketing": "Marketing Digital",
+      "marketing_desc": "Meta Ads, estrategia de contenido y crecimiento orgánico.",
+      "development": "Desarrollo",
+      "development_desc": "Sitios web, landing pages y aplicaciones a medida."
+    },
+    "values": {
+      "title": "Nuestros Valores",
+      "results": "Resultados",
+      "results_desc": "Cada acción que tomamos está orientada a generar un impacto medible en tu negocio.",
+      "transparency": "Transparencia",
+      "transparency_desc": "Comunicación clara, sin letras pequeñas. Sabes exactamente qué hacemos y por qué.",
+      "innovation": "Innovación",
+      "innovation_desc": "Usamos las últimas tecnologías para darte ventaja competitiva real."
+    }
+  },
+  "cases": {
+    "hero": {
+      "title": "Casos de Éxito",
+      "subtitle": "Resultados reales de negocios que confiaron en nosotros"
+    },
+    "coming_soon": {
+      "title": "Próximamente",
+      "description": "Estamos documentando los resultados de nuestros clientes actuales. Pronto podrás ver casos detallados con métricas reales.",
+      "cta": "Sé nuestro próximo caso de éxito"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contacto",
+      "subtitle": "Elige la forma que prefieras para conectar con nosotros"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "description": "La forma más rápida. Escríbenos y te respondemos en minutos.",
+      "button": "Abrir WhatsApp"
+    },
+    "form": {
+      "title": "Formulario",
+      "description": "Cuéntanos sobre tu proyecto y te contactamos.",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "phone": "Teléfono",
+      "business": "Nombre del negocio",
+      "service": "Servicio de interés",
+      "service_placeholder": "Selecciona un servicio",
+      "message": "Mensaje",
+      "submit": "Enviar mensaje",
+      "success": "¡Mensaje enviado! Te contactaremos pronto.",
+      "error": "Hubo un error. Intenta de nuevo."
+    },
+    "calendly": {
+      "title": "Agendar Reunión",
+      "description": "Elige un horario y nos reunimos por videollamada."
+    }
+  },
+  "footer": {
+    "description": "Soluciones digitales con IA y automatización para negocios en Bolivia.",
+    "services": "Servicios",
+    "company": "Empresa",
+    "contact": "Contacto",
+    "rights": "Todos los derechos reservados."
+  }
+}

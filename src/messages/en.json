@@ -1,0 +1,186 @@
+{
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "cases": "Cases",
+    "contact": "Contact",
+    "cta": "Talk to us"
+  },
+  "home": {
+    "hero": {
+      "badge": "Technology + Marketing for your business",
+      "title": "AI Agents you control through",
+      "titleHighlight": "WhatsApp",
+      "subtitle": "Send a voice message and your AI agent schedules appointments, responds to customers, and manages your business. No complicated apps, just your WhatsApp.",
+      "cta_primary": "See Demo",
+      "cta_secondary": "Book a Call"
+    },
+    "stats": {
+      "automations": "Automations built",
+      "hours": "Hours saved/month",
+      "clients": "Happy clients"
+    },
+    "simulator": {
+      "title": "See how it works",
+      "subtitle": "Your business on autopilot with a simple WhatsApp voice message",
+      "scenario_schedule": "Schedule",
+      "scenario_customers": "Customers",
+      "scenario_inventory": "Inventory",
+      "cta": "Want this for your business?",
+      "user_audio_schedule": "Schedule tomorrow's appointments and confirm with clients",
+      "agent_response_schedule": "✅ Tomorrow's appointments organized:\n\n09:00 - María López (Cut + Color)\n10:30 - Juan Pérez (Consultation)\n14:00 - Ana García (Treatment)\n16:00 - Carlos Ruiz (Haircut)\n\n📩 Confirmations sent via WhatsApp to all 4 clients.",
+      "user_audio_customers": "Reply to today's pending messages",
+      "agent_response_customers": "📱 5 messages replied:\n\n1. Rosa M. → Asked about hours → Sent available times\n2. Pedro L. → Wants to cancel → Rescheduled for Thursday\n3. Lucía S. → Price inquiry → Sent the catalog\n4. Mario T. → Confirmed appointment → Sent reminder\n5. Diana R. → New client → Registered and scheduled",
+      "user_audio_inventory": "How much stock do we have of professional shampoo?",
+      "agent_response_inventory": "📦 Current stock - Professional Shampoo:\n\n• Repair Shampoo 500ml → 12 units\n• Anti-fall Shampoo 300ml → 8 units\n• Color Protect Shampoo 500ml → 3 units ⚠️\n\n⚠️ Color Protect is running low. Shall I prepare a purchase order?"
+    },
+    "services": {
+      "title": "Our Services",
+      "subtitle": "Complete digital solutions to grow your business",
+      "ai_agents": "AI Agents",
+      "ai_agents_desc": "Control your business from WhatsApp with AI that works 24/7.",
+      "automation": "Automation",
+      "automation_desc": "Automated workflows with N8N that eliminate repetitive tasks and save hours.",
+      "meta_ads": "Meta Ads",
+      "meta_ads_desc": "Facebook and Instagram campaigns that bring real customers to your door.",
+      "web_dev": "Web Development",
+      "web_dev_desc": "Fast, modern websites and landing pages that convert visitors into sales.",
+      "chatbots": "Chatbots",
+      "chatbots_desc": "Smart bots that answer frequently asked questions 24 hours a day.",
+      "consulting": "Digital Consulting",
+      "consulting_desc": "Personalized strategy to take your business to the next digital level.",
+      "view_all": "View all services"
+    },
+    "social_proof": {
+      "title": "Results that speak",
+      "subtitle": "Companies that already trust our solutions"
+    },
+    "cta": {
+      "title": "Ready to automate your business?",
+      "subtitle": "Book a free call and discover how AI can transform your daily operations.",
+      "whatsapp": "Message on WhatsApp",
+      "calendar": "Book a Call"
+    }
+  },
+  "services": {
+    "hero": {
+      "title": "Services",
+      "subtitle": "High-impact digital solutions for businesses in Bolivia"
+    },
+    "ai_agents": {
+      "title": "AI Agents via WhatsApp",
+      "description": "A smart assistant that lives in your WhatsApp. Send a voice message and your agent schedules appointments, responds to customers, checks inventory, and more. Works 24/7 without you being present.",
+      "features": ["Voice control via WhatsApp", "Automatically schedules and confirms appointments", "Responds to customer inquiries", "Manages inventory and orders", "Automatic daily reports", "Works 24/7"]
+    },
+    "automation": {
+      "title": "N8N Automation",
+      "description": "We connect all your tools and eliminate repetitive tasks. From sending automatic invoices to syncing your CRM with social media.",
+      "features": ["Automated workflows", "Integration with 400+ apps", "Smart notifications", "Data synchronization", "Reduced human errors", "Weekly time savings"]
+    },
+    "meta_ads": {
+      "title": "Meta Advertising",
+      "description": "Strategic Facebook and Instagram campaigns designed to generate measurable results. Not just likes, but real customers walking through your door.",
+      "features": ["Facebook & Instagram campaigns", "Precise audience targeting", "Continuous optimization", "Monthly results reports", "Professional creatives", "Smart retargeting"]
+    },
+    "web_dev": {
+      "title": "Web Development",
+      "description": "Modern, fast websites and landing pages optimized to convert visitors into customers. Responsive design that looks perfect on any device.",
+      "features": ["Modern, professional design", "Mobile optimized", "Fast loading speed", "Built-in SEO", "Contact forms", "WhatsApp integration"]
+    },
+    "chatbots": {
+      "title": "Smart Chatbots",
+      "description": "Bots that live on your website or WhatsApp, answering FAQs, capturing leads, and routing complex conversations to your team.",
+      "features": ["24/7 automatic responses", "Lead capture", "Smart routing", "Full customization", "Conversation analytics", "Multi-language"]
+    },
+    "consulting": {
+      "title": "Digital Consulting",
+      "description": "We analyze your business and design a personalized digital strategy. From brand identity to marketing plans, we guide you every step of the way.",
+      "features": ["Complete digital audit", "Marketing strategy", "Content plan", "Brand identity", "Competitor analysis", "Monthly support"]
+    },
+    "cta": {
+      "title": "Not sure which service you need?",
+      "subtitle": "Tell us about your business and we'll recommend the perfect solution.",
+      "button": "Talk to an advisor"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "About Us",
+      "subtitle": "Technology at the service of your business"
+    },
+    "story": {
+      "title": "Our Story",
+      "p1": "Sycosmart was born with a clear mission: to make advanced technology accessible to every business in Bolivia.",
+      "p2": "We believe every business, regardless of size, deserves the same digital tools that large companies use. That's why we combine artificial intelligence, automation, and digital marketing into practical, accessible solutions.",
+      "p3": "Our approach is simple: understand your business, identify opportunities, and build solutions that generate real results."
+    },
+    "expertise": {
+      "title": "Our Expertise",
+      "ai": "Artificial Intelligence",
+      "ai_desc": "AI agents, chatbots, and natural language processing.",
+      "automation": "Automation",
+      "automation_desc": "N8N workflows and system integration.",
+      "marketing": "Digital Marketing",
+      "marketing_desc": "Meta Ads, content strategy, and organic growth.",
+      "development": "Development",
+      "development_desc": "Websites, landing pages, and custom applications."
+    },
+    "values": {
+      "title": "Our Values",
+      "results": "Results",
+      "results_desc": "Every action we take is oriented towards generating measurable impact on your business.",
+      "transparency": "Transparency",
+      "transparency_desc": "Clear communication, no fine print. You know exactly what we do and why.",
+      "innovation": "Innovation",
+      "innovation_desc": "We use the latest technologies to give you a real competitive advantage."
+    }
+  },
+  "cases": {
+    "hero": {
+      "title": "Success Stories",
+      "subtitle": "Real results from businesses that trusted us"
+    },
+    "coming_soon": {
+      "title": "Coming Soon",
+      "description": "We're documenting results from our current clients. Soon you'll see detailed cases with real metrics.",
+      "cta": "Be our next success story"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact",
+      "subtitle": "Choose your preferred way to connect with us"
+    },
+    "whatsapp": {
+      "title": "WhatsApp",
+      "description": "The fastest way. Write to us and we'll respond in minutes.",
+      "button": "Open WhatsApp"
+    },
+    "form": {
+      "title": "Form",
+      "description": "Tell us about your project and we'll get in touch.",
+      "name": "Full name",
+      "email": "Email address",
+      "phone": "Phone number",
+      "business": "Business name",
+      "service": "Service of interest",
+      "service_placeholder": "Select a service",
+      "message": "Message",
+      "submit": "Send message",
+      "success": "Message sent! We'll contact you soon.",
+      "error": "There was an error. Please try again."
+    },
+    "calendly": {
+      "title": "Book a Meeting",
+      "description": "Pick a time and we'll meet via video call."
+    }
+  },
+  "footer": {
+    "description": "Digital solutions with AI and automation for businesses in Bolivia.",
+    "services": "Services",
+    "company": "Company",
+    "contact": "Contact",
+    "rights": "All rights reserved."
+  }
+}
