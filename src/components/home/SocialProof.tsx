@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Star } from "lucide-react";
 import Container from "@/components/ui/Container";
@@ -65,6 +65,8 @@ const testimonials = [
 
 export default function SocialProof() {
   const t = useTranslations("home.social_proof");
+  const locale = useLocale();
+  const lang: "es" | "en" = locale === "en" ? "en" : "es";
 
   return (
     <section className="py-20 lg:py-32 bg-bg-elevated/50">
@@ -102,7 +104,7 @@ export default function SocialProof() {
                 ))}
               </div>
               <p className="text-sm text-fg-muted leading-relaxed min-h-[100px]">
-                &ldquo;{testimonial.quote.es}&rdquo;
+                &ldquo;{testimonial.quote[lang]}&rdquo;
               </p>
               <div className="mt-4 flex items-center gap-3 border-t border-border-theme pt-4">
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-white text-sm font-semibold">

@@ -32,10 +32,18 @@ const itemVariants = {
   },
 };
 
+// Drop assets at these public paths to enable the video/image header.
+// Both are optional — the gradient + orbs render as a fallback when missing.
+const HERO_VIDEO_MP4 = "/hero/hero.mp4";
+const HERO_VIDEO_WEBM = "/hero/hero.webm";
+const HERO_POSTER = "/hero/hero-poster.jpg";
+
 export default function HeroSection() {
   const t = useTranslations("home.hero");
   const [isMobile, setIsMobile] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Scroll-linked zoom effect
   const { scrollYProgress } = useScroll({
@@ -74,7 +82,15 @@ export default function HeroSection() {
   }, []);
 
   useEffect(() => {
-    if (isMobile) return;
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const update = () => setReducedMotion(mq.matches);
+    update();
+    mq.addEventListener("change", update);
+    return () => mq.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    if (isMobile || reducedMotion) return;
     const handleMouse = (e: MouseEvent) => {
       const x = (e.clientX / window.innerWidth) * 2 - 1;
       const y = (e.clientY / window.innerHeight) * 2 - 1;
@@ -83,7 +99,17 @@ export default function HeroSection() {
     };
     window.addEventListener("mousemove", handleMouse);
     return () => window.removeEventListener("mousemove", handleMouse);
-  }, [isMobile, mouseX, mouseY]);
+  }, [isMobile, reducedMotion, mouseX, mouseY]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (reducedMotion) {
+      video.pause();
+    } else {
+      video.play().catch(() => {});
+    }
+  }, [reducedMotion]);
 
   return (
     <div ref={wrapperRef} className="relative h-[130vh]">
@@ -94,6 +120,40 @@ export default function HeroSection() {
         {/* Base gradient background */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-bg to-bg" />
+        </div>
+
+        {/* ── Header media: video on desktop, poster image on mobile / reduced-motion ── */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {isMobile || reducedMotion ? (
+            <img
+              src={HERO_POSTER}
+              alt=""
+              aria-hidden="true"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+              className="h-full w-full object-cover opacity-40"
+            />
+          ) : (
+            <video
+              ref={videoRef}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={HERO_POSTER}
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+              className="h-full w-full object-cover opacity-40"
+            >
+              <source src={HERO_VIDEO_WEBM} type="video/webm" />
+              <source src={HERO_VIDEO_MP4} type="video/mp4" />
+            </video>
+          )}
+          {/* Readability overlay so headline stays legible over media */}
+          <div className="absolute inset-0 bg-gradient-to-b from-bg/40 via-bg/30 to-bg" />
         </div>
 
         {/* ── LAYER 1: Farthest — background orbs (10% cursor / slow float) ── */}

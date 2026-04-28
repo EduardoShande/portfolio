@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloatingButton from "@/components/shared/WhatsAppFloatingButton";
 import PageTransition from "@/components/shared/PageTransition";
+import HtmlLangSync from "@/components/shared/HtmlLangSync";
 
 export default async function LocaleLayout({
   children,
@@ -23,6 +24,7 @@ export default async function LocaleLayout({
 
   return (
     <NextIntlClientProvider locale={locale} messages={messages}>
+      <HtmlLangSync locale={locale} />
       <Navbar />
       <main className="flex-1">
         <PageTransition>{children}</PageTransition>
