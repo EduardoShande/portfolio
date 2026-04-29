@@ -131,7 +131,7 @@ export default function HeroSection() {
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}
-              className="h-full w-full object-cover opacity-40"
+              className="h-full w-full object-cover opacity-70"
             />
           ) : (
             <video
@@ -145,13 +145,14 @@ export default function HeroSection() {
               onError={(e) => {
                 e.currentTarget.style.display = "none";
               }}
-              className="h-full w-full object-cover opacity-40"
+              className="h-full w-full object-cover opacity-70"
             >
               <source src={HERO_VIDEO_MP4} type="video/mp4" />
             </video>
           )}
-          {/* Readability overlay so headline stays legible over media */}
-          <div className="absolute inset-0 bg-gradient-to-b from-bg/40 via-bg/30 to-bg" />
+          {/* Readability overlay — light at top so video motion shows,
+              darker at bottom so the next section blends in cleanly */}
+          <div className="absolute inset-0 bg-gradient-to-b from-bg/20 via-bg/30 to-bg" />
         </div>
 
         {/* ── LAYER 1: Farthest — background orbs (10% cursor / slow float) ── */}
