@@ -119,7 +119,7 @@ export default function HeroSection() {
             onError={(e) => {
               e.currentTarget.style.display = "none";
             }}
-            className="h-full w-full object-cover opacity-60"
+            className="h-full w-full object-cover"
           />
           {/* Soft fade to bg at the bottom so the next section blends in */}
           <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
@@ -138,7 +138,7 @@ export default function HeroSection() {
               ? { duration: 8, repeat: Infinity, ease: "easeInOut" }
               : undefined
           }
-          className="absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-accent/20 blur-3xl will-change-transform"
+          className="absolute top-1/4 -left-32 h-96 w-96 rounded-full bg-accent/10 blur-3xl will-change-transform"
         />
         <motion.div
           style={isMobile ? undefined : { x: layer1X, y: layer1Y }}
@@ -152,7 +152,7 @@ export default function HeroSection() {
               ? { duration: 9, repeat: Infinity, ease: "easeInOut" }
               : undefined
           }
-          className="absolute bottom-1/4 -right-32 h-[28rem] w-[28rem] rounded-full bg-accent-light/15 blur-3xl will-change-transform"
+          className="absolute bottom-1/4 -right-32 h-[28rem] w-[28rem] rounded-full bg-accent-light/10 blur-3xl will-change-transform"
         />
 
         {/* ── LAYER 2: Mid — floating geometric blobs (20% cursor) ── */}
