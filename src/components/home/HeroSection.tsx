@@ -32,17 +32,16 @@ const itemVariants = {
   },
 };
 
-// Hero media assets (Pixabay Content License — free for commercial use, no
-// attribution required). Replace these files to swap the hero footage.
-const HERO_VIDEO_MP4 = "/hero/hero.mp4";
-const HERO_POSTER = "/hero/hero-poster.jpg";
+// Transparent SVG plexus pattern in accent purple — works in both themes
+// because the accent color is identical (#7C3AED) in light and dark mode
+// and the SVG has no opaque background.
+const HERO_IMAGE = "/hero/hero.svg";
 
 export default function HeroSection() {
   const t = useTranslations("home.hero");
   const [isMobile, setIsMobile] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
 
   // Scroll-linked zoom effect
   const { scrollYProgress } = useScroll({
@@ -100,16 +99,6 @@ export default function HeroSection() {
     return () => window.removeEventListener("mousemove", handleMouse);
   }, [isMobile, reducedMotion, mouseX, mouseY]);
 
-  useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
-    if (reducedMotion) {
-      video.pause();
-    } else {
-      video.play().catch(() => {});
-    }
-  }, [reducedMotion]);
-
   return (
     <div ref={wrapperRef} className="relative h-[130vh]">
       <motion.section
@@ -121,38 +110,19 @@ export default function HeroSection() {
           <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-bg to-bg" />
         </div>
 
-        {/* ── Header media: video on desktop, poster image on mobile / reduced-motion ── */}
+        {/* ── Header image: transparent SVG plexus — works in both themes ── */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {isMobile || reducedMotion ? (
-            <img
-              src={HERO_POSTER}
-              alt=""
-              aria-hidden="true"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-              className="h-full w-full object-cover opacity-70"
-            />
-          ) : (
-            <video
-              ref={videoRef}
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              poster={HERO_POSTER}
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-              }}
-              className="h-full w-full object-cover opacity-70"
-            >
-              <source src={HERO_VIDEO_MP4} type="video/mp4" />
-            </video>
-          )}
-          {/* Readability overlay — light at top so video motion shows,
-              darker at bottom so the next section blends in cleanly */}
-          <div className="absolute inset-0 bg-gradient-to-b from-bg/20 via-bg/30 to-bg" />
+          <img
+            src={HERO_IMAGE}
+            alt=""
+            aria-hidden="true"
+            onError={(e) => {
+              e.currentTarget.style.display = "none";
+            }}
+            className="h-full w-full object-cover opacity-60"
+          />
+          {/* Soft fade to bg at the bottom so the next section blends in */}
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-bg" />
         </div>
 
         {/* ── LAYER 1: Farthest — background orbs (10% cursor / slow float) ── */}
