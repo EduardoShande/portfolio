@@ -32,10 +32,9 @@ const itemVariants = {
   },
 };
 
-// Drop assets at these public paths to enable the video/image header.
-// Both are optional — the gradient + orbs render as a fallback when missing.
+// Hero media assets (Pixabay Content License — free for commercial use, no
+// attribution required). Replace these files to swap the hero footage.
 const HERO_VIDEO_MP4 = "/hero/hero.mp4";
-const HERO_VIDEO_WEBM = "/hero/hero.webm";
 const HERO_POSTER = "/hero/hero-poster.jpg";
 
 export default function HeroSection() {
@@ -148,7 +147,6 @@ export default function HeroSection() {
               }}
               className="h-full w-full object-cover opacity-40"
             >
-              <source src={HERO_VIDEO_WEBM} type="video/webm" />
               <source src={HERO_VIDEO_MP4} type="video/mp4" />
             </video>
           )}
