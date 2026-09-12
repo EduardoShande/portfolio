@@ -1,17 +1,20 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale } from "next-intl";
 import { motion, useInView, useMotionValue, animate } from "motion/react";
 import { useRef, useEffect, useState } from "react";
-import { Workflow, Clock, Users, Gauge } from "lucide-react";
+import { CalendarClock, Gauge, Timer, Globe2 } from "lucide-react";
 import Container from "@/components/ui/Container";
+import { STATS, toLocale } from "@/lib/content";
+
+const ICONS = [CalendarClock, Gauge, Timer, Globe2];
 
 function AnimatedNumber({
   target,
-  suffix = "+",
+  suffix,
 }: {
   target: number;
-  suffix?: string;
+  suffix: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
   const isInView = useInView(ref, { once: true });
@@ -21,7 +24,7 @@ function AnimatedNumber({
   useEffect(() => {
     if (!isInView) return;
     const controls = animate(count, target, {
-      duration: 2,
+      duration: 1.8,
       ease: "easeOut",
       onUpdate: (v) => setDisplayValue(Math.floor(v)),
     });
@@ -37,20 +40,15 @@ function AnimatedNumber({
 }
 
 /**
- * Dark stat band with sloped edges, icon rules and vertical dividers, the
- * way the airline reference breaks its page with a solid navy field. The
- * band token stays near-black in both themes on purpose: it is the anchor
- * the rest of the page is measured against.
+ * Dark stat band with sloped edges, icon rules and vertical dividers, the way
+ * the airline reference breaks its page with a solid navy field. The `band`
+ * token stays near-black in both themes on purpose — it is the anchor the rest
+ * of the page is measured against.
+ *
+ * Every figure traces back to a line in the CV; see STATS in lib/content.ts.
  */
 export default function StatsBar() {
-  const t = useTranslations("home.stats");
-
-  const stats = [
-    { value: 50, suffix: "+", label: t("automations"), icon: Workflow },
-    { value: 200, suffix: "+", label: t("hours"), icon: Clock },
-    { value: 10, suffix: "+", label: t("clients"), icon: Users },
-    { value: 99, suffix: "%", label: t("uptime"), icon: Gauge },
-  ];
+  const lang = toLocale(useLocale());
 
   return (
     <section className="clip-angle-both grain relative bg-band py-24 lg:py-32">
@@ -71,11 +69,11 @@ export default function StatsBar() {
           variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
           className="grid grid-cols-2 gap-y-12 lg:grid-cols-4 lg:gap-y-0"
         >
-          {stats.map((stat, i) => {
-            const Icon = stat.icon;
+          {STATS.map((stat, i) => {
+            const Icon = ICONS[i] ?? Gauge;
             return (
               <motion.div
-                key={stat.label}
+                key={stat.label.en}
                 variants={{
                   hidden: { opacity: 0, y: 24 },
                   visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
@@ -91,7 +89,7 @@ export default function StatsBar() {
                   <AnimatedNumber target={stat.value} suffix={stat.suffix} />
                 </div>
                 <p className="mt-3 max-w-[12rem] text-[11px] font-semibold uppercase leading-relaxed tracking-[0.18em] text-band-muted">
-                  {stat.label}
+                  {stat.label[lang]}
                 </p>
               </motion.div>
             );

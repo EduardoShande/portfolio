@@ -1,409 +1,240 @@
-# How To Guide — Sycosmart Web
+# How To Guide — Eduardo Shande
 
-A plain-language guide for non-developers explaining how to make common changes to the website.
+A plain-language guide to changing the site without touching layout code.
 
 ---
 
-## 1. How to update testimonials
+## The one rule
 
-**File**: `src/components/home/SocialProof.tsx`
+**Facts live in `src/lib/content.ts`. Wording lives in `src/messages/en.json` and
+`src/messages/es.json`.**
 
-Open the file and find the `testimonials` array near the top (around lines 8-60). Each testimonial looks like this:
+A fact is anything that would still be true if the site were in a different
+language: a job title, a date, a metric, a tool name, a project, an email
+address. Wording is headings, button labels, eyebrows and marketing copy.
+
+If you edit a fact in `content.ts`, both languages update at once. If you edit
+wording, **you must edit both message files** or the site will crash on the
+language that is missing the key.
+
+---
+
+## 1. Update anything about you — name, email, phone, links
+
+**File:** `src/lib/content.ts` → the `PROFILE` block at the top.
 
 ```typescript
-{
-  name: "Carlos Suárez",
-  role: "Inmobiliaria Equipetrol",
-  initials: "CS",
-  quote: {
-    es: "Spanish quote here...",
-    en: "English quote here...",
-  },
-},
+export const PROFILE = {
+  name: "Eduardo Shande Guerrero Yucra",
+  shortName: "Eduardo Shande",
+  email: "eduardoshandeone@gmail.com",
+  phone: "+591 73115185",
+  github: "https://github.com/EduardoShande",
+  linkedin: "https://linkedin.com/in/...",
+  cvPath: "/cv/Eduardo-Guerrero-Resume.pdf",
+  studio: "Sycosmart",
+};
 ```
 
-To **add** a new testimonial: copy one of the existing blocks and paste it inside the array.
-To **remove**: delete the whole block (from `{` to `},`).
-To **edit**: change the `name`, `role`, `initials`, or `quote` text directly.
-
-The `initials` show in the avatar circle — usually 2 letters from the name.
+Change a value here and it updates the hero, footer, contact page and mobile
+menu together.
 
 ---
 
-## 2. How to update case studies
+## 2. Replace the CV
 
-**File**: `src/app/[locale]/casos/page.tsx`
+Drop the new PDF into `public/cv/` and point `PROFILE.cvPath` at it. Keeping
+the same filename means you do not have to change anything at all:
 
-Find the `caseStudies` array (around lines 18-90). Each case has this structure:
+```
+public/cv/Eduardo-Guerrero-Resume.pdf
+```
+
+The Download CV buttons on the home and about pages pick it up automatically.
+
+---
+
+## 3. Add a project to the portfolio
+
+**File:** `src/lib/content.ts` → the `PROJECTS` array.
+
+Copy an existing block and edit it:
 
 ```typescript
 {
-  id: "tradiciones",                  // unique identifier
-  client: "Restaurante Tradiciones",  // company name
-  industry: "Gastronomía · Santa Cruz",
-  initials: "RT",                     // avatar initials
-  problem: "Description of problem...",
-  solution: "What you built...",
-  quote: "Client quote here...",
-  quoteAuthor: "Lucía Añez, Propietaria",
-  metrics: [
-    { label: "Aumento en ventas", value: 65, suffix: "%", icon: TrendingUp },
-    { label: "Horas ahorradas/día", value: 5, suffix: "h", icon: Clock },
-    { label: "Pedidos automatizados", value: 100, suffix: "%", icon: Users },
+  id: "unique-id",              // must be unique
+  title: { es: "...", en: "..." },
+  client: { es: "...", en: "..." },
+  category: "automation",        // automation | data | product | web
+  year: "2026",
+  featured: true,                // true = also shows on the home page
+  problem: { es: "...", en: "..." },
+  solution: { es: "...", en: "..." },
+  outcome: { es: "...", en: "..." },   // OPTIONAL — see below
+  stack: ["Python", "n8n"],
+  links: [                        // OPTIONAL
+    { label: { es: "Ver sitio", en: "View site" }, href: "https://..." },
   ],
 },
 ```
 
-The numbers in `value` will animate counting up from 0 when the card scrolls into view.
+**About `outcome`:** leave it out entirely if you do not have a real measured
+number. The card simply will not render the result block. Do not estimate one —
+an invented metric is the single easiest thing for a hiring manager to check and
+disbelieve.
 
-To **add** a case: copy the block, paste it inside the array, and edit the values.
-To **remove**: delete the whole block.
+**About `featured`:** the home page shows only projects with `featured: true`.
+Three looks right in that grid. If you mark a fourth, the row will wrap.
 
 ---
 
-## 3. How to add or remove services
+## 4. Add or change a job
 
-**Two files to update:**
+**File:** `src/lib/content.ts` → the `EXPERIENCE` array.
 
-### File 1 — The services list config
-**File**: `src/app/[locale]/servicios/page.tsx`
-
-Find the `serviceList` array (around lines 22-30):
+The array order is the display order, most recent first. Set `current: true` on
+the role you hold now — it gets a filled marker and a "Current" tag.
 
 ```typescript
-const serviceList = [
-  { key: "ai_agents", icon: Bot, highlight: true },
-  { key: "web_dev", icon: Globe, highlight: false },
-  ...
-];
-```
-
-To **add** a service: add a new line with a unique `key`, an icon (import it from `lucide-react` at the top), and `highlight: false`.
-To **remove**: delete the line.
-
-### File 2 — The translations
-**Files**: `src/messages/es.json` AND `src/messages/en.json`
-
-Find the `services` section. Add a new entry matching your `key`:
-
-```json
-"my_new_service": {
-  "title": "Service Title",
-  "description": "Service description goes here",
-  "deliverables": [
-    "Deliverable 1",
-    "Deliverable 2",
-    "Deliverable 3",
-    "Deliverable 4"
-  ]
+{
+  id: "unique-id",
+  company: "Company Name",
+  role: { es: "...", en: "..." },
+  period: { es: "Mar 2026 — Presente", en: "Mar 2026 — Present" },
+  order: 1,
+  current: true,
+  summary: { es: "...", en: "..." },      // one line, shown everywhere
+  highlights: { es: ["..."], en: ["..."] },  // bullets, about page only
+  stack: ["Python", "n8n"],
 },
 ```
 
-Do this in **both** `es.json` and `en.json` (same key, translated content).
+The home page shows the summary only; the about page shows the full bullets.
 
 ---
 
-## 4. How to connect the contact form to N8N
+## 5. Change the headline numbers in the dark stat band
 
-The contact form sends submissions to an N8N webhook. To set this up:
-
-### Step 1: Create the webhook in N8N
-1. Open your N8N instance
-2. Create a new workflow
-3. Add a "Webhook" node as the trigger
-4. Set the HTTP method to **POST**
-5. Copy the webhook URL N8N gives you
-
-### Step 2: Paste the URL into the website
-
-**Option A — Using `.env.local` (recommended)**
-
-Create a file called `.env.local` in the project root (next to `package.json`) and add:
-
-```
-NEXT_PUBLIC_N8N_WEBHOOK_URL=https://your-n8n-instance.com/webhook/your-id
-```
-
-Then restart the dev server (`npm run dev`).
-
-**Option B — Hardcoded fallback**
-
-**File**: `src/lib/constants.ts` (line 8)
+**File:** `src/lib/content.ts` → the `STATS` array.
 
 ```typescript
-export const N8N_WEBHOOK_URL =
-  process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "PASTE_YOUR_URL_HERE";
+{ value: 50, suffix: "%", label: { es: "...", en: "..." } },
 ```
 
-Replace `"PASTE_YOUR_URL_HERE"` with your actual webhook URL between the quotes.
+`value` must be a number — it animates counting up from zero. Put symbols in
+`suffix`. Every figure currently there traces back to a line in the CV; keep it
+that way.
 
-### Step 3: What the form sends to N8N
+---
 
-The form POSTs a JSON object with these fields:
+## 6. Change what you offer
+
+**File:** `src/lib/content.ts` → the `SERVICES` array.
+
+These drive three places at once: the home page grid, the full services page,
+and the dropdown in the contact form. The first service in the array is the one
+that spans two columns on the home page, so put your strongest offer first.
+
+---
+
+## 7. Change your skills
+
+**File:** `src/lib/content.ts` → `SKILL_GROUPS`. Each group renders as one tile
+on the about page. `items` are plain strings, shown as chips.
+
+Education, certifications and languages are right below it in the same file.
+
+---
+
+## 8. Change headings and button text
+
+**Files:** `src/messages/en.json` AND `src/messages/es.json`.
+
+Headlines are split in two so the second half can be in the accent colour:
 
 ```json
-{
-  "name": "Customer name",
-  "email": "customer@email.com",
-  "phone": "+591 123456",
-  "business": "Their business name",
-  "service": "ai-agents",
-  "budget": "5000-15000",
-  "message": "Their message"
-}
+"title": "Things I have",
+"titleAccent": "built"
 ```
 
-Configure your N8N workflow to handle these fields (send email, save to CRM, etc.).
+renders as: Things I have **built**
 
----
-
-## 5. How to change color themes
-
-**File**: `src/app/globals.css`
-
-Find the theme blocks (look for `[data-theme="..."]`). Each theme has these variables:
-
-```css
-[data-theme="black"] {
-  --theme-bg: #0A0A0A;          /* main background */
-  --theme-bg-elevated: #1C1C1C; /* card backgrounds */
-  --theme-fg: #F9F9F9;          /* main text color */
-  --theme-fg-muted: ...;        /* secondary text */
-  --theme-border: ...;          /* borders */
-  --theme-accent: #7C3AED;      /* main accent (buttons) */
-  --theme-accent-light: ...;    /* lighter accent */
-}
-```
-
-To **change a color**: edit the hex value after the `:` and before the `;`.
-To **add a new theme**: copy a whole `[data-theme="..."]` block, give it a new name, and add it to `THEMES` in `src/components/providers/ThemeProvider.tsx`.
-
----
-
-## 6. How to update contact info (phone, WhatsApp, Calendly)
-
-**File**: `src/lib/constants.ts`
-
-```typescript
-export const WHATSAPP_NUMBER = "59173115185";        // ← change this
-export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-export const CALENDLY_URL = "https://calendly.com/sycosmart"; // ← change this
-```
-
-The WhatsApp number must be in international format **without** the `+` sign or spaces. For Bolivia, it starts with `591`.
-
-The Calendly URL is your full booking page link.
-
-After changing these, the new values will appear everywhere on the site automatically (navbar, footer, floating button, contact page).
-
----
-
-## 7. How to adjust or disable animations
-
-All animations use the `motion` library (Framer Motion).
-
-### Disable a specific animation
-Find the component file and look for `motion.div`, `motion.h1`, etc. Remove the animation props:
-
-```jsx
-// BEFORE
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  whileHover={{ y: -6 }}
->
-
-// AFTER (no animation)
-<div>
-```
-
-You can also change `motion.div` to just `div` to remove all animations from that element.
-
-### Slow down animations
-Look for `transition={{ duration: 0.5 }}` and change `0.5` to a higher number (e.g., `1.5` for slower).
-
-### Disable parallax in hero
-**File**: `src/components/home/HeroSection.tsx`
-
-Find the `useEffect` hook that adds the mousemove listener (around lines 60-70). Comment it out or delete it to disable mouse tracking.
-
-### Disable hover effects on cards
-Search project for `whileHover={{ y: -6 }}` and remove those props.
-
----
-
-## 8. How to deploy updates
-
-### Step 1: Push to GitHub
-
-In a terminal, in the project folder, run:
+**Both files must have the same keys.** If you add a key to one, add it to the
+other. To check:
 
 ```bash
-git add .
-git commit -m "Description of what you changed"
-git push
+node -e "const a=require('./src/messages/en.json'),b=require('./src/messages/es.json');const f=(o,p='',s=[])=>{for(const[k,v]of Object.entries(o)){const q=p?p+'.'+k:k;v&&typeof v=='object'?f(v,q,s):s.push(q)}return s};const A=f(a).sort(),B=f(b).sort();console.log(A.length===B.length&&A.every((k,i)=>k===B[i])?'OK':'MISMATCH')"
 ```
 
-### Step 2: Vercel auto-deploys
+---
 
-If the project is connected to Vercel (free hosting), it will automatically detect the push and deploy in 1-2 minutes. You can check the status at https://vercel.com
+## 9. Change the scrolling ticker
 
-### Step 3: Coolify (when VPS is ready)
+**File:** `src/components/home/MarqueeStrip.tsx` → the `TOOLS` array. These are
+tool names, so there is one list for both languages.
 
-When you switch to the Contabo VPS with Coolify:
-1. Coolify is also connected to GitHub
-2. It auto-deploys on every push
-3. You manage everything from the Coolify dashboard
+---
 
-### Testing locally before pushing
+## 10. Change the colours
 
-Always test changes locally first:
+**File:** `src/app/globals.css`.
+
+The accent is defined twice — once for dark mode, once for light:
+
+```css
+:root, [data-theme="dark"] { --theme-accent: #FF3D2E; }
+[data-theme="light"]       { --theme-accent: #E5341F; }
+```
+
+Light mode uses a slightly deeper red because the bright one does not hold up
+against a near-white background.
+
+`--theme-band` stays near-black in **both** themes on purpose — it is what makes
+the stat bar and closing CTA read as solid dark fields on the light site.
+
+---
+
+## 11. Add a page
+
+1. Create `src/app/[locale]/your-page/page.tsx`
+2. Register it in `src/i18n/routing.ts`:
+
+```typescript
+"/your-page": { en: "/your-page", es: "/tu-pagina" },
+```
+
+3. Add it to `navLinks` in `src/components/layout/Navbar.tsx` (the footer and
+   mobile menu both import that same list, so they update automatically).
+4. Add a `nav.your_page` key to both message files.
+
+---
+
+## 12. Where the WhatsApp number and Calendly link live
+
+**File:** `src/lib/constants.ts`.
+
+Calendly can also be set without touching code, via `.env.local`:
+
+```
+NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-link
+```
+
+The contact form posts to `NEXT_PUBLIC_N8N_WEBHOOK_URL`. If that is empty the
+form still validates but the submission goes nowhere — set it before relying on
+the form.
+
+---
+
+## 13. Run it
 
 ```bash
 npm run dev
 ```
 
-Open http://localhost:3000 and check that everything looks right. When you're happy, then push.
+Then open http://localhost:3000. Before pushing:
 
----
-
-## Quick Reference: Where Things Live
-
-| What you want to change | File |
-|-------------------------|------|
-| Hero text | `src/messages/es.json` (and `en.json`) → `home.hero` |
-| Service descriptions | `src/messages/es.json` → `services.*` |
-| Testimonials | `src/components/home/SocialProof.tsx` |
-| Case studies | `src/app/[locale]/casos/page.tsx` |
-| WhatsApp number | `src/lib/constants.ts` |
-| Calendly URL | `src/lib/constants.ts` or `.env.local` |
-| N8N webhook | `.env.local` |
-| Theme colors | `src/app/globals.css` |
-| Add a new page | Create folder in `src/app/[locale]/your-page/page.tsx` |
-| Navbar links | `src/components/layout/Navbar.tsx` (`navLinks` array) |
-| Footer links | `src/components/layout/Footer.tsx` |
-
----
-
-## 9. How to change the default theme (light or dark)
-
-The site ships with **dark mode as the default**. When a new visitor loads the site, they see dark mode unless they've previously chosen light mode (saved in their browser's localStorage).
-
-**File**: `src/components/providers/ThemeProvider.tsx`
-
-Find this line (around line 20):
-
-```typescript
-const [theme, setThemeState] = useState<Theme>("dark");
+```bash
+npm run build
 ```
 
-Change `"dark"` to `"light"` if you want light mode as the default. Also change the fallback below:
-
-```typescript
-const initial: Theme = stored === "light" || stored === "dark" ? stored : "dark";
-```
-
-Change the final `"dark"` to `"light"` so first-time visitors see light mode.
-
----
-
-## 10. How to add new icons using Lucide React
-
-All icons on the site use the **Lucide React** library (`lucide-react`). It has thousands of clean, professional icons.
-
-### Step 1: Browse icons
-Visit https://lucide.dev/icons to find the icon you want. Each icon has a name like `Building2`, `Smartphone`, `TrendingUp`, etc.
-
-### Step 2: Import it in your file
-
-At the top of the file where you want to use the icon, add it to the import list:
-
-```typescript
-import { Building2, Smartphone, TrendingUp } from "lucide-react";
-```
-
-### Step 3: Use it in JSX
-
-```jsx
-<Building2 className="h-5 w-5 text-accent-light" />
-```
-
-### Icon size guidelines
-
-The project uses consistent sizing. Pick one based on where the icon goes:
-
-| Context | Tailwind class |
-|---------|----------------|
-| Inline / label | `h-4 w-4` (16px) |
-| List items | `h-5 w-5` (20px) |
-| Card headers | `h-6 w-6` (24px) |
-| Feature highlights | `h-8 w-8` (32px) |
-
-### Icon colors
-
-**Never hardcode colors on icons**. Use theme-aware classes:
-- `text-accent` — main accent color
-- `text-accent-light` — lighter accent
-- `text-fg` — main text color
-- `text-fg-muted` — secondary text
-
-Example:
-
-```jsx
-<Building2 className="h-5 w-5 text-accent" />
-```
-
-This way the icon adapts automatically when the user switches between light and dark themes.
-
----
-
-## 11. How to disable the sticky zoom effect on the hero
-
-The hero section scales up smoothly as the user scrolls down. If you want to remove this effect:
-
-**File**: `src/components/home/HeroSection.tsx`
-
-### Option A — Disable the zoom but keep the layout
-
-Find the `scale` and `opacity` transforms (around lines 52-53):
-
-```typescript
-const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
-const opacity = useTransform(scrollYProgress, [0, 0.6, 1], [1, 1, 0]);
-```
-
-Change them to:
-
-```typescript
-const scale = 1;
-const opacity = 1;
-```
-
-Or just remove `style={{ scale, opacity }}` from the `motion.section` element.
-
-### Option B — Remove the sticky positioning entirely
-
-Find the outer wrapper (around line 94):
-
-```jsx
-<div ref={wrapperRef} className="relative h-[130vh]">
-  <motion.section
-    style={{ scale, opacity }}
-    className="sticky top-0 h-screen ..."
-```
-
-Change to:
-
-```jsx
-<div ref={wrapperRef} className="relative">
-  <motion.section
-    className="h-screen ..."
-```
-
-(Remove `h-[130vh]` from the wrapper, remove `sticky top-0` from the section, remove `style={{ scale, opacity }}`.)
-
----
-
-## Need Help?
-
-If you get stuck, look in `docs/PROJECT.md` for technical details about how the project is structured, or check the `docs/CHANGES.md` for the history of changes.
+If the build passes, the site is deployable.

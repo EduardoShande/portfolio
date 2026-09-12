@@ -23,7 +23,7 @@ const steps = [
  * left, since a zig-zag has nowhere to go at 375px.
  */
 export default function ProcessSteps() {
-  const t = useTranslations("home.process");
+  const t = useTranslations("services.process");
 
   return (
     <section className="relative overflow-hidden py-20 lg:py-32">

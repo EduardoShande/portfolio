@@ -1,26 +1,32 @@
 import { defineRouting } from "next-intl/routing";
 
+/**
+ * English is the default locale: the site is aimed first at US employers and
+ * US clients, with Spanish one click away for local work. The internal
+ * pathname keys are English too, so `<Link href="/work">` reads the same way
+ * it renders.
+ */
 export const routing = defineRouting({
-  locales: ["es", "en"],
-  defaultLocale: "es",
+  locales: ["en", "es"],
+  defaultLocale: "en",
   localePrefix: "as-needed",
   pathnames: {
     "/": "/",
-    "/servicios": {
-      es: "/servicios",
-      en: "/services",
+    "/work": {
+      en: "/work",
+      es: "/trabajo",
     },
-    "/nosotros": {
-      es: "/nosotros",
+    "/about": {
       en: "/about",
+      es: "/sobre-mi",
     },
-    "/casos": {
-      es: "/casos",
-      en: "/cases",
+    "/services": {
+      en: "/services",
+      es: "/servicios",
     },
-    "/contacto": {
-      es: "/contacto",
+    "/contact": {
       en: "/contact",
+      es: "/contacto",
     },
   },
 });

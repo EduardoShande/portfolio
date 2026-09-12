@@ -2,132 +2,136 @@
 
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { motion } from "motion/react";
-import { Globe, MessageCircle, Mail } from "lucide-react";
-import { WHATSAPP_URL, SITE_NAME } from "@/lib/constants";
+import {
+  Mail,
+  MessageCircle,
+  MapPin,
+} from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
+import Container from "@/components/ui/Container";
+import {
+  GITHUB_URL,
+  LINKEDIN_URL,
+  EMAIL_URL,
+  WHATSAPP_URL,
+} from "@/lib/constants";
+import { PROFILE } from "@/lib/content";
+import { navLinks } from "./Navbar";
+import { useLocale } from "next-intl";
+import { toLocale } from "@/lib/content";
+
+const elsewhere = [
+  { href: GITHUB_URL, Icon: GithubIcon, label: "GitHub" },
+  { href: LINKEDIN_URL, Icon: LinkedinIcon, label: "LinkedIn" },
+];
 
 export default function Footer() {
   const t = useTranslations("footer");
-  const nav = useTranslations("nav");
+  const tNav = useTranslations("nav");
+  const lang = toLocale(useLocale());
+  const year = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border-theme bg-bg-elevated">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4"
-        >
-          {/* Brand */}
-          <div className="sm:col-span-2 lg:col-span-1">
-            <span className="text-xl font-bold font-heading tracking-tight">
-              <span className="text-accent">Syco</span>
-              <span className="text-fg">smart</span>
-            </span>
-            <p className="mt-3 text-sm text-fg-muted max-w-xs leading-relaxed">
+    <footer className="relative overflow-hidden border-t border-border-theme bg-bg-sunken">
+      <div
+        aria-hidden="true"
+        className="absolute -left-20 top-0 h-full w-[24rem] -rotate-12 bg-accent/[0.04]"
+      />
+
+      <Container className="relative py-16 lg:py-20">
+        <div className="grid gap-12 lg:grid-cols-12">
+          {/* Identity */}
+          <div className="lg:col-span-5">
+            <p className="font-heading text-xl font-bold tracking-[-0.02em]">
+              <span className="text-accent">Eduardo</span>
+              <span className="text-fg"> Shande</span>
+            </p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-fg-muted">
               {t("description")}
             </p>
-            <div className="mt-4 flex items-center gap-2 text-xs text-fg-muted">
-              <Globe className="h-4 w-4 text-accent" />
-              <span>{t("tagline")}</span>
-            </div>
+            <p className="mt-5 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-fg-muted">
+              <MapPin className="h-3.5 w-3.5 text-accent" />
+              {PROFILE.location[lang]}
+            </p>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-fg-muted">
-              {t("services")}
-            </h3>
-            <ul className="mt-4 space-y-3">
-              {[
-                { label: "AI Agents", icon: null },
-                { label: "Automation", icon: null },
-                { label: "Web Development", icon: null },
-                { label: "Mobile Apps", icon: null },
-                { label: "Digital Marketing", icon: null },
-              ].map((service) => (
-                <li key={service.label}>
+          {/* Navigation */}
+          <div className="lg:col-span-3">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg">
+              {t("nav_title")}
+            </p>
+            <ul className="mt-5 space-y-3">
+              {navLinks.map((link) => (
+                <li key={link.key}>
                   <Link
-                    href="/servicios"
-                    className="text-sm text-fg-muted hover:text-accent transition-colors"
+                    href={link.href}
+                    className="text-sm text-fg-muted transition-colors hover:text-accent"
                   >
-                    {service.label}
+                    {tNav(link.key)}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Company */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-fg-muted">
-              {t("company")}
-            </h3>
-            <ul className="mt-4 space-y-3">
+          {/* Contact + elsewhere */}
+          <div className="lg:col-span-4">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg">
+              {t("contact_title")}
+            </p>
+            <ul className="mt-5 space-y-3">
               <li>
-                <Link
-                  href="/nosotros"
-                  className="text-sm text-fg-muted hover:text-accent transition-colors"
+                <a
+                  href={EMAIL_URL}
+                  className="flex items-center gap-2 text-sm text-fg-muted transition-colors hover:text-accent"
                 >
-                  {nav("about")}
-                </Link>
+                  <Mail className="h-4 w-4" />
+                  {PROFILE.email}
+                </a>
               </li>
-              <li>
-                <Link
-                  href="/casos"
-                  className="text-sm text-fg-muted hover:text-accent transition-colors"
-                >
-                  {nav("cases")}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contacto"
-                  className="text-sm text-fg-muted hover:text-accent transition-colors"
-                >
-                  {nav("contact")}
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-fg-muted">
-              {t("contact")}
-            </h3>
-            <ul className="mt-4 space-y-3">
               <li>
                 <a
                   href={WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-fg-muted hover:text-whatsapp transition-colors"
+                  className="flex items-center gap-2 text-sm text-fg-muted transition-colors hover:text-accent"
                 >
                   <MessageCircle className="h-4 w-4" />
-                  WhatsApp
+                  {PROFILE.phone}
                 </a>
               </li>
-              <li>
-                <Link
-                  href="/contacto"
-                  className="flex items-center gap-2 text-sm text-fg-muted hover:text-accent transition-colors"
-                >
-                  <Mail className="h-4 w-4" />
-                  {nav("contact")}
-                </Link>
-              </li>
             </ul>
-          </div>
-        </motion.div>
 
-        <div className="mt-12 border-t border-border-theme pt-8">
-          <p className="text-center text-xs text-fg-muted">
-            &copy; {new Date().getFullYear()} {SITE_NAME}. {t("rights")}
+            <p className="mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-fg">
+              {t("elsewhere_title")}
+            </p>
+            <div className="mt-4 flex items-center gap-2">
+              {elsewhere.map(({ href, Icon, label }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center border border-border-theme text-fg-muted transition-colors hover:border-accent hover:text-accent"
+                >
+                  <Icon className="h-4 w-4" />
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-14 flex flex-col gap-3 border-t border-border-theme pt-8 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs text-fg-muted">
+            © {year} {PROFILE.shortName}. {t("rights")}
+          </p>
+          <p className="text-xs text-fg-muted">
+            {t("studio_note")}{" "}
+            <span className="font-semibold text-accent">{PROFILE.studio}</span>.
           </p>
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }

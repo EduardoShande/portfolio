@@ -3,6 +3,7 @@
 import { motion, type HTMLMotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Link } from "@/i18n/navigation";
 
 /**
  * Buttons are sharp rectangles, not pills — matching the hard-edged CTA
@@ -41,30 +42,61 @@ const buttonVariants = cva(
 type ButtonBaseProps = VariantProps<typeof buttonVariants> & {
   className?: string;
   href?: string;
+  /** Force an external anchor for an internal-looking path (e.g. a PDF). */
+  external?: boolean;
   children?: React.ReactNode;
 };
 
 type ButtonProps = ButtonBaseProps &
   Omit<HTMLMotionProps<"button">, keyof ButtonBaseProps>;
 
+const MotionLink = motion.create(Link);
+
+const hoverMotion = {
+  whileHover: { y: -2 },
+  whileTap: { y: 0, scale: 0.98 },
+  transition: { duration: 0.2 },
+} as const;
+
 export default function Button({
   className,
   variant,
   size,
   href,
+  external,
   children,
   ...props
 }: ButtonProps) {
+  const classes = cn(buttonVariants({ variant, size, className }));
+
   if (href) {
+    // Internal routes go through the locale-aware Link so the Spanish site
+    // resolves /work to /trabajo. Anything else — http(s), mailto, tel, a
+    // hash, or a static file like the CV — stays a plain anchor.
+    const isRoute =
+      !external && href.startsWith("/") && !href.includes(".");
+
+    if (isRoute) {
+      return (
+        <MotionLink
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          href={href as any}
+          {...hoverMotion}
+          className={classes}
+        >
+          {children}
+        </MotionLink>
+      );
+    }
+
+    const isAbsolute = href.startsWith("http");
     return (
       <motion.a
         href={href}
-        target={href.startsWith("http") ? "_blank" : undefined}
-        rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-        whileHover={{ y: -2 }}
-        whileTap={{ y: 0, scale: 0.98 }}
-        transition={{ duration: 0.2 }}
-        className={cn(buttonVariants({ variant, size, className }))}
+        target={isAbsolute || external ? "_blank" : undefined}
+        rel={isAbsolute || external ? "noopener noreferrer" : undefined}
+        {...hoverMotion}
+        className={classes}
       >
         {children}
       </motion.a>
@@ -72,13 +104,7 @@ export default function Button({
   }
 
   return (
-    <motion.button
-      whileHover={{ y: -2 }}
-      whileTap={{ y: 0, scale: 0.98 }}
-      transition={{ duration: 0.2 }}
-      className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
-    >
+    <motion.button {...hoverMotion} className={classes} {...props}>
       {children}
     </motion.button>
   );

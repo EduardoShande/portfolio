@@ -323,7 +323,7 @@ export default function WhatsAppSimulator() {
                     </div>
                     <div>
                       <p className="text-sm font-semibold text-white">
-                        Sycosmart AI
+                        Agente IA
                       </p>
                       <p className="text-xs text-whatsapp">online</p>
                     </div>

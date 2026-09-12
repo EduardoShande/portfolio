@@ -1,38 +1,51 @@
 {
   "nav": {
     "home": "Inicio",
+    "work": "Trabajo",
+    "about": "Sobre mí",
     "services": "Servicios",
-    "about": "Nosotros",
-    "cases": "Casos",
     "contact": "Contacto",
-    "cta": "Hablar con nosotros"
+    "cta": "Hablemos"
   },
   "home": {
     "hero": {
-      "badge": "Tecnología + Marketing para tu negocio",
-      "title": "Agentes de IA que controlas por",
-      "titleHighlight": "WhatsApp",
-      "subtitle": "Envía un audio y tu agente de IA agenda citas, califica leads y gestiona tu negocio. Sin apps complicadas, solo tu WhatsApp.",
-      "cta_primary": "Ver Demo",
-      "cta_secondary": "Agendar Llamada",
-      "stat_uptime": "Siempre activo",
-      "stat_time": "Menos trabajo manual",
-      "panel_label": "Agente en vivo",
-      "panel_caption": "Tu operación completa, controlada desde un solo chat de WhatsApp."
+      "available": "Disponible para trabajo y proyectos",
+      "role": "Ingeniero de Datos y Automatización",
+      "headline": "Construyo sistemas que le quitan",
+      "headlineAccent": "el trabajo manual",
+      "headlineEnd": "a tu equipo",
+      "subtitle": "Tres años construyendo pipelines de datos, flujos automatizados e integraciones con IA para empresas en Bolivia y Estados Unidos. Bajé tiempos de procesamiento entre 40% y 50% haciendo exactamente esto.",
+      "cta_work": "Ver mi trabajo",
+      "cta_cv": "Descargar CV",
+      "panel_label": "Ahora mismo",
+      "panel_caption": "Ingeniero de Automatización en CarSans. Abierto a roles remotos y a proyectos freelance.",
+      "chip_years": "Años construyendo",
+      "chip_impact": "Menos tiempo de proceso"
     },
     "stats": {
-      "automations": "Automatizaciones creadas",
-      "hours": "Horas ahorradas/mes",
-      "clients": "Clientes satisfechos",
-      "uptime": "Disponibilidad del sistema"
+      "eyebrow": "En números",
+      "title": "Lo que he",
+      "titleAccent": "entregado"
+    },
+    "work": {
+      "eyebrow": "Trabajo seleccionado",
+      "title": "Cosas que",
+      "titleAccent": "he construido",
+      "subtitle": "Sistemas reales, en producción, con resultados que se pueden medir.",
+      "view_all": "Ver todo el trabajo",
+      "problem_label": "El problema",
+      "solution_label": "Lo que construí",
+      "outcome_label": "Resultado"
     },
     "simulator": {
-      "title": "Mira cómo",
-      "subtitle": "Casos reales que empresas ya están usando para escalar sus operaciones",
+      "eyebrow": "Demo en vivo",
+      "title": "Un agente que",
+      "titleAccent": "construí",
+      "subtitle": "Así es como se ve un agente conectado a sistemas reales. Elige un escenario y mira la conversación.",
+      "cta": "¿Quieres algo así en tu operación?",
       "scenario_sales": "Ventas con IA",
       "scenario_operations": "Hub de Operaciones",
       "scenario_intelligence": "Inteligencia de Clientes",
-      "cta": "¿Quieres esto para tu empresa?",
       "sales_title": "AI Sales Assistant",
       "sales_description": "Un agente de IA que califica leads, responde preguntas sobre productos y agenda reuniones automáticamente, las 24 horas del día. Perfecto para inmobiliarias, concesionarias y empresas B2B.",
       "sales_benefit_1": "Califica leads automáticamente con preguntas inteligentes",
@@ -65,222 +78,155 @@
       "intel_msg_3": "🔍 Patrones detectados:\n\n• 15 no han usado el servicio en 14+ días\n• 6 redujeron su frecuencia de uso\n• 2 reportaron problemas técnicos sin resolver",
       "intel_msg_4": "¿Puedes hacer algo para retenerlos?",
       "intel_msg_5": "🎯 Plan de retención iniciado:\n\n💌 Enviando ofertas personalizadas a los 15 inactivos\n📞 Agendando llamadas con los 6 que redujeron uso\n🛠️ Asignando soporte prioritario a los 2 con problemas",
-      "intel_msg_7": "✅ Acciones ejecutadas. Te enviaré un reporte en 7 días con la tasa de recuperación. Mi proyección: rescataremos al menos 16 de 23 clientes (70%).",
-      "eyebrow": "Demo en vivo",
-      "titleAccent": "funciona"
+      "intel_msg_7": "✅ Acciones ejecutadas. Te enviaré un reporte en 7 días con la tasa de recuperación. Mi proyección: rescataremos al menos 16 de 23 clientes (70%)."
+    },
+    "experience": {
+      "eyebrow": "Trayectoria",
+      "title": "Dónde",
+      "titleAccent": "he trabajado",
+      "subtitle": "De desarrollador web a ingeniero de datos y automatización, en cuatro años.",
+      "view_all": "Ver perfil completo",
+      "current_label": "Actual"
     },
     "services": {
-      "title": "Nuestros",
-      "subtitle": "Soluciones digitales completas para hacer crecer tu negocio",
-      "ai_agents": "Agentes de IA",
-      "ai_agents_desc": "Controla tu negocio desde WhatsApp con inteligencia artificial que trabaja 24/7.",
-      "automation": "Automatización N8N",
-      "automation_desc": "Flujos automáticos que eliminan tareas repetitivas y ahorran horas.",
-      "meta_ads": "Meta Ads",
-      "meta_ads_desc": "Campañas en Facebook e Instagram que traen clientes reales a tu puerta.",
-      "web_dev": "Desarrollo Web",
-      "web_dev_desc": "Sitios web rápidos, modernos y que convierten visitas en ventas.",
-      "mobile_apps": "Mobile Apps",
-      "mobile_apps_desc": "Apps Android e iOS para herramientas internas o productos al cliente.",
-      "consulting": "Consultoría Digital",
-      "consulting_desc": "Estrategia personalizada para llevar tu negocio al siguiente nivel.",
-      "view_all": "Ver todos los servicios",
-      "eyebrow": "Lo que hacemos",
-      "titleAccent": "Servicios",
+      "eyebrow": "Cómo puedo ayudarte",
+      "title": "En qué",
+      "titleAccent": "trabajo",
+      "subtitle": "Si tienes un proceso que consume horas o datos en los que nadie confía, eso es lo que resuelvo.",
+      "view_all": "Ver servicios",
       "learn_more": "Ver más"
     },
-    "social_proof": {
-      "title": "Resultados que",
-      "subtitle": "Empresas que ya confían en nuestras soluciones",
-      "eyebrow": "Resultados de clientes",
-      "titleAccent": "hablan"
-    },
     "cta": {
-      "title": "¿Listo para automatizar",
-      "subtitle": "Agenda una llamada gratuita y descubre cómo la IA puede transformar tu operación.",
-      "whatsapp": "Escribir por WhatsApp",
-      "calendar": "Agendar Llamada",
       "eyebrow": "Siguiente paso",
-      "titleAccent": "tu negocio?",
-      "ghost": "CONTACTO"
-    },
-    "marquee": {
-      "ai_agents": "Agentes de IA",
-      "automation": "Automatización n8n",
-      "data": "Pipelines de datos",
-      "whatsapp": "WhatsApp API",
-      "web": "Desarrollo web",
-      "ads": "Meta Ads",
-      "apps": "Apps móviles",
-      "integrations": "Integraciones"
-    },
-    "process": {
-      "eyebrow": "Cómo trabajamos",
-      "title": "Cuatro pasos,",
-      "titleAccent": "cero fricción",
-      "subtitle": "Un proceso corto y medible. Sabes qué pasa en cada etapa y qué recibes al final.",
-      "discovery_title": "Diagnóstico",
-      "discovery_desc": "Mapeamos tu operación actual, identificamos dónde se pierden horas y dinero, y definimos qué automatizar primero.",
-      "discovery_meta": "Semana 1",
-      "design_title": "Diseño de la solución",
-      "design_desc": "Diseñamos el flujo completo: qué hace el agente, con qué sistemas se conecta y cómo se mide el resultado.",
-      "design_meta": "Semana 1–2",
-      "build_title": "Construcción",
-      "build_desc": "Construimos e integramos todo — agente de IA, automatizaciones n8n, CRM y WhatsApp — y lo probamos con datos reales.",
-      "build_meta": "Semanas 2–4",
-      "scale_title": "Optimización",
-      "scale_desc": "Monitoreamos, ajustamos y escalamos. Recibes reportes con horas ahorradas y resultados concretos.",
-      "scale_meta": "Continuo"
+      "title": "¿Tienes un proceso que",
+      "titleAccent": "debería correr solo?",
+      "subtitle": "Cuéntame qué está consumiendo tiempo en tu equipo. Si puedo ayudarte, te digo cómo; si no, te digo eso también.",
+      "whatsapp": "Escríbeme por WhatsApp",
+      "calendar": "Agendar una llamada",
+      "email": "Enviar un correo",
+      "ghost": "HABLEMOS"
     }
   },
-  "services": {
+  "work": {
     "hero": {
-      "title": "Servicios",
-      "subtitle": "Soluciones digitales de alto impacto para empresas globales"
+      "eyebrow": "Portafolio",
+      "title": "Trabajo",
+      "titleAccent": "seleccionado",
+      "subtitle": "Automatización, datos, productos propios y sitios web. Algunos clientes aparecen sin nombre porque no tengo permiso para nombrarlos."
     },
-    "deliverables_label": "Qué incluye",
-    "request_button": "Solicitar este servicio",
-    "ai_agents": {
-      "title": "Agentes de IA & Automatización",
-      "description": "Workflows con N8N, chatbots inteligentes, calificación automática de leads, y respuestas automáticas. Tu negocio funcionando 24/7 sin que estés presente.",
-      "deliverables": [
-        "Workflows N8N personalizados",
-        "Chatbots con IA para WhatsApp y web",
-        "Calificación automática de leads",
-        "Respuestas automáticas inteligentes"
-      ]
-    },
-    "web_dev": {
-      "title": "Desarrollo Web",
-      "description": "Sitios corporativos, landing pages, e-commerce y aplicaciones web a medida. Diseño moderno, rendimiento optimizado y enfocado en conversión.",
-      "deliverables": [
-        "Sitios corporativos profesionales",
-        "Landing pages que convierten",
-        "Tiendas e-commerce completas",
-        "Aplicaciones web personalizadas"
-      ]
-    },
-    "mobile_apps": {
-      "title": "Mobile Apps",
-      "description": "Apps nativas Android e iOS para herramientas internas de tu equipo o productos para tus clientes. Diseño intuitivo y código optimizado.",
-      "deliverables": [
-        "Apps Android nativas",
-        "Apps iOS nativas",
-        "Apps cross-platform",
-        "Mantenimiento y actualizaciones"
-      ]
-    },
-    "crm": {
-      "title": "Implementación de CRM",
-      "description": "Configuración y personalización completa de sistemas CRM para equipos de ventas. Conectado con WhatsApp, email y todas tus herramientas.",
-      "deliverables": [
-        "Setup y configuración inicial",
-        "Personalización de campos y flujos",
-        "Migración de datos existentes",
-        "Capacitación del equipo"
-      ]
-    },
-    "meta_ads": {
-      "title": "Gestión de Meta Ads",
-      "description": "Estrategia, creativos y optimización de campañas en Facebook e Instagram. No solo likes, sino clientes reales y ventas medibles.",
-      "deliverables": [
-        "Estrategia de campañas",
-        "Creativos profesionales",
-        "Optimización continua",
-        "Reportes mensuales detallados"
-      ]
-    },
-    "digital_marketing": {
-      "title": "Marketing Digital",
-      "description": "SEO, Google Ads, estrategia de contenidos y manejo completo de redes sociales. Una estrategia 360° para crecer tu marca online.",
-      "deliverables": [
-        "Optimización SEO completa",
-        "Campañas en Google Ads",
-        "Estrategia de contenidos",
-        "Gestión de redes sociales"
-      ]
-    },
-    "custom_software": {
-      "title": "Software Personalizado & APIs",
-      "description": "Herramientas internas, integraciones, dashboards y pipelines de datos a la medida de tu empresa. Resolvemos problemas únicos con código a medida.",
-      "deliverables": [
-        "Herramientas internas a medida",
-        "Integraciones entre sistemas",
-        "Dashboards y reportería",
-        "Pipelines de datos automatizados"
-      ]
-    },
+    "filter_all": "Todo",
+    "cat_automation": "Automatización",
+    "cat_data": "Datos",
+    "cat_product": "Producto propio",
+    "cat_web": "Web",
+    "problem_label": "El problema",
+    "solution_label": "Lo que construí",
+    "outcome_label": "Resultado",
+    "stack_label": "Stack",
     "cta": {
-      "title": "¿No sabes cuál servicio necesitas?",
-      "subtitle": "Cuéntanos sobre tu negocio y te recomendamos la solución perfecta.",
-      "button": "Hablar con un asesor"
+      "title": "¿Tu caso se parece a alguno de estos?",
+      "subtitle": "Cuéntame qué estás intentando resolver.",
+      "button": "Hablemos"
     }
   },
   "about": {
     "hero": {
-      "title": "Nosotros",
-      "subtitle": "La tecnología al servicio de tu negocio"
+      "eyebrow": "Sobre mí",
+      "title": "Eduardo Shande",
+      "titleAccent": "Guerrero",
+      "subtitle": "Ingeniero de Datos y Automatización en Santa Cruz de la Sierra, Bolivia."
     },
     "story": {
-      "title": "Nuestra Historia",
-      "p1": "Sycosmart nació con una misión clara: hacer que la tecnología avanzada sea accesible para empresas en todo el mundo.",
-      "p2": "Creemos que cada empresa, sin importar su tamaño o ubicación, merece las mismas herramientas digitales que usan las grandes corporaciones. Por eso combinamos IA, automatización y marketing digital en soluciones prácticas que funcionan globalmente.",
-      "p3": "Nuestro enfoque es simple: entender tu negocio, identificar oportunidades y construir soluciones que generen resultados reales — sin importar dónde estés."
+      "title": "La versión corta",
+      "p1": "Empecé escribiendo aplicaciones web para negocios pequeños en Santa Cruz. Lo que me terminó interesando no fueron las pantallas, sino lo que pasaba detrás: gente copiando datos de un sistema a otro, reportes que no cuadraban, horas perdidas en trabajo que una máquina podía hacer.",
+      "p2": "Así que me moví hacia los datos y la automatización. Construí pipelines ETL que procesan millones de registros diarios, un data warehouse corporativo con modelado dimensional, y flujos que conectan WhatsApp, CRMs y bases de datos en tiempo real. La parte que me importa es la medible: 50% menos tiempo de carga, 40% menos tiempo por lead, 95% de confiabilidad en reportes.",
+      "p3": "Trabajo con clientes en Bolivia y Estados Unidos, en inglés y español. Últimamente paso bastante tiempo integrando LLMs en procesos de negocio reales, que es donde creo que está la mayor parte del trabajo interesante ahora mismo.",
+      "p4": "Fuera del trabajo de clientes construyo mis propios productos: software para gente en Santa Cruz que hoy resuelve las cosas con un cuaderno de papel."
     },
-    "expertise": {
-      "title": "Nuestra Experiencia",
-      "ai": "Inteligencia Artificial",
-      "ai_desc": "Agentes de IA, chatbots y procesamiento de lenguaje natural.",
-      "automation": "Automatización",
-      "automation_desc": "Flujos de trabajo con N8N e integración de sistemas.",
-      "marketing": "Marketing Digital",
-      "marketing_desc": "Meta Ads, estrategia de contenido y crecimiento orgánico.",
-      "development": "Desarrollo",
-      "development_desc": "Sitios web, mobile apps y software a medida."
+    "skills": {
+      "eyebrow": "Herramientas",
+      "title": "Con qué",
+      "titleAccent": "trabajo"
     },
-    "values": {
-      "title": "Nuestros Valores",
-      "results": "Resultados",
-      "results_desc": "Cada acción está orientada a generar un impacto medible en tu negocio.",
-      "transparency": "Transparencia",
-      "transparency_desc": "Comunicación clara, sin letras pequeñas. Sabes exactamente qué hacemos.",
-      "innovation": "Innovación",
-      "innovation_desc": "Usamos las últimas tecnologías para darte ventaja competitiva real."
+    "experience": {
+      "eyebrow": "Trayectoria",
+      "title": "Experiencia",
+      "titleAccent": "profesional"
+    },
+    "education": {
+      "title": "Educación"
+    },
+    "certifications": {
+      "title": "Certificaciones"
+    },
+    "languages": {
+      "title": "Idiomas"
+    },
+    "cv": {
+      "title": "¿Prefieres el CV?",
+      "subtitle": "Todo lo de esta página, en un PDF de dos carrillas.",
+      "button": "Descargar CV"
     }
   },
-  "cases": {
+  "services": {
     "hero": {
-      "title": "Casos de Éxito",
-      "subtitle": "Resultados reales de empresas que confiaron en nosotros"
+      "eyebrow": "Servicios",
+      "title": "Cómo puedo",
+      "titleAccent": "ayudarte",
+      "subtitle": "Trabajo por proyecto o por contrato. Entrego trabajo con dueño, documentado y medible."
     },
-    "cta_title": "Sé nuestro próximo caso de éxito",
-    "cta_subtitle": "Cuéntanos sobre tu negocio y construyamos juntos resultados como estos.",
-    "cta_button": "Hablar con un experto"
+    "deliverables_label": "Qué recibes",
+    "request_button": "Consultar por esto",
+    "process": {
+      "eyebrow": "Cómo trabajo",
+      "title": "Cuatro pasos,",
+      "titleAccent": "cero fricción",
+      "subtitle": "Un proceso corto y medible. Sabes qué pasa en cada etapa y qué recibes al final.",
+      "discovery_title": "Diagnóstico",
+      "discovery_desc": "Mapeo tu operación actual, identifico dónde se pierden horas y dinero, y definimos qué automatizar primero.",
+      "discovery_meta": "Semana 1",
+      "design_title": "Diseño de la solución",
+      "design_desc": "Diseño el flujo completo: qué hace el sistema, con qué se conecta y cómo se mide el resultado.",
+      "design_meta": "Semana 1–2",
+      "build_title": "Construcción",
+      "build_desc": "Construyo e integro todo, y lo pruebo contra datos reales antes de que toque producción.",
+      "build_meta": "Semanas 2–4",
+      "scale_title": "Optimización",
+      "scale_desc": "Monitoreo, ajusto y escalo. Recibes reportes con horas ahorradas y resultados concretos.",
+      "scale_meta": "Continuo"
+    },
+    "cta": {
+      "title": "¿Empezamos por el diagnóstico?",
+      "subtitle": "La primera conversación es gratuita y sale con una recomendación concreta, contrates o no.",
+      "button": "Agendar una llamada"
+    }
   },
   "contact": {
     "hero": {
-      "title": "Hablemos",
-      "subtitle": "Cuéntanos sobre tu proyecto y te respondemos en menos de 24 horas."
+      "eyebrow": "Contacto",
+      "title": "Hablemos de",
+      "titleAccent": "tu proyecto",
+      "subtitle": "Cuéntame qué estás intentando resolver. Respondo en menos de 24 horas."
     },
     "direct_contact": "Contacto directo",
     "book_call": "Agendar",
     "value_props": {
-      "response_time": "Respondemos en menos de 24 horas",
+      "response_time": "Respondo en menos de 24 horas",
       "response_time_desc": "Sin esperas innecesarias. Tu tiempo importa.",
-      "free_consultation": "Consulta inicial gratuita",
-      "free_consultation_desc": "Analizamos tu caso sin compromiso ni costo.",
+      "free_consultation": "Primera conversación gratuita",
+      "free_consultation_desc": "Reviso tu caso y te doy una recomendación concreta, sin costo.",
       "no_commitment": "Sin compromiso",
-      "no_commitment_desc": "Conversamos primero, decides después."
+      "no_commitment_desc": "Si no soy la persona indicada para tu problema, te lo digo."
     },
     "form": {
-      "title": "Cuéntanos sobre tu proyecto",
-      "description": "Completa el formulario y te contactamos pronto.",
+      "title": "Cuéntame sobre tu proyecto",
+      "description": "Completa el formulario y te contacto pronto.",
       "name": "Nombre completo",
       "email": "Correo electrónico",
       "phone": "Teléfono",
-      "business": "Nombre del negocio",
-      "service": "Servicio de interés",
-      "service_placeholder": "Selecciona un servicio",
+      "business": "Empresa u organización",
+      "service": "Tipo de trabajo",
+      "service_placeholder": "Selecciona una opción",
       "budget_label": "Presupuesto aproximado",
       "budget_placeholder": "Selecciona un rango",
       "budget_lt_2000": "Menos de Bs 2,000",
@@ -289,22 +235,25 @@
       "budget_15000_50000": "Bs 15,000 – Bs 50,000",
       "budget_gt_50000": "Más de Bs 50,000",
       "budget_unsure": "No estoy seguro todavía",
-      "message": "Cuéntanos sobre tu proyecto",
+      "message": "Cuéntame sobre tu proyecto",
       "submit": "Enviar mensaje",
-      "success": "¡Mensaje enviado! Te contactaremos pronto.",
-      "error": "Hubo un error. Intenta de nuevo."
+      "success": "¡Mensaje enviado! Te contacto pronto.",
+      "error": "Hubo un error. Intenta de nuevo.",
+      "service_role": "Oportunidad laboral (tiempo completo)",
+      "service_other": "Otra cosa"
     },
     "calendly": {
       "title": "Agenda una reunión",
-      "description": "Elige un horario y nos reunimos por videollamada."
+      "description": "Elige un horario y nos vemos por videollamada."
     }
   },
   "footer": {
-    "description": "Tecnología inteligente y soluciones digitales para empresas en todo el mundo.",
-    "services": "Servicios",
-    "company": "Empresa",
-    "contact": "Contacto",
+    "description": "Ingeniero de Datos y Automatización en Santa Cruz de la Sierra. Construyo sistemas que eliminan trabajo manual.",
+    "nav_title": "Navegación",
+    "elsewhere_title": "En otros lados",
+    "contact_title": "Contacto",
+    "studio_note": "El trabajo con clientes lo entrego bajo",
     "rights": "Todos los derechos reservados.",
-    "tagline": "Construyendo el futuro digital, globalmente."
+    "tagline": "Disponible para trabajo y proyectos."
   }
 }

@@ -1,34 +1,38 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-
-const ITEM_KEYS = [
-  "ai_agents",
-  "automation",
-  "data",
-  "whatsapp",
-  "web",
-  "ads",
-  "apps",
-  "integrations",
-] as const;
-
 /**
  * Angled infinite ticker straddling the seam between the hero and the stat
- * band. Lifted from the Web3 reference, where the tilted service strip is
- * what makes the fold feel engineered rather than stacked.
+ * band, lifted from the Web3 reference where the tilted strip is what makes
+ * the fold feel engineered rather than stacked.
  *
- * The track holds the item list twice; the keyframe translates it -50%, so
- * the loop is seamless regardless of how wide the content renders.
+ * The items are tool names, so they are language-neutral and live here rather
+ * than in the message files.
  */
-export default function MarqueeStrip() {
-  const t = useTranslations("home.marquee");
-  const items = ITEM_KEYS.map((key) => t(key));
-  const sequence = [...items, ...items];
+const TOOLS = [
+  "Python",
+  "n8n",
+  "Apache Airflow",
+  "dbt",
+  "PostgreSQL",
+  "Snowflake",
+  "BigQuery",
+  "Docker",
+  "React",
+  "FastAPI",
+  "LangChain",
+  "WhatsApp API",
+  "Power BI",
+  "AWS",
+];
 
-  // overflow-x-clip on the wrapper is load-bearing: the track is rotated and
-  // scaled past 100% width, which otherwise puts a horizontal scrollbar on
-  // the whole page.
+// overflow-x-clip on the wrapper is load-bearing: the track is rotated and
+// scaled past 100% width, which otherwise puts a horizontal scrollbar on the
+// whole page.
+export default function MarqueeStrip() {
+  // The track holds the list twice and translates -50%, so the loop is
+  // seamless regardless of how wide the content renders.
+  const sequence = [...TOOLS, ...TOOLS];
+
   return (
     <div className="relative z-20 -mt-10 mb-[-3rem] overflow-x-clip lg:-mt-16 lg:mb-[-4rem]">
       <div className="-rotate-[2.5deg] scale-110">

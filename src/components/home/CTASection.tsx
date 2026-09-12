@@ -2,19 +2,16 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
-import { MessageCircle, Calendar } from "lucide-react";
+import { MessageCircle, Calendar, Mail } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
-import { WHATSAPP_URL, CALENDLY_URL } from "@/lib/constants";
+import { WHATSAPP_URL, CALENDLY_URL, EMAIL_URL } from "@/lib/constants";
 
 /**
- * Full-bleed closing band with sloped edges and an oversized ghost word
+ * Full-bleed closing band with a sloped top edge and an oversized ghost word
  * behind the headline, the way the airline reference closes its page with
  * "CONTACT US" set huge and faint behind the actual question.
- *
- * Replaces the rounded gradient card, which read as a panel floating on the
- * page rather than as the end of it.
  */
 export default function CTASection() {
   const t = useTranslations("home.cta");
@@ -34,10 +31,9 @@ export default function CTASection() {
         className="absolute -left-40 bottom-0 h-[28rem] w-[28rem] -rotate-12 bg-white/[0.02]"
       />
 
-      {/* Ghost word sitting behind the headline */}
       <span
         aria-hidden="true"
-        className="numeral numeral-ghost pointer-events-none absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center text-[22vw] text-white lg:text-[16rem]"
+        className="numeral numeral-ghost pointer-events-none absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center text-[18vw] text-white lg:text-[12rem]"
       >
         {t("ghost")}
       </span>
@@ -55,8 +51,7 @@ export default function CTASection() {
           </div>
 
           <h2 className="mt-8 font-heading text-4xl font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
-            {t("title")}{" "}
-            <span className="text-accent">{t("titleAccent")}</span>
+            {t("title")} <span className="text-accent">{t("titleAccent")}</span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/60">
@@ -73,6 +68,14 @@ export default function CTASection() {
               {t("calendar")}
             </Button>
           </div>
+
+          <a
+            href={EMAIL_URL}
+            className="mt-8 inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/50 transition-colors hover:text-accent"
+          >
+            <Mail className="h-3.5 w-3.5" />
+            {t("email")}
+          </a>
         </motion.div>
       </Container>
     </section>

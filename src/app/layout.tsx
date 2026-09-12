@@ -15,13 +15,41 @@ const outfit = Outfit({
   display: "swap",
 });
 
+const TITLE = "Eduardo Shande — Data & Automation Engineer";
+const DESCRIPTION =
+  "I build data pipelines, automated workflows and AI integrations that take manual work off your team. Three years with clients in Bolivia and the United States.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sycosmart.com"),
   title: {
-    default: "Sycosmart | Agentes de IA y Marketing Digital en Bolivia",
-    template: "%s | Sycosmart",
+    default: TITLE,
+    template: "%s | Eduardo Shande",
   },
-  description:
-    "Agentes de IA que controlas por WhatsApp. Automatiza tu negocio con inteligencia artificial, marketing digital y soluciones tecnológicas en Bolivia.",
+  description: DESCRIPTION,
+  authors: [{ name: "Eduardo Shande Guerrero Yucra" }],
+  creator: "Eduardo Shande Guerrero Yucra",
+  keywords: [
+    "data engineer",
+    "automation engineer",
+    "n8n",
+    "Apache Airflow",
+    "ETL",
+    "Python",
+    "LLM integration",
+    "Santa Cruz",
+    "Bolivia",
+  ],
+  openGraph: {
+    type: "profile",
+    title: TITLE,
+    description: DESCRIPTION,
+    siteName: "Eduardo Shande",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: TITLE,
+    description: DESCRIPTION,
+  },
 };
 
 export default function RootLayout({

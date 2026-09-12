@@ -1,6 +1,92 @@
 # Changelog
 
-Documents major changes made to the Sycosmart Web project.
+Documents major changes made to this project.
+
+## 2026-09-11 — Rebuilt as a personal site and portfolio
+
+The site no longer speaks as a company. It is now Eduardo's personal site and
+portfolio, written in the first person, serving a hiring manager and a
+prospective client from the same page. Client work is delivered under the
+Sycosmart name, which now appears in the footer rather than the branding.
+
+The visual language from the earlier overhaul is unchanged — angled geometry,
+oversized numerals, two-tone headlines, vermillion accent.
+
+### Content architecture — new `src/lib/content.ts`
+Every fact the site renders now lives in one typed, bilingual file: profile,
+stats, experience, projects, services, skills, education, certifications,
+languages. Message files keep only wording. This means the two locales cannot
+drift apart on a date or a metric, and there is one place to edit when
+something changes.
+
+`PROJECTS[].outcome` is deliberately optional: a project with no measured
+result renders no result block rather than an invented number.
+
+### Removed
+- **`SocialProof.tsx` and its six testimonials.** The quotes attributed to
+  named people at named companies were not verifiable. On a site aimed at
+  hiring managers that is a liability, not social proof. Credibility now rests
+  on the measured outcomes from the CV — 40% faster lead processing, 50% faster
+  data loads, 95% report reliability — attached to the projects that produced
+  them.
+
+### Routing
+English is now the default locale and carries no prefix; internal pathname keys
+are English too. Route folders renamed: `casos` → `work`, `nosotros` → `about`,
+`servicios` → `services`, `contacto` → `contact`, with Spanish pathnames
+`/es/trabajo`, `/es/sobre-mi`, `/es/servicios`, `/es/contacto`.
+
+### New components
+- **`lib/content.ts`** — the single source of truth described above.
+- **`work/ProjectCard.tsx`** — one project as problem → what I built → outcome,
+  with category tag, year, stack chips and optional links. Shared by the home
+  page and `/work`.
+- **`home/SelectedWork.tsx`** — three featured projects.
+- **`shared/ExperienceTimeline.tsx`** — career as a zig-zag rail; `compact`
+  shows summaries only (home), full shows bullets (about).
+- **`home/ExperienceSection.tsx`** — the home-page wrapper for it.
+- **`ui/BrandIcons.tsx`** — inline GitHub and LinkedIn SVGs.
+
+### Rebuilt
+- **Hero** — name, role, availability, location, two CTAs (See my work /
+  Download CV), inline social links, and a canted "right now" panel.
+- **StatsBar** — driven by `STATS`; a fourth figure added.
+- **ServicesOverview / services page** — driven by `SERVICES`, first person.
+- **Navbar, Footer, MobileMenu** — personal wordmark, new nav, contact channels
+  and profile links. `navLinks` is exported from `Navbar` and imported by the
+  other two so the three cannot disagree.
+- **Contact page** — two-tone header; email, WhatsApp, GitHub and LinkedIn all
+  surfaced, since a hiring manager does not want WhatsApp.
+- **Contact form** — service dropdown now generated from `SERVICES`, plus a
+  full-time role option and an "other".
+- **`ProcessSteps`** moved to `shared/` and repointed at `services.process`.
+- **Metadata** — title, description, keywords, OpenGraph and Twitter cards all
+  rewritten for the person.
+- **`docs/HOW_TO.md` and `docs/PROJECT.md`** rewritten for the new structure.
+
+### Added
+- The CV is served at `/cv/Eduardo-Guerrero-Resume.pdf` and wired to the
+  Download CV buttons on the home and about pages.
+
+### Fixed
+- **`Button` was not locale-aware.** It rendered a plain anchor for every href,
+  so an internal link like `/work` would 404 on the Spanish site. It now routes
+  internal paths through the next-intl `Link`, while absolute URLs, `mailto:`,
+  hashes and file paths stay plain anchors.
+- **lucide-react 1.8 has no brand glyphs.** `Github` and `Linkedin` do not
+  exist in this version; both are now inlined as SVG.
+
+### Verification
+Production build and `tsc --noEmit` pass. All ten routes return 200 across both
+locales; the removed `/casos` correctly 404s and `/es/work` redirects to
+`/es/trabajo`. Spanish copy and localized nav hrefs confirmed in the rendered
+HTML; the CV serves as `application/pdf`. Hero, stat band and selected-work
+grid confirmed visually in dark mode, the about page in light mode; the
+sections below the fold were verified structurally, as the preview pane stops
+painting past a certain depth. Lint reports 3 pre-existing `react-hooks` errors
+in `ThemeProvider` and `WhatsAppSimulator`, untouched by this work.
+
+---
 
 ## 2026-09-11 — Visual Direction Overhaul ("Angled Signal")
 

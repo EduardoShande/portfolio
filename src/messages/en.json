@@ -1,38 +1,51 @@
 {
   "nav": {
     "home": "Home",
-    "services": "Services",
+    "work": "Work",
     "about": "About",
-    "cases": "Cases",
+    "services": "Services",
     "contact": "Contact",
-    "cta": "Talk to us"
+    "cta": "Get in touch"
   },
   "home": {
     "hero": {
-      "badge": "Technology + Marketing for your business",
-      "title": "AI Agents you control through",
-      "titleHighlight": "WhatsApp",
-      "subtitle": "Send a voice message and your AI agent schedules appointments, qualifies leads, and manages your business. No complicated apps, just your WhatsApp.",
-      "cta_primary": "See Demo",
-      "cta_secondary": "Book a Call",
-      "stat_uptime": "Always on",
-      "stat_time": "Less manual work",
-      "panel_label": "Live agent",
-      "panel_caption": "Your whole operation, run from a single WhatsApp chat."
+      "available": "Open to roles and projects",
+      "role": "Data & Automation Engineer",
+      "headline": "I build systems that take",
+      "headlineAccent": "the manual work",
+      "headlineEnd": "off your team",
+      "subtitle": "Three years building data pipelines, automated workflows and AI integrations for companies in Bolivia and the United States. I have cut processing times by 40–50% doing exactly this.",
+      "cta_work": "See my work",
+      "cta_cv": "Download CV",
+      "panel_label": "Right now",
+      "panel_caption": "Automation Engineer at CarSans. Open to remote roles and freelance projects.",
+      "chip_years": "Years building",
+      "chip_impact": "Faster processing"
     },
     "stats": {
-      "automations": "Automations built",
-      "hours": "Hours saved/month",
-      "clients": "Happy clients",
-      "uptime": "System uptime"
+      "eyebrow": "By the numbers",
+      "title": "What I have",
+      "titleAccent": "delivered"
+    },
+    "work": {
+      "eyebrow": "Selected work",
+      "title": "Things I have",
+      "titleAccent": "built",
+      "subtitle": "Real systems, running in production, with results you can measure.",
+      "view_all": "See all work",
+      "problem_label": "The problem",
+      "solution_label": "What I built",
+      "outcome_label": "Outcome"
     },
     "simulator": {
-      "title": "See how",
-      "subtitle": "Real use cases that companies are already using to scale their operations",
+      "eyebrow": "Live demo",
+      "title": "An agent",
+      "titleAccent": "I built",
+      "subtitle": "This is what an agent wired into real systems looks like. Pick a scenario and watch the conversation.",
+      "cta": "Want something like this in your operation?",
       "scenario_sales": "AI Sales",
       "scenario_operations": "Operations Hub",
       "scenario_intelligence": "Customer Intelligence",
-      "cta": "Want this for your company?",
       "sales_title": "AI Sales Assistant",
       "sales_description": "An AI agent that qualifies leads, answers product questions, and books meetings automatically 24/7. Perfect for real estate, car dealerships, and B2B companies.",
       "sales_benefit_1": "Qualifies leads automatically with smart questions",
@@ -65,246 +78,182 @@
       "intel_msg_3": "🔍 Patterns detected:\n\n• 15 haven't used the service in 14+ days\n• 6 reduced their usage frequency\n• 2 reported unresolved technical issues",
       "intel_msg_4": "Can you do something to retain them?",
       "intel_msg_5": "🎯 Retention plan started:\n\n💌 Sending personalized offers to the 15 inactive\n📞 Booking calls with the 6 who reduced usage\n🛠️ Assigning priority support to the 2 with issues",
-      "intel_msg_7": "✅ Actions executed. I'll send you a report in 7 days with the recovery rate. My projection: we'll save at least 16 of 23 customers (70%).",
-      "eyebrow": "Live demo",
-      "titleAccent": "it works"
+      "intel_msg_7": "✅ Actions executed. I'll send you a report in 7 days with the recovery rate. My projection: we'll save at least 16 of 23 customers (70%)."
+    },
+    "experience": {
+      "eyebrow": "Track record",
+      "title": "Where I have",
+      "titleAccent": "worked",
+      "subtitle": "From web developer to data and automation engineer, over four years.",
+      "view_all": "See full profile",
+      "current_label": "Current"
     },
     "services": {
-      "title": "Our",
-      "subtitle": "Complete digital solutions to grow your business",
-      "ai_agents": "AI Agents",
-      "ai_agents_desc": "Control your business from WhatsApp with AI that works 24/7.",
-      "automation": "N8N Automation",
-      "automation_desc": "Automated flows that eliminate repetitive tasks and save hours.",
-      "meta_ads": "Meta Ads",
-      "meta_ads_desc": "Facebook and Instagram campaigns that bring real customers to your door.",
-      "web_dev": "Web Development",
-      "web_dev_desc": "Fast, modern websites that convert visitors into sales.",
-      "mobile_apps": "Mobile Apps",
-      "mobile_apps_desc": "Android and iOS apps for internal tools or customer products.",
-      "consulting": "Digital Consulting",
-      "consulting_desc": "Personalized strategy to take your business to the next level.",
-      "view_all": "View all services",
-      "eyebrow": "What we do",
-      "titleAccent": "Services",
+      "eyebrow": "How I can help",
+      "title": "What I",
+      "titleAccent": "work on",
+      "subtitle": "If you have a process eating hours, or data nobody trusts, that is what I fix.",
+      "view_all": "See services",
       "learn_more": "Learn more"
     },
-    "social_proof": {
-      "title": "Results that",
-      "subtitle": "Companies that already trust our solutions",
-      "eyebrow": "Client results",
-      "titleAccent": "speak"
-    },
     "cta": {
-      "title": "Ready to automate",
-      "subtitle": "Book a free call and discover how AI can transform your operation.",
-      "whatsapp": "Message on WhatsApp",
-      "calendar": "Book a Call",
       "eyebrow": "Next step",
-      "titleAccent": "your business?",
-      "ghost": "CONTACT"
-    },
-    "marquee": {
-      "ai_agents": "AI Agents",
-      "automation": "n8n Automation",
-      "data": "Data Pipelines",
-      "whatsapp": "WhatsApp API",
-      "web": "Web Development",
-      "ads": "Meta Ads",
-      "apps": "Mobile Apps",
-      "integrations": "Integrations"
-    },
-    "process": {
-      "eyebrow": "How we work",
-      "title": "Four steps,",
-      "titleAccent": "zero friction",
-      "subtitle": "A short, measurable process. You know what happens at every stage and what you get at the end.",
-      "discovery_title": "Discovery",
-      "discovery_desc": "We map your current operation, find where hours and money leak, and decide what to automate first.",
-      "discovery_meta": "Week 1",
-      "design_title": "Solution design",
-      "design_desc": "We design the full flow: what the agent does, which systems it connects to, and how the result is measured.",
-      "design_meta": "Week 1–2",
-      "build_title": "Build",
-      "build_desc": "We build and integrate everything — AI agent, n8n automations, CRM and WhatsApp — and test it against real data.",
-      "build_meta": "Weeks 2–4",
-      "scale_title": "Optimisation",
-      "scale_desc": "We monitor, tune and scale. You get reports with hours saved and concrete results.",
-      "scale_meta": "Ongoing"
+      "title": "Got a process that",
+      "titleAccent": "should run itself?",
+      "subtitle": "Tell me what is eating your team's time. If I can help, I will tell you how; if I cannot, I will tell you that too.",
+      "whatsapp": "Message me on WhatsApp",
+      "calendar": "Book a call",
+      "email": "Send an email",
+      "ghost": "LET'S TALK"
     }
   },
-  "services": {
+  "work": {
     "hero": {
-      "title": "Services",
-      "subtitle": "High-impact digital solutions for businesses worldwide"
+      "eyebrow": "Portfolio",
+      "title": "Selected",
+      "titleAccent": "work",
+      "subtitle": "Automation, data, my own products and websites. Some clients appear unnamed because I do not have permission to name them."
     },
-    "deliverables_label": "What's included",
-    "request_button": "Request this service",
-    "ai_agents": {
-      "title": "AI Agents & Automation",
-      "description": "N8N workflows, smart chatbots, automatic lead qualification, and auto-responses. Your business running 24/7 without you being present.",
-      "deliverables": [
-        "Custom N8N workflows",
-        "AI chatbots for WhatsApp and web",
-        "Automatic lead qualification",
-        "Smart automatic responses"
-      ]
-    },
-    "web_dev": {
-      "title": "Web Development",
-      "description": "Corporate sites, landing pages, e-commerce, and custom web applications. Modern design, optimized performance, conversion-focused.",
-      "deliverables": [
-        "Professional corporate sites",
-        "High-converting landing pages",
-        "Complete e-commerce stores",
-        "Custom web applications"
-      ]
-    },
-    "mobile_apps": {
-      "title": "Mobile Apps",
-      "description": "Native Android and iOS apps for your team's internal tools or products for your customers. Intuitive design and optimized code.",
-      "deliverables": [
-        "Native Android apps",
-        "Native iOS apps",
-        "Cross-platform apps",
-        "Maintenance and updates"
-      ]
-    },
-    "crm": {
-      "title": "CRM Implementation",
-      "description": "Complete setup and customization of CRM systems for sales teams. Connected with WhatsApp, email, and all your tools.",
-      "deliverables": [
-        "Setup and initial configuration",
-        "Custom fields and workflows",
-        "Existing data migration",
-        "Team training"
-      ]
-    },
-    "meta_ads": {
-      "title": "Meta Ads Management",
-      "description": "Strategy, creatives, and optimization of Facebook and Instagram campaigns. Not just likes, but real customers and measurable sales.",
-      "deliverables": [
-        "Campaign strategy",
-        "Professional creatives",
-        "Continuous optimization",
-        "Detailed monthly reports"
-      ]
-    },
-    "digital_marketing": {
-      "title": "Digital Marketing",
-      "description": "SEO, Google Ads, content strategy, and complete social media management. A 360° strategy to grow your brand online.",
-      "deliverables": [
-        "Complete SEO optimization",
-        "Google Ads campaigns",
-        "Content strategy",
-        "Social media management"
-      ]
-    },
-    "custom_software": {
-      "title": "Custom Software & APIs",
-      "description": "Internal tools, integrations, dashboards, and data pipelines tailored to your company. We solve unique problems with custom code.",
-      "deliverables": [
-        "Custom internal tools",
-        "System integrations",
-        "Dashboards and reporting",
-        "Automated data pipelines"
-      ]
-    },
+    "filter_all": "All",
+    "cat_automation": "Automation",
+    "cat_data": "Data",
+    "cat_product": "Own product",
+    "cat_web": "Web",
+    "problem_label": "The problem",
+    "solution_label": "What I built",
+    "outcome_label": "Outcome",
+    "stack_label": "Stack",
     "cta": {
-      "title": "Not sure which service you need?",
-      "subtitle": "Tell us about your business and we'll recommend the perfect solution.",
-      "button": "Talk to an advisor"
+      "title": "Does your situation look like one of these?",
+      "subtitle": "Tell me what you are trying to solve.",
+      "button": "Get in touch"
     }
   },
   "about": {
     "hero": {
-      "title": "About Us",
-      "subtitle": "Technology at the service of your business"
+      "eyebrow": "About",
+      "title": "Eduardo Shande",
+      "titleAccent": "Guerrero",
+      "subtitle": "Data & Automation Engineer in Santa Cruz de la Sierra, Bolivia."
     },
     "story": {
-      "title": "Our Story",
-      "p1": "Sycosmart was born with a clear mission: to make advanced technology accessible to businesses worldwide.",
-      "p2": "We believe every company, regardless of size or location, deserves the same digital tools that large corporations use. That's why we combine AI, automation, and digital marketing into practical solutions that work globally.",
-      "p3": "Our approach is simple: understand your business, identify opportunities, and build solutions that generate real results — wherever you are."
+      "title": "The short version",
+      "p1": "I started out writing web applications for small businesses in Santa Cruz. What ended up interesting me was not the screens but what happened behind them: people copying data between systems, reports that did not reconcile, hours lost to work a machine could do.",
+      "p2": "So I moved toward data and automation. I built ETL pipelines processing millions of records a day, a corporate data warehouse with proper dimensional modelling, and workflows connecting WhatsApp, CRMs and databases in real time. The part I care about is the measurable part: 50% faster loads, 40% less time per lead, 95% report reliability.",
+      "p3": "I work with clients in Bolivia and the United States, in English and Spanish. Lately I spend a lot of time wiring LLMs into real business processes, which is where I think most of the interesting work is right now.",
+      "p4": "Outside client work I build my own products: software for people in Santa Cruz who solve things with a paper notebook today."
     },
-    "expertise": {
-      "title": "Our Expertise",
-      "ai": "Artificial Intelligence",
-      "ai_desc": "AI agents, chatbots, and natural language processing.",
-      "automation": "Automation",
-      "automation_desc": "N8N workflows and system integration.",
-      "marketing": "Digital Marketing",
-      "marketing_desc": "Meta Ads, content strategy, and organic growth.",
-      "development": "Development",
-      "development_desc": "Websites, mobile apps, and custom software."
+    "skills": {
+      "eyebrow": "Toolkit",
+      "title": "What I",
+      "titleAccent": "work with"
     },
-    "values": {
-      "title": "Our Values",
-      "results": "Results",
-      "results_desc": "Every action is oriented towards generating measurable impact on your business.",
-      "transparency": "Transparency",
-      "transparency_desc": "Clear communication, no fine print. You know exactly what we do.",
-      "innovation": "Innovation",
-      "innovation_desc": "We use the latest technologies to give you a real competitive advantage."
+    "experience": {
+      "eyebrow": "Track record",
+      "title": "Professional",
+      "titleAccent": "experience"
+    },
+    "education": {
+      "title": "Education"
+    },
+    "certifications": {
+      "title": "Certifications"
+    },
+    "languages": {
+      "title": "Languages"
+    },
+    "cv": {
+      "title": "Prefer the CV?",
+      "subtitle": "Everything on this page, as a two-page PDF.",
+      "button": "Download CV"
     }
   },
-  "cases": {
+  "services": {
     "hero": {
-      "title": "Success Stories",
-      "subtitle": "Real results from companies that trusted us"
+      "eyebrow": "Services",
+      "title": "How I can",
+      "titleAccent": "help",
+      "subtitle": "I work per project or on contract. You get work with an owner: documented, and measurable."
     },
-    "cta_title": "Be our next success story",
-    "cta_subtitle": "Tell us about your business and let's build results like these together.",
-    "cta_button": "Talk to an expert"
+    "deliverables_label": "What you get",
+    "request_button": "Ask about this",
+    "process": {
+      "eyebrow": "How I work",
+      "title": "Four steps,",
+      "titleAccent": "zero friction",
+      "subtitle": "A short, measurable process. You know what happens at every stage and what you get at the end.",
+      "discovery_title": "Discovery",
+      "discovery_desc": "I map your current operation, find where hours and money leak, and we decide what to automate first.",
+      "discovery_meta": "Week 1",
+      "design_title": "Solution design",
+      "design_desc": "I design the full flow: what the system does, what it connects to, and how the result is measured.",
+      "design_meta": "Week 1–2",
+      "build_title": "Build",
+      "build_desc": "I build and integrate everything, and test it against real data before it touches production.",
+      "build_meta": "Weeks 2–4",
+      "scale_title": "Optimisation",
+      "scale_desc": "I monitor, tune and scale. You get reports with hours saved and concrete results.",
+      "scale_meta": "Ongoing"
+    },
+    "cta": {
+      "title": "Start with the discovery?",
+      "subtitle": "The first conversation is free and ends with a concrete recommendation, whether you hire me or not.",
+      "button": "Book a call"
+    }
   },
   "contact": {
     "hero": {
-      "title": "Let's talk",
-      "subtitle": "Tell us about your project and we'll respond in less than 24 hours."
+      "eyebrow": "Contact",
+      "title": "Let's talk about",
+      "titleAccent": "your project",
+      "subtitle": "Tell me what you are trying to solve. I reply within 24 hours."
     },
     "direct_contact": "Direct contact",
     "book_call": "Book",
     "value_props": {
-      "response_time": "We respond in less than 24 hours",
-      "response_time_desc": "No unnecessary waits. Your time matters.",
-      "free_consultation": "Free initial consultation",
-      "free_consultation_desc": "We analyze your case with no commitment or cost.",
+      "response_time": "I reply within 24 hours",
+      "response_time_desc": "No unnecessary waiting. Your time matters.",
+      "free_consultation": "First conversation is free",
+      "free_consultation_desc": "I review your situation and give you a concrete recommendation, at no cost.",
       "no_commitment": "No commitment",
-      "no_commitment_desc": "We talk first, you decide later."
+      "no_commitment_desc": "If I am not the right person for your problem, I will say so."
     },
     "form": {
-      "title": "Tell us about your project",
-      "description": "Fill out the form and we'll contact you soon.",
+      "title": "Tell me about your project",
+      "description": "Fill in the form and I will get back to you shortly.",
       "name": "Full name",
       "email": "Email address",
       "phone": "Phone",
-      "business": "Business name",
-      "service": "Service of interest",
-      "service_placeholder": "Select a service",
+      "business": "Company or organisation",
+      "service": "Type of work",
+      "service_placeholder": "Select an option",
       "budget_label": "Approximate budget",
       "budget_placeholder": "Select a range",
-      "budget_lt_2000": "Less than Bs 2,000",
-      "budget_2000_5000": "Bs 2,000 – Bs 5,000",
-      "budget_5000_15000": "Bs 5,000 – Bs 15,000",
-      "budget_15000_50000": "Bs 15,000 – Bs 50,000",
-      "budget_gt_50000": "More than Bs 50,000",
-      "budget_unsure": "I'm not sure yet",
-      "message": "Tell us about your project",
+      "budget_lt_2000": "Under $300",
+      "budget_2000_5000": "$300 – $700",
+      "budget_5000_15000": "$700 – $2,000",
+      "budget_15000_50000": "$2,000 – $7,000",
+      "budget_gt_50000": "Over $7,000",
+      "budget_unsure": "Not sure yet",
+      "message": "Tell me about your project",
       "submit": "Send message",
-      "success": "Message sent! We'll contact you soon.",
-      "error": "There was an error. Please try again."
+      "success": "Message sent. I will get back to you shortly.",
+      "error": "Something went wrong. Please try again.",
+      "service_role": "Full-time role",
+      "service_other": "Something else"
     },
     "calendly": {
       "title": "Book a meeting",
-      "description": "Pick a time and we'll meet via video call."
+      "description": "Pick a time and we will meet over video."
     }
   },
   "footer": {
-    "description": "Smart technology and digital solutions for businesses worldwide.",
-    "services": "Services",
-    "company": "Company",
-    "contact": "Contact",
+    "description": "Data & Automation Engineer in Santa Cruz de la Sierra. I build systems that take manual work off your team.",
+    "nav_title": "Navigation",
+    "elsewhere_title": "Elsewhere",
+    "contact_title": "Contact",
+    "studio_note": "Client work is delivered under",
     "rights": "All rights reserved.",
-    "tagline": "Building the digital future, globally."
+    "tagline": "Open to roles and projects."
   }
 }

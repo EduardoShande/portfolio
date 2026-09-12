@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "motion/react";
 import { Send, Loader2, CheckCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { SERVICES, toLocale } from "@/lib/content";
 import { N8N_WEBHOOK_URL } from "@/lib/constants";
 
 const schema = z.object({
@@ -32,6 +33,7 @@ const fieldVariants = {
 
 export default function ContactForm() {
   const t = useTranslations("contact.form");
+  const lang = toLocale(useLocale());
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const {
@@ -149,13 +151,13 @@ export default function ContactForm() {
           <option value="" disabled>
             {t("service_placeholder")}
           </option>
-          <option value="ai-agents">Agentes de IA & Automatización</option>
-          <option value="web-dev">Desarrollo Web</option>
-          <option value="mobile-apps">Mobile Apps</option>
-          <option value="crm">CRM</option>
-          <option value="meta-ads">Meta Ads</option>
-          <option value="digital-marketing">Marketing Digital</option>
-          <option value="custom-software">Software a Medida</option>
+          {SERVICES.map((service) => (
+            <option key={service.id} value={service.id}>
+              {service.title[lang]}
+            </option>
+          ))}
+          <option value="role">{t("service_role")}</option>
+          <option value="other">{t("service_other")}</option>
         </select>
       </motion.div>
 

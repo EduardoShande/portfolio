@@ -2,12 +2,28 @@
 
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
-import { MessageCircle, Calendar, Clock, Gift, Shield } from "lucide-react";
+import {
+  MessageCircle,
+  Calendar,
+  Clock,
+  Gift,
+  Shield,
+  Mail,
+} from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import ContactForm from "@/components/contacto/ContactForm";
 import CalendlyEmbed from "@/components/contacto/CalendlyEmbed";
-import { WHATSAPP_URL, WHATSAPP_NUMBER } from "@/lib/constants";
+import Badge from "@/components/ui/Badge";
+import {
+  WHATSAPP_URL,
+  WHATSAPP_NUMBER,
+  EMAIL_URL,
+  GITHUB_URL,
+  LINKEDIN_URL,
+} from "@/lib/constants";
+import { PROFILE } from "@/lib/content";
 
 const valueProps = [
   { icon: Clock, key: "response_time" },
@@ -15,7 +31,7 @@ const valueProps = [
   { icon: Shield, key: "no_commitment" },
 ];
 
-export default function ContactoPage() {
+export default function ContactPage() {
   const t = useTranslations("contact");
 
   return (
@@ -29,12 +45,14 @@ export default function ContactoPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h1 className="font-heading text-4xl font-bold text-fg lg:text-5xl">
-                {t("hero.title")}
+              <Badge>{t("hero.eyebrow")}</Badge>
+              <h1 className="mt-6 font-heading text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-fg lg:text-5xl">
+                {t("hero.title")}{" "}
+                <span className="text-accent">{t("hero.titleAccent")}</span>
               </h1>
-              <p className="mt-4 text-lg text-fg-muted">{t("hero.subtitle")}</p>
-
-              <div className="mt-8 h-1 w-12 rounded-full bg-accent" />
+              <p className="mt-5 text-lg leading-relaxed text-fg-muted">
+                {t("hero.subtitle")}
+              </p>
 
               {/* Value props */}
               <motion.div
@@ -84,13 +102,38 @@ export default function ContactoPage() {
                 </p>
                 <div className="space-y-3">
                   <a
+                    href={EMAIL_URL}
+                    className="flex items-center gap-3 text-sm text-fg transition-colors hover:text-accent"
+                  >
+                    <Mail className="h-4 w-4 text-accent" />
+                    {PROFILE.email}
+                  </a>
+                  <a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-sm text-fg hover:text-whatsapp transition-colors"
+                    className="flex items-center gap-3 text-sm text-fg transition-colors hover:text-whatsapp"
                   >
                     <MessageCircle className="h-4 w-4 text-whatsapp" />
                     +{WHATSAPP_NUMBER}
+                  </a>
+                  <a
+                    href={GITHUB_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-sm text-fg transition-colors hover:text-accent"
+                  >
+                    <GithubIcon className="h-4 w-4 text-accent" />
+                    github.com/EduardoShande
+                  </a>
+                  <a
+                    href={LINKEDIN_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 text-sm text-fg transition-colors hover:text-accent"
+                  >
+                    <LinkedinIcon className="h-4 w-4 text-accent" />
+                    LinkedIn
                   </a>
                 </div>
                 <div className="mt-4 grid grid-cols-2 gap-2">

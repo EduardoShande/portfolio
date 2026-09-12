@@ -1,12 +1,20 @@
+import { PROFILE } from "./content";
+
 export const WHATSAPP_NUMBER = "59173115185";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 export const CALENDLY_URL =
   process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/sycosmart";
 
 // PASTE YOUR N8N WEBHOOK URL HERE (or set NEXT_PUBLIC_N8N_WEBHOOK_URL in .env.local)
-export const N8N_WEBHOOK_URL =
-  process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "";
+export const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "";
 
-export const SITE_NAME = "Sycosmart";
-export const SITE_DESCRIPTION_ES = "Agentes de IA y Marketing Digital en Bolivia";
-export const SITE_DESCRIPTION_EN = "AI Agents and Digital Marketing in Bolivia";
+export const EMAIL_URL = `mailto:${PROFILE.email}`;
+export const GITHUB_URL = PROFILE.github;
+export const LINKEDIN_URL = PROFILE.linkedin;
+export const CV_URL = PROFILE.cvPath;
+
+export const SITE_NAME = PROFILE.shortName;
+export const SITE_DESCRIPTION_ES =
+  "Ingeniero de Datos y Automatización. Construyo sistemas que eliminan trabajo manual.";
+export const SITE_DESCRIPTION_EN =
+  "Data & Automation Engineer. I build systems that take manual work off your team.";
