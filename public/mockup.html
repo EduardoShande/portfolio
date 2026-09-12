@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Control Room — design mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4F3F0;
+  --paper-2:#EAE8E3;
+  --ink:#12172B;
+  --ink-2:#242B47;
+  --muted:#6B7185;
+  --crimson:#E8194B;
+  --amber:#F5A623;
+  --white:#fff;
+  --display:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Inter",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img{max-width:100%;display:block}
+.wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+.eyebrow{font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:12px}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--crimson)}
+h1,h2,h3{font-family:var(--display);letter-spacing:-.03em;line-height:1.02;font-weight:800}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:16px 26px;border:0;cursor:pointer;text-decoration:none;transition:.25s}
+.btn-primary{background:var(--crimson);color:#fff}
+.btn-primary:hover{background:var(--ink)}
+.btn-ghost{background:transparent;color:var(--ink);border:1px solid rgba(18,23,43,.25)}
+.btn-ghost:hover{border-color:var(--crimson);color:var(--crimson)}
+.btn-round{border-radius:999px}
+
+/* ───────── NAV ───────── */
+nav{position:sticky;top:0;z-index:60;background:rgba(244,243,240,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(18,23,43,.08)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+.logo{font-family:var(--display);font-weight:800;font-size:19px;letter-spacing:-.02em}
+.logo span{color:var(--crimson)}
+.nav-links{display:flex;gap:30px}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:.2s}
+.nav-links a:hover{color:var(--crimson)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ───────── HERO (real-estate card + CTL slash) ───────── */
+.hero{position:relative;padding:72px 0 0;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(40px,5.4vw,74px)}
+.hero h1 .grey{color:#A8ABB6}
+.hero p.lede{margin-top:26px;max-width:480px;font-size:17px;line-height:1.65;color:var(--muted)}
+.hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+.hero-stats{margin-top:52px;display:flex;gap:44px;border-top:1px solid rgba(18,23,43,.12);padding-top:26px}
+.hero-stats b{font-family:var(--display);font-size:30px;font-weight:800;display:block;letter-spacing:-.03em}
+.hero-stats small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.shot{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;background:var(--paper-2)}
+.shot img{width:100%;height:100%;object-fit:cover}
+.ph{width:100%;height:100%;display:grid;place-items:center;text-align:center;padding:24px;
+  background:
+    radial-gradient(120% 90% at 30% 20%,rgba(232,25,75,.22),transparent 60%),
+    radial-gradient(100% 80% at 80% 90%,rgba(245,166,35,.25),transparent 60%),
+    linear-gradient(150deg,#2A3050,#12172B);
+  color:rgba(255,255,255,.72);font-size:11px;letter-spacing:.18em;text-transform:uppercase;line-height:2}
+.slash{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(108deg,rgba(255,255,255,.55) 0 18%,transparent 18.4% 100%);mix-blend-mode:overlay}
+.chip{position:absolute;background:var(--white);border-radius:16px;padding:16px 20px;box-shadow:0 20px 50px -18px rgba(18,23,43,.45)}
+.chip b{font-family:var(--display);font-size:15px;display:block}
+.chip small{font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+.chip-a{left:-26px;bottom:74px}
+.chip-b{right:-18px;top:56px;display:flex;align-items:center;gap:12px}
+.dot{width:9px;height:9px;border-radius:50%;background:#19C37D;box-shadow:0 0 0 4px rgba(25,195,125,.18)}
+@media(max-width:960px){.hero-grid{grid-template-columns:1fr;gap:40px}.chip-a{left:12px}.chip-b{right:12px}}
+
+/* ───────── TICKER (Web3) ───────── */
+.ticker{margin:70px 0 0;transform:rotate(-2.2deg) scale(1.06);overflow:hidden;background:var(--crimson);border-top:1px solid rgba(0,0,0,.12);border-bottom:1px solid rgba(0,0,0,.12)}
+.ticker-track{display:flex;width:max-content;animation:slide 34s linear infinite}
+@keyframes slide{to{transform:translateX(-50%)}}
+.ticker-track span{display:flex;align-items:center;white-space:nowrap;color:#fff;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:15px 0}
+.ticker-track i{font-style:normal;margin:0 30px;color:rgba(255,255,255,.5)}
+.ticker-wrap{overflow-x:clip}
+
+/* ───────── CLIENT STRIP (CTL) ───────── */
+.clients{padding:64px 0 8px;text-align:center}
+.clients p{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.clients ul{list-style:none;display:flex;justify-content:center;gap:54px;flex-wrap:wrap;margin-top:26px}
+.clients li{font-family:var(--display);font-weight:600;font-size:20px;color:#B4B7C0;letter-spacing:-.01em;transition:.25s}
+.clients li:hover{color:var(--ink)}
+
+/* ───────── CAPABILITY TILES (CTL) ───────── */
+.tiles{padding:76px 0}
+.tiles-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.tiles h2{font-size:clamp(30px,3.6vw,50px);max-width:560px}
+.tiles h2 em{font-style:normal;color:var(--crimson)}
+.tile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:1000px){.tile-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.tile-grid{grid-template-columns:1fr}}
+.tile{position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--ink);display:flex;align-items:flex-end;padding:24px;isolation:isolate}
+.tile .bg{position:absolute;inset:0;z-index:-2;filter:grayscale(1) contrast(1.05);transition:filter .5s,transform .7s}
+.tile:hover .bg{filter:grayscale(0);transform:scale(1.06)}
+.tile::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(18,23,43,.15),rgba(18,23,43,.88))}
+.tile h3{color:#fff;font-size:19px;text-transform:uppercase;line-height:1.1}
+.tile h3 small{display:block;font-family:var(--body);font-size:11px;font-weight:600;letter-spacing:.16em;color:rgba(255,255,255,.6);margin-bottom:6px}
+.tile .more{margin-top:14px;display:inline-block;background:var(--crimson);color:#fff;font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px}
+
+/* fake work screenshots, so the layout reads without real assets */
+.canvas{position:absolute;inset:0;z-index:-2;background:#1B2036;overflow:hidden}
+.node{position:absolute;background:#2A3150;border:1px solid #3C456B;border-radius:6px;height:22px;width:62px}
+.node.on{border-color:var(--crimson);box-shadow:0 0 0 3px rgba(232,25,75,.2)}
+.wire{position:absolute;height:1px;background:#3C456B}
+.bars{position:absolute;inset:0;z-index:-2;background:#161B2E;display:flex;align-items:flex-end;gap:8px;padding:40px 22px}
+.bars i{flex:1;background:linear-gradient(180deg,var(--crimson),rgba(232,25,75,.25))}
+.chatbg{position:absolute;inset:0;z-index:-2;background:#101728;padding:22px;display:flex;flex-direction:column;gap:9px}
+.bub{height:16px;border-radius:9px;background:#222B45;width:76%}
+.bub.me{align-self:flex-end;background:#1E5F4B;width:58%}
+.phonebg{position:absolute;inset:0;z-index:-2;background:#0E1322;display:grid;place-items:center}
+.phoneframe{width:58%;aspect-ratio:9/17;border-radius:16px;background:#F4F3F0;border:5px solid #232A44;padding:10px;display:flex;flex-direction:column;gap:6px}
+.phoneframe i{height:11px;border-radius:3px;background:#D9D6CF}
+.phoneframe i:first-child{background:var(--crimson);width:55%}
+
+/* ───────── TORN EDGE + NAVY BAND (Turkish) ───────── */
+.torn{display:block;width:100%;height:70px;color:var(--ink)}
+.band{background:var(--ink);color:#fff;padding:20px 0 90px;position:relative;overflow:hidden}
+.band .beam{position:absolute;left:-120px;top:0;width:420px;height:140%;background:rgba(232,25,75,.09);transform:rotate(-12deg)}
+.stat-grid{display:grid;grid-template-columns:repeat(4,1fr);position:relative}
+@media(max-width:880px){.stat-grid{grid-template-columns:repeat(2,1fr);row-gap:46px}}
+.stat{padding:0 26px;position:relative}
+.stat+.stat{border-left:1px solid rgba(255,255,255,.14)}
+.ghostnum{font-family:var(--display);font-weight:800;font-size:78px;line-height:.8;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.3);letter-spacing:-.04em}
+.stat svg{margin:18px 0 12px;color:var(--crimson)}
+.stat p{font-size:13px;line-height:1.6;color:rgba(255,255,255,.62)}
+.stat p b{color:#fff;font-weight:600}
+
+/* ───────── AUTOMATION DIAGRAM ───────── */
+.anatomy{background:var(--ink);color:#fff;padding:10px 0 96px}
+.anatomy h2{font-size:clamp(28px,3.4vw,46px);max-width:620px;color:#fff}
+.anatomy h2 em{font-style:normal;color:var(--amber)}
+.anatomy .sub{margin-top:16px;max-width:560px;color:rgba(255,255,255,.6);font-size:16px;line-height:1.65}
+.flow{margin-top:52px;position:relative;border:1px solid rgba(255,255,255,.13);border-radius:18px;background:
+  linear-gradient(180deg,rgba(255,255,255,.04),transparent);padding:38px 26px;overflow-x:auto}
+.flow-row{display:flex;align-items:center;gap:0;min-width:820px}
+.fnode{flex:1;background:#1B2137;border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:18px 16px;text-align:center;position:relative}
+.fnode b{display:block;font-family:var(--display);font-size:14px;letter-spacing:-.01em}
+.fnode small{display:block;margin-top:5px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.fnode .pulse{position:absolute;inset:-1px;border-radius:12px;border:1px solid var(--amber);opacity:0;animation:lit 6s linear infinite}
+.fnode:nth-child(1) .pulse{animation-delay:0s}.fnode:nth-child(3) .pulse{animation-delay:1.2s}
+.fnode:nth-child(5) .pulse{animation-delay:2.4s}.fnode:nth-child(7) .pulse{animation-delay:3.6s}
+.fnode:nth-child(9) .pulse{animation-delay:4.8s}
+@keyframes lit{0%,8%{opacity:1;box-shadow:0 0 22px -4px var(--amber)}22%,100%{opacity:0}}
+.link{width:54px;height:2px;background:rgba(255,255,255,.16);position:relative;flex-shrink:0}
+.link::after{content:"";position:absolute;top:-2px;left:0;width:6px;height:6px;border-radius:50%;background:var(--amber);animation:run 6s linear infinite}
+.link:nth-of-type(1)::after{animation-delay:.4s}.link:nth-of-type(2)::after{animation-delay:1.6s}
+.link:nth-of-type(3)::after{animation-delay:2.8s}.link:nth-of-type(4)::after{animation-delay:4s}
+@keyframes run{0%{left:0;opacity:0}10%{opacity:1}45%{left:48px;opacity:1}55%,100%{left:48px;opacity:0}}
+
+/* ───────── RIBBON PROCESS ───────── */
+.ribbon-sec{padding:92px 0}
+.ribbon-sec h2{font-size:clamp(30px,3.6vw,50px);max-width:560px}
+.ribbon-sec h2 em{font-style:normal;color:var(--crimson)}
+.ribbon-wrap{margin-top:54px;display:grid;grid-template-columns:1fr 1fr;gap:0 56px;position:relative}
+@media(max-width:860px){.ribbon-wrap{grid-template-columns:1fr}}
+.step{padding:30px 0;display:flex;gap:22px;align-items:flex-start}
+.step .num{font-family:var(--display);font-weight:800;font-size:56px;line-height:.85;letter-spacing:-.05em}
+.step:nth-child(1) .num{color:#E8A08C}.step:nth-child(2) .num{color:#7E7791}
+.step:nth-child(3) .num{color:#4A4655}.step:nth-child(4) .num{color:var(--crimson)}
+.step h3{font-size:20px;margin-bottom:8px}
+.step p{font-size:14px;line-height:1.7;color:var(--muted);max-width:330px}
+.step .when{margin-top:12px;display:inline-block;font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--crimson);border-top:1px solid rgba(232,25,75,.3);padding-top:9px}
+
+/* ───────── WORK CARDS (real estate) ───────── */
+.work{padding:20px 0 96px}
+.work-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+@media(max-width:980px){.work-grid{grid-template-columns:1fr}}
+.wcard{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 22px 50px -32px rgba(18,23,43,.4);transition:.3s}
+.wcard:hover{transform:translateY(-6px);box-shadow:0 32px 60px -30px rgba(18,23,43,.5)}
+.wcard .top{aspect-ratio:16/10;position:relative;overflow:hidden}
+.wcard .body{padding:24px}
+.wcard .tag{display:inline-block;background:rgba(232,25,75,.1);color:var(--crimson);font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:6px 10px;border-radius:999px}
+.wcard h3{font-size:19px;margin:14px 0 8px;line-height:1.25}
+.wcard p{font-size:13.5px;line-height:1.65;color:var(--muted)}
+.wcard .out{margin-top:18px;padding-top:16px;border-top:1px solid rgba(18,23,43,.1);font-family:var(--display);font-weight:800;font-size:17px;color:var(--crimson)}
+
+/* ───────── CLOSING (Turkish ghost word) ───────── */
+.closing{position:relative;padding:120px 0 130px;text-align:center;overflow:hidden;background:var(--paper-2)}
+.ghostword{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--display);font-weight:800;font-size:clamp(90px,19vw,250px);color:transparent;-webkit-text-stroke:2px rgba(18,23,43,.09);white-space:nowrap;pointer-events:none;letter-spacing:-.05em}
+.closing h2{position:relative;font-size:clamp(30px,4vw,54px);max-width:760px;margin:0 auto}
+.closing h2 em{font-style:normal;color:var(--crimson)}
+.closing p{position:relative;margin:20px auto 0;max-width:520px;color:var(--muted);font-size:16px;line-height:1.65}
+.closing .row{position:relative;margin-top:36px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+footer{background:var(--ink);color:rgba(255,255,255,.55);padding:56px 0;font-size:13px}
+.note{position:fixed;left:14px;bottom:14px;z-index:99;background:var(--ink);color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;border-radius:8px;opacity:.86}
+</style>
+</head>
+<body>
+
+<div class="note">Mockup · not the live site</div>
+
+<nav><div class="wrap nav-in">
+  <div class="logo"><span>Eduardo</span> Shande</div>
+  <div class="nav-links">
+    <a href="#">Work</a><a href="#">About</a><a href="#">Services</a><a href="#">Lab</a><a href="#">Notes</a><a href="#">Contact</a>
+  </div>
+  <a class="btn btn-primary btn-round" href="#">Get in touch</a>
+</div></nav>
+
+<!-- HERO -->
+<header class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">Data &amp; Automation Engineer · Santa Cruz, Bolivia</span>
+    <h1>I take the manual work <span class="grey">out of the way</span> people run their business</h1>
+    <p class="lede">Three years building data pipelines, automated workflows and AI integrations for companies in Bolivia and the United States — cutting processing times 40–50%.</p>
+    <div class="hero-cta">
+      <a class="btn btn-primary btn-round" href="#">See my work →</a>
+      <a class="btn btn-ghost btn-round" href="#">↓ Download CV</a>
+    </div>
+    <div class="hero-stats">
+      <div><b>3+</b><small>Years</small></div>
+      <div><b>50%</b><small>Faster loads</small></div>
+      <div><b>2</b><small>Countries</small></div>
+    </div>
+  </div>
+
+  <div style="position:relative">
+    <div class="shot">
+      <img src="/photos/eduardo-speaking.jpg" alt="Eduardo presenting"
+           onerror="this.outerHTML='&lt;div class=\'ph\'&gt;Your stage photo&lt;br&gt;goes here&lt;br&gt;photos/eduardo-speaking.jpg&lt;/div&gt;'">
+      <div class="slash"></div>
+    </div>
+    <div class="chip chip-a"><b>Automation Engineer</b><small>CarSans · since Mar 2026</small></div>
+    <div class="chip chip-b"><span class="dot"></span><div><b>Open to work</b><small>Remote · freelance</small></div></div>
+  </div>
+</div></header>
+
+<!-- TICKER -->
+<div class="ticker-wrap"><div class="ticker"><div class="ticker-track">
+  <span>Python<i>✦</i>n8n<i>✦</i>Apache Airflow<i>✦</i>dbt<i>✦</i>PostgreSQL<i>✦</i>Snowflake<i>✦</i>BigQuery<i>✦</i>Docker<i>✦</i>FastAPI<i>✦</i>LangChain<i>✦</i>WhatsApp API<i>✦</i>Power BI<i>✦</i></span>
+  <span>Python<i>✦</i>n8n<i>✦</i>Apache Airflow<i>✦</i>dbt<i>✦</i>PostgreSQL<i>✦</i>Snowflake<i>✦</i>BigQuery<i>✦</i>Docker<i>✦</i>FastAPI<i>✦</i>LangChain<i>✦</i>WhatsApp API<i>✦</i>Power BI<i>✦</i></span>
+</div></div></div>
+
+<!-- CLIENTS -->
+<section class="clients"><div class="wrap">
+  <p>Built systems for</p>
+  <ul><li>CarSans</li><li>Group Quimera</li><li>Gerona SVF</li><li>US e-commerce</li><li>US home automation</li></ul>
+</div></section>
+
+<!-- CAPABILITY TILES -->
+<section class="tiles"><div class="wrap">
+  <div class="tiles-head">
+    <div><span class="eyebrow">What I build</span>
+      <h2 style="margin-top:18px">Four things I do <em>properly</em></h2></div>
+    <a class="btn btn-ghost btn-round" href="#">All services ↗</a>
+  </div>
+  <div class="tile-grid">
+    <article class="tile">
+      <div class="canvas">
+        <div class="node on" style="left:14%;top:24%"></div><div class="node" style="left:52%;top:16%"></div>
+        <div class="node" style="left:50%;top:46%"></div><div class="node on" style="left:22%;top:68%"></div>
+        <div class="wire" style="left:26%;top:33%;width:28%"></div><div class="wire" style="left:26%;top:55%;width:26%"></div>
+        <div class="wire" style="left:30%;top:33%;width:2px;height:22%"></div>
+      </div>
+      <div><h3><small>01</small>Automation</h3><span class="more">n8n · Airflow</span></div>
+    </article>
+    <article class="tile">
+      <div class="bars"><i style="height:38%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:56%"></i><i style="height:92%"></i></div>
+      <div><h3><small>02</small>Data</h3><span class="more">ETL · Warehouse</span></div>
+    </article>
+    <article class="tile">
+      <div class="chatbg"><div class="bub"></div><div class="bub me"></div><div class="bub"></div><div class="bub me" style="width:44%"></div><div class="bub" style="width:64%"></div></div>
+      <div><h3><small>03</small>AI Agents</h3><span class="more">LLM · WhatsApp</span></div>
+    </article>
+    <article class="tile">
+      <div class="phonebg"><div class="phoneframe"><i></i><i></i><i style="width:80%"></i><i style="width:60%"></i><i></i><i style="width:70%"></i></div></div>
+      <div><h3><small>04</small>Web &amp; Apps</h3><span class="more">React · FastAPI</span></div>
+    </article>
+  </div>
+</div></section>
+
+<!-- TORN EDGE -> NAVY -->
+<svg class="torn" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
+  <path fill="currentColor" d="M0,44 C120,64 210,18 330,30 C450,42 520,72 640,60 C760,48 830,8 950,16 C1070,24 1150,58 1270,52 C1350,48 1400,36 1440,30 L1440,70 L0,70 Z"/>
+</svg>
+
+<!-- STAT BAND -->
+<section class="band">
+  <div class="beam"></div>
+  <div class="wrap">
+    <div class="stat-grid">
+      <div class="stat"><div class="ghostnum">50%</div>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v5h-5"/></svg>
+        <p><b>Faster data loads.</b> Parallelised ETL with automated validation at Gerona SVF.</p></div>
+      <div class="stat"><div class="ghostnum">40%</div>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        <p><b>Less time per lead.</b> WhatsApp → CRM → Postgres, synced in real time.</p></div>
+      <div class="stat"><div class="ghostnum">95%</div>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 6L9 17l-5-5"/></svg>
+        <p><b>Report reliability.</b> Cleansing, normalisation and validation rules.</p></div>
+      <div class="stat"><div class="ghostnum">3+</div>
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>
+        <p><b>Years shipping.</b> Bolivia and the US, in Spanish and English.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANATOMY OF AN AUTOMATION -->
+<section class="anatomy"><div class="wrap">
+  <span class="eyebrow" style="color:rgba(255,255,255,.55)">How it actually works</span>
+  <h2 style="margin-top:18px">Anatomy of one <em>real automation</em></h2>
+  <p class="sub">This is the lead engine I built at Group Quimera. A message lands on WhatsApp and nothing is touched by a human until a salesperson gets pinged.</p>
+  <div class="flow"><div class="flow-row">
+    <div class="fnode"><div class="pulse"></div><b>WhatsApp</b><small>Message in</small></div>
+    <div class="link"></div>
+    <div class="fnode"><div class="pulse"></div><b>n8n</b><small>Parse &amp; validate</small></div>
+    <div class="link"></div>
+    <div class="fnode"><div class="pulse"></div><b>CRM</b><small>Create lead</small></div>
+    <div class="link"></div>
+    <div class="fnode"><div class="pulse"></div><b>PostgreSQL</b><small>Sync record</small></div>
+    <div class="link"></div>
+    <div class="fnode"><div class="pulse"></div><b>Sales rep</b><small>Notified</small></div>
+  </div></div>
+</div></section>
+
+<!-- RIBBON PROCESS -->
+<section class="ribbon-sec"><div class="wrap">
+  <span class="eyebrow">How I work</span>
+  <h2 style="margin-top:18px">Four steps, <em>zero guesswork</em></h2>
+  <div class="ribbon-wrap">
+    <div class="step"><div class="num">01</div><div><h3>Diagnose</h3><p>I map your operation and find where hours and money actually leak.</p><span class="when">Week 1</span></div></div>
+    <div class="step"><div class="num">02</div><div><h3>Design</h3><p>The full flow: what it does, what it touches, how the result gets measured.</p><span class="when">Week 1–2</span></div></div>
+    <div class="step"><div class="num">03</div><div><h3>Build</h3><p>Built, integrated and tested against real data before it reaches production.</p><span class="when">Week 2–4</span></div></div>
+    <div class="step"><div class="num">04</div><div><h3>Tune</h3><p>Monitored and scaled. You get reports with hours saved, not vibes.</p><span class="when">Ongoing</span></div></div>
+  </div>
+</div></section>
+
+<!-- SELECTED WORK -->
+<section class="work"><div class="wrap">
+  <span class="eyebrow">Selected work</span>
+  <h2 style="margin-top:18px;font-size:clamp(30px,3.6vw,50px)">Things I have <em style="font-style:normal;color:var(--crimson)">built</em></h2>
+  <div class="work-grid">
+    <article class="wcard"><div class="top"><div class="canvas" style="z-index:0">
+      <div class="node on" style="left:12%;top:30%"></div><div class="node" style="left:48%;top:20%"></div>
+      <div class="node" style="left:46%;top:56%"></div><div class="node on" style="left:76%;top:38%"></div>
+      <div class="wire" style="left:24%;top:38%;width:24%"></div><div class="wire" style="left:60%;top:38%;width:16%"></div></div></div>
+      <div class="body"><span class="tag">Automation</span><h3>WhatsApp lead engine</h3>
+        <p>Leads arrived by WhatsApp and were copied into the CRM by hand. Now the whole path runs itself.</p>
+        <div class="out">40% faster per lead</div></div></article>
+
+    <article class="wcard"><div class="top"><div class="bars" style="z-index:0"><i style="height:44%"></i><i style="height:70%"></i><i style="height:52%"></i><i style="height:88%"></i><i style="height:60%"></i></div></div>
+      <div class="body"><span class="tag">Data</span><h3>Corporate warehouse &amp; ETL</h3>
+        <p>Sales, inventory and CRM in separate systems, reports built by hand and trusted by nobody.</p>
+        <div class="out">50% faster · 95% reliable</div></div></article>
+
+    <article class="wcard"><div class="top"><div class="phonebg" style="z-index:0"><div class="phoneframe"><i></i><i style="width:70%"></i><i></i><i style="width:84%"></i><i style="width:52%"></i></div></div></div>
+      <div class="body"><span class="tag">Own product</span><h3>Casera — ledger for market vendors</h3>
+        <p>Vendors in Santa Cruz track credit in a paper notebook. Lose the notebook, lose the business.</p>
+        <div class="out">Offline-first PWA</div></div></article>
+  </div>
+</div></section>
+
+<!-- CLOSING -->
+<section class="closing">
+  <div class="ghostword">LET'S TALK</div>
+  <div class="wrap">
+    <h2>Got a process that <em>should run itself?</em></h2>
+    <p>Tell me what is eating your team's time. If I can help I'll tell you how — if I can't, I'll tell you that too.</p>
+    <div class="row">
+      <a class="btn btn-primary btn-round" href="#">Book a call</a>
+      <a class="btn btn-ghost btn-round" href="#">Message me on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© 2026 Eduardo Shande · Santa Cruz de la Sierra · Client work delivered under Sycosmart.</div></footer>
+
+</body>
+</html>
