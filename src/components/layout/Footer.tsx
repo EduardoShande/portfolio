@@ -22,14 +22,14 @@ export default function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <span className="text-xl font-bold font-heading tracking-tight">
-              <span className="text-accent-light">Syco</span>
+              <span className="text-accent">Syco</span>
               <span className="text-fg">smart</span>
             </span>
             <p className="mt-3 text-sm text-fg-muted max-w-xs leading-relaxed">
               {t("description")}
             </p>
             <div className="mt-4 flex items-center gap-2 text-xs text-fg-muted">
-              <Globe className="h-4 w-4 text-accent-light" />
+              <Globe className="h-4 w-4 text-accent" />
               <span>{t("tagline")}</span>
             </div>
           </div>
@@ -50,7 +50,7 @@ export default function Footer() {
                 <li key={service.label}>
                   <Link
                     href="/servicios"
-                    className="text-sm text-fg-muted hover:text-accent-light transition-colors"
+                    className="text-sm text-fg-muted hover:text-accent transition-colors"
                   >
                     {service.label}
                   </Link>
@@ -68,7 +68,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/nosotros"
-                  className="text-sm text-fg-muted hover:text-accent-light transition-colors"
+                  className="text-sm text-fg-muted hover:text-accent transition-colors"
                 >
                   {nav("about")}
                 </Link>
@@ -76,7 +76,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/casos"
-                  className="text-sm text-fg-muted hover:text-accent-light transition-colors"
+                  className="text-sm text-fg-muted hover:text-accent transition-colors"
                 >
                   {nav("cases")}
                 </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contacto"
-                  className="text-sm text-fg-muted hover:text-accent-light transition-colors"
+                  className="text-sm text-fg-muted hover:text-accent transition-colors"
                 >
                   {nav("contact")}
                 </Link>
@@ -112,7 +112,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contacto"
-                  className="flex items-center gap-2 text-sm text-fg-muted hover:text-accent-light transition-colors"
+                  className="flex items-center gap-2 text-sm text-fg-muted hover:text-accent transition-colors"
                 >
                   <Mail className="h-4 w-4" />
                   {nav("contact")}

@@ -16,12 +16,12 @@ export default function LanguageSwitcher() {
   }
 
   return (
-    <div className="flex items-center gap-1 rounded-full border border-border-theme bg-bg-elevated p-0.5">
+    <div className="flex items-center gap-1 rounded-[2px] border border-border-theme bg-bg-elevated p-0.5">
       <motion.button
         whileTap={{ scale: 0.9 }}
         onClick={() => switchLocale("es")}
         className={cn(
-          "rounded-full px-3 py-1 text-xs font-medium transition-all cursor-pointer",
+          "rounded-[2px] px-3 py-1 text-xs font-medium transition-all cursor-pointer",
           locale === "es"
             ? "bg-accent text-white"
             : "text-fg-muted hover:text-fg"
@@ -33,7 +33,7 @@ export default function LanguageSwitcher() {
         whileTap={{ scale: 0.9 }}
         onClick={() => switchLocale("en")}
         className={cn(
-          "rounded-full px-3 py-1 text-xs font-medium transition-all cursor-pointer",
+          "rounded-[2px] px-3 py-1 text-xs font-medium transition-all cursor-pointer",
           locale === "en"
             ? "bg-accent text-white"
             : "text-fg-muted hover:text-fg"

@@ -44,7 +44,7 @@ sycosmart-web/
 │   ├── components/
 │   │   ├── layout/                # Navbar, Footer, MobileMenu, LanguageSwitcher, ThemeToggle
 │   │   ├── ui/                    # Container, Button, Card, SectionHeading, Badge
-│   │   ├── home/                  # HeroSection, StatsBar, WhatsAppSimulator, ServicesOverview, SocialProof, CTASection
+│   │   ├── home/                  # HeroSection, MarqueeStrip, StatsBar, WhatsAppSimulator, ServicesOverview, ProcessSteps, SocialProof, CTASection
 │   │   ├── contacto/              # ContactForm, CalendlyEmbed
 │   │   ├── shared/                # WhatsAppFloatingButton, PageTransition
 │   │   └── providers/             # ThemeProvider

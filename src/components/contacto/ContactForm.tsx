@@ -23,7 +23,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 const inputStyles =
-  "w-full rounded-lg border border-border-theme bg-bg/50 px-4 py-3 text-sm text-fg placeholder:text-fg-muted/60 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all";
+  "w-full rounded-[2px] border border-border-theme bg-bg/50 px-4 py-3 text-sm text-fg placeholder:text-fg-muted/60 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent transition-all";
 
 const fieldVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -198,7 +198,7 @@ export default function ContactForm() {
         whileTap={{ scale: 0.98 }}
         type="submit"
         disabled={status === "loading"}
-        className="flex w-full items-center justify-center gap-2 rounded-lg bg-accent px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-accent/25 transition-all hover:bg-accent/90 hover:shadow-accent/40 disabled:opacity-50 cursor-pointer"
+        className="flex w-full items-center justify-center gap-2 rounded-[2px] bg-accent px-6 py-3.5 text-xs font-semibold uppercase tracking-[0.1em] text-white transition-colors hover:bg-accent-deep disabled:opacity-50 cursor-pointer"
       >
         {status === "loading" ? (
           <Loader2 className="h-4 w-4 animate-spin" />

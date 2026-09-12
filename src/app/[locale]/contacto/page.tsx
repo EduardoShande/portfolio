@@ -56,7 +56,7 @@ export default function ContactoPage() {
                       }}
                       className="flex items-start gap-4"
                     >
-                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent-light">
+                      <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center bg-accent/10 text-accent">
                         <Icon className="h-5 w-5" />
                       </div>
                       <div>
@@ -77,7 +77,7 @@ export default function ContactoPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="mt-10 rounded-2xl border border-border-theme bg-bg-elevated p-6"
+                className="mt-10 clip-notch border border-border-theme bg-bg-elevated p-6"
               >
                 <p className="text-xs font-semibold uppercase tracking-wider text-fg-muted mb-4">
                   {t("direct_contact")}
@@ -111,7 +111,7 @@ export default function ContactoPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="rounded-3xl border border-border-theme bg-bg-elevated p-8 lg:p-10"
+              className="clip-notch border border-border-theme bg-bg-elevated p-8 lg:p-10"
             >
               <h2 className="font-heading text-2xl font-bold text-fg">
                 {t("form.title")}
@@ -132,7 +132,7 @@ export default function ContactoPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl border border-border-theme bg-bg-elevated p-6 lg:p-10"
+            className="clip-notch border border-border-theme bg-bg-elevated p-6 lg:p-10"
           >
             <div className="text-center mb-8">
               <h2 className="font-heading text-2xl font-bold text-fg lg:text-3xl">

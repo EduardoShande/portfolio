@@ -52,7 +52,7 @@ export default function Navbar() {
                 whileHover={{ scale: 1.04 }}
                 className="text-xl font-bold font-heading tracking-tight"
               >
-                <span className="text-accent-light">Syco</span>
+                <span className="text-accent">Syco</span>
                 <span className="text-fg">smart</span>
               </motion.span>
             </Link>
@@ -68,7 +68,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="rounded-lg px-4 py-2 text-sm font-medium text-fg-muted transition-colors hover:text-fg hover:bg-fg/5"
+                    className="rounded-[2px] px-4 py-2 text-sm font-medium text-fg-muted transition-colors hover:text-fg hover:bg-fg/5"
                   >
                     {t(link.key)}
                   </Link>
@@ -91,7 +91,7 @@ export default function Navbar() {
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsMobileOpen(true)}
-                className="rounded-lg p-2 text-fg-muted hover:text-fg hover:bg-fg/5 cursor-pointer"
+                className="rounded-[2px] p-2 text-fg-muted hover:text-fg hover:bg-fg/5 cursor-pointer"
               >
                 <Menu className="h-6 w-6" />
               </motion.button>

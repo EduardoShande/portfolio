@@ -5,78 +5,73 @@ import { motion } from "motion/react";
 import { MessageCircle, Calendar } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
+import Badge from "@/components/ui/Badge";
 import { WHATSAPP_URL, CALENDLY_URL } from "@/lib/constants";
 
+/**
+ * Full-bleed closing band with sloped edges and an oversized ghost word
+ * behind the headline, the way the airline reference closes its page with
+ * "CONTACT US" set huge and faint behind the actual question.
+ *
+ * Replaces the rounded gradient card, which read as a panel floating on the
+ * page rather than as the end of it.
+ */
 export default function CTASection() {
   const t = useTranslations("home.cta");
 
   return (
-    <section className="py-20 lg:py-32">
-      <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-accent to-accent/60 p-8 sm:p-12 lg:p-16 text-center"
-        >
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-            }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-0 right-0 h-64 w-64 rounded-full bg-white/10 blur-3xl will-change-transform"
-          />
-          <motion.div
-            animate={{
-              scale: [1.1, 1, 1.1],
-              opacity: [0.4, 0.2, 0.4],
-            }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-accent-light/30 blur-3xl will-change-transform"
-          />
+    <section className="clip-angle-t grain relative overflow-hidden bg-band py-28 lg:py-40">
+      <div
+        aria-hidden="true"
+        className="hatch absolute inset-0 text-white/[0.04]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -right-40 top-0 h-full w-[36rem] -rotate-12 bg-accent/[0.09]"
+      />
+      <div
+        aria-hidden="true"
+        className="absolute -left-40 bottom-0 h-[28rem] w-[28rem] -rotate-12 bg-white/[0.02]"
+      />
 
-          <div className="relative z-10">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              className="font-heading text-3xl font-bold text-white sm:text-4xl lg:text-5xl"
-            >
-              {t("title")}
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="mt-4 text-lg text-white/85 max-w-xl mx-auto"
-            >
-              {t("subtitle")}
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.5 }}
-              className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <Button variant="whatsapp" size="lg" href={WHATSAPP_URL}>
-                <MessageCircle className="h-5 w-5" />
-                {t("whatsapp")}
-              </Button>
-              <Button
-                variant="secondary"
-                size="lg"
-                href={CALENDLY_URL}
-                className="border-white/40 text-white hover:bg-white/10"
-              >
-                <Calendar className="h-5 w-5" />
-                {t("calendar")}
-              </Button>
-            </motion.div>
+      {/* Ghost word sitting behind the headline */}
+      <span
+        aria-hidden="true"
+        className="numeral numeral-ghost pointer-events-none absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 text-center text-[22vw] text-white lg:text-[16rem]"
+      >
+        {t("ghost")}
+      </span>
+
+      <Container className="relative">
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <div className="flex justify-center">
+            <Badge tone="band">{t("eyebrow")}</Badge>
+          </div>
+
+          <h2 className="mt-8 font-heading text-4xl font-bold leading-[1.02] tracking-[-0.03em] text-white sm:text-5xl lg:text-6xl">
+            {t("title")}{" "}
+            <span className="text-accent">{t("titleAccent")}</span>
+          </h2>
+
+          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/60">
+            {t("subtitle")}
+          </p>
+
+          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button variant="whatsapp" size="lg" href={WHATSAPP_URL}>
+              <MessageCircle className="h-4 w-4" />
+              {t("whatsapp")}
+            </Button>
+            <Button variant="band" size="lg" href={CALENDLY_URL}>
+              <Calendar className="h-4 w-4" />
+              {t("calendar")}
+            </Button>
           </div>
         </motion.div>
       </Container>

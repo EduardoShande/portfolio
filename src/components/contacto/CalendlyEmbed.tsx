@@ -5,7 +5,7 @@ import { InlineWidget } from "react-calendly";
 
 export default function CalendlyEmbed() {
   return (
-    <div className="rounded-lg overflow-hidden -mx-2">
+    <div className="rounded-[2px] overflow-hidden -mx-2">
       <InlineWidget
         url={CALENDLY_URL}
         styles={{ height: "400px", minWidth: "250px" }}

@@ -14,62 +14,63 @@
       "titleHighlight": "WhatsApp",
       "subtitle": "Send a voice message and your AI agent schedules appointments, qualifies leads, and manages your business. No complicated apps, just your WhatsApp.",
       "cta_primary": "See Demo",
-      "cta_secondary": "Book a Call"
+      "cta_secondary": "Book a Call",
+      "stat_uptime": "Always on",
+      "stat_time": "Less manual work",
+      "panel_label": "Live agent",
+      "panel_caption": "Your whole operation, run from a single WhatsApp chat."
     },
     "stats": {
       "automations": "Automations built",
       "hours": "Hours saved/month",
-      "clients": "Happy clients"
+      "clients": "Happy clients",
+      "uptime": "System uptime"
     },
     "simulator": {
-      "title": "See how it works",
+      "title": "See how",
       "subtitle": "Real use cases that companies are already using to scale their operations",
       "scenario_sales": "AI Sales",
       "scenario_operations": "Operations Hub",
       "scenario_intelligence": "Customer Intelligence",
       "cta": "Want this for your company?",
-
       "sales_title": "AI Sales Assistant",
       "sales_description": "An AI agent that qualifies leads, answers product questions, and books meetings automatically 24/7. Perfect for real estate, car dealerships, and B2B companies.",
       "sales_benefit_1": "Qualifies leads automatically with smart questions",
       "sales_benefit_2": "Books meetings directly into the salesperson's calendar",
       "sales_benefit_3": "Answers product inquiries 24/7 without rest",
-
       "operations_title": "Automated Operations Hub",
       "operations_description": "Central system connecting CRM, inventory, invoicing, and WhatsApp notifications in one automated workflow. Ideal for distributors and retail chains.",
       "operations_benefit_1": "Connects all your tools in one workflow",
       "operations_benefit_2": "Automatic confirmations and real-time notifications",
       "operations_benefit_3": "Reduces human errors and eliminates repetitive tasks",
-
       "intelligence_title": "Customer Intelligence Dashboard",
       "intelligence_description": "AI that analyzes customer behavior, predicts who's about to leave, and sends personalized retention campaigns automatically. For gyms, subscriptions, and SaaS.",
       "intelligence_benefit_1": "Predicts churn before it happens",
       "intelligence_benefit_2": "Sends personalized campaigns automatically",
       "intelligence_benefit_3": "Increases customer lifetime value effortlessly",
-
       "sales_msg_1": "👋 Hi! I saw you sent an audio. I'm your sales assistant. I confirmed you have 12 new leads today. Want me to qualify them?",
       "sales_msg_2": "Yes, qualify them by budget and need",
       "sales_msg_3": "🎯 Done. I qualified all 12 leads:\n\n✅ 4 HOT leads (high budget, ready to buy)\n🟡 5 WARM leads (interested, need more info)\n❄️ 3 COLD leads (not qualified yet)\n\nShall I forward the HOT ones to sales?",
       "sales_msg_5": "📞 Contacting the 4 HOT leads now...\n\n• Carlos S. → Booked tomorrow 10am\n• María T. → Booked today 4pm\n• Roberto P. → Requested immediate call\n• Diego J. → Confirmed visit Friday",
       "sales_msg_6": "Amazing. And the warm leads?",
       "sales_msg_7": "📧 I sent them personalized info materials and put them on auto-followup. I'll let you know when they heat up. 🔥",
-
       "ops_msg_1": "📦 Good morning! Today's operations report:\n\n• 47 pending orders to confirm\n• 3 products with low stock\n• 5 invoices to send\n\nShall I proceed with everything automatically?",
       "ops_msg_2": "Yes, proceed with everything",
       "ops_msg_3": "✅ Processing...\n\n📋 47 orders confirmed via WhatsApp\n📨 5 invoices sent and recorded in CRM\n🚨 Notified purchasing about low stock",
       "ops_msg_5": "🎉 All done!\n\n• Total time: 2 minutes\n• Errors: 0\n• Customers notified: 47/47\n\nWant the full report in your email?",
       "ops_msg_6": "Yes please, and send the summary to the team",
       "ops_msg_7": "📤 Report sent to your email and to the team in the Telegram group. Anything else, I'm here.",
-
       "intel_msg_1": "📊 I analyzed behavior from the last 30 days. I detected 23 customers with high churn risk.",
       "intel_msg_2": "What's happening with them?",
       "intel_msg_3": "🔍 Patterns detected:\n\n• 15 haven't used the service in 14+ days\n• 6 reduced their usage frequency\n• 2 reported unresolved technical issues",
       "intel_msg_4": "Can you do something to retain them?",
       "intel_msg_5": "🎯 Retention plan started:\n\n💌 Sending personalized offers to the 15 inactive\n📞 Booking calls with the 6 who reduced usage\n🛠️ Assigning priority support to the 2 with issues",
-      "intel_msg_7": "✅ Actions executed. I'll send you a report in 7 days with the recovery rate. My projection: we'll save at least 16 of 23 customers (70%)."
+      "intel_msg_7": "✅ Actions executed. I'll send you a report in 7 days with the recovery rate. My projection: we'll save at least 16 of 23 customers (70%).",
+      "eyebrow": "Live demo",
+      "titleAccent": "it works"
     },
     "services": {
-      "title": "Our Services",
+      "title": "Our",
       "subtitle": "Complete digital solutions to grow your business",
       "ai_agents": "AI Agents",
       "ai_agents_desc": "Control your business from WhatsApp with AI that works 24/7.",
@@ -83,17 +84,53 @@
       "mobile_apps_desc": "Android and iOS apps for internal tools or customer products.",
       "consulting": "Digital Consulting",
       "consulting_desc": "Personalized strategy to take your business to the next level.",
-      "view_all": "View all services"
+      "view_all": "View all services",
+      "eyebrow": "What we do",
+      "titleAccent": "Services",
+      "learn_more": "Learn more"
     },
     "social_proof": {
-      "title": "Results that speak",
-      "subtitle": "Companies that already trust our solutions"
+      "title": "Results that",
+      "subtitle": "Companies that already trust our solutions",
+      "eyebrow": "Client results",
+      "titleAccent": "speak"
     },
     "cta": {
-      "title": "Ready to automate your business?",
+      "title": "Ready to automate",
       "subtitle": "Book a free call and discover how AI can transform your operation.",
       "whatsapp": "Message on WhatsApp",
-      "calendar": "Book a Call"
+      "calendar": "Book a Call",
+      "eyebrow": "Next step",
+      "titleAccent": "your business?",
+      "ghost": "CONTACT"
+    },
+    "marquee": {
+      "ai_agents": "AI Agents",
+      "automation": "n8n Automation",
+      "data": "Data Pipelines",
+      "whatsapp": "WhatsApp API",
+      "web": "Web Development",
+      "ads": "Meta Ads",
+      "apps": "Mobile Apps",
+      "integrations": "Integrations"
+    },
+    "process": {
+      "eyebrow": "How we work",
+      "title": "Four steps,",
+      "titleAccent": "zero friction",
+      "subtitle": "A short, measurable process. You know what happens at every stage and what you get at the end.",
+      "discovery_title": "Discovery",
+      "discovery_desc": "We map your current operation, find where hours and money leak, and decide what to automate first.",
+      "discovery_meta": "Week 1",
+      "design_title": "Solution design",
+      "design_desc": "We design the full flow: what the agent does, which systems it connects to, and how the result is measured.",
+      "design_meta": "Week 1–2",
+      "build_title": "Build",
+      "build_desc": "We build and integrate everything — AI agent, n8n automations, CRM and WhatsApp — and test it against real data.",
+      "build_meta": "Weeks 2–4",
+      "scale_title": "Optimisation",
+      "scale_desc": "We monitor, tune and scale. You get reports with hours saved and concrete results.",
+      "scale_meta": "Ongoing"
     }
   },
   "services": {
