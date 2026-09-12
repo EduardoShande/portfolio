@@ -3,6 +3,12 @@ import { Space_Grotesk, Outfit } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
+
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
@@ -20,7 +26,10 @@ const DESCRIPTION =
   "I build data pipelines, automated workflows and AI integrations that take manual work off your team. Three years with clients in Bolivia and the United States.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sycosmart.com"),
+  // Absolute base for canonical and OpenGraph URLs. Set NEXT_PUBLIC_SITE_URL
+  // to the custom domain; otherwise Vercel supplies the production URL of the
+  // deployment, and local dev falls back to localhost.
+  metadataBase: new URL(SITE_URL),
   title: {
     default: TITLE,
     template: "%s | Eduardo Shande",
