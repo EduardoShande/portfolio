@@ -14,62 +14,63 @@
       "titleHighlight": "WhatsApp",
       "subtitle": "Envía un audio y tu agente de IA agenda citas, califica leads y gestiona tu negocio. Sin apps complicadas, solo tu WhatsApp.",
       "cta_primary": "Ver Demo",
-      "cta_secondary": "Agendar Llamada"
+      "cta_secondary": "Agendar Llamada",
+      "stat_uptime": "Siempre activo",
+      "stat_time": "Menos trabajo manual",
+      "panel_label": "Agente en vivo",
+      "panel_caption": "Tu operación completa, controlada desde un solo chat de WhatsApp."
     },
     "stats": {
       "automations": "Automatizaciones creadas",
       "hours": "Horas ahorradas/mes",
-      "clients": "Clientes satisfechos"
+      "clients": "Clientes satisfechos",
+      "uptime": "Disponibilidad del sistema"
     },
     "simulator": {
-      "title": "Mira cómo funciona",
+      "title": "Mira cómo",
       "subtitle": "Casos reales que empresas ya están usando para escalar sus operaciones",
       "scenario_sales": "Ventas con IA",
       "scenario_operations": "Hub de Operaciones",
       "scenario_intelligence": "Inteligencia de Clientes",
       "cta": "¿Quieres esto para tu empresa?",
-
       "sales_title": "AI Sales Assistant",
       "sales_description": "Un agente de IA que califica leads, responde preguntas sobre productos y agenda reuniones automáticamente, las 24 horas del día. Perfecto para inmobiliarias, concesionarias y empresas B2B.",
       "sales_benefit_1": "Califica leads automáticamente con preguntas inteligentes",
       "sales_benefit_2": "Agenda reuniones directamente en el calendario del vendedor",
       "sales_benefit_3": "Responde consultas sobre productos 24/7 sin descanso",
-
       "operations_title": "Automated Operations Hub",
       "operations_description": "Sistema central que conecta CRM, inventario, facturación y notificaciones de WhatsApp en un solo flujo automatizado. Ideal para distribuidoras y cadenas retail.",
       "operations_benefit_1": "Conecta todas tus herramientas en un solo flujo",
       "operations_benefit_2": "Confirmaciones automáticas y notificaciones en tiempo real",
       "operations_benefit_3": "Reduce errores humanos y elimina tareas repetitivas",
-
       "intelligence_title": "Customer Intelligence Dashboard",
       "intelligence_description": "IA que analiza el comportamiento de tus clientes, predice cuáles están por irse y envía campañas de retención personalizadas automáticamente. Para gimnasios, suscripciones y SaaS.",
       "intelligence_benefit_1": "Predice churn antes de que ocurra",
       "intelligence_benefit_2": "Envía campañas personalizadas automáticamente",
       "intelligence_benefit_3": "Aumenta el valor de vida del cliente sin esfuerzo",
-
       "sales_msg_1": "👋 Hola! Vi que enviaste un audio. Soy tu asistente de ventas. Confirmé que tienes 12 leads nuevos hoy. ¿Quieres que los califique?",
       "sales_msg_2": "Sí, califícalos por presupuesto y necesidad",
       "sales_msg_3": "🎯 Listo. He calificado los 12 leads:\n\n✅ 4 leads HOT (presupuesto alto, listos para comprar)\n🟡 5 leads WARM (interesados, necesitan más info)\n❄️ 3 leads COLD (no calificados todavía)\n\n¿Te paso los HOT al equipo de ventas?",
       "sales_msg_5": "📞 Contactando a los 4 leads HOT ahora...\n\n• Carlos S. → Agendado para mañana 10am\n• María T. → Agendada para hoy 4pm\n• Roberto P. → Solicitó llamada inmediata\n• Diego J. → Confirmó visita el viernes",
       "sales_msg_6": "Increíble. ¿Y los warm leads?",
       "sales_msg_7": "📧 Les envié material informativo personalizado y los puse en seguimiento automático. Te avisaré cuando se calienten. 🔥",
-
       "ops_msg_1": "📦 Buenos días! Reporte de operaciones de hoy:\n\n• 47 pedidos pendientes de confirmar\n• 3 productos con stock bajo\n• 5 facturas por enviar\n\n¿Procedo con todo automáticamente?",
       "ops_msg_2": "Sí, procede con todo",
       "ops_msg_3": "✅ Procesando...\n\n📋 47 pedidos confirmados vía WhatsApp\n📨 5 facturas enviadas y registradas en el CRM\n🚨 Notifiqué al área de compras sobre el stock bajo",
       "ops_msg_5": "🎉 Todo listo!\n\n• Tiempo total: 2 minutos\n• Errores: 0\n• Clientes notificados: 47/47\n\n¿Quieres el reporte completo en tu correo?",
       "ops_msg_6": "Sí por favor, y manda el resumen al equipo",
       "ops_msg_7": "📤 Reporte enviado a tu correo y al equipo en el grupo de Telegram. Cualquier cosa, aquí estoy.",
-
       "intel_msg_1": "📊 Analicé el comportamiento de los últimos 30 días. Detecté 23 clientes con alto riesgo de cancelar suscripción.",
       "intel_msg_2": "¿Qué está pasando con ellos?",
       "intel_msg_3": "🔍 Patrones detectados:\n\n• 15 no han usado el servicio en 14+ días\n• 6 redujeron su frecuencia de uso\n• 2 reportaron problemas técnicos sin resolver",
       "intel_msg_4": "¿Puedes hacer algo para retenerlos?",
       "intel_msg_5": "🎯 Plan de retención iniciado:\n\n💌 Enviando ofertas personalizadas a los 15 inactivos\n📞 Agendando llamadas con los 6 que redujeron uso\n🛠️ Asignando soporte prioritario a los 2 con problemas",
-      "intel_msg_7": "✅ Acciones ejecutadas. Te enviaré un reporte en 7 días con la tasa de recuperación. Mi proyección: rescataremos al menos 16 de 23 clientes (70%)."
+      "intel_msg_7": "✅ Acciones ejecutadas. Te enviaré un reporte en 7 días con la tasa de recuperación. Mi proyección: rescataremos al menos 16 de 23 clientes (70%).",
+      "eyebrow": "Demo en vivo",
+      "titleAccent": "funciona"
     },
     "services": {
-      "title": "Nuestros Servicios",
+      "title": "Nuestros",
       "subtitle": "Soluciones digitales completas para hacer crecer tu negocio",
       "ai_agents": "Agentes de IA",
       "ai_agents_desc": "Controla tu negocio desde WhatsApp con inteligencia artificial que trabaja 24/7.",
@@ -83,17 +84,53 @@
       "mobile_apps_desc": "Apps Android e iOS para herramientas internas o productos al cliente.",
       "consulting": "Consultoría Digital",
       "consulting_desc": "Estrategia personalizada para llevar tu negocio al siguiente nivel.",
-      "view_all": "Ver todos los servicios"
+      "view_all": "Ver todos los servicios",
+      "eyebrow": "Lo que hacemos",
+      "titleAccent": "Servicios",
+      "learn_more": "Ver más"
     },
     "social_proof": {
-      "title": "Resultados que hablan",
-      "subtitle": "Empresas que ya confían en nuestras soluciones"
+      "title": "Resultados que",
+      "subtitle": "Empresas que ya confían en nuestras soluciones",
+      "eyebrow": "Resultados de clientes",
+      "titleAccent": "hablan"
     },
     "cta": {
-      "title": "¿Listo para automatizar tu negocio?",
+      "title": "¿Listo para automatizar",
       "subtitle": "Agenda una llamada gratuita y descubre cómo la IA puede transformar tu operación.",
       "whatsapp": "Escribir por WhatsApp",
-      "calendar": "Agendar Llamada"
+      "calendar": "Agendar Llamada",
+      "eyebrow": "Siguiente paso",
+      "titleAccent": "tu negocio?",
+      "ghost": "CONTACTO"
+    },
+    "marquee": {
+      "ai_agents": "Agentes de IA",
+      "automation": "Automatización n8n",
+      "data": "Pipelines de datos",
+      "whatsapp": "WhatsApp API",
+      "web": "Desarrollo web",
+      "ads": "Meta Ads",
+      "apps": "Apps móviles",
+      "integrations": "Integraciones"
+    },
+    "process": {
+      "eyebrow": "Cómo trabajamos",
+      "title": "Cuatro pasos,",
+      "titleAccent": "cero fricción",
+      "subtitle": "Un proceso corto y medible. Sabes qué pasa en cada etapa y qué recibes al final.",
+      "discovery_title": "Diagnóstico",
+      "discovery_desc": "Mapeamos tu operación actual, identificamos dónde se pierden horas y dinero, y definimos qué automatizar primero.",
+      "discovery_meta": "Semana 1",
+      "design_title": "Diseño de la solución",
+      "design_desc": "Diseñamos el flujo completo: qué hace el agente, con qué sistemas se conecta y cómo se mide el resultado.",
+      "design_meta": "Semana 1–2",
+      "build_title": "Construcción",
+      "build_desc": "Construimos e integramos todo — agente de IA, automatizaciones n8n, CRM y WhatsApp — y lo probamos con datos reales.",
+      "build_meta": "Semanas 2–4",
+      "scale_title": "Optimización",
+      "scale_desc": "Monitoreamos, ajustamos y escalamos. Recibes reportes con horas ahorradas y resultados concretos.",
+      "scale_meta": "Continuo"
     }
   },
   "services": {

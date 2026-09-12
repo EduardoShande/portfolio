@@ -92,7 +92,7 @@ function CountUp({ target, suffix }: { target: number; suffix: string }) {
   }, [isInView, target, count]);
 
   return (
-    <span ref={ref} className="font-heading text-3xl font-bold text-accent-light lg:text-4xl">
+    <span ref={ref} className="font-heading text-3xl font-bold text-accent lg:text-4xl">
       {display}
       {suffix}
     </span>
@@ -123,13 +123,13 @@ export default function CasosPage() {
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: 0.1 }}
                 whileHover={{ y: -4 }}
-                className="group rounded-3xl border border-border-theme bg-bg-elevated overflow-hidden hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10 transition-colors"
+                className="group clip-notch border border-border-theme bg-bg-elevated overflow-hidden hover:border-accent/50 transition-colors"
               >
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 p-8 lg:p-12">
                   {/* Left: Client info */}
                   <div className="lg:col-span-1">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-white text-lg font-bold">
+                      <div className="flex h-14 w-14 items-center justify-center bg-accent text-white text-lg font-bold">
                         {cs.initials}
                       </div>
                       <div>
@@ -141,7 +141,7 @@ export default function CasosPage() {
                     </div>
 
                     {/* Quote */}
-                    <div className="relative rounded-2xl bg-accent/5 border border-accent/20 p-5">
+                    <div className="relative clip-notch bg-accent/5 border border-accent/20 p-5">
                       <Quote className="absolute -top-3 left-4 h-6 w-6 text-accent bg-bg-elevated p-1 rounded" />
                       <p className="text-sm text-fg italic leading-relaxed">
                         &ldquo;{cs.quote}&rdquo;
@@ -155,7 +155,7 @@ export default function CasosPage() {
                   {/* Right: Problem + Solution + Metrics */}
                   <div className="lg:col-span-2 space-y-6">
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-accent-light mb-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
                         El Problema
                       </p>
                       <p className="text-sm text-fg-muted leading-relaxed">
@@ -164,7 +164,7 @@ export default function CasosPage() {
                     </div>
 
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-accent-light mb-2">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-2">
                         La Solución
                       </p>
                       <p className="text-sm text-fg-muted leading-relaxed">
@@ -209,12 +209,12 @@ export default function CasosPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl bg-gradient-to-br from-accent/20 to-bg-elevated border border-accent/20 p-8 sm:p-12 text-center"
+            className="clip-notch grain relative overflow-hidden bg-band p-10 sm:p-16 text-center"
           >
-            <h2 className="font-heading text-2xl font-bold sm:text-3xl text-fg">
+            <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl text-white">
               {t("cta_title")}
             </h2>
-            <p className="mt-3 text-fg-muted max-w-lg mx-auto">
+            <p className="mt-4 text-white/60 max-w-lg mx-auto">
               {t("cta_subtitle")}
             </p>
             <div className="mt-8">

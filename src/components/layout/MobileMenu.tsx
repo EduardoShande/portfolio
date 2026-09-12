@@ -48,7 +48,7 @@ export default function MobileMenu({
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={onClose}
-                className="rounded-lg p-2 text-fg-muted hover:text-fg hover:bg-fg/5 cursor-pointer"
+                className="rounded-[2px] p-2 text-fg-muted hover:text-fg hover:bg-fg/5 cursor-pointer"
               >
                 <X className="h-5 w-5" />
               </motion.button>
@@ -65,7 +65,7 @@ export default function MobileMenu({
                   <Link
                     href={link.href}
                     onClick={onClose}
-                    className="block rounded-lg px-4 py-3 text-base font-medium text-fg-muted transition-colors hover:bg-fg/5 hover:text-fg"
+                    className="block rounded-[2px] px-4 py-3 text-base font-medium text-fg-muted transition-colors hover:bg-fg/5 hover:text-fg"
                   >
                     {t(link.key)}
                   </Link>

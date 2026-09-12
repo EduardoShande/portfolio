@@ -6,12 +6,19 @@
 
   --color-bg: var(--theme-bg);
   --color-bg-elevated: var(--theme-bg-elevated);
+  --color-bg-sunken: var(--theme-bg-sunken);
   --color-fg: var(--theme-fg);
   --color-fg-muted: var(--theme-fg-muted);
   --color-border-theme: var(--theme-border);
   --color-accent: var(--theme-accent);
   --color-accent-light: var(--theme-accent-light);
   --color-accent-deep: var(--theme-accent-deep);
+
+  /* Inverted "band" — stays near-black in BOTH themes so the stat bands and
+     CTA read like the navy sections in the Turkish Airlines reference. */
+  --color-band: var(--theme-band);
+  --color-band-fg: var(--theme-band-fg);
+  --color-band-muted: var(--theme-band-muted);
 
   --font-heading: var(--font-space-grotesk);
   --font-body: var(--font-outfit);
@@ -20,26 +27,36 @@
 /* ─── DARK THEME (default) ─── */
 :root,
 [data-theme="dark"] {
-  --theme-bg: #0A0A0A;
-  --theme-bg-elevated: #1C1C1C;
-  --theme-fg: #F9F9F9;
-  --theme-fg-muted: rgba(249, 249, 249, 0.6);
-  --theme-border: rgba(255, 255, 255, 0.08);
-  --theme-accent: #7C3AED;
-  --theme-accent-light: #C084FC;
-  --theme-accent-deep: #4C1D95;
+  --theme-bg: #0B0B0F;
+  --theme-bg-elevated: #15151C;
+  --theme-bg-sunken: #060609;
+  --theme-fg: #F5F5F7;
+  --theme-fg-muted: rgba(245, 245, 247, 0.58);
+  --theme-border: rgba(255, 255, 255, 0.09);
+  --theme-accent: #FF3D2E;
+  --theme-accent-light: #FF8360;
+  --theme-accent-deep: #8C1B0F;
+
+  --theme-band: #101018;
+  --theme-band-fg: #F5F5F7;
+  --theme-band-muted: rgba(245, 245, 247, 0.55);
 }
 
 /* ─── LIGHT THEME ─── */
 [data-theme="light"] {
-  --theme-bg: #F4F4F5;
+  --theme-bg: #F2F1EE;
   --theme-bg-elevated: #FFFFFF;
-  --theme-fg: #0A0A0A;
-  --theme-fg-muted: rgba(10, 10, 10, 0.65);
-  --theme-border: rgba(10, 10, 10, 0.08);
-  --theme-accent: #7C3AED;
-  --theme-accent-light: #9333EA;
-  --theme-accent-deep: #4C1D95;
+  --theme-bg-sunken: #E7E5E0;
+  --theme-fg: #101014;
+  --theme-fg-muted: rgba(16, 16, 20, 0.62);
+  --theme-border: rgba(16, 16, 20, 0.10);
+  --theme-accent: #E5341F;
+  --theme-accent-light: #FF6A47;
+  --theme-accent-deep: #7C1D10;
+
+  --theme-band: #101018;
+  --theme-band-fg: #F5F5F7;
+  --theme-band-muted: rgba(245, 245, 247, 0.55);
 }
 
 html {
@@ -61,10 +78,111 @@ body {
   background: var(--theme-bg);
   color: var(--theme-fg);
   font-family: var(--font-body), system-ui, sans-serif;
+  overflow-x: clip;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading), system-ui, sans-serif;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANGLED GEOMETRY
+   The through-line of every reference: nothing meets at 90°.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Bottom edge slopes down-left → up-right (CTL / Turkish brush band) */
+.clip-angle-b {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3.5rem), 0 100%);
+}
+/* Top edge slopes to mirror the section above it */
+.clip-angle-t {
+  clip-path: polygon(0 3.5rem, 100% 0, 100% 100%, 0 100%);
+}
+/* Both edges — for full-bleed inset bands */
+.clip-angle-both {
+  clip-path: polygon(0 3.5rem, 100% 0, 100% calc(100% - 3.5rem), 0 100%);
+}
+/* Notched card: top-right corner sliced off (CTL + Web3 panels) */
+.clip-notch {
+  clip-path: polygon(0 0, calc(100% - 1.75rem) 0, 100% 1.75rem, 100% 100%, 0 100%);
+}
+/* Notched card, bottom-left variant — used to alternate in grids */
+.clip-notch-bl {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 1.75rem 100%, 0 calc(100% - 1.75rem));
+}
+
+@media (max-width: 640px) {
+  .clip-angle-b { clip-path: polygon(0 0, 100% 0, 100% calc(100% - 1.75rem), 0 100%); }
+  .clip-angle-t { clip-path: polygon(0 1.75rem, 100% 0, 100% 100%, 0 100%); }
+  .clip-angle-both { clip-path: polygon(0 1.75rem, 100% 0, 100% calc(100% - 1.75rem), 0 100%); }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   OVERSIZED NUMERALS
+   01 / 02 / 03 as graphic objects, not labels.
+   ═══════════════════════════════════════════════════════════════ */
+
+.numeral {
+  font-family: var(--font-heading), system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Outlined "ghost" numeral sitting behind content */
+.numeral-ghost {
+  color: transparent;
+  -webkit-text-stroke: 1.5px currentColor;
+  opacity: 0.18;
+  user-select: none;
+}
+
+@supports not (-webkit-text-stroke: 1px currentColor) {
+  .numeral-ghost { color: currentColor; opacity: 0.1; }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   MARQUEE TICKER (Web3 reference — the angled service strip)
+   ═══════════════════════════════════════════════════════════════ */
+
+@keyframes marquee-scroll {
+  from { transform: translate3d(0, 0, 0); }
+  to   { transform: translate3d(-50%, 0, 0); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 38s linear infinite;
+  will-change: transform;
+}
+.marquee-track--reverse {
+  animation-direction: reverse;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TEXTURE — a fine grain keeps the flat near-black from looking dead
+   ═══════════════════════════════════════════════════════════════ */
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Thin diagonal hatch — echoes the brushed-steel panels in the CTL site */
+.hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    currentColor 0px,
+    currentColor 1px,
+    transparent 1px,
+    transparent 9px
+  );
 }
 
 @keyframes shimmer {
@@ -84,21 +202,24 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Custom scrollbar — theme-aware */
-::-webkit-scrollbar {
-  width: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--theme-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--theme-bg-elevated);
-  border-radius: 5px;
-}
-::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--theme-bg); }
+::-webkit-scrollbar-thumb { background: var(--theme-bg-elevated); }
+::-webkit-scrollbar-thumb:hover { background: var(--theme-accent); }
+
+::selection {
   background: var(--theme-accent);
+  color: #fff;
 }
 
 /* Prevent transitions on initial load flash */
-.no-transitions * {
-  transition: none !important;
+.no-transitions * { transition: none !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
+  html, body, *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

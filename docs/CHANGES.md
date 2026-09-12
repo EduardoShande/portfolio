@@ -2,6 +2,86 @@
 
 Documents major changes made to the Sycosmart Web project.
 
+## 2026-09-11 — Visual Direction Overhaul ("Angled Signal")
+
+Rebuilt the site's visual language from five supplied references (an industrial
+sheet-metal site, an airline training centre, a dark Web3 agency, a light
+real-estate portal, and a numbered ribbon infographic). What those five share —
+and what the previous design lacked — is angled geometry, oversized numerals,
+two-tone headlines, and a single warm accent on a neutral ground.
+
+### Design tokens — `src/app/globals.css`
+- **Accent swapped from purple to vermillion.** `#7C3AED` → `#FF3D2E` (dark) /
+  `#E5341F` (light). Every reference uses a warm red-orange; the purple was the
+  default AI-startup palette.
+- **Light ground warmed**: `#F4F4F5` → `#F2F1EE`, matching the real-estate
+  reference. Dark ground `#0A0A0A` → `#0B0B0F`.
+- **New `band` token** (`--color-band` / `band-fg` / `band-muted`): stays
+  near-black in *both* themes. It anchors the stat bar, the CTA, and the hero
+  panel the way the navy fields do in the airline reference.
+- **New `bg-sunken` token** for recessed sections.
+- **New utilities**: `.clip-angle-t` / `.clip-angle-b` / `.clip-angle-both`
+  (sloped section edges), `.clip-notch` / `.clip-notch-bl` (corner-sliced
+  panels), `.numeral` / `.numeral-ghost` (oversized tabular figures, outlined),
+  `.marquee-track` (infinite ticker), `.grain` and `.hatch` (surface texture).
+- Reduced-motion media query now stops the marquee and damps all animation.
+
+### Primitives
+- **`Button.tsx`** — sharp rectangles (`rounded-[2px]`) with uppercase tracked
+  labels, replacing pill buttons. New `outline` and `band` variants.
+- **`Badge.tsx`** — eyebrow label with a leading accent rule, replacing the
+  rounded pill.
+- **`SectionHeading.tsx`** — now supports `eyebrow` and `titleAccent` for
+  two-tone headlines; default alignment changed from centre to left.
+- **`Card.tsx`** — corner notch instead of `rounded-2xl`.
+
+### New sections
+- **`MarqueeStrip.tsx`** — angled infinite service ticker straddling the seam
+  between hero and stat band (Web3 reference).
+- **`ProcessSteps.tsx`** — four-step zig-zag process with a centre spine and
+  ghost numerals (ribbon-infographic reference). The site previously had no
+  process section at all.
+
+### Rebuilt sections
+- **`HeroSection.tsx`** — centred gradient replaced with a split layout: type
+  left, canted dark panel right, floating stat chips, sloped bottom edge. The
+  130vh sticky-zoom wrapper was removed. Parallax travel cut hard on the mid and
+  near layers, which now carry real content rather than decorative blobs.
+- **`StatsBar.tsx`** — dark band with sloped edges, icon rules, vertical
+  dividers and 5xl numerals; a fourth stat (uptime) added.
+- **`ServicesOverview.tsx`** — capability grid on a hairline bleed, oversized
+  index numerals, accent wash sweeping up on hover, lead service spanning two
+  columns. Tiles now link through the locale-aware `Link`.
+- **`SocialProof.tsx`** — notched plates; each engagement's headline result
+  pulled out and set in the accent above the quote.
+- **`CTASection.tsx`** — full-bleed band with a sloped top edge and an oversized
+  ghost word behind the headline.
+- **`WhatsAppSimulator.tsx`** — section chrome and scenario controls squared
+  off; chat bubbles left rounded, which is correct for a WhatsApp UI.
+
+### Inner pages
+`servicios`, `nosotros`, `casos`, `contacto` converted from rounded panels to
+the notch/angle system, glow shadows removed, `accent-light` text swapped for
+`accent` (the coral tint failed contrast on the light ground), and both page
+CTAs converted to the dark band.
+
+### Copy
+New keys in `es.json` / `en.json` for `home.marquee`, `home.process`, the
+two-tone headline splits (`titleAccent`), section eyebrows, and hero panel /
+stat-chip labels.
+
+### Fixes made along the way
+- **Horizontal scrollbar**: the rotated, 110%-scaled marquee pushed
+  `documentElement.scrollWidth` to 1502 on a 1440 viewport. Wrapper now clips on
+  the x axis.
+- **Hero chips covering text**: panel label moved to the top-right and the
+  caption held to 70% width so the deliberately-overlapping stat chips never
+  land on readable text.
+- **Untranslated testimonial results**: the pulled-out result figure was a
+  single hardcoded Spanish string leaking onto the English site; now localized.
+
+---
+
 ## 2026-04-12 — Second Overhaul Session (same day)
 
 ### Task 1a — Dual Theme System (replaces 5-theme toggle)

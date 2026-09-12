@@ -67,7 +67,7 @@ export default function ServiciosPage() {
                   whileHover={{ y: -6 }}
                   transition={{ duration: 0.3 }}
                   className={cn(
-                    "rounded-3xl border border-border-theme bg-bg-elevated p-8 lg:p-10 transition-colors hover:border-accent/40 hover:shadow-2xl hover:shadow-accent/10",
+                    "clip-notch border border-border-theme bg-bg-elevated p-8 lg:p-10 transition-colors hover:border-accent/50",
                     service.highlight &&
                       "border-accent/40 bg-gradient-to-br from-accent/10 to-bg-elevated"
                   )}
@@ -76,10 +76,10 @@ export default function ServiciosPage() {
                     <div className="lg:col-span-2">
                       <div
                         className={cn(
-                          "flex h-14 w-14 items-center justify-center rounded-xl",
+                          "flex h-14 w-14 items-center justify-center",
                           service.highlight
                             ? "bg-accent text-white"
-                            : "bg-fg/5 text-accent-light"
+                            : "bg-fg/5 text-accent"
                         )}
                       >
                         <Icon className="h-7 w-7" />
@@ -92,7 +92,7 @@ export default function ServiciosPage() {
                       </p>
                     </div>
                     <div>
-                      <p className="text-xs font-semibold uppercase tracking-wider text-accent-light mb-4">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-accent mb-4">
                         {t("deliverables_label")}
                       </p>
                       <ul className="space-y-3">
@@ -105,7 +105,7 @@ export default function ServiciosPage() {
                       </ul>
                       <Link
                         href="/contacto"
-                        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent-light hover:gap-3 transition-all"
+                        className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all"
                       >
                         {t("request_button")}
                         <ArrowRight className="h-4 w-4" />
@@ -126,12 +126,12 @@ export default function ServiciosPage() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl bg-gradient-to-br from-accent/20 to-bg-elevated border border-accent/20 p-8 sm:p-12 text-center"
+            className="clip-notch grain relative overflow-hidden bg-band p-10 sm:p-16 text-center"
           >
-            <h2 className="font-heading text-2xl font-bold sm:text-3xl text-fg">
+            <h2 className="font-heading text-3xl font-bold tracking-[-0.02em] sm:text-4xl text-white">
               {t("cta.title")}
             </h2>
-            <p className="mt-3 text-fg-muted max-w-lg mx-auto">
+            <p className="mt-4 text-white/60 max-w-lg mx-auto">
               {t("cta.subtitle")}
             </p>
             <div className="mt-8">

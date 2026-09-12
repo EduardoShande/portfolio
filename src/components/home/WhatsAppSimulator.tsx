@@ -219,9 +219,18 @@ export default function WhatsAppSimulator() {
   const conversation = getConversation(activeScenario);
 
   return (
-    <section id="simulator" className="py-20 lg:py-32">
-      <Container>
-        <SectionHeading title={t("title")} subtitle={t("subtitle")} />
+    <section id="simulator" className="relative overflow-hidden py-20 lg:py-32">
+      <div
+        aria-hidden="true"
+        className="absolute -right-40 top-20 h-[34rem] w-[34rem] -rotate-12 bg-accent/[0.04]"
+      />
+      <Container className="relative">
+        <SectionHeading
+          eyebrow={t("eyebrow")}
+          title={t("title")}
+          titleAccent={t("titleAccent")}
+          subtitle={t("subtitle")}
+        />
 
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <motion.div
@@ -242,9 +251,9 @@ export default function WhatsAppSimulator() {
                       if (!playingRef.current) setActiveScenario(s.key);
                     }}
                     className={cn(
-                      "flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium cursor-pointer",
+                      "flex items-center gap-2 rounded-[2px] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] cursor-pointer transition-colors",
                       activeScenario === s.key
-                        ? "bg-accent text-white shadow-lg shadow-accent/30"
+                        ? "bg-accent text-white"
                         : "bg-bg-elevated text-fg-muted hover:text-fg border border-border-theme"
                     )}
                   >
@@ -255,7 +264,7 @@ export default function WhatsAppSimulator() {
               })}
             </div>
 
-            <h3 className="font-heading text-2xl font-bold mb-4 text-fg">
+            <h3 className="font-heading text-3xl font-bold tracking-[-0.02em] mb-4 text-fg">
               {t(`${activeScenario}_title`)}
             </h3>
             <p className="text-fg-muted leading-relaxed mb-6">
@@ -272,7 +281,7 @@ export default function WhatsAppSimulator() {
                   transition={{ delay: n * 0.1 }}
                   className="flex items-start gap-3"
                 >
-                  <div className="mt-1 h-2 w-2 rounded-full bg-accent flex-shrink-0" />
+                  <div className="mt-1.5 h-2 w-2 rotate-45 bg-accent flex-shrink-0" />
                   <p className="text-sm text-fg-muted">
                     {t(`${activeScenario}_benefit_${n}`)}
                   </p>

@@ -4,23 +4,31 @@ import { motion, type HTMLMotionProps } from "motion/react";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 
+/**
+ * Buttons are sharp rectangles, not pills — matching the hard-edged CTA
+ * blocks in the industrial and airline references. Weight and tracking do
+ * the work that a border-radius used to.
+ */
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-colors duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-50",
+  "group relative inline-flex items-center justify-center gap-2 rounded-[2px] font-semibold uppercase tracking-[0.08em] transition-colors duration-300 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
         primary:
-          "bg-accent text-white hover:bg-accent/90 shadow-lg shadow-accent/25 hover:shadow-accent/40",
+          "bg-accent text-white hover:bg-accent-deep shadow-[0_8px_30px_-12px] shadow-accent/60",
         secondary:
-          "border-2 border-accent-light text-accent-light hover:bg-accent-light/10",
-        ghost: "text-fg hover:bg-fg/5",
+          "border border-fg/25 text-fg hover:border-accent hover:text-accent",
+        outline:
+          "border border-accent text-accent hover:bg-accent hover:text-white",
+        ghost: "text-fg-muted hover:text-accent",
+        band: "border border-white/30 text-white hover:bg-white hover:text-band",
         whatsapp:
-          "bg-whatsapp text-white hover:bg-whatsapp-dark shadow-lg shadow-whatsapp/25",
+          "bg-whatsapp text-white hover:bg-whatsapp-dark shadow-[0_8px_30px_-12px] shadow-whatsapp/60",
       },
       size: {
-        sm: "h-9 px-4 text-sm",
-        md: "h-11 px-6 text-base",
-        lg: "h-13 px-8 text-lg",
+        sm: "h-9 px-4 text-[11px]",
+        md: "h-11 px-6 text-xs",
+        lg: "h-14 px-8 text-sm",
       },
     },
     defaultVariants: {
@@ -53,8 +61,9 @@ export default function Button({
         href={href}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
-        whileHover={{ scale: 1.04 }}
-        whileTap={{ scale: 0.97 }}
+        whileHover={{ y: -2 }}
+        whileTap={{ y: 0, scale: 0.98 }}
+        transition={{ duration: 0.2 }}
         className={cn(buttonVariants({ variant, size, className }))}
       >
         {children}
@@ -64,8 +73,9 @@ export default function Button({
 
   return (
     <motion.button
-      whileHover={{ scale: 1.04 }}
-      whileTap={{ scale: 0.97 }}
+      whileHover={{ y: -2 }}
+      whileTap={{ y: 0, scale: 0.98 }}
+      transition={{ duration: 0.2 }}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     >

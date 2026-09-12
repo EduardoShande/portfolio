@@ -73,9 +73,9 @@ export default function NosotrosPage() {
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
                   }}
                   whileHover={{ y: -6 }}
-                  className="rounded-2xl border border-border-theme bg-bg-elevated p-6 text-center transition-colors hover:border-accent/40 hover:shadow-xl hover:shadow-accent/5"
+                  className="clip-notch border border-border-theme bg-bg-elevated p-6 text-center transition-colors hover:border-accent/50"
                 >
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-accent/10 text-accent-light">
+                  <div className="mx-auto flex h-14 w-14 items-center justify-center bg-accent/10 text-accent">
                     <Icon className="h-7 w-7" />
                   </div>
                   <h4 className="mt-4 font-heading font-semibold text-fg">
@@ -113,7 +113,7 @@ export default function NosotrosPage() {
                     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
                   }}
                   whileHover={{ y: -6 }}
-                  className="rounded-2xl border border-border-theme bg-bg-elevated p-6 lg:p-8 transition-colors hover:border-accent/40"
+                  className="clip-notch border border-border-theme bg-bg-elevated p-6 lg:p-8 transition-colors hover:border-accent/50"
                 >
                   <Icon className="h-8 w-8 text-accent" />
                   <h4 className="mt-4 font-heading text-lg font-semibold text-fg">
