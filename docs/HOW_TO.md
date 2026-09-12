@@ -1,4 +1,4 @@
-# How To Guide — Eduardo Shande
+# How To Guide, Eduardo Shande
 
 A plain-language guide to changing the site without touching layout code.
 
@@ -19,7 +19,7 @@ language that is missing the key.
 
 ---
 
-## 1. Update anything about you — name, email, phone, links
+## 1. Update anything about you, name, email, phone, links
 
 **File:** `src/lib/content.ts` → the `PROFILE` block at the top.
 
@@ -70,7 +70,7 @@ Copy an existing block and edit it:
   featured: true,                // true = also shows on the home page
   problem: { es: "...", en: "..." },
   solution: { es: "...", en: "..." },
-  outcome: { es: "...", en: "..." },   // OPTIONAL — see below
+  outcome: { es: "...", en: "..." },   // OPTIONAL, see below
   stack: ["Python", "n8n"],
   links: [                        // OPTIONAL
     { label: { es: "Ver sitio", en: "View site" }, href: "https://..." },
@@ -79,7 +79,7 @@ Copy an existing block and edit it:
 ```
 
 **About `outcome`:** leave it out entirely if you do not have a real measured
-number. The card simply will not render the result block. Do not estimate one —
+number. The card simply will not render the result block. Do not estimate one 
 an invented metric is the single easiest thing for a hiring manager to check and
 disbelieve.
 
@@ -93,14 +93,14 @@ Three looks right in that grid. If you mark a fourth, the row will wrap.
 **File:** `src/lib/content.ts` → the `EXPERIENCE` array.
 
 The array order is the display order, most recent first. Set `current: true` on
-the role you hold now — it gets a filled marker and a "Current" tag.
+the role you hold now, it gets a filled marker and a "Current" tag.
 
 ```typescript
 {
   id: "unique-id",
   company: "Company Name",
   role: { es: "...", en: "..." },
-  period: { es: "Mar 2026 — Presente", en: "Mar 2026 — Present" },
+  period: { es: "Mar 2026, Presente", en: "Mar 2026, Present" },
   order: 1,
   current: true,
   summary: { es: "...", en: "..." },      // one line, shown everywhere
@@ -121,7 +121,7 @@ The home page shows the summary only; the about page shows the full bullets.
 { value: 50, suffix: "%", label: { es: "...", en: "..." } },
 ```
 
-`value` must be a number — it animates counting up from zero. Put symbols in
+`value` must be a number, it animates counting up from zero. Put symbols in
 `suffix`. Every figure currently there traces back to a line in the CV; keep it
 that way.
 
@@ -179,7 +179,7 @@ tool names, so there is one list for both languages.
 
 **File:** `src/app/globals.css`.
 
-The accent is defined twice — once for dark mode, once for light:
+The accent is defined twice, once for dark mode, once for light:
 
 ```css
 :root, [data-theme="dark"] { --theme-accent: #FF3D2E; }
@@ -189,7 +189,7 @@ The accent is defined twice — once for dark mode, once for light:
 Light mode uses a slightly deeper red because the bright one does not hold up
 against a near-white background.
 
-`--theme-band` stays near-black in **both** themes on purpose — it is what makes
+`--theme-band` stays near-black in **both** themes on purpose, it is what makes
 the stat bar and closing CTA read as solid dark fields on the light site.
 
 ---
@@ -220,7 +220,7 @@ NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-link
 ```
 
 The contact form posts to `NEXT_PUBLIC_N8N_WEBHOOK_URL`. If that is empty the
-form still validates but the submission goes nowhere — set it before relying on
+form still validates but the submission goes nowhere, set it before relying on
 the form.
 
 ---

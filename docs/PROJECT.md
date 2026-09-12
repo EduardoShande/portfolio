@@ -1,4 +1,4 @@
-# Eduardo Shande — Project Documentation
+# Eduardo Shande, Project Documentation
 
 ## Overview
 
@@ -7,8 +7,8 @@ Automation Engineer in Santa Cruz de la Sierra, Bolivia.
 
 It serves two audiences from one site. A hiring manager needs experience,
 technical depth and a CV. A prospective client needs outcomes, services and a
-way to book a call. The hero gives each a path — *See my work* and *Download
-CV* — and the page order below alternates between the two.
+way to book a call. The hero gives each a path, *See my work* and *Download
+CV*, and the page order below alternates between the two.
 
 Client work is delivered under the name **Sycosmart**, which appears in the
 footer rather than in the branding. The site speaks in the first person.
@@ -41,7 +41,7 @@ Facts are bilingual objects (`{ es, en }`) inside one file, so the two locales
 cannot drift apart on a date or a metric. Wording is duplicated per locale and
 **the two key sets must match exactly** or next-intl throws at runtime.
 
-`PROJECTS[].outcome` is optional by design — a project with no measured result
+`PROJECTS[].outcome` is optional by design, a project with no measured result
 renders no result block rather than an invented number.
 
 ## Folder Structure
@@ -103,14 +103,14 @@ the CV) stay plain anchors.
 
 ## Home page order
 
-1. **HeroSection** — name, role, headline, two CTAs, social links, canted panel
-2. **MarqueeStrip** — angled tool ticker across the seam
-3. **StatsBar** — dark band, four CV-backed figures
-4. **SelectedWork** — three featured projects
-5. **WhatsAppSimulator** — live demo of an agent he built
-6. **ExperienceSection** — career zig-zag, summaries only
-7. **ServicesOverview** — four offers, first one spanning two columns
-8. **CTASection** — closing band with ghost word
+1. **HeroSection**: name, role, headline, two CTAs, social links, canted panel
+2. **MarqueeStrip**: angled tool ticker across the seam
+3. **StatsBar**: dark band, four CV-backed figures
+4. **SelectedWork**: three featured projects
+5. **WhatsAppSimulator**: live demo of an agent he built
+6. **ExperienceSection**: career zig-zag, summaries only
+7. **ServicesOverview**: four offers, first one spanning two columns
+8. **CTASection**: closing band with ghost word
 
 ## Design system
 
@@ -118,13 +118,13 @@ Built from five reference sites: an industrial sheet-metal site, an airline
 training centre, a dark Web3 agency, a light real-estate portal, and a numbered
 ribbon infographic. The four devices they share:
 
-- **Angled geometry** — `.clip-angle-t` / `.clip-angle-b` / `.clip-angle-both`
+- **Angled geometry**: `.clip-angle-t` / `.clip-angle-b` / `.clip-angle-both`
   for sloped section edges, `.clip-notch` / `.clip-notch-bl` for corner-sliced
   panels. Nothing meets at 90°.
-- **Oversized numerals** — `.numeral` and `.numeral-ghost` (outlined) for
+- **Oversized numerals**: `.numeral` and `.numeral-ghost` (outlined) for
   indices, stats and step numbers as graphic objects.
-- **Two-tone headlines** — `SectionHeading` takes `title` + `titleAccent`.
-- **One warm accent** — vermillion `#FF3D2E` (dark) / `#E5341F` (light).
+- **Two-tone headlines**: `SectionHeading` takes `title` + `titleAccent`.
+- **One warm accent**: vermillion `#FF3D2E` (dark) / `#E5341F` (light).
 
 Plus `.marquee-track` for the ticker and `.grain` / `.hatch` for surface
 texture.
