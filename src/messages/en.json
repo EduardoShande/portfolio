@@ -9,18 +9,10 @@
   },
   "home": {
     "hero": {
-      "headline_outline": "I build",
-      "headline_solid1": "systems that",
-      "headline_solid2": "run themselves",
-      "subtitle": "Data and Automation Engineer in Santa Cruz de la Sierra. Three years cutting processing times by 40 to 50% for companies in Bolivia and the United States.",
-      "cta_work": "See my work",
-      "cta_cv": "Download CV",
-      "callout_roles": "Open to roles",
-      "callout_roles_desc": "Remote, full time",
-      "callout_projects": "Available for projects",
-      "callout_projects_desc": "Freelance and contract",
-      "edge_label": "Contact",
-      "photo_placeholder": "Your photo goes here"
+      "photo_placeholder": "Your photo goes here",
+      "hello": "Hello",
+      "cta_cv_line1": "Download",
+      "cta_cv_line2": "CV"
     },
     "work": {
       "eyebrow": "Selected work",

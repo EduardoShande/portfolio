@@ -681,6 +681,57 @@ export const LANGUAGES = [
   },
 ] as const;
 
+
+/* ─────────────────────── Header work index ──────────────────────── */
+
+/**
+ * The four entries listed down the right of the header, numbered 01 to 04.
+ *
+ * The reference this layout comes from leads with the client name and puts
+ * the nature of the job underneath, so that is the split here: `name` is who
+ * it was for (or the product name, where the product is his own) and `desc`
+ * is what the thing actually is. Kept separate from PROJECTS because the
+ * full project titles are too long to set at header scale.
+ */
+export const HEADER_WORK: {
+  id: string;
+  name: string;
+  desc: I18nString;
+}[] = [
+  {
+    id: "lead-automation",
+    name: "Group Quimera",
+    desc: {
+      es: "Motor de leads por WhatsApp",
+      en: "WhatsApp lead engine",
+    },
+  },
+  {
+    id: "data-warehouse",
+    name: "Gerona SVF",
+    desc: {
+      es: "Data warehouse y ETL",
+      en: "Data warehouse and ETL",
+    },
+  },
+  {
+    id: "casera",
+    name: "Casera",
+    desc: {
+      es: "Cuaderno digital para mercados",
+      en: "Digital ledger for market vendors",
+    },
+  },
+  {
+    id: "mesa-abierta",
+    name: "Mesa Abierta",
+    desc: {
+      es: "Mesas de juego por asiento",
+      en: "Board game tables by the seat",
+    },
+  },
+];
+
 /* ─────────────────────────────── Helpers ────────────────────────────── */
 
 /** Narrow an arbitrary next-intl locale to the two this content supports. */

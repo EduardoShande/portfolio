@@ -9,18 +9,10 @@
   },
   "home": {
     "hero": {
-      "headline_outline": "Construyo",
-      "headline_solid1": "sistemas que",
-      "headline_solid2": "se manejan solos",
-      "subtitle": "Ingeniero de Datos y Automatización en Santa Cruz de la Sierra. Tres años bajando tiempos de proceso entre 40% y 50% para empresas en Bolivia y Estados Unidos.",
-      "cta_work": "Ver mi trabajo",
-      "cta_cv": "Descargar CV",
-      "callout_roles": "Abierto a propuestas laborales",
-      "callout_roles_desc": "Remoto, tiempo completo",
-      "callout_projects": "Disponible para proyectos",
-      "callout_projects_desc": "Freelance y por contrato",
-      "edge_label": "Contacto",
-      "photo_placeholder": "Tu foto va aquí"
+      "photo_placeholder": "Tu foto va aquí",
+      "hello": "Hola",
+      "cta_cv_line1": "Descargar",
+      "cta_cv_line2": "CV"
     },
     "work": {
       "eyebrow": "Trabajo seleccionado",

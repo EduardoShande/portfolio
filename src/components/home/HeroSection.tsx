@@ -1,65 +1,49 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
-import { ArrowRight, Download, X } from "lucide-react";
+import { Download } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Button from "@/components/ui/Button";
 import SocialLinks from "@/components/ui/SocialLinks";
 import TornEdge from "@/components/ui/TornEdge";
 import { Link } from "@/i18n/navigation";
-import { CV_URL } from "@/lib/constants";
-import { PROFILE } from "@/lib/content";
+import { CV_URL, EMAIL_URL, WHATSAPP_URL } from "@/lib/constants";
+import { PROFILE, HEADER_WORK, toLocale } from "@/lib/content";
 
-const container = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.15 } },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 28 },
+const fade = {
+  hidden: { opacity: 0, y: 18 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] as const },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
 
 /**
- * Dark editorial header, built on the fashion reference.
+ * Dark editorial header modelled closely on the studio reference.
  *
- * Its devices, in order of how much they carry: a near-black field with the
- * subject shot full height and dominant on the right; a heavy uppercase
- * headline stacked at the left whose first line is hollow and whose
- * remaining lines are solid, with the hollow line running across the photo;
- * a rotated label pinned to the right edge; two small marked callouts along
- * the bottom; and a signature in the opposite corner.
+ * Its composition, which is the whole point of it: the portrait is centred
+ * and full height rather than pushed to one side, desaturated so it melts
+ * into the dark field instead of sitting on top of it. There is no headline.
+ * The content is a numbered index of work down the right, each entry a name
+ * over a rule with the nature of the job beneath and its number set out to
+ * the edge. A circular button sits at the left, contact details sit bottom
+ * left under a short dash, and the social marks sit bottom right.
  *
- * It is the only dark section on a light site, which is deliberate: it tears
- * into the page through the same brush edge the stat band uses, so the
- * contrast reads as structure rather than accident.
- *
- * The photograph is not a cut-out, so the composition does the separating
- * instead: a vignette pulls the frame edges down, and a left-to-right wash
- * keeps the type side clean no matter what is behind him.
+ * Grayscale is doing real work on Eduardo's photograph specifically: the
+ * shot has a bright blue projector screen behind him that would otherwise
+ * fight everything, and desaturating it turns that into tonal depth.
  */
 export default function HeroSection() {
   const t = useTranslations("home.hero");
-
-  const callouts = [
-    { title: t("callout_roles"), desc: t("callout_roles_desc") },
-    { title: t("callout_projects"), desc: t("callout_projects_desc") },
-  ];
+  const lang = toLocale(useLocale());
 
   return (
     <header className="relative -mt-[72px] bg-band text-white lg:-mt-[76px]">
-      <div className="relative min-h-[732px] overflow-hidden lg:min-h-screen">
-        {/* ── Photograph ── */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-y-0 right-0 w-full lg:w-[58%]"
-        >
-          <div className="absolute inset-0 grid place-items-center px-10 text-center text-[11px] uppercase leading-loose tracking-[0.2em] text-white/35">
+      <div className="relative min-h-[760px] overflow-hidden lg:min-h-screen">
+        {/* ── Portrait, centred and full height ── */}
+        <div aria-hidden="true" className="absolute inset-0">
+          <div className="absolute inset-0 grid place-items-center px-10 pb-24 text-center text-[11px] uppercase leading-loose tracking-[0.2em] text-white/30">
             {t("photo_placeholder")}
             <br />
             photos/eduardo-speaking.jpg
@@ -68,117 +52,144 @@ export default function HeroSection() {
               rather than a broken-image marker. */}
           <div
             style={{ backgroundImage: "url('/photos/eduardo-speaking.jpg')" }}
-            className="absolute inset-0 bg-cover bg-[center_top] bg-no-repeat"
+            className="absolute inset-0 bg-[length:auto_108%] bg-[center_top] bg-no-repeat grayscale contrast-[1.12] sm:bg-[length:auto_105%] lg:bg-[length:auto_112%]"
           />
         </div>
 
-        {/* Separation, since the subject is not cut out of its background */}
+        {/* Melt the frame edges into the field, so the photo has no seam */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(80%_70%_at_62%_45%,transparent_0%,rgba(10,13,24,.55)_72%,rgba(10,13,24,.95)_100%)]"
+          className="absolute inset-0 bg-[radial-gradient(58%_62%_at_50%_42%,transparent_0%,rgba(18,23,43,.35)_58%,rgba(18,23,43,.92)_88%,#12172B_100%)]"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-band via-band/85 to-transparent lg:via-band/55"
+          className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-band via-band/80 to-transparent"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-band to-transparent"
+          className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-band/90 to-transparent"
+        />
+        <div
+          aria-hidden="true"
+          className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-l from-band via-band/70 to-transparent"
         />
 
-        {/* ── Type ── */}
-        <Container className="relative flex min-h-[732px] flex-col justify-center pb-36 pt-[128px] lg:min-h-screen lg:pb-40 lg:pt-[140px]">
-          <motion.div
-            variants={container}
+        {/* ── Numbered index of work, down the right ── */}
+        <Container className="pointer-events-none relative flex min-h-[760px] items-center justify-end pb-48 pt-[120px] lg:min-h-screen lg:pb-32">
+          <motion.ol
             initial="hidden"
             animate="visible"
-            className="relative z-10 max-w-[820px]"
+            variants={{ visible: { transition: { staggerChildren: 0.11, delayChildren: 0.25 } } }}
+            className="pointer-events-auto w-full max-w-[420px] lg:w-[420px]"
           >
-            <motion.p
-              variants={item}
-              className="text-[11px] font-semibold uppercase tracking-[0.28em] text-accent"
-            >
-              {PROFILE.name}
-            </motion.p>
+            {HEADER_WORK.map((entry, i) => (
+              <motion.li key={entry.id} variants={fade} className="group">
+                <Link
+                  href="/work"
+                  className="block pt-6 text-right focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                >
+                  <span className="flex items-baseline justify-end gap-5">
+                    <span
+                      className={
+                        i === 0
+                          ? "font-heading text-[clamp(24px,2.6vw,34px)] font-bold tracking-[-0.02em] text-white"
+                          : "font-heading text-[clamp(18px,1.9vw,23px)] font-bold tracking-[-0.02em] text-white/85 transition-colors group-hover:text-white"
+                      }
+                    >
+                      {entry.name}
+                    </span>
+                    <span className="w-7 shrink-0 text-left text-[11px] font-semibold tracking-[0.1em] text-white/40">
+                      0{i + 1}
+                    </span>
+                  </span>
 
-            <motion.h1
-              variants={item}
-              className="mt-6 font-heading text-[clamp(38px,6vw,78px)] font-extrabold uppercase leading-[0.86] tracking-[-0.045em]"
-            >
-              {/* Hollow first line, carried across the photograph */}
-              <span
-                className="block text-transparent"
-                style={{ WebkitTextStroke: "1.5px rgba(255,255,255,.85)" }}
-              >
-                {t("headline_outline")}
-              </span>
-              <span className="block text-white">{t("headline_solid1")}</span>
-              <span className="block text-white">{t("headline_solid2")}</span>
-            </motion.h1>
+                  <span
+                    aria-hidden="true"
+                    className={
+                      i === 0
+                        ? "mt-2.5 mr-12 block h-[3px] bg-white"
+                        : "mt-2.5 mr-12 block h-px bg-white/25 transition-colors group-hover:bg-accent"
+                    }
+                  />
 
-            <motion.p
-              variants={item}
-              className="mt-8 max-w-[440px] text-[16px] leading-[1.7] text-white/65"
-            >
-              {t("subtitle")}
-            </motion.p>
-
-            <motion.div variants={item} className="mt-9 flex flex-wrap gap-3.5">
-              <Button variant="primary" size="lg" href="/work">
-                {t("cta_work")}
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-              <Button variant="band" size="lg" href={CV_URL} external>
-                <Download className="h-4 w-4" />
-                {t("cta_cv")}
-              </Button>
-            </motion.div>
-          </motion.div>
+                  <span className="mr-12 mt-2.5 block text-[12px] text-white/45">
+                    {entry.desc[lang]}
+                  </span>
+                </Link>
+              </motion.li>
+            ))}
+          </motion.ol>
         </Container>
 
-        {/* ── Rotated edge label ── */}
-        <Link
-          href="/contact"
-          className="absolute right-5 top-1/2 hidden -translate-y-1/2 items-center text-[11px] font-semibold uppercase tracking-[0.34em] text-white/55 transition-colors hover:text-accent lg:flex"
-          style={{ writingMode: "vertical-rl" }}
-        >
-          {t("edge_label")}
-        </Link>
-
-        {/* ── Bottom rail: callouts, socials, signature ── */}
+        {/* ── Circular CTA at the left ── */}
         <motion.div
-          initial={{ opacity: 0, y: 22 }}
+          initial={{ opacity: 0, x: -16 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.65, duration: 0.6 }}
+          className="absolute left-0 top-1/2 hidden -translate-y-1/2 lg:block"
+        >
+          <Container>
+            <a
+              href={CV_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-4"
+            >
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-white text-band transition-colors group-hover:bg-accent group-hover:text-white">
+                <Download className="h-4 w-4" />
+              </span>
+              <span className="font-heading text-[15px] font-bold leading-tight text-white">
+                {t("cta_cv_line1")}
+                <br />
+                {t("cta_cv_line2")}
+              </span>
+            </a>
+          </Container>
+        </motion.div>
+
+        {/* ── Bottom rail: contact left, socials right ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.85, duration: 0.6 }}
           className="absolute inset-x-0 bottom-0 z-10 pb-9"
         >
           <Container>
-            <div className="flex flex-wrap items-end justify-between gap-x-12 gap-y-7">
-              <div className="flex flex-wrap gap-x-14 gap-y-6">
-                {callouts.map((c) => (
-                  <div key={c.title} className="max-w-[210px]">
-                    <X
-                      aria-hidden="true"
-                      strokeWidth={3}
-                      className="h-3.5 w-3.5 text-white"
-                    />
-                    <p className="mt-3 text-[13px] font-semibold text-white">
-                      {c.title}
-                    </p>
-                    <p className="mt-1 text-[12px] leading-snug text-white/45">
-                      {c.desc}
-                    </p>
-                  </div>
-                ))}
-
-                <div>
-                  <SocialLinks tone="band" />
-                </div>
+            <div className="flex flex-wrap items-end justify-between gap-x-10 gap-y-7">
+              <div>
+                <p className="flex items-center gap-5 text-[13px] font-semibold text-accent">
+                  {t("hello")}
+                  <span
+                    aria-hidden="true"
+                    className="h-px w-8 bg-accent/60"
+                  />
+                </p>
+                <address className="mt-3.5 space-y-1 text-[12px] not-italic leading-relaxed text-white/45">
+                  <p>{PROFILE.role[lang]}</p>
+                  <p>{PROFILE.location[lang]}</p>
+                  <p>
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition-colors hover:text-accent"
+                    >
+                      {PROFILE.phone}
+                    </a>
+                    <span aria-hidden="true" className="mx-2 text-white/25">
+                      |
+                    </span>
+                    <a
+                      href={EMAIL_URL}
+                      className="transition-colors hover:text-accent"
+                    >
+                      {PROFILE.email}
+                    </a>
+                  </p>
+                </address>
               </div>
 
-              <span className="font-heading text-[clamp(18px,2vw,26px)] font-semibold uppercase tracking-[0.02em] text-white/75">
-                {PROFILE.studio}
-              </span>
+              <SocialLinks tone="band" />
             </div>
           </Container>
         </motion.div>
