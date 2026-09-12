@@ -4,7 +4,7 @@ import ClientStrip from "@/components/home/ClientStrip";
 import CapabilityTiles from "@/components/home/CapabilityTiles";
 import StatsBand from "@/components/home/StatsBand";
 import AutomationAnatomy from "@/components/home/AutomationAnatomy";
-import ProcessRibbon from "@/components/home/ProcessRibbon";
+import ProcessHex from "@/components/home/ProcessHex";
 import SelectedWork from "@/components/home/SelectedWork";
 import BeforeAfter from "@/components/home/BeforeAfter";
 import CTASection from "@/components/home/CTASection";
@@ -18,7 +18,7 @@ export default function HomePage() {
       <CapabilityTiles />
       <StatsBand />
       <AutomationAnatomy />
-      <ProcessRibbon />
+      <ProcessHex />
       <SelectedWork />
       <BeforeAfter />
       <CTASection />

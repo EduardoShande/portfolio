@@ -150,7 +150,8 @@
       "build_when": "Semanas 2–4",
       "tune_title": "Optimización",
       "tune_desc": "Monitoreado y escalado. Recibes reportes con horas ahorradas, no impresiones.",
-      "tune_when": "Continuo"
+      "tune_when": "Continuo",
+      "subtitle": "Un proceso corto y medible. Sabes qué pasa en cada etapa y qué recibes al final."
     },
     "beforeafter": {
       "eyebrow": "Qué cambia",
@@ -325,5 +326,12 @@
     "studio_note": "El trabajo con clientes lo entrego bajo",
     "rights": "Todos los derechos reservados.",
     "tagline": "Disponible para trabajo y proyectos."
+  },
+  "orbit": {
+    "eyebrow": "Con qué trabajo",
+    "title": "Todo esto gira",
+    "titleAccent": "alrededor mío",
+    "subtitle": "Seis grupos de herramientas que uso a diario. No es una lista de deseos: es lo que aparece en el trabajo que ya entregué.",
+    "photo_placeholder": "Tu retrato va aquí"
   }
 }

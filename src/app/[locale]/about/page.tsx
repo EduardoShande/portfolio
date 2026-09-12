@@ -7,10 +7,10 @@ import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import ExperienceTimeline from "@/components/shared/ExperienceTimeline";
+import CapabilityOrbit from "@/components/shared/CapabilityOrbit";
 import { CV_URL } from "@/lib/constants";
 import {
   PROFILE,
-  SKILL_GROUPS,
   EDUCATION,
   CERTIFICATIONS,
   LANGUAGES,
@@ -100,55 +100,7 @@ export default function AboutPage() {
         </Container>
       </section>
 
-      {/* Skills */}
-      <section className="py-20 lg:py-32">
-        <Container>
-          <SectionHeading
-            eyebrow={t("skills.eyebrow")}
-            title={t("skills.title")}
-            titleAccent={t("skills.titleAccent")}
-          />
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-            variants={{ visible: { transition: { staggerChildren: 0.07 } } }}
-            className="grid grid-cols-1 gap-px bg-border-theme sm:grid-cols-2 lg:grid-cols-3"
-          >
-            {SKILL_GROUPS.map((group, i) => (
-              <motion.div
-                key={group.id}
-                variants={{
-                  hidden: { opacity: 0, y: 24 },
-                  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-                }}
-                className="relative overflow-hidden bg-bg-elevated p-7 lg:p-8"
-              >
-                <span
-                  aria-hidden="true"
-                  className="numeral absolute right-5 top-3 text-5xl text-fg/[0.05]"
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-                <h3 className="relative font-heading text-sm font-bold uppercase tracking-[0.12em] text-accent">
-                  {group.label[lang]}
-                </h3>
-                <ul className="relative mt-5 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <li
-                      key={item}
-                      className="border border-border-theme px-2.5 py-1 text-[11px] font-medium text-fg-muted"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
-          </motion.div>
-        </Container>
-      </section>
+      <CapabilityOrbit />
 
       {/* Education, certifications, languages */}
       <section className="pb-20 lg:pb-32">

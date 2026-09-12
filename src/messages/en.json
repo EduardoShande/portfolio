@@ -150,7 +150,8 @@
       "build_when": "Weeks 2–4",
       "tune_title": "Tune",
       "tune_desc": "Monitored and scaled. You get reports with hours saved, not vibes.",
-      "tune_when": "Ongoing"
+      "tune_when": "Ongoing",
+      "subtitle": "A short, measurable process. You know what happens at each stage and what you get at the end."
     },
     "beforeafter": {
       "eyebrow": "What changes",
@@ -325,5 +326,12 @@
     "studio_note": "Client work is delivered under",
     "rights": "All rights reserved.",
     "tagline": "Open to roles and projects."
+  },
+  "orbit": {
+    "eyebrow": "What I work with",
+    "title": "All of this orbits",
+    "titleAccent": "around me",
+    "subtitle": "Six groups of tools I use day to day. Not a wish list: this is what shows up in the work I have already delivered.",
+    "photo_placeholder": "Your portrait goes here"
   }
 }
