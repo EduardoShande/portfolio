@@ -1,5 +1,5 @@
 /**
- * The brush-stroke tear where the light page gives way to the navy band —
+ * The brush-stroke tear where the light page gives way to the navy band 
  * the device the airline reference uses instead of a straight section rule.
  *
  * `flip` inverts it for the bottom of a band. The colour comes from the

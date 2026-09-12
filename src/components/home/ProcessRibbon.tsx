@@ -6,8 +6,8 @@ import Container from "@/components/ui/Container";
 import Badge from "@/components/ui/Badge";
 
 /**
- * The four-step process, carrying the ribbon infographic's own palette —
- * terracotta, mauve, charcoal, red — on the numerals, so the sequence reads
+ * The four-step process, carrying the ribbon infographic's own palette 
+ * terracotta, mauve, charcoal, red, on the numerals, so the sequence reads
  * as one flowing run rather than four identical boxes.
  */
 const STEPS = [

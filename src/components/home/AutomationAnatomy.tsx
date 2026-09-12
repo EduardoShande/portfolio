@@ -9,7 +9,7 @@ import TornEdge from "@/components/ui/TornEdge";
 /**
  * The page's hero object.
  *
- * Every reference site has one — a plane, a house, a 3D head, a robot arm.
+ * Every reference site has one, a plane, a house, a 3D head, a robot arm.
  * Here it is a real automation: the lead engine built at Group Quimera,
  * drawn as the five systems it touches, with each node lighting in turn and
  * a dot travelling each wire. It shows the actual craft in about four

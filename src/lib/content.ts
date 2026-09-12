@@ -2,8 +2,8 @@
  * Every fact about Eduardo that the site renders lives here.
  *
  * Copy that is purely decorative (headings, eyebrows, button labels) stays in
- * `src/messages/*.json`. Anything factual — a job title, a date, a metric, a
- * project — lives in this file instead, so there is exactly one place to edit
+ * `src/messages/*.json`. Anything factual: a job title, a date, a metric, a
+ * project: lives in this file instead, so there is exactly one place to edit
  * when something changes and no risk of the two locales drifting apart on the
  * facts.
  *
@@ -33,6 +33,13 @@ export const PROFILE = {
   github: "https://github.com/EduardoShande",
   linkedin:
     "https://linkedin.com/in/eduardo-shande-guerrero-yucra-82aba132a",
+  /**
+   * Paste the full profile URL for each. Anything left as an empty string is
+   * simply not rendered, so there are never dead links on the site.
+   */
+  instagram: "",
+  tiktok: "",
+  facebook: "",
   cvPath: "/cv/Eduardo-Guerrero-Resume.pdf",
   /** Client work is delivered under this name. */
   studio: "Sycosmart",
@@ -80,7 +87,7 @@ export type Experience = {
   company: string;
   role: I18nString;
   period: I18nString;
-  /** Sorting key — most recent first. */
+  /** Sorting key: most recent first. */
   order: number;
   current: boolean;
   summary: I18nString;
@@ -96,7 +103,7 @@ export const EXPERIENCE: Experience[] = [
       es: "Ingeniero de Automatización (Contrato)",
       en: "Automation Engineer (Contract)",
     },
-    period: { es: "Mar 2026 — Presente", en: "Mar 2026 — Present" },
+    period: { es: "Mar 2026 a Presente", en: "Mar 2026 to Present" },
     order: 1,
     current: true,
     summary: {
@@ -124,7 +131,7 @@ export const EXPERIENCE: Experience[] = [
       es: "Ingeniero de Software y Automatización",
       en: "Software & Automation Engineer",
     },
-    period: { es: "May 2025 — Abr 2026", en: "May 2025 — Apr 2026" },
+    period: { es: "May 2025 a Abr 2026", en: "May 2025 to Apr 2026" },
     order: 2,
     current: false,
     summary: {
@@ -165,7 +172,7 @@ export const EXPERIENCE: Experience[] = [
     id: "gerona",
     company: "Gerona SVF",
     role: { es: "Ingeniero de Datos", en: "Data Engineer" },
-    period: { es: "Abr 2024 — Mar 2025", en: "Apr 2024 — Mar 2025" },
+    period: { es: "Abr 2024 a Mar 2025", en: "Apr 2024 to Mar 2025" },
     order: 3,
     current: false,
     summary: {
@@ -205,7 +212,7 @@ export const EXPERIENCE: Experience[] = [
     id: "carsans-dev",
     company: "CarSans S.R.L",
     role: { es: "Desarrollador de Software", en: "Software Developer" },
-    period: { es: "Mar 2023 — Feb 2024", en: "Mar 2023 — Feb 2024" },
+    period: { es: "Mar 2023 a Feb 2024", en: "Mar 2023 to Feb 2024" },
     order: 4,
     current: false,
     summary: {
@@ -322,8 +329,8 @@ export const PROJECTS: Project[] = [
   {
     id: "casera",
     title: {
-      es: "Casera — cuaderno digital para mercados",
-      en: "Casera — digital ledger for market vendors",
+      es: "Casera: cuaderno digital para mercados",
+      en: "Casera: digital ledger for market vendors",
     },
     client: { es: "Producto propio", en: "My own product" },
     category: "product",
@@ -342,8 +349,8 @@ export const PROJECTS: Project[] = [
   {
     id: "mesa-abierta",
     title: {
-      es: "Mesa Abierta — mesas de juego por asiento",
-      en: "Mesa Abierta — board game tables by the seat",
+      es: "Mesa Abierta: mesas de juego por asiento",
+      en: "Mesa Abierta: board game tables by the seat",
     },
     client: { es: "Producto propio", en: "My own product" },
     category: "product",
@@ -366,8 +373,8 @@ export const PROJECTS: Project[] = [
       en: "E-commerce operations automation",
     },
     client: {
-      es: "Cliente en EE. UU. — juguetes y artículos deportivos",
-      en: "US client — toys and sports accessories",
+      es: "Cliente en EE. UU.: juguetes y artículos deportivos",
+      en: "US client: toys and sports accessories",
     },
     category: "automation",
     year: "2023",
@@ -389,8 +396,8 @@ export const PROJECTS: Project[] = [
       en: "CRM workflows and landing pages for home automation",
     },
     client: {
-      es: "Cliente en EE. UU. — cortinas y ventanas automatizadas",
-      en: "US client — automated curtains and window systems",
+      es: "Cliente en EE. UU.: cortinas y ventanas automatizadas",
+      en: "US client: automated curtains and window systems",
     },
     category: "automation",
     year: "2024",
@@ -408,8 +415,8 @@ export const PROJECTS: Project[] = [
   {
     id: "angie-spa",
     title: {
-      es: "Angie Spa — identidad y sitio web",
-      en: "Angie Spa — identity and website",
+      es: "Angie Spa: identidad y sitio web",
+      en: "Angie Spa: identity and website",
     },
     client: {
       es: "Centro de detox corporal, Santa Cruz",
@@ -521,7 +528,7 @@ export const SERVICES: Service[] = [
     },
     description: {
       es: "Conecto modelos de lenguaje a procesos reales de negocio. No un chatbot de adorno: trabajo que antes hacía una persona.",
-      en: "I wire language models into real business processes. Not a decorative chatbot — work a person used to do by hand.",
+      en: "I wire language models into real business processes. Not a decorative chatbot: work a person used to do by hand.",
     },
     deliverables: {
       es: [
@@ -668,8 +675,8 @@ export const LANGUAGES = [
   {
     name: { es: "Inglés", en: "English" },
     level: {
-      es: "C1 — Competencia profesional completa",
-      en: "C1 — Full professional proficiency",
+      es: "C1, competencia profesional completa",
+      en: "C1, full professional proficiency",
     },
   },
 ] as const;

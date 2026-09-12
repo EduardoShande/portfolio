@@ -3,21 +3,11 @@
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  X,
-  Mail,
-} from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
-import { GITHUB_URL, LINKEDIN_URL, EMAIL_URL } from "@/lib/constants";
+import { X } from "lucide-react";
 import Button from "@/components/ui/Button";
+import SocialLinks from "@/components/ui/SocialLinks";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { navLinks } from "./Navbar";
-
-const socials = [
-  { href: GITHUB_URL, Icon: GithubIcon, label: "GitHub" },
-  { href: LINKEDIN_URL, Icon: LinkedinIcon, label: "LinkedIn" },
-  { href: EMAIL_URL, Icon: Mail, label: "Email" },
-];
 
 export default function MobileMenu({
   isOpen,
@@ -83,20 +73,7 @@ export default function MobileMenu({
             </nav>
 
             <div className="mt-auto pt-8">
-              <div className="mb-5 flex items-center gap-2">
-                {socials.map(({ href, Icon, label }) => (
-                  <a
-                    key={label}
-                    href={href}
-                    target={href.startsWith("http") ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    aria-label={label}
-                    className="flex h-10 w-10 items-center justify-center border border-border-theme text-fg-muted transition-colors hover:border-accent hover:text-accent"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                ))}
-              </div>
+              <SocialLinks className="mb-5" />
               <Button variant="primary" href="/contact" className="w-full">
                 {t("cta")}
               </Button>

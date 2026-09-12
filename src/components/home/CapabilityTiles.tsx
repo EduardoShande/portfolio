@@ -15,7 +15,7 @@ import { SERVICES, toLocale } from "@/lib/content";
  * uppercase label and a hard accent chip.
  *
  * Until real screenshots arrive, each tile's image is a small live component
- * standing in for the thing it represents — a node canvas, a chart, a chat,
+ * standing in for the thing it represents, a node canvas, a chart, a chat,
  * a phone. Those read as screenshots and animate, which stock art cannot.
  * Swap in `/photos/work-*.png` as the real captures land.
  */

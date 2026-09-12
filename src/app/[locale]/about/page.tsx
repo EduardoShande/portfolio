@@ -184,7 +184,7 @@ export default function AboutPage() {
                     />
                     <span className="text-sm leading-snug text-fg-muted">
                       <span className="text-fg">{cert.name}</span>
-                      {" — "}
+                      {" · "}
                       {cert.issuer}
                     </span>
                   </li>

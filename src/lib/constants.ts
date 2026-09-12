@@ -18,3 +18,16 @@ export const SITE_DESCRIPTION_ES =
   "Ingeniero de Datos y Automatización. Construyo sistemas que eliminan trabajo manual.";
 export const SITE_DESCRIPTION_EN =
   "Data & Automation Engineer. I build systems that take manual work off your team.";
+
+/**
+ * Social profiles, in the order they appear on the site. Entries with an
+ * empty URL in PROFILE are filtered out, so an unset network never renders
+ * a dead link.
+ */
+export const SOCIALS = [
+  { id: "github", href: PROFILE.github, label: "GitHub" },
+  { id: "linkedin", href: PROFILE.linkedin, label: "LinkedIn" },
+  { id: "instagram", href: PROFILE.instagram, label: "Instagram" },
+  { id: "tiktok", href: PROFILE.tiktok, label: "TikTok" },
+  { id: "facebook", href: PROFILE.facebook, label: "Facebook" },
+].filter((s) => s.href.length > 0);

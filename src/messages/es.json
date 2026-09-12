@@ -14,7 +14,7 @@
       "headline": "Le quito el trabajo manual",
       "headlineAccent": "el trabajo manual",
       "headlineEnd": "operan los negocios",
-      "subtitle": "Tres años construyendo pipelines de datos, flujos automatizados e integraciones con IA para empresas en Bolivia y Estados Unidos — bajando tiempos de proceso entre 40% y 50%.",
+      "subtitle": "Tres años construyendo pipelines de datos, flujos automatizados e integraciones con IA para empresas en Bolivia y Estados Unidos, bajando tiempos de proceso entre 40% y 50%.",
       "cta_work": "Ver mi trabajo",
       "cta_cv": "Descargar CV",
       "panel_label": "Ahora mismo",
@@ -26,8 +26,8 @@
       "photo_placeholder": "Tu foto va aquí",
       "chip_role": "Ingeniero de Automatización",
       "chip_role_meta": "CarSans · desde Mar 2026",
-      "chip_open": "Disponible",
-      "chip_open_meta": "Remoto · freelance"
+      "timezone": "GMT-4",
+      "scroll": "Ir al trabajo"
     },
     "work": {
       "eyebrow": "Trabajo seleccionado",
@@ -151,6 +151,29 @@
       "tune_title": "Optimización",
       "tune_desc": "Monitoreado y escalado. Recibes reportes con horas ahorradas, no impresiones.",
       "tune_when": "Continuo"
+    },
+    "beforeafter": {
+      "eyebrow": "Qué cambia",
+      "title": "Antes y",
+      "titleAccent": "después",
+      "subtitle": "Tres procesos reales de empresas con las que trabajé. A la izquierda, cómo se hacía a mano. A la derecha, cómo corre ahora.",
+      "before": "Antes",
+      "after": "Después",
+      "leads_before": "Cada lead de WhatsApp se copiaba al CRM a mano, uno por uno, y se clasificaba a criterio de quien estuviera libre.",
+      "leads_after": "El mensaje entra, se extraen y validan los datos, se sincroniza con el CRM y PostgreSQL, y el vendedor correcto recibe el aviso.",
+      "leads_metric": "40%",
+      "leads_metric_label": "Menos tiempo por lead",
+      "leads_where": "Group Quimera",
+      "reporting_before": "Los reportes se armaban a mano juntando ventas, inventario y CRM desde sistemas separados. Nadie confiaba del todo en los números.",
+      "reporting_after": "Un solo data warehouse con modelado dimensional, reglas de validación y dashboards en Power BI sobre datos verificados.",
+      "reporting_metric": "95%",
+      "reporting_metric_label": "Confiabilidad en reportes",
+      "reporting_where": "Gerona SVF",
+      "loads_before": "Las cargas de datos corrían en secuencia y tardaban horas en terminar, sin forma de saber si algo había fallado.",
+      "loads_after": "Pipelines paralelizados en Airflow con validación automática y alertas cuando algo se rompe.",
+      "loads_metric": "50%",
+      "loads_metric_label": "Menos tiempo de carga",
+      "loads_where": "Gerona SVF"
     }
   },
   "work": {

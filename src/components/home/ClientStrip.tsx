@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import Container from "@/components/ui/Container";
 
 /**
- * Names of the organisations whose systems he built, set as a quiet strip —
+ * Names of the organisations whose systems he built, set as a quiet strip 
  * the same move as the partner-logo row in the industrial reference. Text
  * rather than logos, because these are employers and clients, not sponsors.
  */

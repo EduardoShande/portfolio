@@ -27,7 +27,7 @@
   --font-body: var(--font-inter);
 }
 
-/* ─── LIGHT (default) — the register four of the five references live in ─── */
+/* ─── LIGHT (default)  the register four of the five references live in ─── */
 :root,
 [data-theme="light"] {
   --theme-bg: #F4F3F0;

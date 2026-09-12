@@ -6,7 +6,7 @@ import StatsBand from "@/components/home/StatsBand";
 import AutomationAnatomy from "@/components/home/AutomationAnatomy";
 import ProcessRibbon from "@/components/home/ProcessRibbon";
 import SelectedWork from "@/components/home/SelectedWork";
-import WhatsAppSimulator from "@/components/home/WhatsAppSimulator";
+import BeforeAfter from "@/components/home/BeforeAfter";
 import CTASection from "@/components/home/CTASection";
 
 export default function HomePage() {
@@ -20,7 +20,7 @@ export default function HomePage() {
       <AutomationAnatomy />
       <ProcessRibbon />
       <SelectedWork />
-      <WhatsAppSimulator />
+      <BeforeAfter />
       <CTASection />
     </>
   );

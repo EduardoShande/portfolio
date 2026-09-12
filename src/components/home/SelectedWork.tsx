@@ -13,7 +13,7 @@ export default function SelectedWork() {
   const t = useTranslations("home.work");
 
   return (
-    <section className="pb-24 pt-4 lg:pb-28">
+    <section id="work" className="scroll-mt-24 pb-24 pt-4 lg:pb-28">
       <Container>
         <div className="mb-10 flex flex-wrap items-end justify-between gap-7">
           <div>

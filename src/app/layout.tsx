@@ -21,7 +21,7 @@ const inter = Inter({
   display: "swap",
 });
 
-const TITLE = "Eduardo Shande — Data & Automation Engineer";
+const TITLE = "Eduardo Shande | Data & Automation Engineer";
 const DESCRIPTION =
   "I build data pipelines, automated workflows and AI integrations that take manual work off your team. Three years with clients in Bolivia and the United States.";
 

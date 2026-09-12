@@ -7,11 +7,9 @@ import {
   MessageCircle,
   MapPin,
 } from "lucide-react";
-import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import Container from "@/components/ui/Container";
+import SocialLinks from "@/components/ui/SocialLinks";
 import {
-  GITHUB_URL,
-  LINKEDIN_URL,
   EMAIL_URL,
   WHATSAPP_URL,
 } from "@/lib/constants";
@@ -19,11 +17,6 @@ import { PROFILE } from "@/lib/content";
 import { navLinks } from "./Navbar";
 import { useLocale } from "next-intl";
 import { toLocale } from "@/lib/content";
-
-const elsewhere = [
-  { href: GITHUB_URL, Icon: GithubIcon, label: "GitHub" },
-  { href: LINKEDIN_URL, Icon: LinkedinIcon, label: "LinkedIn" },
-];
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -105,20 +98,7 @@ export default function Footer() {
             <p className="mt-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-white">
               {t("elsewhere_title")}
             </p>
-            <div className="mt-4 flex items-center gap-2">
-              {elsewhere.map(({ href, Icon, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center border border-white/15 text-white/55 transition-colors hover:border-accent hover:text-accent"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
-            </div>
+            <SocialLinks tone="band" className="mt-4" />
           </div>
         </div>
 

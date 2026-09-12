@@ -14,7 +14,7 @@
       "headline": "I take the manual work",
       "headlineAccent": "the manual work",
       "headlineEnd": "people run their business",
-      "subtitle": "Three years building data pipelines, automated workflows and AI integrations for companies in Bolivia and the United States — cutting processing times 40–50%.",
+      "subtitle": "Three years building data pipelines, automated workflows and AI integrations for companies in Bolivia and the United States, cutting processing times 40–50%.",
       "cta_work": "See my work",
       "cta_cv": "Download CV",
       "panel_label": "Right now",
@@ -26,8 +26,8 @@
       "photo_placeholder": "Your photo goes here",
       "chip_role": "Automation Engineer",
       "chip_role_meta": "CarSans · since Mar 2026",
-      "chip_open": "Open to work",
-      "chip_open_meta": "Remote · freelance"
+      "timezone": "GMT-4",
+      "scroll": "Skip to work"
     },
     "work": {
       "eyebrow": "Selected work",
@@ -151,6 +151,29 @@
       "tune_title": "Tune",
       "tune_desc": "Monitored and scaled. You get reports with hours saved, not vibes.",
       "tune_when": "Ongoing"
+    },
+    "beforeafter": {
+      "eyebrow": "What changes",
+      "title": "Before and",
+      "titleAccent": "after",
+      "subtitle": "Three real processes from companies I worked with. On the left, how it was done by hand. On the right, how it runs now.",
+      "before": "Before",
+      "after": "After",
+      "leads_before": "Every WhatsApp lead was copied into the CRM by hand, one at a time, and classified by whoever happened to be free.",
+      "leads_after": "The message arrives, the data is extracted and validated, the CRM and PostgreSQL sync, and the right salesperson gets pinged.",
+      "leads_metric": "40%",
+      "leads_metric_label": "Less time per lead",
+      "leads_where": "Group Quimera",
+      "reporting_before": "Reports were assembled by hand from sales, inventory and CRM in separate systems. Nobody entirely trusted the numbers.",
+      "reporting_after": "One warehouse with proper dimensional modelling, validation rules, and Power BI dashboards on verified data.",
+      "reporting_metric": "95%",
+      "reporting_metric_label": "Report reliability",
+      "reporting_where": "Gerona SVF",
+      "loads_before": "Data loads ran sequentially and took hours to finish, with no way to tell whether something had failed.",
+      "loads_after": "Parallelised Airflow pipelines with automated validation and alerts when something breaks.",
+      "loads_metric": "50%",
+      "loads_metric_label": "Faster data loads",
+      "loads_where": "Gerona SVF"
     }
   },
   "work": {

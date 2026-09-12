@@ -10,7 +10,7 @@ import { EXPERIENCE, toLocale } from "@/lib/content";
  * Career as a zig-zag rail, the same device as the ribbon infographic
  * reference: odd roles left, even roles right, a spine running between them.
  *
- * On mobile it collapses to a single left rail — a zig-zag has nowhere to go
+ * On mobile it collapses to a single left rail, a zig-zag has nowhere to go
  * at 375px.
  */
 export default function ExperienceTimeline({

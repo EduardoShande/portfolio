@@ -206,7 +206,7 @@ export default function WhatsAppSimulator() {
     playScenario(activeScenario);
   }, [activeScenario, playScenario]);
 
-  // Scroll ONLY inside the chat container — never scroll the page itself
+  // Scroll ONLY inside the chat container, never scroll the page itself
   useEffect(() => {
     const container = chatContainerRef.current;
     if (!container) return;
