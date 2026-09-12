@@ -1,18 +1,23 @@
 # Photos
 
-Drop your images here with these exact filenames. The site and the mockup
-look for them at these paths.
+**Do not hand-edit the files here.** They are generated from the originals in
+`D:/job/Eduardo/Img` by:
 
-| Filename                | What it is                           | Best crop        |
-|-------------------------|--------------------------------------|------------------|
-| `eduardo-speaking.jpg`  | You presenting on stage with the mic | portrait (3:4)   |
-| `eduardo-portrait.jpg`  | The seated office portrait           | square (1:1)     |
+```bash
+python scripts/build-photos.py
+```
 
-Work screenshots go here too, as they arrive:
+Re-run that after replacing a source photo and the site picks up the result.
 
-| `work-n8n.png`      | An n8n workflow canvas          |
-| `work-airflow.png`  | An Airflow DAG graph            |
-| `work-dashboard.png`| A Power BI / analytics dashboard|
-| `work-casera.png`   | Casera running on a phone       |
+| Generated file          | Source                  | Used by                          |
+|-------------------------|-------------------------|----------------------------------|
+| `eduardo-hero.jpg`      | `Eduardo on couch.jpg`  | The dark header on the home page |
+| `eduardo-portrait.jpg`  | `Eduardo speach.jpg`    | The centre of the capability orbit on /about |
+| `eduardo-speaking.jpg`  | `Eduardo speach.jpg`    | Spare, resized for the web       |
 
-Anything missing falls back to a placeholder, so the page never breaks.
+Work screenshots are not generated. Drop them in directly when you have them:
+
+| `work-n8n.png`       | An n8n workflow canvas           |
+| `work-airflow.png`   | An Airflow DAG graph             |
+| `work-dashboard.png` | A Power BI or analytics dashboard|
+| `work-casera.png`    | Casera running on a phone        |

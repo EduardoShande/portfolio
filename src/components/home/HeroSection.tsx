@@ -30,9 +30,11 @@ const fade = {
  * the edge. A circular button sits at the left, contact details sit bottom
  * left under a short dash, and the social marks sit bottom right.
  *
- * Grayscale is doing real work on Eduardo's photograph specifically: the
- * shot has a bright blue projector screen behind him that would otherwise
- * fight everything, and desaturating it turns that into tonal depth.
+ * The photograph is prepared by scripts/build-photos.py, which composites
+ * the seated portrait onto a wide black canvas through a feathered radial
+ * mask. The source is vignetted to a hard circle; feathering it means the
+ * image arrives with no boundary of its own, so the overlays here only have
+ * to darken the columns the type sits in.
  */
 export default function HeroSection() {
   const t = useTranslations("home.hero");
@@ -46,20 +48,20 @@ export default function HeroSection() {
           <div className="absolute inset-0 grid place-items-center px-10 pb-24 text-center text-[11px] uppercase leading-loose tracking-[0.2em] text-white/30">
             {t("photo_placeholder")}
             <br />
-            photos/eduardo-speaking.jpg
+            photos/eduardo-hero.jpg
           </div>
           {/* Painted as a background so a missing file reveals the placeholder
               rather than a broken-image marker. */}
           <div
-            style={{ backgroundImage: "url('/photos/eduardo-speaking.jpg')" }}
-            className="absolute inset-0 bg-[length:auto_108%] bg-[center_top] bg-no-repeat grayscale contrast-[1.12] sm:bg-[length:auto_105%] lg:bg-[length:auto_112%]"
+            style={{ backgroundImage: "url('/photos/eduardo-hero.jpg')" }}
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat grayscale contrast-[1.08]"
           />
         </div>
 
         {/* Melt the frame edges into the field, so the photo has no seam */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 bg-[radial-gradient(58%_62%_at_50%_42%,transparent_0%,rgba(18,23,43,.35)_58%,rgba(18,23,43,.92)_88%,#12172B_100%)]"
+          className="absolute inset-0 bg-[radial-gradient(62%_66%_at_50%_44%,transparent_0%,rgba(18,23,43,.18)_62%,rgba(18,23,43,.75)_92%,#12172B_100%)]"
         />
         <div
           aria-hidden="true"
@@ -67,11 +69,11 @@ export default function HeroSection() {
         />
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-band/90 to-transparent"
+          className="absolute inset-y-0 left-0 w-1/3 bg-gradient-to-r from-band/75 to-transparent"
         />
         <div
           aria-hidden="true"
-          className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-l from-band via-band/70 to-transparent"
+          className="absolute inset-y-0 right-0 w-2/5 bg-gradient-to-l from-band via-band/60 to-transparent"
         />
 
         {/* ── Numbered index of work, down the right ── */}
