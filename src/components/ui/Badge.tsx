@@ -1,8 +1,9 @@
 import { cn } from "@/lib/utils";
 
 /**
- * Eyebrow label — a squared tag with a leading accent rule, the way the
- * industrial reference marks each section rather than a rounded pill.
+ * Eyebrow label: a short accent rule followed by tracked uppercase text.
+ * Used to open every section, the way the industrial reference marks its
+ * blocks without a pill or a box.
  */
 export default function Badge({
   children,
@@ -17,14 +18,11 @@ export default function Badge({
     <span
       className={cn(
         "inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em]",
-        tone === "band" ? "text-white/70" : "text-fg-muted",
+        tone === "band" ? "text-white/55" : "text-fg-muted",
         className
       )}
     >
-      <span
-        aria-hidden="true"
-        className="h-px w-8 bg-accent"
-      />
+      <span aria-hidden="true" className="h-0.5 w-[30px] bg-accent" />
       {children}
     </span>
   );

@@ -11,21 +11,23 @@
     "hero": {
       "available": "Disponible para trabajo y proyectos",
       "role": "Ingeniero de Datos y Automatización",
-      "headline": "Construyo sistemas que le quitan",
+      "headline": "Le quito el trabajo manual",
       "headlineAccent": "el trabajo manual",
-      "headlineEnd": "a tu equipo",
-      "subtitle": "Tres años construyendo pipelines de datos, flujos automatizados e integraciones con IA para empresas en Bolivia y Estados Unidos. Bajé tiempos de procesamiento entre 40% y 50% haciendo exactamente esto.",
+      "headlineEnd": "operan los negocios",
+      "subtitle": "Tres años construyendo pipelines de datos, flujos automatizados e integraciones con IA para empresas en Bolivia y Estados Unidos — bajando tiempos de proceso entre 40% y 50%.",
       "cta_work": "Ver mi trabajo",
       "cta_cv": "Descargar CV",
       "panel_label": "Ahora mismo",
       "panel_caption": "Ingeniero de Automatización en CarSans. Abierto a roles remotos y a proyectos freelance.",
       "chip_years": "Años construyendo",
-      "chip_impact": "Menos tiempo de proceso"
-    },
-    "stats": {
-      "eyebrow": "En números",
-      "title": "Lo que he",
-      "titleAccent": "entregado"
+      "chip_impact": "Menos tiempo de proceso",
+      "location": "Santa Cruz, Bolivia",
+      "headlineSoft": "a la forma en que",
+      "photo_placeholder": "Tu foto va aquí",
+      "chip_role": "Ingeniero de Automatización",
+      "chip_role_meta": "CarSans · desde Mar 2026",
+      "chip_open": "Disponible",
+      "chip_open_meta": "Remoto · freelance"
     },
     "work": {
       "eyebrow": "Trabajo seleccionado",
@@ -80,14 +82,6 @@
       "intel_msg_5": "🎯 Plan de retención iniciado:\n\n💌 Enviando ofertas personalizadas a los 15 inactivos\n📞 Agendando llamadas con los 6 que redujeron uso\n🛠️ Asignando soporte prioritario a los 2 con problemas",
       "intel_msg_7": "✅ Acciones ejecutadas. Te enviaré un reporte en 7 días con la tasa de recuperación. Mi proyección: rescataremos al menos 16 de 23 clientes (70%)."
     },
-    "experience": {
-      "eyebrow": "Trayectoria",
-      "title": "Dónde",
-      "titleAccent": "he trabajado",
-      "subtitle": "De desarrollador web a ingeniero de datos y automatización, en cuatro años.",
-      "view_all": "Ver perfil completo",
-      "current_label": "Actual"
-    },
     "services": {
       "eyebrow": "Cómo puedo ayudarte",
       "title": "En qué",
@@ -105,6 +99,58 @@
       "calendar": "Agendar una llamada",
       "email": "Enviar un correo",
       "ghost": "HABLEMOS"
+    },
+    "clients": {
+      "label": "He construido sistemas para"
+    },
+    "capabilities": {
+      "eyebrow": "Lo que construyo",
+      "title": "Cuatro cosas que hago",
+      "titleAccent": "en serio",
+      "all": "Ver servicios"
+    },
+    "figures": {
+      "loads_title": "Menos tiempo de carga.",
+      "loads_desc": "ETL paralelizado con validación automatizada en Gerona SVF.",
+      "leads_title": "Menos tiempo por lead.",
+      "leads_desc": "WhatsApp → CRM → Postgres, sincronizado en tiempo real.",
+      "reports_title": "Confiabilidad en reportes.",
+      "reports_desc": "Limpieza, normalización y reglas de validación.",
+      "years_title": "Años entregando.",
+      "years_desc": "Bolivia y Estados Unidos, en español e inglés."
+    },
+    "anatomy": {
+      "eyebrow": "Cómo funciona de verdad",
+      "title": "Anatomía de una",
+      "titleAccent": "automatización real",
+      "subtitle": "Este es el motor de leads que construí en Group Quimera. Llega un mensaje a WhatsApp y nadie lo toca hasta que un vendedor recibe el aviso.",
+      "whatsapp_name": "WhatsApp",
+      "whatsapp_step": "Entra el mensaje",
+      "n8n_name": "n8n",
+      "n8n_step": "Procesa y valida",
+      "crm_name": "CRM",
+      "crm_step": "Crea el lead",
+      "postgres_name": "PostgreSQL",
+      "postgres_step": "Sincroniza",
+      "rep_name": "Vendedor",
+      "rep_step": "Recibe el aviso"
+    },
+    "process": {
+      "eyebrow": "Cómo trabajo",
+      "title": "Cuatro pasos,",
+      "titleAccent": "cero adivinanza",
+      "diagnose_title": "Diagnóstico",
+      "diagnose_desc": "Mapeo tu operación y encuentro dónde se pierden realmente las horas y el dinero.",
+      "diagnose_when": "Semana 1",
+      "design_title": "Diseño",
+      "design_desc": "El flujo completo: qué hace, con qué se conecta y cómo se mide el resultado.",
+      "design_when": "Semana 1–2",
+      "build_title": "Construcción",
+      "build_desc": "Construido, integrado y probado contra datos reales antes de tocar producción.",
+      "build_when": "Semanas 2–4",
+      "tune_title": "Optimización",
+      "tune_desc": "Monitoreado y escalado. Recibes reportes con horas ahorradas, no impresiones.",
+      "tune_when": "Continuo"
     }
   },
   "work": {
@@ -151,7 +197,8 @@
     "experience": {
       "eyebrow": "Trayectoria",
       "title": "Experiencia",
-      "titleAccent": "profesional"
+      "titleAccent": "profesional",
+      "current_label": "Actual"
     },
     "education": {
       "title": "Educación"

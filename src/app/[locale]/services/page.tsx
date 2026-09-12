@@ -71,7 +71,7 @@ export default function ServicesPage() {
                   transition={{ duration: 0.3 }}
                   className={cn(
                     "relative overflow-hidden border border-border-theme bg-bg-elevated p-8 transition-colors hover:border-accent/50 lg:p-10",
-                    i % 2 === 0 ? "clip-notch" : "clip-notch-bl"
+                    i % 2 === 0 ? "rounded-[22px]" : "rounded-[22px]"
                   )}
                 >
                   <span
@@ -131,7 +131,7 @@ export default function ServicesPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="clip-notch grain relative overflow-hidden bg-band p-10 text-center sm:p-16"
+            className="rounded-[22px] grain relative overflow-hidden bg-band p-10 text-center sm:p-16"
           >
             <div
               aria-hidden="true"

@@ -1,10 +1,12 @@
 import HeroSection from "@/components/home/HeroSection";
 import MarqueeStrip from "@/components/home/MarqueeStrip";
-import StatsBar from "@/components/home/StatsBar";
+import ClientStrip from "@/components/home/ClientStrip";
+import CapabilityTiles from "@/components/home/CapabilityTiles";
+import StatsBand from "@/components/home/StatsBand";
+import AutomationAnatomy from "@/components/home/AutomationAnatomy";
+import ProcessRibbon from "@/components/home/ProcessRibbon";
 import SelectedWork from "@/components/home/SelectedWork";
 import WhatsAppSimulator from "@/components/home/WhatsAppSimulator";
-import ExperienceSection from "@/components/home/ExperienceSection";
-import ServicesOverview from "@/components/home/ServicesOverview";
 import CTASection from "@/components/home/CTASection";
 
 export default function HomePage() {
@@ -12,11 +14,13 @@ export default function HomePage() {
     <>
       <HeroSection />
       <MarqueeStrip />
-      <StatsBar />
+      <ClientStrip />
+      <CapabilityTiles />
+      <StatsBand />
+      <AutomationAnatomy />
+      <ProcessRibbon />
       <SelectedWork />
       <WhatsAppSimulator />
-      <ExperienceSection />
-      <ServicesOverview />
       <CTASection />
     </>
   );

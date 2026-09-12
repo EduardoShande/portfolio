@@ -66,7 +66,7 @@ export default function ExperienceTimeline({
                 <div
                   className={cn(
                     "border border-border-theme bg-bg-elevated p-7 lg:p-8",
-                    isRight ? "clip-notch-bl" : "clip-notch"
+                    isRight ? "rounded-[22px]" : "rounded-[22px]"
                   )}
                 >
                   <div

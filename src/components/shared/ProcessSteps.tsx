@@ -82,8 +82,8 @@ export default function ProcessSteps() {
 
                     <div
                       className={cn(
-                        "clip-notch border border-border-theme bg-bg-elevated p-7 lg:p-8",
-                        isRight && "clip-notch-bl"
+                        "rounded-[22px] border border-border-theme bg-bg-elevated p-7 lg:p-8",
+                        isRight && "rounded-[22px]"
                       )}
                     >
                       <div

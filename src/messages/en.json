@@ -11,21 +11,23 @@
     "hero": {
       "available": "Open to roles and projects",
       "role": "Data & Automation Engineer",
-      "headline": "I build systems that take",
+      "headline": "I take the manual work",
       "headlineAccent": "the manual work",
-      "headlineEnd": "off your team",
-      "subtitle": "Three years building data pipelines, automated workflows and AI integrations for companies in Bolivia and the United States. I have cut processing times by 40–50% doing exactly this.",
+      "headlineEnd": "people run their business",
+      "subtitle": "Three years building data pipelines, automated workflows and AI integrations for companies in Bolivia and the United States — cutting processing times 40–50%.",
       "cta_work": "See my work",
       "cta_cv": "Download CV",
       "panel_label": "Right now",
       "panel_caption": "Automation Engineer at CarSans. Open to remote roles and freelance projects.",
       "chip_years": "Years building",
-      "chip_impact": "Faster processing"
-    },
-    "stats": {
-      "eyebrow": "By the numbers",
-      "title": "What I have",
-      "titleAccent": "delivered"
+      "chip_impact": "Faster processing",
+      "location": "Santa Cruz, Bolivia",
+      "headlineSoft": "out of the way",
+      "photo_placeholder": "Your photo goes here",
+      "chip_role": "Automation Engineer",
+      "chip_role_meta": "CarSans · since Mar 2026",
+      "chip_open": "Open to work",
+      "chip_open_meta": "Remote · freelance"
     },
     "work": {
       "eyebrow": "Selected work",
@@ -80,14 +82,6 @@
       "intel_msg_5": "🎯 Retention plan started:\n\n💌 Sending personalized offers to the 15 inactive\n📞 Booking calls with the 6 who reduced usage\n🛠️ Assigning priority support to the 2 with issues",
       "intel_msg_7": "✅ Actions executed. I'll send you a report in 7 days with the recovery rate. My projection: we'll save at least 16 of 23 customers (70%)."
     },
-    "experience": {
-      "eyebrow": "Track record",
-      "title": "Where I have",
-      "titleAccent": "worked",
-      "subtitle": "From web developer to data and automation engineer, over four years.",
-      "view_all": "See full profile",
-      "current_label": "Current"
-    },
     "services": {
       "eyebrow": "How I can help",
       "title": "What I",
@@ -105,6 +99,58 @@
       "calendar": "Book a call",
       "email": "Send an email",
       "ghost": "LET'S TALK"
+    },
+    "clients": {
+      "label": "Built systems for"
+    },
+    "capabilities": {
+      "eyebrow": "What I build",
+      "title": "Four things I do",
+      "titleAccent": "properly",
+      "all": "All services"
+    },
+    "figures": {
+      "loads_title": "Faster data loads.",
+      "loads_desc": "Parallelised ETL with automated validation at Gerona SVF.",
+      "leads_title": "Less time per lead.",
+      "leads_desc": "WhatsApp → CRM → Postgres, synced in real time.",
+      "reports_title": "Report reliability.",
+      "reports_desc": "Cleansing, normalisation and validation rules.",
+      "years_title": "Years shipping.",
+      "years_desc": "Bolivia and the US, in Spanish and English."
+    },
+    "anatomy": {
+      "eyebrow": "How it actually works",
+      "title": "Anatomy of one",
+      "titleAccent": "real automation",
+      "subtitle": "This is the lead engine I built at Group Quimera. A message lands on WhatsApp and nothing is touched by a human until a salesperson gets pinged.",
+      "whatsapp_name": "WhatsApp",
+      "whatsapp_step": "Message in",
+      "n8n_name": "n8n",
+      "n8n_step": "Parse & validate",
+      "crm_name": "CRM",
+      "crm_step": "Create lead",
+      "postgres_name": "PostgreSQL",
+      "postgres_step": "Sync record",
+      "rep_name": "Sales rep",
+      "rep_step": "Notified"
+    },
+    "process": {
+      "eyebrow": "How I work",
+      "title": "Four steps,",
+      "titleAccent": "zero guesswork",
+      "diagnose_title": "Diagnose",
+      "diagnose_desc": "I map your operation and find where hours and money actually leak.",
+      "diagnose_when": "Week 1",
+      "design_title": "Design",
+      "design_desc": "The full flow: what it does, what it touches, how the result gets measured.",
+      "design_when": "Week 1–2",
+      "build_title": "Build",
+      "build_desc": "Built, integrated and tested against real data before it reaches production.",
+      "build_when": "Weeks 2–4",
+      "tune_title": "Tune",
+      "tune_desc": "Monitored and scaled. You get reports with hours saved, not vibes.",
+      "tune_when": "Ongoing"
     }
   },
   "work": {
@@ -151,7 +197,8 @@
     "experience": {
       "eyebrow": "Track record",
       "title": "Professional",
-      "titleAccent": "experience"
+      "titleAccent": "experience",
+      "current_label": "Current"
     },
     "education": {
       "title": "Education"

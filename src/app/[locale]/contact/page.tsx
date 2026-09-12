@@ -95,7 +95,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 }}
-                className="mt-10 clip-notch border border-border-theme bg-bg-elevated p-6"
+                className="mt-10 rounded-[22px] border border-border-theme bg-bg-elevated p-6"
               >
                 <p className="text-xs font-semibold uppercase tracking-wider text-fg-muted mb-4">
                   {t("direct_contact")}
@@ -141,7 +141,7 @@ export default function ContactPage() {
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp
                   </Button>
-                  <Button variant="secondary" size="sm" href="#calendly">
+                  <Button variant="ghost" size="sm" href="#calendly">
                     <Calendar className="h-4 w-4" />
                     {t("book_call")}
                   </Button>
@@ -154,7 +154,7 @@ export default function ContactPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="clip-notch border border-border-theme bg-bg-elevated p-8 lg:p-10"
+              className="rounded-[22px] border border-border-theme bg-bg-elevated p-8 lg:p-10"
             >
               <h2 className="font-heading text-2xl font-bold text-fg">
                 {t("form.title")}
@@ -175,7 +175,7 @@ export default function ContactPage() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="clip-notch border border-border-theme bg-bg-elevated p-6 lg:p-10"
+            className="rounded-[22px] border border-border-theme bg-bg-elevated p-6 lg:p-10"
           >
             <div className="text-center mb-8">
               <h2 className="font-heading text-2xl font-bold text-fg lg:text-3xl">

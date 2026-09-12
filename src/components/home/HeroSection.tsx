@@ -1,43 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useLocale, useTranslations } from "next-intl";
-import { motion, useMotionValue, useTransform, useSpring } from "motion/react";
-import {
-  ArrowRight,
-  Download,
-  Mail,
-  MapPin,
-} from "lucide-react";
+import { useTranslations } from "next-intl";
+import { motion } from "motion/react";
+import { ArrowRight, Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import {
-  CV_URL,
-  GITHUB_URL,
-  LINKEDIN_URL,
-  EMAIL_URL,
-} from "@/lib/constants";
-import { PROFILE, toLocale } from "@/lib/content";
+import Badge from "@/components/ui/Badge";
+import { CV_URL, GITHUB_URL, LINKEDIN_URL, EMAIL_URL } from "@/lib/constants";
+import { PROFILE, STATS } from "@/lib/content";
+import { useLocale } from "next-intl";
+import { toLocale } from "@/lib/content";
 
-const containerVariants = {
+const container = {
   hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.09, delayChildren: 0.12 },
-  },
+  visible: { opacity: 1, transition: { staggerChildren: 0.09, delayChildren: 0.1 } },
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 28 },
+const item = {
+  hidden: { opacity: 0, y: 26 },
   visible: {
     opacity: 1,
     y: 0,
     transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
   },
 };
-
-const HERO_IMAGE = "/hero/hero.svg";
 
 const socials = [
   { href: GITHUB_URL, Icon: GithubIcon, label: "GitHub" },
@@ -46,257 +33,156 @@ const socials = [
 ];
 
 /**
- * Split hero: the person on the left, a canted "right now" card on the right,
- * sloped bottom edge handing off into the ticker.
- *
- * Two CTAs on purpose — the site serves a hiring manager and a paying client,
- * and they want different things in the first five seconds. "See my work"
- * leads because it serves both.
+ * Hero built on the real-estate reference: a two-tone headline on a warm
+ * off-white ground, beside a large rounded portrait with white info chips
+ * overlapping its corners, and a brushed diagonal across the image taken
+ * from the industrial reference.
  */
 export default function HeroSection() {
   const t = useTranslations("home.hero");
   const lang = toLocale(useLocale());
-  const [isMobile, setIsMobile] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const smoothX = useSpring(mouseX, { stiffness: 45, damping: 22 });
-  const smoothY = useSpring(mouseY, { stiffness: 45, damping: 22 });
-
-  // Small travel on the layers carrying real content, larger on the backdrop.
-  const farX = useTransform(smoothX, [-1, 1], [-30, 30]);
-  const farY = useTransform(smoothY, [-1, 1], [-30, 30]);
-  const midX = useTransform(smoothX, [-1, 1], [-14, 14]);
-  const midY = useTransform(smoothY, [-1, 1], [-14, 14]);
-  const nearX = useTransform(smoothX, [-1, 1], [-24, 24]);
-  const nearY = useTransform(smoothY, [-1, 1], [-24, 24]);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 1024);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  useEffect(() => {
-    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReducedMotion(mq.matches);
-    update();
-    mq.addEventListener("change", update);
-    return () => mq.removeEventListener("change", update);
-  }, []);
-
-  useEffect(() => {
-    if (isMobile || reducedMotion) return;
-    const handleMouse = (e: MouseEvent) => {
-      mouseX.set((e.clientX / window.innerWidth) * 2 - 1);
-      mouseY.set((e.clientY / window.innerHeight) * 2 - 1);
-    };
-    window.addEventListener("mousemove", handleMouse);
-    return () => window.removeEventListener("mousemove", handleMouse);
-  }, [isMobile, reducedMotion, mouseX, mouseY]);
-
-  const still = isMobile || reducedMotion;
-
-  const chips = [
-    { value: "3+", label: t("chip_years") },
-    { value: "−50%", label: t("chip_impact") },
-  ];
 
   return (
-    <section className="relative grain clip-angle-b overflow-hidden bg-bg pt-28 pb-24 lg:pt-36 lg:pb-40">
-      {/* Canted steel bands, from the industrial reference */}
-      <div aria-hidden="true" className="absolute inset-0 overflow-hidden">
-        <div className="absolute -left-1/4 top-0 h-[160%] w-[42rem] -rotate-12 bg-bg-elevated/60" />
-        <div className="absolute left-[8%] top-0 h-[160%] w-40 -rotate-12 bg-fg/[0.03]" />
-        <div className="absolute right-[-6rem] top-0 h-[160%] w-[30rem] -rotate-12 bg-accent/[0.06]" />
-      </div>
-
-      <motion.div
-        aria-hidden="true"
-        style={still ? undefined : { x: farX, y: farY }}
-        className="absolute inset-0 opacity-50 will-change-transform"
-      >
-        <img
-          src={HERO_IMAGE}
-          alt=""
-          onError={(e) => {
-            e.currentTarget.style.display = "none";
-          }}
-          className="h-full w-full object-cover"
-        />
-      </motion.div>
-
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent"
-      />
-
-      <Container className="relative z-10">
-        <div className="grid items-center gap-16 lg:grid-cols-12 lg:gap-12">
-          {/* Type column */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-7"
-          >
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-wrap items-center gap-x-5 gap-y-2"
-            >
-              <span className="inline-flex items-center gap-2.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-muted">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-60" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
-                </span>
-                {t("available")}
-              </span>
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.16em] text-fg-muted">
-                <MapPin className="h-3 w-3 text-accent" />
-                Santa Cruz, Bolivia
-              </span>
+    <header className="relative overflow-hidden pt-16 lg:pt-20">
+      <Container>
+        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_.95fr] lg:gap-14">
+          {/* ── Type ── */}
+          <motion.div variants={container} initial="hidden" animate="visible">
+            <motion.div variants={item}>
+              <Badge>
+                {PROFILE.role[lang]} · {t("location")}
+              </Badge>
             </motion.div>
 
-            <motion.p
-              variants={itemVariants}
-              className="mt-7 font-heading text-sm font-semibold uppercase tracking-[0.22em] text-accent"
-            >
-              {PROFILE.name}
-            </motion.p>
-
             <motion.h1
-              variants={itemVariants}
-              className="mt-4 font-heading text-[2.5rem] font-bold leading-[0.98] tracking-[-0.04em] sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
+              variants={item}
+              className="mt-6 text-[clamp(40px,5.4vw,74px)]"
             >
               {t("headline")}{" "}
-              <span className="relative inline-block text-accent">
-                {t("headlineAccent")}
-                <motion.span
-                  aria-hidden="true"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: 1 }}
-                  transition={{
-                    delay: 0.9,
-                    duration: 0.7,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="absolute -bottom-1 left-0 h-1.5 w-full origin-left bg-accent"
-                />
-              </span>{" "}
+              <span className="text-fg-soft">{t("headlineSoft")}</span>{" "}
               {t("headlineEnd")}
             </motion.h1>
 
             <motion.p
-              variants={itemVariants}
-              className="mt-8 max-w-xl text-lg leading-relaxed text-fg-muted"
+              variants={item}
+              className="mt-7 max-w-[480px] text-[17px] leading-[1.65] text-fg-muted"
             >
               {t("subtitle")}
             </motion.p>
 
-            <motion.div
-              variants={itemVariants}
-              className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
-            >
+            <motion.div variants={item} className="mt-9 flex flex-wrap gap-3.5">
               <Button variant="primary" size="lg" href="/work">
                 {t("cta_work")}
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Button>
-              <Button variant="secondary" size="lg" href={CV_URL} external>
+              <Button variant="ghost" size="lg" href={CV_URL} external>
                 <Download className="h-4 w-4" />
                 {t("cta_cv")}
               </Button>
             </motion.div>
 
             <motion.div
-              variants={itemVariants}
-              className="mt-10 flex items-center gap-2"
+              variants={item}
+              className="mt-12 flex flex-wrap items-end gap-x-11 gap-y-6 border-t border-border-theme pt-7"
             >
-              {socials.map(({ href, Icon, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target={href.startsWith("http") ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="flex h-10 w-10 items-center justify-center border border-border-theme text-fg-muted transition-colors hover:border-accent hover:text-accent"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
+              {STATS.slice(0, 3).map((stat) => (
+                <div key={stat.label.en}>
+                  <b className="numeral block text-[30px] text-fg">
+                    {stat.value}
+                    {stat.suffix}
+                  </b>
+                  <small className="mt-1 block text-[11px] font-semibold uppercase tracking-[0.14em] text-fg-muted">
+                    {stat.label[lang]}
+                  </small>
+                </div>
               ))}
+
+              <div className="flex items-center gap-2">
+                {socials.map(({ href, Icon, label }) => (
+                  <a
+                    key={label}
+                    href={href}
+                    target={href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full border border-border-theme text-fg-muted transition-colors hover:border-accent hover:text-accent"
+                  >
+                    <Icon className="h-4 w-4" />
+                  </a>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
 
-          {/* Visual column */}
-          <div className="relative lg:col-span-5">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.94, rotate: -6 }}
-              animate={{ opacity: 1, scale: 1, rotate: -3 }}
-              transition={{ duration: 1, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-              style={still ? undefined : { x: midX, y: midY }}
-              className="relative mx-auto aspect-[4/5] w-full max-w-sm will-change-transform"
+          {/* ── Portrait ── */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className="relative"
+          >
+            {/* The placeholder sits underneath and the photo covers it. The
+                image carries alt="" so that when the file is missing the
+                browser renders nothing at all and the placeholder simply
+                shows through — no hydration-timing dance, no state. The
+                accessible name lives on the container. */}
+            <div
+              role="img"
+              aria-label={PROFILE.name}
+              className="relative aspect-[4/5] overflow-hidden rounded-[26px] bg-bg-sunken"
             >
-              <div className="clip-notch absolute inset-0 translate-x-4 translate-y-4 bg-accent" />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0 grid place-items-center bg-[radial-gradient(120%_90%_at_30%_20%,rgba(232,25,75,.22),transparent_60%),radial-gradient(100%_80%_at_80%_90%,rgba(245,166,35,.25),transparent_60%),linear-gradient(150deg,#2A3050,#12172B)] px-6 text-center text-[11px] uppercase leading-loose tracking-[0.18em] text-white/70"
+              >
+                {t("photo_placeholder")}
+                <br />
+                photos/eduardo-speaking.jpg
+              </div>
 
-              <div className="clip-notch relative h-full w-full border border-border-theme bg-band p-7">
-                <div
-                  aria-hidden="true"
-                  className="hatch absolute inset-0 text-white/[0.06]"
-                />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/photos/eduardo-speaking.jpg"
+                alt=""
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div aria-hidden="true" className="slash pointer-events-none absolute inset-0" />
+            </div>
 
-                {/* Label top-right and caption held to 70% width so the
-                    floating chips never land on readable text. */}
-                <div className="relative flex h-full flex-col">
-                  <div className="flex items-center justify-end gap-2">
-                    <span className="h-2 w-2 rounded-full bg-accent" />
-                    <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/50">
-                      {t("panel_label")}
-                    </span>
-                  </div>
+            {/* Floating chips overlapping the card corners */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.55 }}
+              className="absolute bottom-[74px] left-3 rounded-2xl bg-bg-elevated px-5 py-4 shadow-[0_20px_50px_-18px_rgba(18,23,43,.45)] lg:-left-7"
+            >
+              <b className="block font-heading text-[15px] text-fg">
+                {t("chip_role")}
+              </b>
+              <small className="text-[11px] uppercase tracking-[0.08em] text-fg-muted">
+                {t("chip_role_meta")}
+              </small>
+            </motion.div>
 
-                  <div className="mt-auto">
-                    <span className="numeral block text-[6.5rem] leading-none text-white/10">
-                      {PROFILE.initials}
-                    </span>
-                    <p className="mt-4 max-w-[70%] border-t border-white/10 pt-4 text-sm leading-relaxed text-white/70">
-                      {t("panel_caption")}
-                    </p>
-                  </div>
-                </div>
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.85, duration: 0.55 }}
+              className="absolute right-3 top-14 flex items-center gap-3 rounded-2xl bg-bg-elevated px-5 py-4 shadow-[0_20px_50px_-18px_rgba(18,23,43,.45)] lg:-right-5"
+            >
+              <span className="h-2.5 w-2.5 rounded-full bg-[#19C37D] shadow-[0_0_0_4px_rgba(25,195,125,.18)]" />
+              <div>
+                <b className="block font-heading text-[15px] text-fg">
+                  {t("chip_open")}
+                </b>
+                <small className="text-[11px] uppercase tracking-[0.08em] text-fg-muted">
+                  {t("chip_open_meta")}
+                </small>
               </div>
             </motion.div>
-
-            <motion.div
-              style={still ? undefined : { x: nearX, y: nearY }}
-              className="pointer-events-none absolute inset-0 will-change-transform"
-            >
-              {chips.map((chip, i) => (
-                <motion.div
-                  key={chip.label}
-                  initial={{ opacity: 0, y: 24 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 + i * 0.15, duration: 0.6 }}
-                  className={
-                    i === 0
-                      ? "absolute left-0 top-12 sm:left-4 lg:-left-6"
-                      : "absolute bottom-1/3 right-0 sm:right-4 lg:-right-6"
-                  }
-                >
-                  <div className="clip-notch border border-border-theme bg-bg-elevated/90 px-4 py-3 backdrop-blur-md">
-                    <span className="numeral text-xl text-accent">
-                      {chip.value}
-                    </span>
-                    <p className="mt-1 max-w-[9rem] text-[10px] font-semibold uppercase leading-tight tracking-[0.14em] text-fg-muted">
-                      {chip.label}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
+          </motion.div>
         </div>
       </Container>
-    </section>
+    </header>
   );
 }

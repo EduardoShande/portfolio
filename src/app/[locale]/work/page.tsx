@@ -51,7 +51,7 @@ export default function WorkPage() {
                 onClick={() => setActive(filter.value)}
                 aria-pressed={active === filter.value}
                 className={cn(
-                  "cursor-pointer rounded-[2px] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors",
+                  "cursor-pointer rounded-full px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors",
                   active === filter.value
                     ? "bg-accent text-white"
                     : "border border-border-theme text-fg-muted hover:border-accent hover:text-accent"
@@ -74,8 +74,8 @@ export default function WorkPage() {
             variants={{ visible: { transition: { staggerChildren: 0.07 } } }}
             className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3"
           >
-            {visible.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
+            {visible.map((project) => (
+              <ProjectCard key={project.id} project={project} />
             ))}
           </motion.div>
         </Container>
@@ -88,7 +88,7 @@ export default function WorkPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="clip-notch grain relative overflow-hidden bg-band p-10 text-center sm:p-16"
+            className="rounded-[22px] grain relative overflow-hidden bg-band p-10 text-center sm:p-16"
           >
             <div
               aria-hidden="true"

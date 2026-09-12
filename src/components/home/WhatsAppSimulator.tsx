@@ -251,7 +251,7 @@ export default function WhatsAppSimulator() {
                       if (!playingRef.current) setActiveScenario(s.key);
                     }}
                     className={cn(
-                      "flex items-center gap-2 rounded-[2px] px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] cursor-pointer transition-colors",
+                      "flex items-center gap-2 rounded-full px-5 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] cursor-pointer transition-colors",
                       activeScenario === s.key
                         ? "bg-accent text-white"
                         : "bg-bg-elevated text-fg-muted hover:text-fg border border-border-theme"

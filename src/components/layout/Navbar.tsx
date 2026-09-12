@@ -38,14 +38,14 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-40 transition-all duration-500",
+          "sticky top-0 z-40 transition-all duration-500",
           isScrolled
-            ? "bg-bg/85 backdrop-blur-xl border-b border-border-theme"
-            : "bg-transparent"
+            ? "bg-bg/88 backdrop-blur-xl border-b border-border-theme"
+            : "bg-bg/80 backdrop-blur-md border-b border-transparent"
         )}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between lg:h-20">
+          <div className="flex h-[72px] items-center justify-between lg:h-[76px]">
             {/* Wordmark is the person, not a company */}
             <Link href="/" className="flex items-center gap-2">
               <motion.span
@@ -67,7 +67,7 @@ export default function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className="rounded-[2px] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-fg-muted transition-colors hover:text-accent"
+                    className="rounded-full px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-fg-muted transition-colors hover:text-accent"
                   >
                     {t(link.key)}
                   </Link>
@@ -89,7 +89,7 @@ export default function Navbar() {
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsMobileOpen(true)}
                 aria-label="Open menu"
-                className="rounded-[2px] p-2 text-fg-muted hover:text-fg hover:bg-fg/5 cursor-pointer"
+                className="rounded-full p-2 text-fg-muted hover:text-fg hover:bg-fg/5 cursor-pointer"
               >
                 <Menu className="h-6 w-6" />
               </motion.button>

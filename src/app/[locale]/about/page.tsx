@@ -19,7 +19,6 @@ import {
 
 export default function AboutPage() {
   const t = useTranslations("about");
-  const tHome = useTranslations("home.experience");
   const lang = toLocale(useLocale());
 
   return (
@@ -43,7 +42,7 @@ export default function AboutPage() {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="clip-notch border border-border-theme bg-bg-elevated p-7">
+              <div className="rounded-[22px] border border-border-theme bg-bg-elevated p-7">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-fg-muted">
                   {PROFILE.role[lang]}
                 </p>
@@ -51,7 +50,7 @@ export default function AboutPage() {
                   {PROFILE.location[lang]}
                 </p>
                 <div className="mt-6 border-t border-border-theme pt-6">
-                  <Button variant="outline" href={CV_URL} external>
+                  <Button variant="ghost" href={CV_URL} external>
                     <Download className="h-4 w-4" />
                     {t("cv.button")}
                   </Button>
@@ -97,7 +96,7 @@ export default function AboutPage() {
             title={t("experience.title")}
             titleAccent={t("experience.titleAccent")}
           />
-          <ExperienceTimeline currentLabel={tHome("current_label")} />
+          <ExperienceTimeline currentLabel={t("experience.current_label")} />
         </Container>
       </section>
 
@@ -155,7 +154,7 @@ export default function AboutPage() {
       <section className="pb-20 lg:pb-32">
         <Container>
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
-            <div className="clip-notch border border-border-theme bg-bg-elevated p-7 lg:p-8">
+            <div className="rounded-[22px] border border-border-theme bg-bg-elevated p-7 lg:p-8">
               <GraduationCap
                 strokeWidth={1.5}
                 className="h-7 w-7 text-accent"
@@ -171,7 +170,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="clip-notch-bl border border-border-theme bg-bg-elevated p-7 lg:p-8">
+            <div className="rounded-[22px] border border-border-theme bg-bg-elevated p-7 lg:p-8">
               <Award strokeWidth={1.5} className="h-7 w-7 text-accent" />
               <h3 className="mt-6 font-heading text-sm font-bold uppercase tracking-[0.14em] text-fg">
                 {t("certifications.title")}
@@ -193,7 +192,7 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="clip-notch border border-border-theme bg-bg-elevated p-7 lg:p-8">
+            <div className="rounded-[22px] border border-border-theme bg-bg-elevated p-7 lg:p-8">
               <Languages strokeWidth={1.5} className="h-7 w-7 text-accent" />
               <h3 className="mt-6 font-heading text-sm font-bold uppercase tracking-[0.14em] text-fg">
                 {t("languages.title")}
@@ -223,7 +222,7 @@ export default function AboutPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="clip-notch grain relative overflow-hidden bg-band p-10 text-center sm:p-16"
+            className="rounded-[22px] grain relative overflow-hidden bg-band p-10 text-center sm:p-16"
           >
             <div
               aria-hidden="true"

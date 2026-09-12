@@ -7,15 +7,13 @@ interface CardProps extends Omit<HTMLMotionProps<"div">, "children"> {
   children: React.ReactNode;
   className?: string;
   hover?: boolean;
-  /** Slice a corner off the panel instead of rounding it. */
-  notch?: false | "tr" | "bl";
 }
 
+/** Soft rounded panel, matching the listing cards in the real-estate reference. */
 export default function Card({
   children,
   className,
   hover = true,
-  notch = "tr",
   ...props
 }: CardProps) {
   return (
@@ -23,10 +21,8 @@ export default function Card({
       whileHover={hover ? { y: -6 } : undefined}
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={cn(
-        "relative border border-border-theme bg-bg-elevated p-6 lg:p-8",
-        notch === "tr" && "clip-notch",
-        notch === "bl" && "clip-notch-bl",
-        hover && "hover:border-accent/50",
+        "relative rounded-[22px] bg-bg-elevated p-6 lg:p-8",
+        hover && "shadow-[0_22px_50px_-32px_rgba(18,23,43,.4)]",
         className
       )}
       {...props}

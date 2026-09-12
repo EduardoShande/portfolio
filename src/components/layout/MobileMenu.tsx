@@ -52,7 +52,7 @@ export default function MobileMenu({
                 whileTap={{ scale: 0.9 }}
                 onClick={onClose}
                 aria-label="Close menu"
-                className="cursor-pointer rounded-[2px] p-2 text-fg-muted hover:bg-fg/5 hover:text-fg"
+                className="cursor-pointer rounded-full p-2 text-fg-muted hover:bg-fg/5 hover:text-fg"
               >
                 <X className="h-5 w-5" />
               </motion.button>
