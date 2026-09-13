@@ -2,6 +2,25 @@
 
 Documents major changes made to this project.
 
+## 2026-09-12 Stage photo in the home header
+
+The header portrait is now the stage photo (`Eduardo speach.jpg`) instead of
+the couch portrait. The source needed editing to work behind the header's
+type, all done in `scripts/build-photos.py`:
+
+- The projected slide is found by its blue-green colour, then blurred and
+  dimmed to about a quarter of its brightness. Its lettering was garbled and
+  it outshone his face once the header turned it grey.
+- The pale border below the slide, which ran behind his hands, is dimmed too.
+- A spotlight keeps him at full brightness and pulls the stage and podium
+  down.
+- The frame is cropped from above his head to the knees, centred on his body
+  and feathered to black on every edge.
+
+No component changes beyond the comment describing the photo.
+
+---
+
 ## 2026-09-12 Migrated to the portfolio repository
 
 The project now lives at `github.com/EduardoShande/portfolio`. The full

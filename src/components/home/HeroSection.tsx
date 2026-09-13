@@ -30,11 +30,11 @@ const fade = {
  * the edge. A circular button sits at the left, contact details sit bottom
  * left under a short dash, and the social marks sit bottom right.
  *
- * The photograph is prepared by scripts/build-photos.py, which composites
- * the seated portrait onto a wide black canvas through a feathered radial
- * mask. The source is vignetted to a hard circle; feathering it means the
- * image arrives with no boundary of its own, so the overlays here only have
- * to darken the columns the type sits in.
+ * The photograph is prepared by scripts/build-photos.py from the stage
+ * photo: the projected slide behind him is keyed out, blurred and dimmed, a
+ * spotlight keeps him lit, and the frame is feathered to black on every edge.
+ * The image arrives with no boundary of its own, so the overlays here only
+ * have to darken the columns the type sits in.
  */
 export default function HeroSection() {
   const t = useTranslations("home.hero");

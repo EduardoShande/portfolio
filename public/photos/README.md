@@ -11,7 +11,7 @@ Re-run that after replacing a source photo and the site picks up the result.
 
 | Generated file          | Source                  | Used by                          |
 |-------------------------|-------------------------|----------------------------------|
-| `eduardo-hero.jpg`      | `Eduardo on couch.jpg`  | The dark header on the home page |
+| `eduardo-hero.jpg`      | `Eduardo speach.jpg`    | The dark header on the home page |
 | `eduardo-portrait.jpg`  | `Eduardo speach.jpg`    | The centre of the capability orbit on /about |
 | `eduardo-speaking.jpg`  | `Eduardo speach.jpg`    | Spare, resized for the web       |
 
