@@ -233,22 +233,6 @@ export default function AutomationAnatomy() {
           </div>
         </motion.div>
 
-        {/* ── Results ── */}
-        <dl className="mt-6 grid gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-3">
-          {(["time", "manual", "always"] as const).map((key) => (
-            <div key={key} className="bg-band px-6 py-5">
-              <dt className="sr-only">{t(`result_${key}_label`)}</dt>
-              <dd>
-                <span className="numeral block text-[34px] leading-none text-white">
-                  {t(`result_${key}_value`)}
-                </span>
-                <span className="mt-2 block text-[13px] text-white/55">
-                  {t(`result_${key}_label`)}
-                </span>
-              </dd>
-            </div>
-          ))}
-        </dl>
       </Container>
 
       {/* Tear back out to the light page below */}

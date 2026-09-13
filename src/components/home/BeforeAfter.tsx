@@ -1,96 +1,209 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { motion } from "motion/react";
-import { ArrowRight } from "lucide-react";
+import { useInView, useReducedMotion } from "motion/react";
 import Container from "@/components/ui/Container";
+import { cn } from "@/lib/utils";
 
 /**
- * Three real processes, before and after.
+ * Three real processes, switched from manual to automated in place.
  *
- * The rest of the page says what Eduardo builds and how it is wired; this
- * says what it was worth. Each row is a single engagement from the CV, with
- * the manual version struck through on the left and the automated one on the
- * right, and the measured result pulled out at the end.
+ * This replaced a row of four-box cards (struck-through "before", an arrow
+ * badge, "after", a stat panel), which is the stock layout generated sites
+ * reach for. Reading two columns and diffing them in your head is work;
+ * flipping one switch and watching every process change where it stands is
+ * not, and people remember a change they caused. So the section is plain
+ * editorial rows on hairlines, a large figure and one sentence each, and a
+ * single Manual / Automated switch that rewrites all three at once.
  *
- * Every figure here traces to a line in the CV. Nothing is estimated.
+ * The switch flips to Automated by itself the first time the rows come into
+ * view, so the change is seen even by visitors who never touch it. Figures
+ * count up when automated; under reduced motion they appear directly.
+ *
+ * Every figure traces to a line in the CV. Nothing is estimated.
  */
 const ROWS = ["leads", "reporting", "loads"] as const;
 
 export default function BeforeAfter() {
   const t = useTranslations("home.beforeafter");
+  const listRef = useRef<HTMLOListElement>(null);
+  const inView = useInView(listRef, { once: true, amount: 0.35 });
+  const [automated, setAutomated] = useState(false);
+  const [touched, setTouched] = useState(false);
+
+  useEffect(() => {
+    if (!inView || touched) return;
+    const id = window.setTimeout(() => setAutomated(true), 900);
+    return () => window.clearTimeout(id);
+  }, [inView, touched]);
+
+  const flip = (next: boolean) => {
+    setTouched(true);
+    setAutomated(next);
+  };
 
   return (
-    <section className="bg-bg-sunken py-20 lg:py-24">
+    <section className="bg-bg-sunken py-20 lg:py-28">
       <Container>
-        <h2 className="max-w-[620px] text-[clamp(30px,3.6vw,50px)]">
-          {t("title")} <span className="text-accent">{t("titleAccent")}</span>
-        </h2>
-        <p className="mt-5 max-w-[560px] text-[17px] leading-[1.65] text-fg-muted">
-          {t("subtitle")}
+        <div className="flex flex-wrap items-end justify-between gap-8">
+          <div>
+            <h2 className="max-w-[720px] text-[clamp(30px,3.6vw,50px)]">
+              {t("title")} <span className="text-accent">{t("titleAccent")}</span>
+            </h2>
+            <p className="mt-4 max-w-[520px] text-[16px] leading-[1.65] text-fg-muted">
+              {t("subtitle")}
+            </p>
+          </div>
+
+          <Switch
+            on={automated}
+            onChange={flip}
+            offLabel={t("toggle_manual")}
+            onLabel={t("toggle_automated")}
+            label={t("toggle_label")}
+          />
+        </div>
+
+        <p className="sr-only" aria-live="polite">
+          {automated ? t("status_automated") : t("status_manual")}
         </p>
 
-        <motion.ul
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-70px" }}
-          variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
-          className="mt-12 space-y-4"
-        >
+        <ol ref={listRef} className="mt-14 border-b border-border-theme">
           {ROWS.map((row) => (
-            <motion.li
+            <li
               key={row}
-              variants={{
-                hidden: { opacity: 0, y: 24 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
-              }}
-              className="overflow-hidden rounded-[22px] bg-bg-elevated"
+              className="grid gap-4 border-t border-border-theme py-9 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:items-center lg:gap-12 lg:py-11"
             >
-              <div className="grid gap-px bg-border-theme lg:grid-cols-[1fr_auto_1fr_auto]">
-                {/* Before */}
-                <div className="bg-bg-elevated p-7">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-fg-soft">
-                    {t("before")}
-                  </span>
-                  <p className="mt-3 text-[15px] leading-[1.6] text-fg-muted line-through decoration-fg-soft/50 decoration-1">
-                    {t(`${row}_before`)}
-                  </p>
-                </div>
-
-                {/* Arrow */}
-                <div className="flex items-center justify-center bg-bg-elevated px-7 py-2 lg:px-4">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-white">
-                    <ArrowRight className="h-4 w-4 rotate-90 lg:rotate-0" />
-                  </span>
-                </div>
-
-                {/* After */}
-                <div className="bg-bg-elevated p-7">
-                  <span className="text-[10px] font-semibold uppercase tracking-[0.2em] text-accent">
-                    {t("after")}
-                  </span>
-                  <p className="mt-3 text-[15px] leading-[1.6] text-fg">
-                    {t(`${row}_after`)}
-                  </p>
-                </div>
-
-                {/* Result */}
-                <div className="flex flex-col justify-center bg-band p-7 lg:min-w-[190px]">
-                  <span className="numeral text-[34px] text-white">
-                    {t(`${row}_metric`)}
-                  </span>
-                  <span className="mt-2 text-[10px] font-semibold uppercase leading-tight tracking-[0.16em] text-band-muted">
-                    {t(`${row}_metric_label`)}
-                  </span>
-                  <span className="mt-3 border-t border-white/15 pt-2.5 text-[11px] text-white/45">
-                    {t(`${row}_where`)}
-                  </span>
-                </div>
+              <div>
+                <span
+                  className={cn(
+                    "numeral block leading-[0.9] tabular-nums transition-colors duration-500",
+                    "text-[clamp(64px,8.5vw,120px)]",
+                    automated ? "text-accent" : "text-fg-soft"
+                  )}
+                >
+                  {/* Remounting on each flip restarts the count from zero */}
+                  <Figure key={String(automated)} metric={t(`${row}_metric`)} on={automated} />
+                </span>
+                <span className="mt-3 block text-[13px] font-medium text-fg-muted">
+                  {automated ? t(`${row}_metric_label`) : t("manual_label")}
+                </span>
               </div>
-            </motion.li>
+
+              <div>
+                {/* Both versions share one grid cell, so the row is always as
+                    tall as the longer one and nothing jumps when it flips. */}
+                <div className="grid text-[clamp(18px,1.7vw,23px)] leading-[1.45]">
+                  {(["before", "after"] as const).map((side) => {
+                    const shown = (side === "after") === automated;
+                    return (
+                      <p
+                        key={side}
+                        aria-hidden={!shown}
+                        className={cn(
+                          "[grid-area:1/1] transition-[opacity,transform] duration-300 ease-out motion-reduce:transition-none",
+                          shown ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-2 opacity-0",
+                          side === "after" ? "text-fg" : "text-fg-muted"
+                        )}
+                      >
+                        {t(`${row}_${side}`)}
+                      </p>
+                    );
+                  })}
+                </div>
+                <p className="mt-4 text-[13px] text-fg-muted">
+                  <span className="font-semibold text-fg">{t(`${row}_where`)}</span>
+                  <span aria-hidden="true" className="mx-2 text-fg-soft">/</span>
+                  {t(`${row}_area`)}
+                </p>
+              </div>
+            </li>
           ))}
-        </motion.ul>
+        </ol>
       </Container>
     </section>
+  );
+}
+
+/** A two-state pill switch; both labels stay visible so the choice is plain. */
+function Switch({
+  on,
+  onChange,
+  offLabel,
+  onLabel,
+  label,
+}: {
+  on: boolean;
+  onChange: (next: boolean) => void;
+  offLabel: string;
+  onLabel: string;
+  label: string;
+}) {
+  return (
+    <button
+      type="button"
+      role="switch"
+      aria-checked={on}
+      aria-label={label}
+      onClick={() => onChange(!on)}
+      className="relative grid grid-cols-2 rounded-full border border-border-theme bg-bg-elevated p-1 text-[13px] font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg-sunken"
+    >
+      <span
+        aria-hidden="true"
+        className={cn(
+          "absolute inset-y-1 left-1 w-[calc(50%-4px)] rounded-full transition-all duration-300 ease-out motion-reduce:transition-none",
+          on ? "translate-x-full bg-accent" : "translate-x-0 bg-fg"
+        )}
+      />
+      <span
+        className={cn(
+          "relative z-10 px-5 py-2.5 transition-colors duration-300",
+          on ? "text-fg-muted" : "text-bg"
+        )}
+      >
+        {offLabel}
+      </span>
+      <span
+        className={cn(
+          "relative z-10 px-5 py-2.5 transition-colors duration-300",
+          on ? "text-white" : "text-fg-muted"
+        )}
+      >
+        {onLabel}
+      </span>
+    </button>
+  );
+}
+
+/** "40%" counts up from 0 when on; a dash when off. */
+function Figure({ metric, on }: { metric: string; on: boolean }) {
+  const reduceMotion = useReducedMotion();
+  const match = metric.match(/^(\d+)(.*)$/);
+  const target = match ? Number(match[1]) : 0;
+  const [n, setN] = useState(0);
+
+  useEffect(() => {
+    if (!on || reduceMotion || !match) return;
+    let frame = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - start) / 900);
+      setN(Math.round(target * (1 - Math.pow(1 - p, 3))));
+      if (p < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+    // `match` is derived from `metric`, which is what the dependency tracks.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [on, reduceMotion, target, metric]);
+
+  if (!on) return <>&ndash;</>;
+  if (reduceMotion || !match) return <>{metric}</>;
+  return (
+    <>
+      {n}
+      {match[2]}
+    </>
   );
 }

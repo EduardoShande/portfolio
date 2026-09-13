@@ -2,6 +2,29 @@
 
 Documents major changes made to this project.
 
+## 2026-09-13 Before and after, rebuilt as a switch
+
+The section was a stack of four-box cards: a struck-through "before", a red
+arrow badge, an "after" and a dark stat panel on every row. That is the stock
+layout generated sites fall back on, and it made the reader diff two columns
+in their head.
+
+It is now "Three processes that stopped being manual": plain editorial rows
+on hairlines, each a large figure beside one sentence and the company name,
+with a single Manual / Automated switch that rewrites all three rows at once.
+The switch flips to Automated by itself the first time the rows come into
+view, so visitors see the change even if they never touch it; after that it
+is theirs. Figures count up when automated and show a dash when manual. Both
+versions of each sentence share one grid cell, so rows never jump in height.
+The switch is a real `role="switch"` button, works from the keyboard, and a
+hidden live region announces which state is showing. Copy was cut to one
+sentence per state in both languages; the facts and figures are unchanged.
+
+The results row under "Anatomy of one real automation" is removed, since it
+repeated the same 40% figure; this section is now where those results live.
+
+---
+
 ## 2026-09-12 Home sections, booking panel and social links
 
 **Tool ticker.** Each tool is now shown by its own logo, in its brand colour
@@ -19,8 +42,7 @@ The five systems are numbered and drawn with icons on a progress rail, and a
 panel below shows the sample lead as it looks at the current step: the
 WhatsApp message, the fields n8n extracts, the CRM lead, the PostgreSQL row
 and the salesperson's alert. It advances on its own while on screen; clicking
-a step, or Pause, holds it. Under it, three results: 40% less processing time
-per lead, no manual steps before the salesperson, running 24/7. On phones the
+a step, or Pause, holds it. On phones the
 pipeline stacks vertically. The step timings floated in the plan were left
 out, since no latencies were ever measured; each step names its tool instead.
 
