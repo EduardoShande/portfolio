@@ -16,7 +16,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import Button from "@/components/ui/Button";
 import ProcessSteps from "@/components/shared/ProcessSteps";
 import { Link } from "@/i18n/navigation";
-import { CALENDLY_URL } from "@/lib/constants";
+import { BOOKING_HREF } from "@/lib/constants";
 import { SERVICES, toLocale } from "@/lib/content";
 import { cn } from "@/lib/utils";
 
@@ -40,7 +40,6 @@ export default function ServicesPage() {
         />
         <Container className="relative">
           <SectionHeading
-            eyebrow={t("hero.eyebrow")}
             title={t("hero.title")}
             titleAccent={t("hero.titleAccent")}
             subtitle={t("hero.subtitle")}
@@ -145,7 +144,7 @@ export default function ServicesPage() {
                 {t("cta.subtitle")}
               </p>
               <div className="mt-8 flex justify-center">
-                <Button variant="primary" size="lg" href={CALENDLY_URL}>
+                <Button variant="primary" size="lg" href={BOOKING_HREF}>
                   <Calendar className="h-4 w-4" />
                   {t("cta.button")}
                 </Button>

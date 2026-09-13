@@ -2,14 +2,12 @@
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import Badge from "./Badge";
 
 interface SectionHeadingProps {
   title: string;
   /** Trailing half, set in the accent. Two-tone headlines are the strongest
    *  device in the real-estate and Web3 references. */
   titleAccent?: string;
-  eyebrow?: string;
   subtitle?: string;
   align?: "left" | "center";
   tone?: "default" | "band";
@@ -19,7 +17,6 @@ interface SectionHeadingProps {
 export default function SectionHeading({
   title,
   titleAccent,
-  eyebrow,
   subtitle,
   align = "left",
   tone = "default",
@@ -37,12 +34,6 @@ export default function SectionHeading({
         className
       )}
     >
-      {eyebrow && (
-        <div className={cn("mb-5", align === "center" && "flex justify-center")}>
-          <Badge tone={tone}>{eyebrow}</Badge>
-        </div>
-      )}
-
       <h2
         className={cn(
           "text-[clamp(30px,3.6vw,50px)]",

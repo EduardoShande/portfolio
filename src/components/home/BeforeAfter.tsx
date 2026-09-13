@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Badge from "@/components/ui/Badge";
 
 /**
  * Three real processes, before and after.
@@ -24,8 +23,7 @@ export default function BeforeAfter() {
   return (
     <section className="bg-bg-sunken py-20 lg:py-24">
       <Container>
-        <Badge>{t("eyebrow")}</Badge>
-        <h2 className="mt-4 max-w-[620px] text-[clamp(30px,3.6vw,50px)]">
+        <h2 className="max-w-[620px] text-[clamp(30px,3.6vw,50px)]">
           {t("title")} <span className="text-accent">{t("titleAccent")}</span>
         </h2>
         <p className="mt-5 max-w-[560px] text-[17px] leading-[1.65] text-fg-muted">

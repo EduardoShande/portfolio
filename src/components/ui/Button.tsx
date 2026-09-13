@@ -69,10 +69,13 @@ export default function Button({
     const isRoute = !external && href.startsWith("/") && !href.includes(".");
 
     if (isRoute) {
+      // A hash has to travel separately, or the localized pathname lookup
+      // sees "/contact#book" as an unknown route.
+      const [pathname, hash] = href.split("#");
       return (
         <MotionLink
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          href={href as any}
+          href={(hash ? { pathname, hash } : pathname) as any}
           {...hoverMotion}
           className={classes}
         >

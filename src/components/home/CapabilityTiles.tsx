@@ -4,7 +4,6 @@ import { useLocale, useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import { Link } from "@/i18n/navigation";
 import { SERVICES, toLocale } from "@/lib/content";
@@ -109,8 +108,7 @@ export default function CapabilityTiles() {
       <Container>
         <div className="mb-10 flex flex-wrap items-end justify-between gap-7">
           <div>
-            <Badge>{t("eyebrow")}</Badge>
-            <h2 className="mt-4 max-w-[560px] text-[clamp(30px,3.6vw,50px)]">
+            <h2 className="max-w-[560px] text-[clamp(30px,3.6vw,50px)]">
               {t("title")} <span className="text-accent">{t("titleAccent")}</span>
             </h2>
           </div>

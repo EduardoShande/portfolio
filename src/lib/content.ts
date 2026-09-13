@@ -1,7 +1,7 @@
 /**
  * Every fact about Eduardo that the site renders lives here.
  *
- * Copy that is purely decorative (headings, eyebrows, button labels) stays in
+ * Copy that is purely decorative (headings, button labels) stays in
  * `src/messages/*.json`. Anything factual: a job title, a date, a metric, a
  * project: lives in this file instead, so there is exactly one place to edit
  * when something changes and no risk of the two locales drifting apart on the
@@ -37,8 +37,8 @@ export const PROFILE = {
    * Paste the full profile URL for each. Anything left as an empty string is
    * simply not rendered, so there are never dead links on the site.
    */
-  instagram: "",
-  tiktok: "",
+  instagram: "https://www.instagram.com/eduardoshandeone",
+  tiktok: "https://www.tiktok.com/@eduardoshande",
   facebook: "",
   cvPath: "/cv/Eduardo-Guerrero-Resume.pdf",
   /** Client work is delivered under this name. */
@@ -262,6 +262,17 @@ export type Project = {
   outcome?: I18nString;
   stack: string[];
   links?: { label: I18nString; href: string }[];
+  /**
+   * The outcome broken into figures for the home page cards, each a short
+   * value set large over its label. Same rule as `outcome`: measured or
+   * factual only, never estimated.
+   */
+  metrics?: { value: string; label: I18nString }[];
+  /** One-sentence problem and build, for the home page cards. */
+  pitch?: { problem: I18nString; built: I18nString };
+  /** Screenshot under /public, e.g. "/photos/work-casera.png". Replaces the
+   *  drawn illustration on the home page card when set. */
+  image?: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -294,6 +305,22 @@ export const PROJECTS: Project[] = [
       "REST APIs",
       "Docker",
     ],
+    metrics: [
+      {
+        value: "40%",
+        label: { es: "menos tiempo de procesamiento por lead", en: "less processing time per lead" },
+      },
+    ],
+    pitch: {
+      problem: {
+        es: "Cada lead de WhatsApp se copiaba al CRM a mano, y algunos se perdían.",
+        en: "Every WhatsApp lead was copied into the CRM by hand, and some were lost.",
+      },
+      built: {
+        es: "Un flujo en n8n que captura, valida, sincroniza y asigna cada lead en tiempo real.",
+        en: "An n8n workflow that captures, validates, syncs and routes each lead in real time.",
+      },
+    },
   },
   {
     id: "data-warehouse",
@@ -325,6 +352,20 @@ export const PROJECTS: Project[] = [
       "BigQuery",
       "Power BI",
     ],
+    metrics: [
+      { value: "50%", label: { es: "menos tiempo de carga", en: "faster load times" } },
+      { value: "95%", label: { es: "confiabilidad en reportes", en: "report reliability" } },
+    ],
+    pitch: {
+      problem: {
+        es: "Ventas, inventario y CRM vivían separados, y los reportes se armaban a mano.",
+        en: "Sales, inventory and CRM lived apart, and reports were assembled by hand.",
+      },
+      built: {
+        es: "Pipelines en Airflow y dbt hacia Snowflake y BigQuery, con Power BI encima.",
+        en: "Airflow and dbt pipelines into Snowflake and BigQuery, with Power BI on top.",
+      },
+    },
   },
   {
     id: "casera",
@@ -345,6 +386,19 @@ export const PROJECTS: Project[] = [
       en: "An offline-first PWA built for cheap Android phones, centred on customer credit: who owes, how much, and since when. No account, no internet required.",
     },
     stack: ["React", "Vite", "PWA", "TypeScript", "Supabase"],
+    metrics: [
+      { value: "Offline", label: { es: "funciona sin internet ni cuenta", en: "works with no internet and no account" } },
+    ],
+    pitch: {
+      problem: {
+        es: "Las vendedoras de mercado llevan ventas y fiado en un cuaderno de papel.",
+        en: "Market vendors keep sales and customer credit in a paper notebook.",
+      },
+      built: {
+        es: "Una app offline-first para Android económicos que registra quién debe y cuánto.",
+        en: "An offline-first app for cheap Android phones that tracks who owes what.",
+      },
+    },
   },
   {
     id: "mesa-abierta",

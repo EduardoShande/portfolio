@@ -11,7 +11,7 @@ A plain-language guide to changing the site without touching layout code.
 
 A fact is anything that would still be true if the site were in a different
 language: a job title, a date, a metric, a tool name, a project, an email
-address. Wording is headings, button labels, eyebrows and marketing copy.
+address. Wording is headings, button labels and marketing copy.
 
 If you edit a fact in `content.ts`, both languages update at once. If you edit
 wording, **you must edit both message files** or the site will crash on the
@@ -170,8 +170,13 @@ node -e "const a=require('./src/messages/en.json'),b=require('./src/messages/es.
 
 ## 9. Change the scrolling ticker
 
-**File:** `src/components/home/MarqueeStrip.tsx` → the `TOOLS` array. These are
-tool names, so there is one list for both languages.
+**File:** `src/lib/tool-marks.ts` → the `TOOL_MARKS` array. Each entry is a
+tool name, its brand colour and its logo as a 24x24 SVG path, so there is one
+list for both languages.
+
+To add a tool, find it on [simpleicons.org](https://simpleicons.org), copy the
+hex colour and the `d` attribute of the SVG path, and add an entry. Tools the
+library does not carry (dbt and Power BI today) have a hand-drawn path.
 
 ---
 
@@ -209,15 +214,18 @@ the stat bar and closing CTA read as solid dark fields on the light site.
 
 ---
 
-## 12. Where the WhatsApp number and Calendly link live
+## 12. Where the WhatsApp number, booking hours and social links live
 
-**File:** `src/lib/constants.ts`.
+**WhatsApp number and booking hours:** `src/lib/constants.ts`.
 
-Calendly can also be set without touching code, via `.env.local`:
+`BOOKING` sets the booking panel on /contact: the time slots (Bolivia time),
+and how many upcoming weekdays are offered. A booking is a request sent to
+WhatsApp with the day and time already written; nothing is checked against a
+calendar, so confirm the slot in the chat.
 
-```
-NEXT_PUBLIC_CALENDLY_URL=https://calendly.com/your-link
-```
+**Social links:** `src/lib/content.ts` → `PROFILE`. Any network left as an
+empty string is not shown, so there are never dead links. The header and
+footer both read from there.
 
 The contact form posts to `NEXT_PUBLIC_N8N_WEBHOOK_URL`. If that is empty the
 form still validates but the submission goes nowhere, set it before relying on

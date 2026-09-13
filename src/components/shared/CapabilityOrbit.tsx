@@ -11,7 +11,6 @@ import {
   Bot,
 } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Badge from "@/components/ui/Badge";
 import { SKILL_GROUPS, PROFILE, toLocale } from "@/lib/content";
 
 /**
@@ -52,8 +51,7 @@ export default function CapabilityOrbit() {
     <section className="relative overflow-hidden bg-bg-sunken py-20 lg:py-24">
       <Container>
         <div className="max-w-[620px]">
-          <Badge>{t("eyebrow")}</Badge>
-          <h2 className="mt-4 text-[clamp(30px,3.6vw,50px)]">
+          <h2 className="text-[clamp(30px,3.6vw,50px)]">
             {t("title")} <span className="text-accent">{t("titleAccent")}</span>
           </h2>
           <p className="mt-5 text-[17px] leading-[1.65] text-fg-muted">

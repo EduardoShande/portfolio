@@ -14,8 +14,7 @@ import { GithubIcon, LinkedinIcon } from "@/components/ui/BrandIcons";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
 import ContactForm from "@/components/contacto/ContactForm";
-import CalendlyEmbed from "@/components/contacto/CalendlyEmbed";
-import Badge from "@/components/ui/Badge";
+import BookingPicker from "@/components/contacto/BookingPicker";
 import {
   WHATSAPP_URL,
   WHATSAPP_NUMBER,
@@ -45,8 +44,7 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <Badge>{t("hero.eyebrow")}</Badge>
-              <h1 className="mt-6 font-heading text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-fg lg:text-5xl">
+              <h1 className="font-heading text-4xl font-bold leading-[1.05] tracking-[-0.03em] text-fg lg:text-5xl">
                 {t("hero.title")}{" "}
                 <span className="text-accent">{t("hero.titleAccent")}</span>
               </h1>
@@ -141,7 +139,7 @@ export default function ContactPage() {
                     <MessageCircle className="h-4 w-4" />
                     WhatsApp
                   </Button>
-                  <Button variant="ghost" size="sm" href="#calendly">
+                  <Button variant="ghost" size="sm" href="#book">
                     <Calendar className="h-4 w-4" />
                     {t("book_call")}
                   </Button>
@@ -168,8 +166,8 @@ export default function ContactPage() {
         </Container>
       </section>
 
-      {/* Calendly */}
-      <section id="calendly" className="pb-20 lg:pb-32">
+      {/* Booking request, sent through WhatsApp */}
+      <section id="book" className="scroll-mt-24 pb-20 lg:pb-32">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -177,13 +175,13 @@ export default function ContactPage() {
             viewport={{ once: true }}
             className="rounded-[22px] border border-border-theme bg-bg-elevated p-6 lg:p-10"
           >
-            <div className="text-center mb-8">
+            <div className="mb-8 max-w-[560px]">
               <h2 className="font-heading text-2xl font-bold text-fg lg:text-3xl">
-                {t("calendly.title")}
+                {t("booking.title")}
               </h2>
-              <p className="mt-2 text-fg-muted">{t("calendly.description")}</p>
+              <p className="mt-2 text-fg-muted">{t("booking.description")}</p>
             </div>
-            <CalendlyEmbed />
+            <BookingPicker />
           </motion.div>
         </Container>
       </section>

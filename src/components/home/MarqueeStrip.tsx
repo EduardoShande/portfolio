@@ -1,41 +1,31 @@
 "use client";
 
+import { TOOL_MARKS } from "@/lib/tool-marks";
+
 /**
- * A quiet hairline band of the tools he works in.
+ * A slow band of the tools he works in, each shown by its own mark.
  *
- * This was a thick saturated slab tilted a couple of degrees, which is a
- * sale-banner gesture: it read louder than the work it sits above and dated
- * the page. It is now level, unfilled, bounded by two hairlines, set small
- * and muted with the accent used only for the separators. It still moves,
- * slowly, so the band reads as a list rather than a decoration.
+ * Names alone read as a keyword list; the logos make the band scannable at a
+ * glance and say "these are real tools" without any extra copy. Each mark
+ * sits on a small white tile in its brand colour, so dark marks such as
+ * Python's blue stay legible in the dark theme too.
  *
  * The edges fade rather than cut, so items enter and leave instead of
  * appearing at a hard boundary.
  */
-const TOOLS = [
-  "Python",
-  "n8n",
-  "Apache Airflow",
-  "dbt",
-  "PostgreSQL",
-  "Snowflake",
-  "BigQuery",
-  "Docker",
-  "FastAPI",
-  "LangChain",
-  "WhatsApp API",
-  "Power BI",
-];
-
 export default function MarqueeStrip() {
   // The track holds the list twice and translates -50%, so the loop is
   // seamless regardless of how wide the content renders.
-  const sequence = [...TOOLS, ...TOOLS];
+  const sequence = [...TOOL_MARKS, ...TOOL_MARKS];
 
   return (
     <div className="border-y border-border-theme bg-bg-sunken/40">
+      <p className="sr-only">
+        Tools: {TOOL_MARKS.map((tool) => tool.name).join(", ")}
+      </p>
       <div
-        className="overflow-hidden py-4"
+        aria-hidden="true"
+        className="overflow-hidden py-5"
         style={{
           maskImage:
             "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
@@ -46,15 +36,20 @@ export default function MarqueeStrip() {
         <div className="marquee-track">
           {sequence.map((tool, i) => (
             <span
-              key={`${tool}-${i}`}
-              className="flex shrink-0 items-center whitespace-nowrap text-[11px] font-medium uppercase tracking-[0.18em] text-fg-muted"
+              key={`${tool.name}-${i}`}
+              className="mr-12 flex shrink-0 items-center gap-3 whitespace-nowrap"
             >
-              {tool}
-              <span
-                aria-hidden="true"
-                className="mx-8 text-[7px] text-accent/70"
-              >
-                &#9670;
+              <span className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-[rgba(18,23,43,.08)] bg-white shadow-[0_6px_14px_-10px_rgba(18,23,43,.45)]">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="h-[18px] w-[18px]"
+                  fill={`#${tool.hex}`}
+                >
+                  <path d={tool.path} />
+                </svg>
+              </span>
+              <span className="font-heading text-[15px] font-semibold tracking-[-0.01em] text-fg">
+                {tool.name}
               </span>
             </span>
           ))}

@@ -226,7 +226,6 @@ export default function WhatsAppSimulator() {
       />
       <Container className="relative">
         <SectionHeading
-          eyebrow={t("eyebrow")}
           title={t("title")}
           titleAccent={t("titleAccent")}
           subtitle={t("subtitle")}

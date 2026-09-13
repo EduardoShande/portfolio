@@ -37,7 +37,6 @@ export default function WorkPage() {
         />
         <Container className="relative">
           <SectionHeading
-            eyebrow={t("hero.eyebrow")}
             title={t("hero.title")}
             titleAccent={t("hero.titleAccent")}
             subtitle={t("hero.subtitle")}

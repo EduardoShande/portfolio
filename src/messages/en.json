@@ -15,7 +15,6 @@
       "cta_cv_line2": "CV"
     },
     "work": {
-      "eyebrow": "Selected work",
       "title": "Things I have",
       "titleAccent": "built",
       "subtitle": "Real systems, running in production, with results you can measure.",
@@ -25,7 +24,6 @@
       "outcome_label": "Outcome"
     },
     "simulator": {
-      "eyebrow": "Live demo",
       "title": "An agent",
       "titleAccent": "I built",
       "subtitle": "This is what an agent wired into real systems looks like. Pick a scenario and watch the conversation.",
@@ -68,7 +66,6 @@
       "intel_msg_7": "✅ Actions executed. I'll send you a report in 7 days with the recovery rate. My projection: we'll save at least 16 of 23 customers (70%)."
     },
     "services": {
-      "eyebrow": "How I can help",
       "title": "What I",
       "titleAccent": "work on",
       "subtitle": "If you have a process eating hours, or data nobody trusts, that is what I fix.",
@@ -76,7 +73,6 @@
       "learn_more": "Learn more"
     },
     "cta": {
-      "eyebrow": "Next step",
       "title": "Got a process that",
       "titleAccent": "should run itself?",
       "subtitle": "Tell me what is eating your team's time. If I can help, I will tell you how; if I cannot, I will tell you that too.",
@@ -89,7 +85,6 @@
       "label": "Built systems for"
     },
     "capabilities": {
-      "eyebrow": "What I build",
       "title": "Four things I do",
       "titleAccent": "properly",
       "all": "All services"
@@ -105,10 +100,9 @@
       "years_desc": "Bolivia and the US, in Spanish and English."
     },
     "anatomy": {
-      "eyebrow": "How it actually works",
       "title": "Anatomy of one",
       "titleAccent": "real automation",
-      "subtitle": "This is the lead engine I built at Group Quimera. A message lands on WhatsApp and nothing is touched by a human until a salesperson gets pinged.",
+      "subtitle": "The lead engine I built at Group Quimera. A message lands on WhatsApp and no human touches it until a salesperson is pinged. Follow one lead through it.",
       "whatsapp_name": "WhatsApp",
       "whatsapp_step": "Message in",
       "n8n_name": "n8n",
@@ -118,10 +112,41 @@
       "postgres_name": "PostgreSQL",
       "postgres_step": "Sync record",
       "rep_name": "Sales rep",
-      "rep_step": "Notified"
+      "rep_step": "Notified",
+      "play": "Play",
+      "pause": "Pause",
+      "step_of": "Step {n} of {total}",
+      "sample": "Sample data",
+      "whatsapp_tool": "WhatsApp Business API",
+      "n8n_tool": "n8n workflow",
+      "crm_tool": "CRM API",
+      "postgres_tool": "Real-time sync",
+      "rep_tool": "Instant alert",
+      "whatsapp_desc": "A prospect writes to the business number. The WhatsApp Business API hands the message to the workflow the moment it arrives.",
+      "n8n_desc": "n8n pulls out the name, phone and what the person is asking about, and checks the data is complete and valid before anything else happens.",
+      "crm_desc": "A lead is created in the CRM with its source and interest already filled in, so nobody copies anything by hand.",
+      "postgres_desc": "The same record is written to PostgreSQL in real time, so the database and the CRM always agree.",
+      "rep_desc": "The right salesperson is notified with the lead's details and can reply straight away, while the prospect is still interested.",
+      "sample_message": "Hi! I saw your ad and I'd like more information and prices, please.",
+      "sample_interest": "pricing",
+      "sample_status": "New",
+      "sample_row_name": "Name",
+      "sample_row_interest": "Interest",
+      "sample_row_source": "Source",
+      "sample_row_owner": "Owner",
+      "sample_owner": "Assigned by the workflow",
+      "sample_synced": "1 row synced with the CRM",
+      "sample_alert_title": "New lead assigned to you",
+      "sample_alert_body": "Carla Rojas is asking about pricing. Her details are already in the CRM; reply on WhatsApp.",
+      "sample_alert_meta": "Lead #1284 · just now",
+      "result_time_value": "40%",
+      "result_time_label": "less processing time per lead",
+      "result_manual_value": "0",
+      "result_manual_label": "manual steps before a salesperson is pinged",
+      "result_always_value": "24/7",
+      "result_always_label": "running, nights and weekends included"
     },
     "process": {
-      "eyebrow": "How I work",
       "title": "Four steps,",
       "titleAccent": "zero guesswork",
       "diagnose_title": "Diagnose",
@@ -139,7 +164,6 @@
       "subtitle": "A short, measurable process. You know what happens at each stage and what you get at the end."
     },
     "beforeafter": {
-      "eyebrow": "What changes",
       "title": "Before and",
       "titleAccent": "after",
       "subtitle": "Three real processes from companies I worked with. On the left, how it was done by hand. On the right, how it runs now.",
@@ -164,7 +188,6 @@
   },
   "work": {
     "hero": {
-      "eyebrow": "Portfolio",
       "title": "Selected",
       "titleAccent": "work",
       "subtitle": "Automation, data, my own products and websites. Some clients appear unnamed because I do not have permission to name them."
@@ -186,7 +209,6 @@
   },
   "about": {
     "hero": {
-      "eyebrow": "About",
       "title": "Eduardo Shande",
       "titleAccent": "Guerrero",
       "subtitle": "Data & Automation Engineer in Santa Cruz de la Sierra, Bolivia."
@@ -199,12 +221,10 @@
       "p4": "Outside client work I build my own products: software for people in Santa Cruz who solve things with a paper notebook today."
     },
     "skills": {
-      "eyebrow": "Toolkit",
       "title": "What I",
       "titleAccent": "work with"
     },
     "experience": {
-      "eyebrow": "Track record",
       "title": "Professional",
       "titleAccent": "experience",
       "current_label": "Current"
@@ -226,7 +246,6 @@
   },
   "services": {
     "hero": {
-      "eyebrow": "Services",
       "title": "How I can",
       "titleAccent": "help",
       "subtitle": "I work per project or on contract. You get work with an owner: documented, and measurable."
@@ -234,7 +253,6 @@
     "deliverables_label": "What you get",
     "request_button": "Ask about this",
     "process": {
-      "eyebrow": "How I work",
       "title": "Four steps,",
       "titleAccent": "zero friction",
       "subtitle": "A short, measurable process. You know what happens at every stage and what you get at the end.",
@@ -259,7 +277,6 @@
   },
   "contact": {
     "hero": {
-      "eyebrow": "Contact",
       "title": "Let's talk about",
       "titleAccent": "your project",
       "subtitle": "Tell me what you are trying to solve. I reply within 24 hours."
@@ -298,9 +315,25 @@
       "service_role": "Full-time role",
       "service_other": "Something else"
     },
-    "calendly": {
-      "title": "Book a meeting",
-      "description": "Pick a time and we will meet over video."
+    "booking": {
+      "title": "Book a call",
+      "description": "Pick a day and a time. Your request opens in WhatsApp, already written, and I confirm the slot there.",
+      "loading": "Loading available times...",
+      "day_label": "1. Pick a day",
+      "time_label": "2. Pick a time",
+      "your_time": "Your time: {time}",
+      "zone_note": "Times are Bolivia time (UTC-4). Where yours differs, it is shown under each slot.",
+      "details_label": "3. A few details (optional)",
+      "name_placeholder": "Your name",
+      "topic_placeholder": "What would you like to talk about?",
+      "summary_label": "Your request",
+      "pick_first": "Pick a day and a time first.",
+      "summary": "{date}, {time} Bolivia time",
+      "submit": "Request on WhatsApp",
+      "confirm_note": "Nothing is booked until I reply to confirm, usually within 24 hours.",
+      "message": "Hi Eduardo, I'd like to book a call on {date} at {time} (Bolivia time).",
+      "message_name": "My name is {name}.",
+      "message_topic": "I'd like to talk about: {topic}"
     }
   },
   "footer": {
@@ -313,7 +346,6 @@
     "tagline": "Open to roles and projects."
   },
   "orbit": {
-    "eyebrow": "What I work with",
     "title": "All of this orbits",
     "titleAccent": "around me",
     "subtitle": "Six groups of tools I use day to day. Not a wish list: this is what shows up in the work I have already delivered.",

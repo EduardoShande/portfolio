@@ -4,7 +4,6 @@ import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Search, PenTool, Hammer, LineChart } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Badge from "@/components/ui/Badge";
 
 /**
  * The four-step process as interlocking hexagons.
@@ -38,8 +37,7 @@ export default function ProcessHex() {
         <div className="grid gap-14 lg:grid-cols-[minmax(0,420px)_1fr] lg:gap-20">
           {/* Heading column, so the hex stack has something to sit beside */}
           <div className="lg:sticky lg:top-28 lg:self-start">
-            <Badge>{t("eyebrow")}</Badge>
-            <h2 className="mt-4 text-[clamp(30px,3.6vw,50px)]">
+            <h2 className="text-[clamp(30px,3.6vw,50px)]">
               {t("title")}{" "}
               <span className="text-accent">{t("titleAccent")}</span>
             </h2>

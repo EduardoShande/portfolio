@@ -2,8 +2,23 @@ import { PROFILE } from "./content";
 
 export const WHATSAPP_NUMBER = "59173115185";
 export const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
-export const CALENDLY_URL =
-  process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/sycosmart";
+
+/**
+ * The booking panel on /contact. Visitors pick a weekday and one of these
+ * slots, and the request goes to WhatsApp for Eduardo to confirm; nothing is
+ * checked against a real calendar. Slots are wall-clock times in Bolivia,
+ * which is UTC-4 all year with no daylight saving.
+ */
+export const BOOKING = {
+  timeZone: "America/La_Paz",
+  utcOffsetHours: -4,
+  slots: ["09:00", "10:30", "14:00", "16:00", "17:30"],
+  /** How many upcoming weekdays to offer, starting tomorrow. */
+  weekdays: 10,
+} as const;
+
+/** Where every "Book a call" button leads. */
+export const BOOKING_HREF = "/contact#book";
 
 // PASTE YOUR N8N WEBHOOK URL HERE (or set NEXT_PUBLIC_N8N_WEBHOOK_URL in .env.local)
 export const N8N_WEBHOOK_URL = process.env.NEXT_PUBLIC_N8N_WEBHOOK_URL || "";

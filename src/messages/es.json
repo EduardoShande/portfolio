@@ -15,7 +15,6 @@
       "cta_cv_line2": "CV"
     },
     "work": {
-      "eyebrow": "Trabajo seleccionado",
       "title": "Cosas que",
       "titleAccent": "he construido",
       "subtitle": "Sistemas reales, en producción, con resultados que se pueden medir.",
@@ -25,7 +24,6 @@
       "outcome_label": "Resultado"
     },
     "simulator": {
-      "eyebrow": "Demo en vivo",
       "title": "Un agente que",
       "titleAccent": "construí",
       "subtitle": "Así es como se ve un agente conectado a sistemas reales. Elige un escenario y mira la conversación.",
@@ -68,7 +66,6 @@
       "intel_msg_7": "✅ Acciones ejecutadas. Te enviaré un reporte en 7 días con la tasa de recuperación. Mi proyección: rescataremos al menos 16 de 23 clientes (70%)."
     },
     "services": {
-      "eyebrow": "Cómo puedo ayudarte",
       "title": "En qué",
       "titleAccent": "trabajo",
       "subtitle": "Si tienes un proceso que consume horas o datos en los que nadie confía, eso es lo que resuelvo.",
@@ -76,7 +73,6 @@
       "learn_more": "Ver más"
     },
     "cta": {
-      "eyebrow": "Siguiente paso",
       "title": "¿Tienes un proceso que",
       "titleAccent": "debería correr solo?",
       "subtitle": "Cuéntame qué está consumiendo tiempo en tu equipo. Si puedo ayudarte, te digo cómo; si no, te digo eso también.",
@@ -89,7 +85,6 @@
       "label": "He construido sistemas para"
     },
     "capabilities": {
-      "eyebrow": "Lo que construyo",
       "title": "Cuatro cosas que hago",
       "titleAccent": "en serio",
       "all": "Ver servicios"
@@ -105,10 +100,9 @@
       "years_desc": "Bolivia y Estados Unidos, en español e inglés."
     },
     "anatomy": {
-      "eyebrow": "Cómo funciona de verdad",
       "title": "Anatomía de una",
       "titleAccent": "automatización real",
-      "subtitle": "Este es el motor de leads que construí en Group Quimera. Llega un mensaje a WhatsApp y nadie lo toca hasta que un vendedor recibe el aviso.",
+      "subtitle": "El motor de leads que construí en Group Quimera. Un mensaje llega por WhatsApp y ninguna persona lo toca hasta que se avisa al vendedor. Sigue un lead de principio a fin.",
       "whatsapp_name": "WhatsApp",
       "whatsapp_step": "Entra el mensaje",
       "n8n_name": "n8n",
@@ -118,10 +112,41 @@
       "postgres_name": "PostgreSQL",
       "postgres_step": "Sincroniza",
       "rep_name": "Vendedor",
-      "rep_step": "Recibe el aviso"
+      "rep_step": "Recibe el aviso",
+      "play": "Reproducir",
+      "pause": "Pausar",
+      "step_of": "Paso {n} de {total}",
+      "sample": "Datos de ejemplo",
+      "whatsapp_tool": "WhatsApp Business API",
+      "n8n_tool": "Flujo en n8n",
+      "crm_tool": "API del CRM",
+      "postgres_tool": "Sincronización en tiempo real",
+      "rep_tool": "Aviso inmediato",
+      "whatsapp_desc": "Un prospecto escribe al número de la empresa. La WhatsApp Business API entrega el mensaje al flujo en cuanto llega.",
+      "n8n_desc": "n8n extrae el nombre, el teléfono y lo que la persona pregunta, y verifica que los datos estén completos y sean válidos antes de seguir.",
+      "crm_desc": "Se crea el lead en el CRM con el origen y el interés ya cargados, sin que nadie copie nada a mano.",
+      "postgres_desc": "El mismo registro se escribe en PostgreSQL en tiempo real, así la base de datos y el CRM siempre coinciden.",
+      "rep_desc": "El vendedor correcto recibe el aviso con los datos del lead y puede responder de inmediato, mientras el prospecto sigue interesado.",
+      "sample_message": "¡Hola! Vi su anuncio y quisiera más información y precios, por favor.",
+      "sample_interest": "precios",
+      "sample_status": "Nuevo",
+      "sample_row_name": "Nombre",
+      "sample_row_interest": "Interés",
+      "sample_row_source": "Origen",
+      "sample_row_owner": "Responsable",
+      "sample_owner": "Asignado por el flujo",
+      "sample_synced": "1 fila sincronizada con el CRM",
+      "sample_alert_title": "Nuevo lead asignado",
+      "sample_alert_body": "Carla Rojas pregunta por precios. Sus datos ya están en el CRM; respóndele por WhatsApp.",
+      "sample_alert_meta": "Lead #1284 · ahora",
+      "result_time_value": "40%",
+      "result_time_label": "menos tiempo de procesamiento por lead",
+      "result_manual_value": "0",
+      "result_manual_label": "pasos manuales antes de avisar al vendedor",
+      "result_always_value": "24/7",
+      "result_always_label": "funcionando, noches y fines de semana incluidos"
     },
     "process": {
-      "eyebrow": "Cómo trabajo",
       "title": "Cuatro pasos,",
       "titleAccent": "cero adivinanza",
       "diagnose_title": "Diagnóstico",
@@ -139,7 +164,6 @@
       "subtitle": "Un proceso corto y medible. Sabes qué pasa en cada etapa y qué recibes al final."
     },
     "beforeafter": {
-      "eyebrow": "Qué cambia",
       "title": "Antes y",
       "titleAccent": "después",
       "subtitle": "Tres procesos reales de empresas con las que trabajé. A la izquierda, cómo se hacía a mano. A la derecha, cómo corre ahora.",
@@ -164,7 +188,6 @@
   },
   "work": {
     "hero": {
-      "eyebrow": "Portafolio",
       "title": "Trabajo",
       "titleAccent": "seleccionado",
       "subtitle": "Automatización, datos, productos propios y sitios web. Algunos clientes aparecen sin nombre porque no tengo permiso para nombrarlos."
@@ -186,7 +209,6 @@
   },
   "about": {
     "hero": {
-      "eyebrow": "Sobre mí",
       "title": "Eduardo Shande",
       "titleAccent": "Guerrero",
       "subtitle": "Ingeniero de Datos y Automatización en Santa Cruz de la Sierra, Bolivia."
@@ -199,12 +221,10 @@
       "p4": "Fuera del trabajo de clientes construyo mis propios productos: software para gente en Santa Cruz que hoy resuelve las cosas con un cuaderno de papel."
     },
     "skills": {
-      "eyebrow": "Herramientas",
       "title": "Con qué",
       "titleAccent": "trabajo"
     },
     "experience": {
-      "eyebrow": "Trayectoria",
       "title": "Experiencia",
       "titleAccent": "profesional",
       "current_label": "Actual"
@@ -226,7 +246,6 @@
   },
   "services": {
     "hero": {
-      "eyebrow": "Servicios",
       "title": "Cómo puedo",
       "titleAccent": "ayudarte",
       "subtitle": "Trabajo por proyecto o por contrato. Entrego trabajo con dueño, documentado y medible."
@@ -234,7 +253,6 @@
     "deliverables_label": "Qué recibes",
     "request_button": "Consultar por esto",
     "process": {
-      "eyebrow": "Cómo trabajo",
       "title": "Cuatro pasos,",
       "titleAccent": "cero fricción",
       "subtitle": "Un proceso corto y medible. Sabes qué pasa en cada etapa y qué recibes al final.",
@@ -259,7 +277,6 @@
   },
   "contact": {
     "hero": {
-      "eyebrow": "Contacto",
       "title": "Hablemos de",
       "titleAccent": "tu proyecto",
       "subtitle": "Cuéntame qué estás intentando resolver. Respondo en menos de 24 horas."
@@ -298,9 +315,25 @@
       "service_role": "Oportunidad laboral (tiempo completo)",
       "service_other": "Otra cosa"
     },
-    "calendly": {
-      "title": "Agenda una reunión",
-      "description": "Elige un horario y nos vemos por videollamada."
+    "booking": {
+      "title": "Agenda una llamada",
+      "description": "Elige un día y una hora. Tu solicitud se abre en WhatsApp ya escrita, y ahí confirmo el horario.",
+      "loading": "Cargando horarios disponibles...",
+      "day_label": "1. Elige un día",
+      "time_label": "2. Elige una hora",
+      "your_time": "Tu hora: {time}",
+      "zone_note": "Los horarios están en hora de Bolivia (UTC-4). Si tu hora es distinta, aparece debajo de cada opción.",
+      "details_label": "3. Algunos datos (opcional)",
+      "name_placeholder": "Tu nombre",
+      "topic_placeholder": "¿De qué te gustaría hablar?",
+      "summary_label": "Tu solicitud",
+      "pick_first": "Primero elige un día y una hora.",
+      "summary": "{date}, {time} hora de Bolivia",
+      "submit": "Solicitar por WhatsApp",
+      "confirm_note": "Nada queda agendado hasta que responda para confirmar, normalmente en menos de 24 horas.",
+      "message": "Hola Eduardo, me gustaría agendar una llamada el {date} a las {time} (hora de Bolivia).",
+      "message_name": "Mi nombre es {name}.",
+      "message_topic": "Me gustaría hablar sobre: {topic}"
     }
   },
   "footer": {
@@ -313,7 +346,6 @@
     "tagline": "Disponible para trabajo y proyectos."
   },
   "orbit": {
-    "eyebrow": "Con qué trabajo",
     "title": "Todo esto gira",
     "titleAccent": "alrededor mío",
     "subtitle": "Seis grupos de herramientas que uso a diario. No es una lista de deseos: es lo que aparece en el trabajo que ya entregué.",

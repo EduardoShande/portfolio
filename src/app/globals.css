@@ -126,44 +126,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ═══════════════════════════════════════════════════════════════
-   AUTOMATION DIAGRAM
-   Nodes light in sequence; a dot travels each wire. The homepage
-   hero object is the craft itself rather than a decorative graphic.
-   ═══════════════════════════════════════════════════════════════ */
-
-@keyframes node-lit {
-  0%, 8%   { opacity: 1; box-shadow: 0 0 22px -4px var(--theme-amber); }
-  22%, 100%{ opacity: 0; box-shadow: none; }
-}
-
-@keyframes wire-run {
-  0%        { left: 0; opacity: 0; }
-  10%       { opacity: 1; }
-  45%       { left: calc(100% - 6px); opacity: 1; }
-  55%, 100% { left: calc(100% - 6px); opacity: 0; }
-}
-
-.node-pulse {
-  position: absolute;
-  inset: -1px;
-  border-radius: 12px;
-  border: 1px solid var(--theme-amber);
-  opacity: 0;
-  animation: node-lit 6s linear infinite;
-  pointer-events: none;
-}
-
-.wire-dot {
-  position: absolute;
-  top: -2px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--theme-amber);
-  animation: wire-run 6s linear infinite;
-}
-
-/* ═══════════════════════════════════════════════════════════════
    SURFACES
    ═══════════════════════════════════════════════════════════════ */
 
@@ -207,7 +169,7 @@ h1, h2, h3, h4, h5, h6 {
 .no-transitions * { transition: none !important; }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track, .node-pulse, .wire-dot { animation: none; }
+  .marquee-track { animation: none; }
   html, body, *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;

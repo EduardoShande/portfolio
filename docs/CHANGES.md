@@ -2,6 +2,49 @@
 
 Documents major changes made to this project.
 
+## 2026-09-12 Home sections, booking panel and social links
+
+**Tool ticker.** Each tool is now shown by its own logo, in its brand colour
+on a small white tile, next to a larger name. The marks live in
+`src/lib/tool-marks.ts`, copied from Simple Icons (CC0) rather than adding the
+package; dbt and Power BI are not in that library and are drawn by hand.
+
+**Section labels removed.** The small rule-and-uppercase label that opened
+every section ("What I build", "How it actually works" and so on) is gone
+from every page, along with the `Badge` component, the `eyebrow` prop on
+`SectionHeading` and the `eyebrow` keys in both message files.
+
+**Anatomy of one real automation.** Same idea, now followed step by step.
+The five systems are numbered and drawn with icons on a progress rail, and a
+panel below shows the sample lead as it looks at the current step: the
+WhatsApp message, the fields n8n extracts, the CRM lead, the PostgreSQL row
+and the salesperson's alert. It advances on its own while on screen; clicking
+a step, or Pause, holds it. Under it, three results: 40% less processing time
+per lead, no manual steps before the salesperson, running 24/7. On phones the
+pipeline stacks vertically. The step timings floated in the plan were left
+out, since no latencies were ever measured; each step names its tool instead.
+
+**Things I have built.** Cards now lead with their figures, set large, and
+cut the problem and the build to one sentence each (new `metrics` and `pitch`
+fields on `Project`). Group Quimera is a wide feature card with the other two
+below. Each card is a single link to /work, shows at most four stack tags,
+and gets a richer drawn illustration; setting `image` on a project swaps in a
+real screenshot.
+
+**Booking.** The Calendly embed is replaced by a booking panel on /contact
+(`BookingPicker`). Visitors pick one of the next ten weekdays and a slot
+(9:00, 10:30, 14:00, 16:00, 17:30 Bolivia time, with their own time shown
+when it differs), add an optional name and topic, and the button opens
+WhatsApp with the request written in the site's language. Every "Book a call"
+button now goes to `/contact#book`. `react-calendly` is uninstalled and
+`CALENDLY_URL` removed. Button links now carry a hash through the localized
+Link, so `/contact#book` resolves to `/es/contacto#book` in Spanish.
+
+**Social links.** Instagram and TikTok are filled in on `PROFILE`, so the
+header and footer now show GitHub, LinkedIn, Instagram and TikTok.
+
+---
+
 ## 2026-09-12 Stage photo in the home header
 
 The header portrait is now the stage photo (`Eduardo speach.jpg`) instead of

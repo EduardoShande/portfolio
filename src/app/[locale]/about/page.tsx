@@ -33,7 +33,6 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:gap-16">
             <div className="lg:col-span-7">
               <SectionHeading
-                eyebrow={t("hero.eyebrow")}
                 title={t("hero.title")}
                 titleAccent={t("hero.titleAccent")}
                 subtitle={t("hero.subtitle")}
@@ -92,7 +91,6 @@ export default function AboutPage() {
         />
         <Container className="relative">
           <SectionHeading
-            eyebrow={t("experience.eyebrow")}
             title={t("experience.title")}
             titleAccent={t("experience.titleAccent")}
           />

@@ -5,7 +5,7 @@ import { motion } from "motion/react";
 import { MessageCircle, Calendar, Mail } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Button from "@/components/ui/Button";
-import { WHATSAPP_URL, CALENDLY_URL, EMAIL_URL } from "@/lib/constants";
+import { WHATSAPP_URL, BOOKING_HREF, EMAIL_URL } from "@/lib/constants";
 
 /**
  * Closing block with an oversized hollow word behind the question, the way
@@ -40,7 +40,7 @@ export default function CTASection() {
           </p>
 
           <div className="mt-9 flex flex-wrap justify-center gap-3.5">
-            <Button variant="primary" size="lg" href={CALENDLY_URL}>
+            <Button variant="primary" size="lg" href={BOOKING_HREF}>
               <Calendar className="h-4 w-4" />
               {t("calendar")}
             </Button>

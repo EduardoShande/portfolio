@@ -25,7 +25,6 @@ footer rather than in the branding. The site speaks in the first person.
 | **motion** | 12.x | All animation, parallax, page transitions |
 | **lucide-react** | 1.8 | Icons (brand glyphs inlined separately) |
 | **react-hook-form + zod** | latest | Contact form state and validation |
-| **react-calendly** | latest | Inline booking widget |
 
 ## Content architecture
 
@@ -65,17 +64,17 @@ sycosmart-web/
 │   │       ├── work/page.tsx     # portfolio, filterable
 │   │       ├── about/page.tsx    # story, experience, skills, education
 │   │       ├── services/page.tsx # offers, deliverables, process
-│   │       └── contact/page.tsx  # form, channels, Calendly
+│   │       └── contact/page.tsx  # form, channels, booking panel
 │   ├── components/
 │   │   ├── layout/         # Navbar, Footer, MobileMenu, LanguageSwitcher, ThemeToggle
-│   │   ├── ui/             # Container, Button, Card, SectionHeading, Badge, BrandIcons
+│   │   ├── ui/             # Container, Button, Card, SectionHeading, BrandIcons
 │   │   ├── home/           # HeroSection, MarqueeStrip, StatsBar, SelectedWork,
 │   │   │                   #   WhatsAppSimulator, ExperienceSection, ServicesOverview,
 │   │   │                   #   CTASection
 │   │   ├── work/           # ProjectCard (shared by home and /work)
 │   │   ├── shared/         # ExperienceTimeline, ProcessSteps, PageTransition,
 │   │   │                   #   WhatsAppFloatingButton, HtmlLangSync
-│   │   ├── contacto/       # ContactForm, CalendlyEmbed
+│   │   ├── contacto/       # ContactForm, BookingPicker
 │   │   └── providers/      # ThemeProvider
 │   ├── i18n/               # routing (localized pathnames), request, navigation
 │   ├── lib/                # content.ts (facts), constants.ts, utils.ts
@@ -104,7 +103,7 @@ the CV) stay plain anchors.
 ## Home page order
 
 1. **HeroSection**: name, role, headline, two CTAs, social links, canted panel
-2. **MarqueeStrip**: angled tool ticker across the seam
+2. **MarqueeStrip**: slow ticker of tool logos and names
 3. **StatsBar**: dark band, four CV-backed figures
 4. **SelectedWork**: three featured projects
 5. **WhatsAppSimulator**: live demo of an agent he built
